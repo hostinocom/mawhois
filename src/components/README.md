@@ -21,9 +21,8 @@ import Header from '../components/Header.astro';
 ### `Hero.astro`
 **Purpose:** Hero section with search functionality
 - Main heading and title
-- Domain search form with registry selector
-- Dynamic placeholder based on selected registry
-- LocalStorage persistence for user preferences
+- Integrates React-based domain search form
+- Passes registry configuration to React component
 
 **Props:**
 - `registries`: Array of registry objects
@@ -33,6 +32,35 @@ import Header from '../components/Header.astro';
 ```astro
 import Hero from '../components/Hero.astro';
 <Hero registries={registries} defaultRegistry={defaultRegistry} />
+```
+
+---
+
+### `DomainSearchForm.tsx` (React)
+**Purpose:** Interactive domain search form with client-side validation
+- Built with React for optimal interactivity
+- Dynamic placeholder based on selected registry
+- Client-side form validation
+- LocalStorage persistence for user preferences
+- Smart extension detection and parsing
+- Form pre-fill from URL parameters
+
+**Props:**
+- `registries`: Array of registry objects
+- `defaultRegistry`: Default registry object
+
+**Client Directive:** `client:load` - Hydrates immediately on page load
+
+**Features:**
+- Real-time extension switching
+- Domain validation (regex pattern matching)
+- URL parameter handling
+- Error messages for invalid input
+- Smooth transitions and animations
+
+**Usage in Astro:**
+```astro
+<DomainSearchForm client:load registries={registries} defaultRegistry={defaultRegistry} />
 ```
 
 ---
@@ -121,20 +149,22 @@ Domain availability checking is handled by `/src/services/domainApi.ts`.
 ```
 src/
 ├── components/
-│   ├── Header.astro        # Navigation header
-│   ├── Hero.astro          # Hero section with search
-│   ├── Description.astro   # Service description
-│   ├── MoroccoFlag.astro   # Decorative flag element
-│   ├── SearchResults.astro # Domain search results display
-│   └── README.md           # This file
+│   ├── Header.astro            # Navigation header (Astro)
+│   ├── Hero.astro              # Hero section wrapper (Astro)
+│   ├── DomainSearchForm.tsx    # Search form logic (React)
+│   ├── Description.astro       # Service description (Astro)
+│   ├── SearchResults.astro     # Search results display (Astro)
+│   └── README.md               # This file
 ├── config/
-│   └── registries.ts       # Registry configuration
+│   └── registries.ts           # Registry configuration
 ├── services/
-│   └── domainApi.ts        # Domain API service (mock)
+│   └── domainApi.ts            # Domain API service (mock)
 ├── layouts/
-│   └── Layout.astro        # Base layout wrapper
+│   └── Layout.astro            # Base layout wrapper
+├── styles/
+│   └── global.css              # Global styles + form styles
 └── pages/
-    └── index.astro         # Main landing page (conditional rendering)
+    └── index.astro             # Main landing page (conditional rendering)
 ```
 
 ## How It Works

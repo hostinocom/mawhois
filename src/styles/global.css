@@ -14,4 +14,38 @@
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
 	}
+
+	/* Domain Search Form Styles */
+	input::placeholder {
+		opacity: 0.6;
+	}
+
+	/* Focus states */
+	input:focus,
+	button:focus {
+		outline: 2px solid #00d563;
+		outline-offset: 2px;
+	}
+
+	/* Custom select styling */
+	select {
+		cursor: pointer;
+	}
+
+	select option {
+		background-color: #ffffff;
+		color: #374151;
+		padding: 12px;
+		font-weight: 600;
+	}
+
+	/* Remove default select arrow in IE/Edge */
+	select::-ms-expand {
+		display: none;
+	}
+
+	/* Button transform origin */
+	button[type="submit"] {
+		transform-origin: center;
+	}
 }
