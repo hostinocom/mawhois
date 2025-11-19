@@ -1,0 +1,241 @@
+---
+// Search Results component - displays domain availability
+import { checkDomainAvailability, generateDomainSuggestions } from '../services/domainApi';
+
+interface Props {
+	domain: string;
+	extension: string;
+}
+
+const { domain, extension } = Astro.props;
+
+// Fetch domain availability from API service
+const result = await checkDomainAvailability(domain, extension);
+
+// Generate suggestions if domain is not available
+const suggestions = !result.available 
+	? generateDomainSuggestions(domain, extension, 3)
+	: [];
+---
+
+<section class="bg-gradient-to-b from-[#022545] to-[#0a3a5a] px-6 py-12 md:py-16 md:px-16 lg:px-24" id="search-results">
+	<div class="max-w-4xl mx-auto">
+		<!-- Results Card -->
+		<div class="bg-white rounded-2xl shadow-2xl overflow-hidden animate-fade-in">
+			<!-- Header -->
+			<div class={`px-8 py-6 ${result.available ? 'bg-gradient-to-r from-green-500 to-green-600' : 'bg-gradient-to-r from-gray-600 to-gray-700'}`}>
+				<div class="flex items-center justify-between">
+					<div>
+						<h2 class="text-white text-2xl md:text-3xl font-bold mb-2">
+							{result.domain}
+						</h2>
+						<p class="text-white/90 text-sm md:text-base">
+							Résultat de la recherche
+						</p>
+					</div>
+					<div class={`w-16 h-16 rounded-full ${result.available ? 'bg-white/20' : 'bg-white/20'} flex items-center justify-center`}>
+						{result.available ? (
+							<svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+							</svg>
+						) : (
+							<svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12" />
+							</svg>
+						)}
+					</div>
+				</div>
+			</div>
+
+			<!-- Content -->
+			<div class="px-8 py-8">
+				{result.available ? (
+					<!-- Available Domain -->
+					<div>
+						<div class="flex items-center gap-3 mb-6">
+							<div class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+							<p class="text-2xl font-semibold text-gray-900">
+								Ce domaine est disponible!
+							</p>
+						</div>
+						
+						<div class="bg-green-50 border-2 border-green-200 rounded-xl p-6 mb-6">
+							<div class="grid md:grid-cols-2 gap-4">
+								<div>
+									<p class="text-sm text-gray-600 mb-1">Domaine</p>
+									<p class="text-lg font-bold text-gray-900">{result.domain}</p>
+								</div>
+								<div>
+									<p class="text-sm text-gray-600 mb-1">Prix</p>
+									<p class="text-lg font-bold text-green-600">{result.price}</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="bg-gray-50 rounded-xl p-6 mb-6">
+							<h3 class="font-semibold text-gray-900 mb-4 flex items-center gap-2">
+								<svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+								</svg>
+								Informations
+							</h3>
+							<ul class="space-y-2 text-gray-700">
+								<li class="flex items-start gap-2">
+									<span class="text-green-500 mt-1">✓</span>
+									<span>Enregistrement instantané</span>
+								</li>
+								<li class="flex items-start gap-2">
+									<span class="text-green-500 mt-1">✓</span>
+									<span>Protection WHOIS gratuite</span>
+								</li>
+								<li class="flex items-start gap-2">
+									<span class="text-green-500 mt-1">✓</span>
+									<span>Support 24/7</span>
+								</li>
+								<li class="flex items-start gap-2">
+									<span class="text-green-500 mt-1">✓</span>
+									<span>Renouvellement automatique disponible</span>
+								</li>
+							</ul>
+						</div>
+
+						<div class="flex flex-col sm:flex-row gap-4">
+							<button class="flex-1 bg-green-600 hover:bg-green-700 text-white py-4 px-6 rounded-lg font-semibold text-lg transition-all duration-200 hover:shadow-lg active:scale-[0.98]">
+								Acheter maintenant
+							</button>
+							<button class="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-800 py-4 px-6 rounded-lg font-semibold text-lg transition-all duration-200">
+								Ajouter au panier
+							</button>
+						</div>
+					</div>
+				) : (
+					<!-- Unavailable Domain -->
+					<div>
+						<div class="flex items-center gap-3 mb-6">
+							<div class="w-3 h-3 bg-red-500 rounded-full"></div>
+							<p class="text-2xl font-semibold text-gray-900">
+								Ce domaine est déjà enregistré
+							</p>
+						</div>
+
+						<div class="bg-gray-50 border-2 border-gray-200 rounded-xl p-6 mb-6">
+							<h3 class="font-semibold text-gray-900 mb-4 flex items-center gap-2">
+								<svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+								</svg>
+								Informations WHOIS
+							</h3>
+							<div class="grid md:grid-cols-2 gap-4">
+								<div class="space-y-3">
+									<div>
+										<p class="text-sm text-gray-600 mb-1">Domaine</p>
+										<p class="font-semibold text-gray-900">{result.domain}</p>
+									</div>
+									<div>
+										<p class="text-sm text-gray-600 mb-1">Statut</p>
+										<p class="font-semibold text-gray-900">{result.status}</p>
+									</div>
+									<div>
+										<p class="text-sm text-gray-600 mb-1">Registrar</p>
+										<p class="font-semibold text-gray-900">{result.registrar}</p>
+									</div>
+								</div>
+								<div class="space-y-3">
+									<div>
+										<p class="text-sm text-gray-600 mb-1">Date d'enregistrement</p>
+										<p class="font-semibold text-gray-900">{result.registeredDate}</p>
+									</div>
+									<div>
+										<p class="text-sm text-gray-600 mb-1">Date d'expiration</p>
+										<p class="font-semibold text-gray-900">{result.expiryDate}</p>
+									</div>
+									<div>
+										<p class="text-sm text-gray-600 mb-1">Propriétaire</p>
+										<p class="font-semibold text-gray-900">{result.owner}</p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						{suggestions.length > 0 && (
+							<div class="bg-blue-50 border-2 border-blue-200 rounded-xl p-6 mb-6">
+								<h3 class="font-semibold text-gray-900 mb-3 flex items-center gap-2">
+									<svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+									</svg>
+									Suggestions
+								</h3>
+								<p class="text-gray-700 mb-4">Ce domaine n'est pas disponible, mais vous pouvez essayer:</p>
+								<div class="space-y-2">
+									{suggestions.map(suggestion => (
+										<a 
+											href={`/?domain=${suggestion.replace(extension, '')}&extension=${extension}`}
+											class="flex items-center justify-between p-3 bg-white rounded-lg border border-gray-200 hover:border-green-400 hover:shadow-md transition-all cursor-pointer group"
+										>
+											<span class="font-semibold text-gray-900 group-hover:text-green-600 transition-colors">{suggestion}</span>
+											<span class="text-green-600 font-semibold text-sm">Vérifier →</span>
+										</a>
+									))}
+								</div>
+							</div>
+						)}
+
+						<div class="flex flex-col sm:flex-row gap-4">
+							<a href="/" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-4 px-6 rounded-lg font-semibold text-lg text-center transition-all duration-200 hover:shadow-lg active:scale-[0.98]">
+								Nouvelle recherche
+							</a>
+							<button class="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-800 py-4 px-6 rounded-lg font-semibold text-lg transition-all duration-200">
+								Contacter le propriétaire
+							</button>
+						</div>
+					</div>
+				)}
+			</div>
+		</div>
+
+		<!-- Back to Search -->
+		<div class="text-center mt-8">
+			<a href="/" class="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors text-sm md:text-base">
+				<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+				</svg>
+				Retour à la recherche
+			</a>
+		</div>
+	</div>
+</section>
+
+<style>
+	@keyframes fade-in {
+		from {
+			opacity: 0;
+			transform: translateY(20px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	.animate-fade-in {
+		animation: fade-in 0.5s ease-out;
+	}
+
+	/* Smooth scroll to results */
+	#search-results {
+		scroll-margin-top: 2rem;
+	}
+</style>
+
+<script>
+	// Smooth scroll to results on load
+	if (window.location.search.includes('domain=')) {
+		setTimeout(() => {
+			document.getElementById('search-results')?.scrollIntoView({ 
+				behavior: 'smooth',
+				block: 'start'
+			});
+		}, 100);
+	}
+</script>
+

@@ -1,11 +1,50 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Description from '../components/Description.astro';
+import SearchResults from '../components/SearchResults.astro';
+import { registries, defaultRegistry } from '../config/registries';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// Parse domain from URL query
+function parseDomainFromUrl(fullDomain: string) {
+	if (!fullDomain) return null;
+	
+	const trimmed = fullDomain.trim().toLowerCase();
+	
+	// Check if domain has any valid extension
+	for (const registry of registries) {
+		if (trimmed.endsWith(registry.extension)) {
+			const domainWithoutExt = trimmed.slice(0, -registry.extension.length);
+			return {
+				domain: domainWithoutExt,
+				extension: registry.extension
+			};
+		}
+	}
+	
+	// No extension found, use default
+	return {
+		domain: trimmed,
+		extension: defaultRegistry.extension
+	};
+}
+
+// Check if there's a domain search query
+const domainParam = Astro.url.searchParams.get('domain');
+const parsed = domainParam ? parseDomainFromUrl(domainParam) : null;
+const showResults = parsed && parsed.domain.length > 0;
 ---
 
 <Layout>
-	<Welcome />
+	<Header />
+	<Hero registries={registries} defaultRegistry={defaultRegistry} />
+	
+	{showResults && parsed ? (
+		<SearchResults domain={parsed.domain} extension={parsed.extension} />
+	) : (
+		<>
+			<Description />
+		</>
+	)}
 </Layout>
