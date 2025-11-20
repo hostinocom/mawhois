@@ -1,11 +1,18 @@
 @import "tailwindcss";
 
+:root {
+	/* Define your custom colors here */
+	--color-primary: #00CC61;
+	--color-secondary: #022545;
+}
+
 @layer base {
 	* {
 		margin: 0;
 		padding: 0;
 		box-sizing: border-box;
 	}
+
 
 	body {
 		margin: 0;
@@ -22,15 +29,12 @@
 
 	/* Focus states */
 	input:focus,
-	button:focus {
-		outline: 2px solid #00CC61;
-		outline-offset: 2px;
-	}
 
 	/* Custom select styling */
 	select {
 		cursor: pointer;
 	}
+	
 
 	select option {
 		background-color: #ffffff;
@@ -47,5 +51,25 @@
 	/* Button transform origin */
 	button[type="submit"] {
 		transform-origin: center;
+	}
+
+	/* Custom scrollbar for modal */
+	.custom-scrollbar::-webkit-scrollbar {
+		width: 8px;
+	}
+
+	.custom-scrollbar::-webkit-scrollbar-track {
+		background: #f1f5f9;
+		border-radius: 4px;
+	}
+
+	.custom-scrollbar::-webkit-scrollbar-thumb {
+		background: #cbd5e1;
+		border-radius: 4px;
+		transition: background 0.2s;
+	}
+
+	.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+		background: #94a3b8;
 	}
 }

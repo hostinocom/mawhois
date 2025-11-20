@@ -20,13 +20,13 @@ interface Props {
 const { registries, defaultRegistry } = Astro.props;
 ---
 
-<section class="bg-[#022545] px-6 py-20 md:py-32 lg:py-40 md:px-16 lg:px-24">
+<section class="bg-(--color-secondary) px-6 py-20 md:py-32 lg:py-40 md:px-16 lg:px-24">
 	<div class="max-w-7xl mx-auto">
 		<!-- Breadcrumb -->
-		<p class="text-white/70 text-base md:text-lg mb-8">Whois Maroc</p>
+		<h1 class="text-white/70 text-base md:text-lg mb-8">Whois Maroc</h1>
 		
 		<!-- Main Heading -->
-		<h1 class="text-white text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light mb-12 leading-tight">
+		<h1 class="text-white text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light mb-12 leading-none">
 			Recherche d'un<br />
 			domaine dans <em class="italic font-serif">le<br />registre WHOIS Maroc</em>
 		</h1>

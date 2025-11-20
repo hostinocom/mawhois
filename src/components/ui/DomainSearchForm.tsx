@@ -120,8 +120,12 @@ export default function DomainSearchForm({ registries, defaultRegistry }: Domain
 			return;
 		}
 		
-		// Redirect with full domain in URL
-		window.location.href = `/?domain=${encodeURIComponent(domain + extension)}`;
+		// Update URL without reloading the page
+		const fullDomain = domain + extension;
+		window.history.pushState({}, '', `/?domain=${encodeURIComponent(fullDomain)}`);
+		
+		// Trigger a custom event to notify SearchResultsModal
+		window.dispatchEvent(new Event('popstate'));
 	};
 
 	return (
@@ -172,7 +176,7 @@ export default function DomainSearchForm({ registries, defaultRegistry }: Domain
 			</div>
 			<button 
 				type="submit" 
-				className="bg-[#00d563] hover:bg-[#00c157] text-white px-8 py-4 md:py-5 text-base md:text-lg font-semibold rounded-b-lg sm:rounded-r-lg sm:rounded-bl-none transition-all duration-200 hover:shadow-lg active:scale-[0.98] shadow-xl"
+				className="bg-(--color-primary) hover:bg-[#00c157] text-white px-8 py-4 md:py-5 text-base md:text-lg font-semibold rounded-b-lg sm:rounded-r-lg sm:rounded-bl-none transition-all duration-200 hover:shadow-lg active:scale-[0.98] shadow-xl"
 				aria-label="Rechercher le domaine"
 			>
 				Rechercher

@@ -1,43 +1,24 @@
 ---
-// Disable prerendering for this page for ssr
-export const prerender = false;
-
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/layout/Header.astro';
 import Hero from '../components/sections/Hero.astro';
 import Description from '../components/sections/Description.astro';
-import SearchResults from '../components/sections/SearchResults.astro';
+import SearchResultsModal from '../components/sections/SearchResultsModal';
 import { registries, defaultRegistry } from '../config/registries';
-
-// Parse domain from URL query
-function parseDomainFromUrl(fullDomain: string) {
-	if (!fullDomain) return null;
-	
-	const trimmed = fullDomain.trim().toLowerCase();
-
-	return trimmed;
-}
-
-// Check if there's a domain search query
-const domainParam = Astro.url.searchParams.get('domain');
-console.log('domainParam', domainParam);
-const domain = domainParam ? parseDomainFromUrl(domainParam) : null;
-console.log('domain', domain);
 ---
-
-<Layout>
 	
-	{domain ? (
-		<SearchResults 
-			domain={domain} 
-			registries={registries} 
-			defaultRegistry={defaultRegistry} 
-		/>
-	) : (
-		<>
-		   <Header />
-			<Hero registries={registries} defaultRegistry={defaultRegistry} />
-			<Description />
-		</>
-	)}
+<Layout>
+	<!-- Home Page (always rendered) -->
+	<div id="background-content">
+		<Header />
+		<Hero registries={registries} defaultRegistry={defaultRegistry} />
+		<Description />
+	</div>
+	
+	<!-- Modal Component (manages its own visibility based on URL) -->
+	<SearchResultsModal 
+		client:load
+		registries={registries} 
+		defaultRegistry={defaultRegistry} 
+	/>
 </Layout>
