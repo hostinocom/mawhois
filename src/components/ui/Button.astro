@@ -1,0 +1,70 @@
+---
+// Reusable Button Component
+interface Props {
+	variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
+	size?: 'sm' | 'md' | 'lg';
+	type?: 'button' | 'submit' | 'reset';
+	href?: string;
+	class?: string;
+	disabled?: boolean;
+}
+
+const {
+	variant = 'primary',
+	size = 'md',
+	type = 'button',
+	href,
+	class: className = '',
+	disabled = false,
+} = Astro.props;
+
+// Base styles
+const baseStyles = 'inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed';
+
+// Variant styles
+const variantStyles = {
+	primary: 'bg-[#00d563] hover:bg-[#00c157] text-white focus:ring-[#00d563] shadow-md hover:shadow-lg active:scale-[0.98]',
+	secondary: 'bg-gray-600 hover:bg-gray-700 text-white focus:ring-gray-500 shadow-md hover:shadow-lg active:scale-[0.98]',
+	outline: 'border-2 border-[#00d563] text-[#00d563] hover:bg-[#00d563] hover:text-white focus:ring-[#00d563] active:scale-[0.98]',
+	ghost: 'bg-gray-200 hover:bg-gray-300 text-gray-800 focus:ring-gray-400 active:scale-[0.98]',
+};
+
+// Size styles
+const sizeStyles = {
+	sm: 'px-4 py-2 text-sm',
+	md: 'px-6 py-3 text-base',
+	lg: 'px-8 py-4 text-lg',
+};
+
+// Combine all styles
+const buttonClasses = `${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${className}`;
+
+// Render as link or button
+const Tag = href ? 'a' : 'button';
+const extraProps = href ? { href } : { type, disabled };
+---
+
+<Tag class={buttonClasses} {...extraProps}>
+	<slot />
+</Tag>
+
+<style>
+	/* Smooth transitions */
+	a, button {
+		text-decoration: none;
+		cursor: pointer;
+	}
+
+	/* Disabled state */
+	button:disabled {
+		pointer-events: none;
+	}
+
+	/* Focus visible for keyboard navigation */
+	a:focus-visible,
+	button:focus-visible {
+		outline: 2px solid #00d563;
+		outline-offset: 2px;
+	}
+</style>
+
