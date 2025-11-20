@@ -116,7 +116,7 @@ export default function SearchResultsModal({
 		if (isOpen) {
 			document.body.style.overflow = 'hidden';
 			if (backgroundContent) {
-				backgroundContent.style.filter = 'blur(8px)';
+				backgroundContent.style.filter = 'blur(2px)';
 				backgroundContent.style.pointerEvents = 'none';
 				backgroundContent.style.userSelect = 'none';
 			}
@@ -194,7 +194,7 @@ export default function SearchResultsModal({
 						stiffness: 300,
 						duration: 0.3
 					}}
-					className="relative w-[95vw] h-[95vh] bg-white rounded-2xl shadow-2xl overflow-hidden pointer-events-auto"
+					className="relative w-[95vw] h-[95vh] bg-white shadow-2xl overflow-hidden pointer-events-auto"
 				>
 					{/* Close Button */}
 					<motion.button

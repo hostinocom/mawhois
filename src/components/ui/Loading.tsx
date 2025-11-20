@@ -27,7 +27,7 @@ export default function Loading({ message = 'Recherche en cours...', size = 'md'
 					repeat: Infinity,
 					ease: "linear"
 				}}
-				className={`${sizeClasses[size]} rounded-full border-[var(--color-primary)] mx-auto`}
+				className={`${sizeClasses[size]} rounded-full border-(--color-primary) mx-auto`}
 			/>
 			{message && (
 				<motion.p 

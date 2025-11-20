@@ -131,11 +131,11 @@ export default function DomainSearchForm({ registries, defaultRegistry }: Domain
 	return (
 		<form 
 			onSubmit={handleSubmit}
-			className="flex flex-col sm:flex-row gap-0 max-w-2xl" 
+			className="flex flex-col sm:flex-row gap-0 w-full max-w-2xl" 
 			role="search" 
 			aria-label="Recherche de domaine"
 		>
-			<div className="flex flex-1 bg-white border-2 border-gray-300 rounded-t-lg sm:rounded-l-lg sm:rounded-tr-none">
+			<div className="flex flex-1 bg-white border-2 border-gray-300 rounded-t-lg sm:rounded-l-lg sm:rounded-tr-none min-w-0">
 				<label htmlFor="domain-search" className="sr-only">
 					Chercher un domaine
 				</label>
@@ -149,15 +149,15 @@ export default function DomainSearchForm({ registries, defaultRegistry }: Domain
 					minLength={2}
 					maxLength={63}
 					placeholder={placeholder}
-					className="flex-1 px-6 py-4 md:py-5 text-gray-700 placeholder:text-gray-400 text-base md:text-lg focus:outline-none rounded-tl-lg sm:rounded-l-lg transition-opacity duration-300 border-0"
+					className="flex-1 min-w-0 px-3 sm:px-6 py-4 md:py-5 text-gray-700 placeholder:text-gray-400 text-sm sm:text-base md:text-lg focus:outline-none rounded-tl-lg sm:rounded-l-lg transition-opacity duration-300 border-0"
 					aria-label="Nom de domaine"
 				/>
-				<div className="relative flex items-center border-l-2 border-gray-300">
+				<div className="relative flex items-center border-l-2 border-gray-300 shrink-0">
 					<select 
 						id="registry-select"
 						value={selectedExtension}
 						onChange={handleExtensionChange}
-						className="appearance-none px-4 py-4 md:py-5 text-gray-700 font-semibold text-base md:text-lg bg-transparent cursor-pointer hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition-colors pr-10 min-w-[100px]"
+						className="appearance-none px-2 sm:px-4 py-4 md:py-5 text-gray-700 font-semibold text-sm sm:text-base md:text-lg bg-transparent cursor-pointer hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition-colors pr-8 sm:pr-10 w-[80px] sm:w-auto sm:min-w-[100px]"
 						aria-label="Sélectionner un registre de domaine"
 					>
 						{registries.map(registry => (
@@ -167,8 +167,8 @@ export default function DomainSearchForm({ registries, defaultRegistry }: Domain
 						))}
 					</select>
 					{/* Custom dropdown arrow */}
-					<div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
-						<svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<div className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 pointer-events-none">
+						<svg className="w-3 h-3 sm:w-4 sm:h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 							<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 9l-7 7-7-7" />
 						</svg>
 					</div>
@@ -176,7 +176,7 @@ export default function DomainSearchForm({ registries, defaultRegistry }: Domain
 			</div>
 			<button 
 				type="submit" 
-				className="bg-(--color-primary) hover:bg-[#00c157] text-white px-8 py-4 md:py-5 text-base md:text-lg font-semibold rounded-b-lg sm:rounded-r-lg sm:rounded-bl-none transition-all duration-200 hover:shadow-lg active:scale-[0.98] shadow-xl"
+				className="bg-(--color-primary) hover:bg-[#00c157] text-white px-6 sm:px-8 py-4 md:py-5 text-sm sm:text-base md:text-lg font-semibold rounded-b-lg sm:rounded-r-lg sm:rounded-bl-none transition-all duration-200 hover:shadow-lg active:scale-[0.98] shadow-xl shrink-0"
 				aria-label="Rechercher le domaine"
 			>
 				Rechercher
