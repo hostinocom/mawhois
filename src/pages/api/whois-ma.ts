@@ -14,49 +14,48 @@ function whoisMA(domain: string): Promise<string> {
   });
 }
 
-function parseWhois(raw: string) {
-  const lines = raw.split("\n").map(l => l.trim()).filter(l => l.length > 0);
-
-  const data: Record<string, any> = {
-    nameServers: [],
-    status: [],
-  };
+function parseWhois(rawData: string): any {
+  const result: any = {};
+  
+  // 1. Split by new lines (handles \r\n and \n)
+  const lines = rawData.split(/\r?\n/);
 
   for (const line of lines) {
-    if (line.startsWith("Domain Name:"))
-      data.domain = line.replace("Domain Name:", "").trim();
+    const trimmedLine = line.trim();
 
-    else if (line.startsWith("Creation Date:"))
-      data.creationDate = line.replace("Creation Date:", "").trim();
+    // 2. Skip empty lines, comments (>>>), or lines without a colon
+    // We limit the key length check to avoid parsing long disclaimer sentences as keys
+    const separatorIndex = trimmedLine.indexOf(':');
+    if (
+      !trimmedLine || 
+      trimmedLine.startsWith('>>>') || 
+      separatorIndex === -1 ||
+      separatorIndex > 60 // Heuristic: Keys usually aren't sentences
+    ) {
+      continue;
+    }
 
-    else if (line.startsWith("Updated Date:"))
-      data.updatedDate = line.replace("Updated Date:", "").trim();
+    // 3. Extract Key and Value
+    const key = trimmedLine.substring(0, separatorIndex).trim();
+    const value = trimmedLine.substring(separatorIndex + 1).trim();
 
-    else if (line.startsWith("Registry Expiry Date:"))
-      data.expiryDate = line.replace("Registry Expiry Date:", "").trim();
-
-    else if (line.startsWith("Registrar:"))
-      data.registrar = line.replace("Registrar:", "").trim();
-
-    else if (line.startsWith("Registrant Name:"))
-      data.registrant = line.replace("Registrant Name:", "").trim();
-
-    else if (line.startsWith("Admin Email:"))
-      data.adminEmail = line.replace("Admin Email:", "").trim();
-
-    else if (line.startsWith("Admin Phone:"))
-      data.adminPhone = line.replace("Admin Phone:", "").trim();
-
-    else if (line.startsWith("Name Server:"))
-      data.nameServers.push(line.replace("Name Server:", "").trim());
-
-    else if (line.startsWith("Domain Status:"))
-      data.status.push(line.replace("Domain Status:", "").trim());
+    // 4. Handle Duplicate Keys (e.g., 'Name Server')
+    if (result[key]) {
+      // If key exists, ensure it is an array and push the new value
+      if (Array.isArray(result[key])) {
+        (result[key] as string[]).push(value);
+      } else {
+        // Convert existing string to array containing both
+        result[key] = [result[key] as string, value];
+      }
+    } else {
+      // 5. New Key
+      result[key] = value;
+    }
   }
 
-  return data;
+  return result;
 }
-
 
 export const GET: APIRoute = async ({ url }) => {
   const domain = url.searchParams.get("domain");

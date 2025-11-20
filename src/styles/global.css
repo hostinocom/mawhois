@@ -23,7 +23,7 @@
 	/* Focus states */
 	input:focus,
 	button:focus {
-		outline: 2px solid #00d563;
+		outline: 2px solid #00CC61;
 		outline-offset: 2px;
 	}
 
@@ -34,7 +34,7 @@
 
 	select option {
 		background-color: #ffffff;
-		color: #374151;
+		color: #022545;
 		padding: 12px;
 		font-weight: 600;
 	}
