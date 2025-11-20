@@ -1,24 +1,43 @@
 ---
 // Search Results component - displays domain availability
-import { checkDomainAvailability, generateDomainSuggestions } from '../services/domainApi';
+import { checkDomainAvailability, generateDomainSuggestions } from '../../services/domainApi';
+import DomainSearchForm from '../ui/DomainSearchForm';
 
 interface Props {
 	domain: string;
-	extension: string;
+	registries: Array<{
+		code: string;
+		name: string;
+		placeholder: string;
+		extension: string;
+	}>;
+	defaultRegistry: {
+		code: string;
+		name: string;
+		placeholder: string;
+		extension: string;
+	};
 }
 
-const { domain, extension } = Astro.props;
+const { domain, registries, defaultRegistry } = Astro.props;
 
 // Fetch domain availability from API service
-const result = await checkDomainAvailability(domain, extension);
+const result = await checkDomainAvailability(domain);
 
 // Generate suggestions if domain is not available
 const suggestions = !result.available 
-	? generateDomainSuggestions(domain, extension, 3)
+	? generateDomainSuggestions(domain, 3)
 	: [];
 ---
 
-<section class="bg-gradient-to-b from-[#022545] to-[#0a3a5a] px-6 py-12 md:py-16 md:px-16 lg:px-24" id="search-results">
+<!-- Search Form at Top -->
+<section class="bg-[#022545] px-6 py-8 md:py-12 md:px-16 lg:px-24">
+	<div class="max-w-7xl mx-auto">
+		<DomainSearchForm client:load registries={registries} defaultRegistry={defaultRegistry} />
+	</div>
+</section>
+
+<section class="bg-gradient-to-b from-[#022545] to-gray-50 px-6 py-12 md:py-16 md:px-16 lg:px-24" id="search-results">
 	<div class="max-w-4xl mx-auto">
 		<!-- Results Card -->
 		<div class="bg-white rounded-2xl shadow-2xl overflow-hidden animate-fade-in">
@@ -169,7 +188,7 @@ const suggestions = !result.available
 								<div class="space-y-2">
 									{suggestions.map(suggestion => (
 										<a 
-											href={`/?domain=${suggestion.replace(extension, '')}&extension=${extension}`}
+											href={`/?domain=${suggestion}`}
 											class="flex items-center justify-between p-3 bg-white rounded-lg border border-gray-200 hover:border-green-400 hover:shadow-md transition-all cursor-pointer group"
 										>
 											<span class="font-semibold text-gray-900 group-hover:text-green-600 transition-colors">{suggestion}</span>
@@ -195,7 +214,7 @@ const suggestions = !result.available
 
 		<!-- Back to Search -->
 		<div class="text-center mt-8">
-			<a href="/" class="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors text-sm md:text-base">
+			<a href="/" class="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors text-sm md:text-base">
 				<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
 				</svg>
@@ -238,4 +257,5 @@ const suggestions = !result.available
 		}, 100);
 	}
 </script>
+
 

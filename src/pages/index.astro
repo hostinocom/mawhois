@@ -1,9 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Hero from '../components/Hero.astro';
-import Description from '../components/Description.astro';
-import SearchResults from '../components/SearchResults.astro';
+import Header from '../components/layout/Header.astro';
+import Hero from '../components/sections/Hero.astro';
+import Description from '../components/sections/Description.astro';
+import SearchResults from '../components/sections/SearchResults.astro';
 import { registries, defaultRegistry } from '../config/registries';
 
 // Parse domain from URL query
@@ -26,10 +26,14 @@ console.log('domain', domain);
 	<Header />
 	
 	{domain ? (
-		<SearchResults domain={domain} extension=".ma" />
+		<SearchResults 
+			domain={domain} 
+			registries={registries} 
+			defaultRegistry={defaultRegistry} 
+		/>
 	) : (
 		<>
-		   <Hero registries={registries} defaultRegistry={defaultRegistry} />
+			<Hero registries={registries} defaultRegistry={defaultRegistry} />
 			<Description />
 		</>
 	)}

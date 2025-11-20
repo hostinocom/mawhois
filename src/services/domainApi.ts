@@ -25,7 +25,6 @@ export interface DomainAvailabilityResult {
  */
 export async function checkDomainAvailability(
 	domainName: string,
-	extension: string
 ): Promise<DomainAvailabilityResult> {
 	// Simulate API delay (remove in production)
 	await new Promise(resolve => setTimeout(resolve, 800));
@@ -37,13 +36,13 @@ export async function checkDomainAvailability(
 	// In production, this would be replaced with actual API call
 	const isAvailable = cleanDomain.length % 2 === 0;
 	
-	const fullDomain = `${cleanDomain}${extension}`;
+	const fullDomain = cleanDomain;
 	
 	if (isAvailable) {
 		return {
 			available: true,
 			domain: fullDomain,
-			price: getPriceForExtension(extension),
+			price: getPriceForExtension(),
 			registrar: 'WHOIS Maroc'
 		};
 	} else {
@@ -67,17 +66,8 @@ export async function checkDomainAvailability(
 /**
  * Get pricing based on extension
  */
-function getPriceForExtension(extension: string): string {
-	const prices: Record<string, string> = {
-		'.ma': '150 MAD/an',
-		'.com': '12.99 USD/an',
-		'.fr': '9.99 EUR/an',
-		'.uk': '8.99 GBP/an',
-		'.de': '7.99 EUR/an',
-		'.es': '9.99 EUR/an'
-	};
-	
-	return prices[extension] || '12.99 USD/an';
+function getPriceForExtension(): string {
+	return '150 MAD/an';
 }
 
 /**
@@ -123,7 +113,6 @@ function getRandomRegistrar(): string {
  */
 export function generateDomainSuggestions(
 	domainName: string,
-	extension: string,
 	count: number = 5
 ): string[] {
 	const cleanDomain = domainName.toLowerCase().trim();
@@ -134,12 +123,12 @@ export function generateDomainSuggestions(
 	
 	// Add prefix suggestions
 	for (let i = 0; i < Math.min(2, count); i++) {
-		suggestions.push(`${prefixes[i]}-${cleanDomain}${extension}`);
+		suggestions.push(`${prefixes[i]}-${cleanDomain}.ma`);
 	}
 	
 	// Add suffix suggestions
 	for (let i = 0; i < Math.min(3, count - suggestions.length); i++) {
-		suggestions.push(`${cleanDomain}-${suffixes[i]}${extension}`);
+		suggestions.push(`${cleanDomain}-${suffixes[i]}.ma`);
 	}
 	
 	return suggestions.slice(0, count);
