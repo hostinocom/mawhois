@@ -194,7 +194,7 @@ export default function SearchResultsModal({
 						stiffness: 300,
 						duration: 0.3
 					}}
-					className="relative w-full max-w-[90%] max-h-[90vh] bg-white rounded-2xl shadow-2xl overflow-hidden pointer-events-auto"
+					className="relative w-[95vw] h-[95vh] bg-white rounded-2xl shadow-2xl overflow-hidden pointer-events-auto"
 				>
 					{/* Close Button */}
 					<motion.button
@@ -202,7 +202,7 @@ export default function SearchResultsModal({
 						whileHover={{ scale: 1.1, rotate: 90 }}
 						whileTap={{ scale: 0.95 }}
 						transition={{ type: "spring", stiffness: 400, damping: 17 }}
-						className="absolute top-4 right-4 md:top-6 md:right-6 z-20 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 text-gray-600 hover:text-gray-900 shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:ring-offset-2"
+						className="absolute top-4 right-4 md:top-6 md:right-6 z-20 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 text-gray-600 hover:text-gray-900 shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-(--color-primary) focus:ring-offset-2"
 						aria-label="Close and return to home"
 						title="Close (ESC)"
 					>
@@ -212,7 +212,7 @@ export default function SearchResultsModal({
 					</motion.button>
 
 					{/* Scrollable Content */}
-					<div className="overflow-y-auto max-h-[90vh] custom-scrollbar">
+					<div className="overflow-y-auto h-full custom-scrollbar">
 						{/* Header with Logo and Search Form - Always Visible */}
 						<div className="px-6 py-6 md:py-8 md:px-12 lg:px-16 sticky top-0 z-10">
 							<div className="max-w-6xl mx-auto">
@@ -286,7 +286,7 @@ export default function SearchResultsModal({
 											<motion.button 
 												whileHover={{ scale: 1.05 }}
 												whileTap={{ scale: 0.95 }}
-												className="px-8 py-4 text-lg bg-[var(--color-primary)] hover:bg-[#00c157] text-white font-semibold rounded-lg shadow-md hover:shadow-lg"
+												className="px-8 py-4 text-lg bg-(--color-primary) hover:bg-[#00c157] text-white font-semibold rounded-lg shadow-md hover:shadow-lg"
 											>
 												Enregistrer maintenant
 											</motion.button>

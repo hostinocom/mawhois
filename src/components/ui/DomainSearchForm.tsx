@@ -135,7 +135,7 @@ export default function DomainSearchForm({ registries, defaultRegistry }: Domain
 			role="search" 
 			aria-label="Recherche de domaine"
 		>
-			<div className="flex flex-1 bg-white rounded-t-lg sm:rounded-l-lg sm:rounded-tr-none shadow-xl">
+			<div className="flex flex-1 bg-white border-2 border-gray-300 rounded-t-lg sm:rounded-l-lg sm:rounded-tr-none">
 				<label htmlFor="domain-search" className="sr-only">
 					Chercher un domaine
 				</label>
@@ -149,10 +149,10 @@ export default function DomainSearchForm({ registries, defaultRegistry }: Domain
 					minLength={2}
 					maxLength={63}
 					placeholder={placeholder}
-					className="flex-1 px-6 py-4 md:py-5 text-gray-700 placeholder:text-gray-400 text-base md:text-lg focus:outline-none rounded-tl-lg sm:rounded-l-lg transition-opacity duration-300"
+					className="flex-1 px-6 py-4 md:py-5 text-gray-700 placeholder:text-gray-400 text-base md:text-lg focus:outline-none rounded-tl-lg sm:rounded-l-lg transition-opacity duration-300 border-0"
 					aria-label="Nom de domaine"
 				/>
-				<div className="relative flex items-center border-l border-gray-200">
+				<div className="relative flex items-center border-l-2 border-gray-300">
 					<select 
 						id="registry-select"
 						value={selectedExtension}

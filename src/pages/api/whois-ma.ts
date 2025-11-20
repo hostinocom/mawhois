@@ -83,7 +83,7 @@ export const GET: APIRoute = async ({ url }) => {
     info = parseWhois(raw);
   }
   // delay of 20 seconds after the response is sent
-  await new Promise(resolve => setTimeout(resolve, 5000));
+  
 
   return new Response(
     JSON.stringify({
