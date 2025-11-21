@@ -1,5 +1,5 @@
 import type { APIRoute } from "astro";
-import net from "net";
+import net from "node:net";
 
 function whoisMA(domain: string): Promise<string> {
   return new Promise((resolve, reject) => {
