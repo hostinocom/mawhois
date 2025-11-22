@@ -62,6 +62,8 @@ export default function SearchResultsModal({
 	const [isLoading, setIsLoading] = useState(false);
 	const [isOpen, setIsOpen] = useState(false);
 
+	const apiUrl = import.meta.env.PUBLIC_API_URL;
+
 	// Read domain from URL on mount and when URL changes
 	useEffect(() => {
 		const checkUrlForDomain = () => {
@@ -97,7 +99,7 @@ export default function SearchResultsModal({
 		setIsLoading(true);
 		setResult(null);
 		
-		fetch(`/api/whois-ma?domain=${domain}`)
+		fetch(`${apiUrl}/api/whois?domain=${domain}`)
 			.then(res => res.json())
 			.then(data => {
 				setResult(data);
