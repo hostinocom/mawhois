@@ -62,7 +62,7 @@ export default function SearchResultsModal({
 	const [isLoading, setIsLoading] = useState(false);
 	const [isOpen, setIsOpen] = useState(false);
 
-	const apiUrl = import.meta.env.PUBLIC_API_URL;
+	const apiUrl = 'https://whoisma-api.vercel.app';
 
 	// Read domain from URL on mount and when URL changes
 	useEffect(() => {
