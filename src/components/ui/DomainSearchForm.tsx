@@ -13,27 +13,14 @@ interface DomainSearchFormProps {
 }
 
 export default function DomainSearchForm({ registries }: DomainSearchFormProps) {
-	const { selectedExtension, setSelectedExtension, selectedDomain, setSelectedDomain, placeholder, setPlaceholder, openModal, setOpenModal } = useAppStore();
-
-	// Load saved extension preference and URL params on mount
+	const { selectedExtension, setSelectedExtension, selectedDomain, setSelectedDomain, placeholder, setPlaceholder } = useAppStore();
+	
+	// Detect if we're on home page or domain page
+	const [isHomePage, setIsHomePage] = useState(true);
+	
 	useEffect(() => {
-		// Pre-fill from URL parameters
-		const urlParams = new URLSearchParams(window.location.search);
-		const domainParam = urlParams.get('domain');
-		
-		if (domainParam) {
-			const parsed = parseDomain(domainParam, selectedExtension);
-			setSelectedDomain(parsed.domain);
-			
-			if (parsed.extension) {
-				setSelectedExtension(parsed.extension);
-				const registry = registries.find(r => r.extension === parsed.extension);
-				if (registry) {
-					setPlaceholder(registry.placeholder);
-				}
-			}
-		}
-	}, [registries]);
+		setIsHomePage(window.location.pathname === '/');
+	}, []);
 
 	// Parse domain to extract extension if present
 	const parseDomain = (input: string, fallbackExtension: string): { domain: string; extension: string } => {
@@ -105,16 +92,21 @@ export default function DomainSearchForm({ registries }: DomainSearchFormProps) 
 			alert(validation.error);
 			return;
 		}
+		
 		setSelectedDomain(domain);
 		setSelectedExtension(extension);
 
-		console.log('selectedDomain', selectedDomain);
-		console.log('selectedExtension', selectedExtension);
-		// Update URL without reloading the page
+		// Build full domain
 		const fullDomain = domain + extension;
-		window.history.pushState({}, '', `/?domain=${encodeURIComponent(fullDomain)}`);
-		if (!openModal) {
-			setOpenModal(true);
+		
+		if (isHomePage) {
+			// Redirect to domain page from home
+			window.location.href = `/domain?domain=${encodeURIComponent(fullDomain)}`;
+		} else {
+			// SPA-style update on domain page
+			window.history.pushState({}, '', `/domain?domain=${encodeURIComponent(fullDomain)}`);
+			// Trigger URL change event for SearchResultsModal to refetch
+			window.dispatchEvent(new Event('popstate'));
 		}
 	};
 

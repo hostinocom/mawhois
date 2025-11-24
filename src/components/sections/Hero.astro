@@ -9,15 +9,9 @@ interface Props {
 		placeholder: string;
 		extension: string;
 	}>;
-	defaultRegistry: {
-		code: string;
-		name: string;
-		placeholder: string;
-		extension: string;
-	};
 }
 
-const { registries, defaultRegistry } = Astro.props;
+const { registries } = Astro.props;
 ---
 
 <section class="bg-(--color-secondary) px-6 py-20 md:py-32 lg:py-40 md:px-16 lg:px-24">
@@ -32,7 +26,7 @@ const { registries, defaultRegistry } = Astro.props;
 		</h1>
 
 	<!-- Search Form - React Component with client-side interactivity -->
-	<DomainSearchForm client:load registries={registries} defaultRegistry={defaultRegistry} />
+	<DomainSearchForm client:load registries={registries}  />
 	</div>
 </section>
 

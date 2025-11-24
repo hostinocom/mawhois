@@ -8,8 +8,6 @@ interface AppState {
     setSelectedDomain: (domain: string) => void;
     placeholder: string;
     setPlaceholder: (placeholder: string) => void;
-    openModal: boolean;
-    setOpenModal: (open: boolean) => void;
 }
 
 export const useAppStore = create<AppState>((set) => ({
@@ -19,6 +17,4 @@ export const useAppStore = create<AppState>((set) => ({
     setSelectedDomain: (domain) => set({ selectedDomain: domain }),
     placeholder: registries[0].placeholder,
     setPlaceholder: (placeholder) => set({ placeholder }),
-    openModal: false,
-    setOpenModal: (open) => set({ openModal: open }),
 }));

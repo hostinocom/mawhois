@@ -3,23 +3,12 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/layout/Header.astro';
 import Hero from '../components/sections/Hero.astro';
 import Description from '../components/sections/Description.astro';
-import SearchResultsModal from '../components/sections/SearchResultsModal';
-import { registries, defaultRegistry } from '../config/registries';
+import { registries } from '../config/registries';
 ---
 	
 <Layout>
-	<!-- Home Page (always rendered) -->
-	<div id="background-content">
-		<Header />
-		<Hero registries={registries} defaultRegistry={defaultRegistry} />
-		<Description />
-	</div>
-	
-	<!-- Modal Component (manages its own visibility based on URL) -->
-	<SearchResultsModal 
-		client:idle
-		registries={registries} 
-		defaultRegistry={defaultRegistry} 
-	/>
-	
+	<!-- Home Page -->
+	<Header />
+	<Hero registries={registries} />
+	<Description />
 </Layout>
