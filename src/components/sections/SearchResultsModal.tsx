@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import DomainSearchForm from '../ui/DomainSearchForm';
+import DomainSearchForm, { parseDomain } from '../ui/DomainSearchForm';
 import Loading from '../ui/Loading';
 import { useAppStore } from '../../store/useAppStore';
 
@@ -55,7 +55,8 @@ function formatDate(dateString: string): string {
 
 export default function SearchResultsModal({ 
 	registries }: SearchResultsModalProps) {
-	const { selectedDomain, setSelectedDomain } = useAppStore();
+	const { setSelectedDomain, setSelectedExtension, selectedExtension } = useAppStore();
+	const [fullDomain, setFullDomain] = useState<string>('');
 	const [result, setResult] = useState<DomainResult | null>(null);
 	const [isLoading, setIsLoading] = useState(false);
 
@@ -63,31 +64,40 @@ export default function SearchResultsModal({
 
 	// Read domain from URL on mount and when URL changes
 	useEffect(() => {
-		const checkUrlForDomain = () => {
+		const checkUrlForDomain = (thefirsttime: boolean = true) => {
 			const urlParams = new URLSearchParams(window.location.search);
 			const domainParam = urlParams.get('domain');
-			
+
 			if (domainParam) {
 				const trimmedDomain = domainParam.trim().toLowerCase();
-				setSelectedDomain(trimmedDomain);
+				setFullDomain(trimmedDomain);
+
+				// Parse and set domain/extension for the form on first load
+				if (thefirsttime) {
+					console.log('first time, parsing:', trimmedDomain);
+					const { domain, extension } = parseDomain(trimmedDomain, selectedExtension, registries);
+					setSelectedDomain(domain);
+					setSelectedExtension(extension);
+				}
 			}
 		};
 		
 		checkUrlForDomain();
 		
 		// Listen for URL changes (for SPA-style navigation)
-		window.addEventListener('popstate', checkUrlForDomain);
-		return () => window.removeEventListener('popstate', checkUrlForDomain);
+		const handlePopState = () => checkUrlForDomain(false);
+		window.addEventListener('popstate', handlePopState);
+		return () => window.removeEventListener('popstate', handlePopState);
 	}, []);
 
 	// Fetch domain data when domain changes
 	useEffect(() => {
-		if (!selectedDomain) return;
+		if (!fullDomain) return;
 
 		setIsLoading(true);
 		setResult(null);
 		
-		fetch(`${apiUrl}/api/whois?domain=${selectedDomain}`)
+		fetch(`${apiUrl}/api/whois?domain=${fullDomain}`)
 			.then(res => res.json())
 			.then(data => {
 				setResult(data);
@@ -97,7 +107,7 @@ export default function SearchResultsModal({
 				console.error('Error fetching domain data:', err);
 				setIsLoading(false);
 			});
-	}, [selectedDomain]);
+	}, [fullDomain]);
 
 	const handleNewSearch = () => {
 		window.location.href = '/';
@@ -158,7 +168,7 @@ export default function SearchResultsModal({
 										transition={{ delay: 0.4 }}
 										className="text-3xl md:text-4xl font-light text-gray-900 mb-4"
 									>
-										Le domaine <span className="font-semibold">{selectedDomain}</span> est disponible!
+										Le domaine <span className="font-semibold">{fullDomain}</span> est disponible!
 									</motion.h2>
 									<motion.p 
 										initial={{ opacity: 0 }}
@@ -210,7 +220,7 @@ export default function SearchResultsModal({
 										transition={{ delay: 0.4 }}
 										className="text-2xl md:text-3xl font-light text-gray-900"
 									>
-										Malheureusement, le domaine <span className="font-semibold">{selectedDomain}</span> est déjà enregistré.
+										Malheureusement, le domaine <span className="font-semibold">{fullDomain}</span> est déjà enregistré.
 									</motion.h2>
 								</div>
 

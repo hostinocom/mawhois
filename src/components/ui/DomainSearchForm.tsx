@@ -12,6 +12,32 @@ interface DomainSearchFormProps {
 	registries: Registry[];
 }
 
+// Parse domain to extract extension if present
+export const parseDomain = (input: string, fallbackExtension: string, registries: Registry[]): { domain: string; extension: string } => {
+	const trimmed = input.trim().toLowerCase();
+	
+	// Sort registries by extension length (longest first) to match more specific extensions first
+	// This ensures .net.ma is checked before .ma, and .org.ma before .ma
+	const sortedRegistries = [...registries].sort((a, b) => b.extension.length - a.extension.length);
+	
+	// Check if input has any valid extension
+	for (const registry of sortedRegistries) {
+		if (trimmed.endsWith(registry.extension)) {
+			console.log('found extension:', registry.extension);
+			return {
+				domain: trimmed.slice(0, -registry.extension.length),
+				extension: registry.extension
+			};
+		}
+	}
+	
+	// No extension found, use fallback
+	return {
+		domain: trimmed,
+		extension: fallbackExtension
+	};
+};
+
 export default function DomainSearchForm({ registries }: DomainSearchFormProps) {
 	const { selectedExtension, setSelectedExtension, selectedDomain, setSelectedDomain, placeholder, setPlaceholder } = useAppStore();
 	
@@ -22,26 +48,6 @@ export default function DomainSearchForm({ registries }: DomainSearchFormProps) 
 		setIsHomePage(window.location.pathname === '/');
 	}, []);
 
-	// Parse domain to extract extension if present
-	const parseDomain = (input: string, fallbackExtension: string): { domain: string; extension: string } => {
-		const trimmed = input.trim().toLowerCase();
-		
-		// Check if input has any valid extension
-		for (const registry of registries) {
-			if (trimmed.endsWith(registry.extension)) {
-				return {
-					domain: trimmed.slice(0, -registry.extension.length),
-					extension: registry.extension
-				};
-			}
-		}
-		
-		// No extension found, use fallback
-		return {
-			domain: trimmed,
-			extension: fallbackExtension
-		};
-	};
 
 	// Validate domain name
 	const validateDomain = (domain: string): { valid: boolean; error?: string } => {
@@ -84,7 +90,7 @@ export default function DomainSearchForm({ registries }: DomainSearchFormProps) 
 		}
 		
 		// Parse domain and extension
-		const { domain, extension } = parseDomain(trimmedInput, selectedExtension);
+		const { domain, extension } = parseDomain(trimmedInput, selectedExtension, registries);
 		
 		// Validate domain
 		const validation = validateDomain(domain);
