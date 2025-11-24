@@ -1,4 +1,5 @@
 import { useState, useEffect, type FormEvent, type ChangeEvent } from 'react';
+import { useAppStore } from '../../store/useAppStore';
 
 interface Registry {
 	code: string;
@@ -9,33 +10,20 @@ interface Registry {
 
 interface DomainSearchFormProps {
 	registries: Registry[];
-	defaultRegistry: Registry;
 }
 
-export default function DomainSearchForm({ registries, defaultRegistry }: DomainSearchFormProps) {
-	const [domainInput, setDomainInput] = useState('');
-	const [selectedExtension, setSelectedExtension] = useState(defaultRegistry.extension);
-	const [placeholder, setPlaceholder] = useState(defaultRegistry.placeholder);
+export default function DomainSearchForm({ registries }: DomainSearchFormProps) {
+	const { selectedExtension, setSelectedExtension, selectedDomain, setSelectedDomain, placeholder, setPlaceholder, openModal, setOpenModal } = useAppStore();
 
 	// Load saved extension preference and URL params on mount
 	useEffect(() => {
-		// Check for saved preference
-		const savedExtension = localStorage.getItem('selectedExtension');
-		if (savedExtension) {
-			const registry = registries.find(r => r.extension === savedExtension);
-			if (registry) {
-				setSelectedExtension(registry.extension);
-				setPlaceholder(registry.placeholder);
-			}
-		}
-
 		// Pre-fill from URL parameters
 		const urlParams = new URLSearchParams(window.location.search);
 		const domainParam = urlParams.get('domain');
 		
 		if (domainParam) {
-			const parsed = parseDomain(domainParam, defaultRegistry.extension);
-			setDomainInput(domainParam);
+			const parsed = parseDomain(domainParam, selectedExtension);
+			setSelectedDomain(parsed.domain);
 			
 			if (parsed.extension) {
 				setSelectedExtension(parsed.extension);
@@ -45,7 +33,7 @@ export default function DomainSearchForm({ registries, defaultRegistry }: Domain
 				}
 			}
 		}
-	}, [registries, defaultRegistry]);
+	}, [registries]);
 
 	// Parse domain to extract extension if present
 	const parseDomain = (input: string, fallbackExtension: string): { domain: string; extension: string } => {
@@ -97,15 +85,13 @@ export default function DomainSearchForm({ registries, defaultRegistry }: Domain
 			setPlaceholder(registry.placeholder);
 		}
 		
-		// Save preference
-		localStorage.setItem('selectedExtension', newExtension);
 	};
 
 	// Handle form submission
 	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		
-		const trimmedInput = domainInput.trim();
+		const trimmedInput = selectedDomain.trim();
 		if (!trimmedInput) {
 			return;
 		}
@@ -119,13 +105,17 @@ export default function DomainSearchForm({ registries, defaultRegistry }: Domain
 			alert(validation.error);
 			return;
 		}
-		
+		setSelectedDomain(domain);
+		setSelectedExtension(extension);
+
+		console.log('selectedDomain', selectedDomain);
+		console.log('selectedExtension', selectedExtension);
 		// Update URL without reloading the page
 		const fullDomain = domain + extension;
 		window.history.pushState({}, '', `/?domain=${encodeURIComponent(fullDomain)}`);
-		
-		// Trigger a custom event to notify SearchResultsModal
-		window.dispatchEvent(new Event('popstate'));
+		if (!openModal) {
+			setOpenModal(true);
+		}
 	};
 
 	return (
@@ -143,8 +133,8 @@ export default function DomainSearchForm({ registries, defaultRegistry }: Domain
 					type="text" 
 					id="domain-search"
 					name="domain"
-					value={domainInput}
-					onChange={(e) => setDomainInput(e.target.value)}
+					value={selectedDomain}
+					onChange={(e) => setSelectedDomain(e.target.value)}
 					required
 					minLength={2}
 					maxLength={63}

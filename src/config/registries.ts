@@ -71,7 +71,6 @@ export const registries: Registry[] = [
 	}
 ];
 
-export const defaultRegistry: Registry = registries[0];
 
 // Helper function to get registry by code
 export function getRegistryByCode(code: string): Registry | undefined {

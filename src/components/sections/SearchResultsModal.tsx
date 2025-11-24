@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import DomainSearchForm from '../ui/DomainSearchForm';
 import Loading from '../ui/Loading';
+import { useAppStore } from '../../store/useAppStore';
 
 interface Registry {
 	code: string;
@@ -54,52 +55,21 @@ function formatDate(dateString: string): string {
 }
 
 export default function SearchResultsModal({ 
-	registries, 
-	defaultRegistry
-}: SearchResultsModalProps) {
-	const [domain, setDomain] = useState<string | null>(null);
+	registries }: SearchResultsModalProps) {
+	const { selectedDomain, setSelectedDomain, openModal, setOpenModal } = useAppStore();
 	const [result, setResult] = useState<DomainResult | null>(null);
 	const [isLoading, setIsLoading] = useState(false);
-	const [isOpen, setIsOpen] = useState(false);
 
 	const apiUrl = import.meta.env.PUBLIC_API_URL;
 
-	// Read domain from URL on mount and when URL changes
-	useEffect(() => {
-		const checkUrlForDomain = () => {
-			const urlParams = new URLSearchParams(window.location.search);
-			const domainParam = urlParams.get('domain');
-			
-			if (domainParam) {
-				const trimmedDomain = domainParam.trim().toLowerCase();
-				setDomain(trimmedDomain);
-				setIsOpen(true);
-			} else {
-				setIsOpen(false);
-				setDomain(null);
-				setResult(null);
-			}
-		};
-
-		// Check on mount
-		checkUrlForDomain();
-
-		// Listen for URL changes (for back/forward navigation)
-		window.addEventListener('popstate', checkUrlForDomain);
-		
-		return () => {
-			window.removeEventListener('popstate', checkUrlForDomain);
-		};
-	}, []);
-
 	// Fetch domain data when domain changes
 	useEffect(() => {
-		if (!domain) return;
+		if (!selectedDomain) return;
 
 		setIsLoading(true);
 		setResult(null);
 		
-		fetch(`${apiUrl}/api/whois?domain=${domain}`)
+		fetch(`${apiUrl}/api/whois?domain=${selectedDomain}`)
 			.then(res => res.json())
 			.then(data => {
 				setResult(data);
@@ -109,13 +79,13 @@ export default function SearchResultsModal({
 				console.error('Error fetching domain data:', err);
 				setIsLoading(false);
 			});
-	}, [domain]);
+	}, [selectedDomain]);
 
 	// Manage body scroll and background blur
 	useEffect(() => {
 		const backgroundContent = document.getElementById('background-content');
 		
-		if (isOpen) {
+		if (openModal) {
 			document.body.style.overflow = 'hidden';
 			if (backgroundContent) {
 				backgroundContent.style.filter = 'blur(2px)';
@@ -139,13 +109,13 @@ export default function SearchResultsModal({
 				backgroundContent.style.userSelect = '';
 			}
 		};
-	}, [isOpen]);
+	}, [openModal]);
 
 	const handleClose = () => {
 		// Update URL without reloading
 		window.history.pushState({}, '', '/');
-		setIsOpen(false);
-		setDomain(null);
+		setOpenModal(false);
+		setSelectedDomain('');
 		setResult(null);
 	};
 
@@ -167,7 +137,7 @@ export default function SearchResultsModal({
 	}, []);
 
 	// Don't render modal if not open or no domain
-	if (!isOpen || !domain) {
+	if (!openModal || !selectedDomain) {
 		return null;
 	}
 
@@ -228,7 +198,7 @@ export default function SearchResultsModal({
 									
 									{/* Search Form */}
 									<div className="flex-1 w-full">
-										<DomainSearchForm registries={registries} defaultRegistry={defaultRegistry} />
+										<DomainSearchForm registries={registries} />
 									</div>
 								</div>
 							</div>
@@ -267,7 +237,7 @@ export default function SearchResultsModal({
 												transition={{ delay: 0.4 }}
 												className="text-3xl md:text-4xl font-light text-gray-900 mb-4"
 											>
-												Le domaine <span className="font-semibold">{domain}</span> est disponible!
+												Le domaine <span className="font-semibold">{selectedDomain}</span> est disponible!
 											</motion.h2>
 											<motion.p 
 												initial={{ opacity: 0 }}
@@ -319,7 +289,7 @@ export default function SearchResultsModal({
 												transition={{ delay: 0.4 }}
 												className="text-2xl md:text-3xl font-light text-gray-900"
 											>
-												Malheureusement, le domaine <span className="font-semibold">{domain}</span> est déjà enregistré.
+												Malheureusement, le domaine <span className="font-semibold">{selectedDomain}</span> est déjà enregistré.
 											</motion.h2>
 										</div>
 
