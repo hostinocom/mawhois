@@ -9,17 +9,17 @@ const { domain } = Astro.props;
 ---
 
 <!-- Hero Section -->
-<section class="bg-(--color-secondary) px-6 py-20 md:py-32 lg:py-40">
-	<div class="max-w-5xl mx-auto text-center">
+<section class="bg-(--color-secondary) px-6 py-20 md:py-32 lg:py-40 md:px-16 lg:px-24">
+	<div class="max-w-7xl mx-auto">
 		<!-- Félicitations! Heading -->
-		<h1 class="text-white text-4xl md:text-5xl lg:text-6xl font-light mb-8 leading-tight">
+		<h1 class="text-white text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light mb-2 leading-none">
 			Félicitations!
 		</h1>
 		
 		<!-- Domain name in green italic and "est disponible!" -->
-		<p class="text-white text-4xl md:text-5xl lg:text-6xl font-light leading-tight mb-12">
+		<h2 class="text-white text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light mb-12 leading-none">
 			<em class="text-(--color-primary) italic font-serif">{domain}</em> est disponible!
-		</p>
+		</h2>
 		
 		<!-- Register button -->
 		<div class="mb-8">
@@ -35,9 +35,26 @@ const { domain } = Astro.props;
 	</div>
 </section>
 
-<!-- Button Section -->
-<section class="bg-white px-6 py-12">
+<!-- Domain Information Section -->
+<section class="bg-white px-6 py-12 md:px-12 lg:px-16">
 	<div class="max-w-5xl mx-auto">
+		<!-- Information sur le domaine -->
+		<div class="bg-gray-50 rounded-lg overflow-hidden border border-gray-200 mb-12">
+			<div class="bg-white px-6 py-4 border-b border-gray-200">
+				<h3 class="text-lg font-semibold text-gray-900">Information sur le domaine</h3>
+			</div>
+			<div class="divide-y divide-gray-200">
+				<div class="grid grid-cols-1 md:grid-cols-2 px-6 py-4 bg-white">
+					<div class="font-medium text-gray-700">Nom de domaine</div>
+					<div class="text-gray-900">{domain}</div>
+				</div>
+				<div class="grid grid-cols-1 md:grid-cols-2 px-6 py-4 bg-white">
+					<div class="font-medium text-gray-700">Statut du domaine</div>
+					<div class="text-gray-900">Disponible</div>
+				</div>
+			</div>
+		</div>
+
 		<!-- New search button -->
 		<div class="text-center">
 			<a 
