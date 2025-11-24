@@ -1,15 +1,37 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import SearchResultsModal from '../components/sections/SearchResultsModal';
-import { registries } from '../config/registries';
+import Header from '../components/layout/Header.astro';
+import DomainAvailable from '../components/sections/DomainAvailable.astro';
+import DomainUnavailable from '../components/sections/DomainUnavailable.astro';
 
+// Get domain from URL
+const domain = Astro.url.searchParams.get('domain');
+
+// Fetch WHOIS data server-side
+let result = null;
+
+if (domain) {
+	const apiUrl = import.meta.env.PUBLIC_API_URL || 'http://localhost:4321';
+	try {
+		const response = await fetch(`${apiUrl}/api/whois?domain=${encodeURIComponent(domain)}`);
+		result = await response.json();
+	} catch (error) {
+		console.error('Error fetching domain:', error);
+	}
+}
+
+// Redirect to home if no domain parameter
+if (!domain) {
+	return Astro.redirect('/');
+}
 ---
 
 <Layout>
-	<!-- Domain Search Results Page (Minimal Layout) -->
-	<SearchResultsModal 
-		client:load
-		registries={registries} 
-	/>
+	<Header />
+	
+	{result?.available ? (
+		<DomainAvailable domain={domain} />
+	) : (
+		<DomainUnavailable domain={domain} info={result?.info} />
+	)}
 </Layout>
-

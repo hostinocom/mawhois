@@ -1,0 +1,229 @@
+---
+interface Props {
+	domain: string;
+	info?: any;
+}
+
+const { domain, info } = Astro.props;
+
+// Format date from ISO string to YYYY-MM-DD
+function formatDate(dateString: string): string {
+	if (!dateString) return 'N/A';
+	try {
+		const date = new Date(dateString);
+		const year = date.getFullYear();
+		const month = String(date.getMonth() + 1).padStart(2, '0');
+		const day = String(date.getDate()).padStart(2, '0');
+		return `${year}-${month}-${day}`;
+	} catch (error) {
+		return dateString;
+	}
+}
+---
+
+<!-- Hero Section -->
+<section class="bg-(--color-secondary) px-6 py-20 md:py-32 lg:py-40">
+	<div class="max-w-5xl mx-auto text-center md:text-left">
+		<h1 class="text-white text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light mb-4 leading-tight">
+			Le domaine <em class="italic font-serif text-(--color-primary)">{domain}</em> est déjà enregistré
+		</h1>
+	</div>
+</section>
+
+<!-- WHOIS Information Section -->
+<section class="bg-white min-h-screen px-6 py-12 md:px-12 lg:px-16">
+	<div class="max-w-5xl mx-auto">
+		<!-- Section Title -->
+		<div class="mb-8">
+			<h2 class="text-2xl md:text-3xl font-normal text-(--color-secondary) flex items-center gap-2">
+				Informations Whois sur le domaine
+				<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+				</svg>
+			</h2>
+		</div>
+
+		{info ? (
+			<div class="space-y-6">
+				<!-- Information sur le domaine -->
+				<div class="bg-gray-50 rounded-lg overflow-hidden border border-gray-200">
+					<div class="bg-white px-6 py-4 border-b border-gray-200">
+						<h3 class="text-lg font-semibold text-gray-900">Information sur le domaine</h3>
+					</div>
+					<div class="divide-y divide-gray-200">
+						<div class="grid grid-cols-1 md:grid-cols-2 px-6 py-4 bg-white">
+							<div class="font-medium text-gray-700">Nom de domaine</div>
+							<div class="text-gray-900">{info['Domain Name'] || info.domain || domain}</div>
+						</div>
+						<div class="grid grid-cols-1 md:grid-cols-2 px-6 py-4 bg-white">
+							<div class="font-medium text-gray-700">Statut du domaine</div>
+							<div class="text-gray-900">
+								{(() => {
+									try {
+										const status = info['Domain Status'] || info.status || '';
+										return status.toLowerCase().includes('active') ? 'Disponible' : 'Indisponible';
+									} catch (error) {
+										return 'N/A';
+									}
+								})()}
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Information sur le registraire -->
+				{(info.Registrar || info.registrar) && (
+					<div class="bg-gray-50 rounded-lg overflow-hidden border border-gray-200">
+						<div class="bg-white px-6 py-4 border-b border-gray-200">
+							<h3 class="text-lg font-semibold text-gray-900">Information sur le registraire</h3>
+						</div>
+						<div class="divide-y divide-gray-200">
+							<div class="grid grid-cols-1 md:grid-cols-2 px-6 py-4 bg-white">
+								<div class="font-medium text-gray-700">Registraire</div>
+								<div class="text-gray-900">{info.Registrar || info.registrar}</div>
+							</div>
+							{(info['Creation Date'] || info.created) && (
+								<div class="grid grid-cols-1 md:grid-cols-2 px-6 py-4 bg-white">
+									<div class="font-medium text-gray-700">Date de création</div>
+									<div class="text-gray-900">{formatDate(info['Creation Date'] || info.created)}</div>
+								</div>
+							)}
+							{(info['Registry Expiry Date'] || info['Registrar Registration Expiration Date'] || info.expires) && (
+								<div class="grid grid-cols-1 md:grid-cols-2 px-6 py-4 bg-white">
+									<div class="font-medium text-gray-700">Date d'expiration</div>
+									<div class="text-gray-900">{formatDate(info['Registry Expiry Date'] || info['Registrar Registration Expiration Date'] || info.expires)}</div>
+								</div>
+							)}
+							{(info['Updated Date'] || info.updated) && (
+								<div class="grid grid-cols-1 md:grid-cols-2 px-6 py-4 bg-white">
+									<div class="font-medium text-gray-700">Dernière mise à jour</div>
+									<div class="text-gray-900">{formatDate(info['Updated Date'] || info.updated)}</div>
+								</div>
+							)}
+						</div>
+					</div>
+				)}
+
+				<!-- Information sur le titulaire -->
+				{(info['Registrant Name'] || info.registrant) && (
+					<div class="bg-gray-50 rounded-lg overflow-hidden border border-gray-200">
+						<div class="bg-white px-6 py-4 border-b border-gray-200">
+							<h3 class="text-lg font-semibold text-gray-900">Information sur le titulaire</h3>
+						</div>
+						<div class="divide-y divide-gray-200">
+							<div class="grid grid-cols-1 md:grid-cols-2 px-6 py-4 bg-white">
+								<div class="font-medium text-gray-700">Titulaire</div>
+								<div class="text-gray-900">{info['Registrant Name'] || info.registrant || 'N/A'}</div>
+							</div>
+						</div>
+					</div>
+				)}
+
+				<!-- Information sur le contact -->
+				{(info['Admin Name'] || info.admin || info['Tech Name'] || info.tech) && (
+					<div class="bg-gray-50 rounded-lg overflow-hidden border border-gray-200">
+						<div class="bg-white px-6 py-4 border-b border-gray-200">
+							<h3 class="text-lg font-semibold text-gray-900">Information sur le contact</h3>
+						</div>
+						<div class="divide-y divide-gray-200">
+							{(info['Admin Name'] || info.admin) && (
+								<>
+									<div class="grid grid-cols-1 md:grid-cols-2 px-6 py-4 bg-white">
+										<div class="font-medium text-gray-700">Contact administratif</div>
+										<div class="text-gray-900">{info['Admin Name'] || info.admin}</div>
+									</div>
+									{info['Admin Phone'] && (
+										<div class="grid grid-cols-1 md:grid-cols-2 px-6 py-4 bg-white">
+											<div class="font-medium text-gray-700"></div>
+											<div class="text-gray-900">{info['Admin Phone']}</div>
+										</div>
+									)}
+									{info['Admin Email'] && (
+										<div class="grid grid-cols-1 md:grid-cols-2 px-6 py-4 bg-white">
+											<div class="font-medium text-gray-700"></div>
+											<div class="text-gray-900">{info['Admin Email']}</div>
+										</div>
+									)}
+								</>
+							)}
+							{(info['Tech Name'] || info.tech) && (
+								<>
+									<div class="grid grid-cols-1 md:grid-cols-2 px-6 py-4 bg-white">
+										<div class="font-medium text-gray-700">Contact technique</div>
+										<div class="text-gray-900">{info['Tech Name'] || info.tech}</div>
+									</div>
+									{info['Tech Phone'] && (
+										<div class="grid grid-cols-1 md:grid-cols-2 px-6 py-4 bg-white">
+											<div class="font-medium text-gray-700"></div>
+											<div class="text-gray-900">{info['Tech Phone']}</div>
+										</div>
+									)}
+									{info['Tech Email'] && (
+										<div class="grid grid-cols-1 md:grid-cols-2 px-6 py-4 bg-white">
+											<div class="font-medium text-gray-700"></div>
+											<div class="text-gray-900">{info['Tech Email']}</div>
+										</div>
+									)}
+								</>
+							)}
+						</div>
+					</div>
+				)}
+
+				<!-- Serveurs de noms -->
+				{info['Name Server'] && (
+					<div class="bg-gray-50 rounded-lg overflow-hidden border border-gray-200">
+						<div class="bg-white px-6 py-4 border-b border-gray-200">
+							<h3 class="text-lg font-semibold text-gray-900">Serveurs de noms</h3>
+						</div>
+						<div class="divide-y divide-gray-200">
+							{Array.isArray(info['Name Server']) ? (
+								info['Name Server'].map((ns: string, index: number) => (
+									<div class="grid grid-cols-1 md:grid-cols-2 px-6 py-4 bg-white">
+										<div class="font-medium text-gray-700">N/A</div>
+										<div class="text-gray-900">{ns || 'N/A'}</div>
+									</div>
+								))
+							) : (
+								<div class="grid grid-cols-1 md:grid-cols-2 px-6 py-4 bg-white">
+									<div class="font-medium text-gray-700">N/A</div>
+									<div class="text-gray-900">{info['Name Server']}</div>
+								</div>
+							)}
+						</div>
+					</div>
+				)}
+			</div>
+		) : (
+			<div class="bg-gray-50 rounded-lg p-8 text-center">
+				<p class="text-gray-600 text-lg">N/A</p>
+			</div>
+		)}
+
+		<!-- New search button -->
+		<div class="mt-12 text-center">
+			<a 
+				href="/" 
+				class="inline-flex items-center gap-3 px-8 py-4 bg-white border-2 border-(--color-primary) text-(--color-primary) font-semibold text-lg rounded-lg hover:bg-(--color-primary) hover:text-white transition-all duration-200 shadow-md hover:shadow-lg"
+			>
+				<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+				</svg>
+				Nouvelle recherche
+			</a>
+		</div>
+	</div>
+</section>
+
+<style>
+	/* Clean section styling */
+	section {
+		font-family: system-ui, -apple-system, sans-serif;
+	}
+	
+	/* Remove link underline */
+	a {
+		text-decoration: none;
+	}
+</style>
+

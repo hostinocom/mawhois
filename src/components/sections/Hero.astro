@@ -1,6 +1,6 @@
 ---
 // Hero section with search functionality
-import DomainSearchForm from '../ui/DomainSearchForm';
+import DomainSearchForm from '../ui/DomainSearchForm.astro';
 
 interface Props {
 	registries: Array<{
@@ -25,8 +25,8 @@ const { registries } = Astro.props;
 			domaine dans <em class="italic font-serif">le<br />registre WHOIS Maroc</em>
 		</h1>
 
-	<!-- Search Form - React Component with client-side interactivity -->
-	<DomainSearchForm client:load registries={registries}  />
+	<!-- Search Form - Pure Astro Component (No JavaScript hydration needed) -->
+	<DomainSearchForm registries={registries} />
 	</div>
 </section>
 
