@@ -1,0 +1,138 @@
+---
+// FAQ section with accordion functionality
+interface FAQItem {
+	question: string;
+	answer: string;
+}
+
+const faqs: FAQItem[] = [
+	{
+		question: "Qu'est-ce que le Whois Maroc ?",
+		answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+	},
+	{
+		question: "Est-il obligatoire de fournir le CIN ou l'ICE pour enregistrer un domaine .MA ?",
+		answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+	},
+	{
+		question: "Comment mettre à jour mes informations sur le Whois Maroc ?",
+		answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+	},
+	{
+		question: "Le Whois Maroc est-il accessible au public ?",
+		answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+	},
+	{
+		question: "Mon domaine .ma est toujours en « Pending Create », quel est le problème ?",
+		answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit."
+	},
+	{
+		question: "Comment fonctionne le changement de propriétaire d'un domaine .MA ?",
+		answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+	},
+	{
+		question: "Mon domaine contient un terme réservé, que dois-je faire ?",
+		answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+	}
+];
+---
+
+<section class="bg-(--color-tertiary) px-6 py-20 md:py-32 md:px-16 lg:px-24">
+	<div class="max-w-4xl mx-auto">
+		<!-- Title -->
+		<h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold text-(--color-secondary) text-center mb-12 md:mb-16">
+			FAQ - Whois Maroc
+		</h2>
+		
+		<!-- FAQ Accordion -->
+		<div class="space-y-4">
+			{faqs.map((faq, index) => (
+				<div class="faq-item bg-white rounded-lg border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-md">
+					<button 
+						class="faq-question w-full text-left px-6 py-5 flex items-center justify-between gap-4 cursor-pointer transition-colors duration-200 hover:bg-gray-50"
+						aria-expanded="false"
+						data-faq-index={index}
+					>
+						<span class="text-base md:text-lg font-semibold text-gray-900 pr-4">
+							{faq.question}
+						</span>
+						<svg 
+							class="faq-icon w-5 h-5 text-(--color-primary) shrink-0 transition-transform duration-300"
+							fill="none" 
+							stroke="currentColor" 
+							viewBox="0 0 24 24"
+						>
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
+						</svg>
+					</button>
+					<div 
+						class="faq-answer overflow-hidden transition-all duration-300 ease-in-out"
+						style="max-height: 0; opacity: 0;"
+					>
+						<div class="px-6 py-5 text-gray-700 text-base md:text-lg leading-relaxed border-t border-gray-100">
+							{faq.answer}
+						</div>
+					</div>
+				</div>
+			))}
+		</div>
+	</div>
+</section>
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const faqItems = document.querySelectorAll('.faq-item');
+		
+		faqItems.forEach((item) => {
+			const button = item.querySelector('.faq-question') as HTMLButtonElement;
+			const answer = item.querySelector('.faq-answer') as HTMLElement;
+			const icon = item.querySelector('.faq-icon') as SVGElement;
+			
+			if (!button || !answer || !icon) return;
+			
+			button.addEventListener('click', () => {
+				const isOpen = button.getAttribute('aria-expanded') === 'true';
+				
+				// Close all other FAQ items
+				faqItems.forEach((otherItem) => {
+					if (otherItem !== item) {
+						const otherButton = otherItem.querySelector('.faq-question') as HTMLButtonElement;
+						const otherAnswer = otherItem.querySelector('.faq-answer') as HTMLElement;
+						const otherIcon = otherItem.querySelector('.faq-icon') as SVGElement;
+						
+						if (otherButton && otherAnswer && otherIcon) {
+							otherButton.setAttribute('aria-expanded', 'false');
+							otherAnswer.style.maxHeight = '0';
+							otherAnswer.style.opacity = '0';
+							otherIcon.style.transform = 'rotate(0deg)';
+						}
+					}
+				});
+				
+				// Toggle current item
+				if (isOpen) {
+					button.setAttribute('aria-expanded', 'false');
+					answer.style.maxHeight = '0';
+					answer.style.opacity = '0';
+					icon.style.transform = 'rotate(0deg)';
+				} else {
+					button.setAttribute('aria-expanded', 'true');
+					answer.style.maxHeight = answer.scrollHeight + 'px';
+					answer.style.opacity = '1';
+					icon.style.transform = 'rotate(180deg)';
+				}
+			});
+		});
+	});
+</script>
+
+<style>
+	.faq-answer {
+		transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+	}
+	
+	.faq-icon {
+		transition: transform 0.3s ease-in-out;
+	}
+</style>
+

@@ -4,6 +4,7 @@
 	/* Define your custom colors here */
 	--color-primary: #00CC61;
 	--color-secondary: #022545;
+	--color-tertiary: #eff6fd;
 }
 
 @layer base {
