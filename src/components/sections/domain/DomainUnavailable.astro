@@ -1,4 +1,6 @@
 ---
+import HeroSection from '../../ui/heroSection.astro';
+
 interface Props {
 	domain: string;
 	info?: any;
@@ -22,8 +24,7 @@ function formatDate(dateString: string): string {
 ---
 
 <!-- Hero Section -->
-<section class="bg-(--color-secondary) px-6 py-16 md:py-20 lg:py-24 md:px-10 lg:px-20">
-	<div class="max-w-7xl mx-auto text-center">
+<HeroSection center={true}>
 		<h1 class="text-white text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light mb-12 leading-none">
 			Le domaine <br />
 			<em class="italic font-serif text-(--color-primary)">{domain}</em> <br />
@@ -47,8 +48,7 @@ function formatDate(dateString: string): string {
 				</svg>
 			</a>
 		</div>
-	</div>
-</section>
+</HeroSection>
 
 <!-- WHOIS Information Section -->
 <section id="whois-info" class="bg-white min-h-screen px-6 py-12 md:px-12 lg:px-16">

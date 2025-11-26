@@ -2,11 +2,11 @@
 // Hero section with search functionality
 import DomainSearchForm from '../../ui/DomainSearchForm.astro';
 import { registries } from '../../../config/registries.ts';
+import HeroSection from '../../ui/heroSection.astro';
 
 ---
 
-<section class="bg-(--color-secondary) px-3 py-16 md:py-20 lg:py-24 md:px-10 lg:px-20">
-	<div class="max-w-7xl mx-auto">
+<HeroSection>
 		<!-- Breadcrumb -->
 		<h1 class="text-white/70 text-xs mb-8">Whois Maroc</h1>
 		
@@ -18,8 +18,7 @@ import { registries } from '../../../config/registries.ts';
 
 	<!-- Search Form - Pure Astro Component (No JavaScript hydration needed) -->
 	<DomainSearchForm registries={registries} />
-	</div>
-</section>
+</HeroSection>
 
 <style>
 	/* Responsive text sizing */
