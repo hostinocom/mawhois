@@ -1,0 +1,40 @@
+---
+// Hero section for Nom de domaine Maroc page
+import DomainSearchForm from '../../ui/DomainSearchForm.astro';
+import { registries } from '../../../config/registries.ts';
+---
+
+<section class="bg-(--color-secondary) px-6 py-20 md:py-32 lg:py-40 md:px-16 lg:px-24">
+	<div class="max-w-7xl mx-auto text-center">
+		<!-- Top text -->
+		<h2 class="text-white/70 text-base md:text-lg mb-8">
+			Nom de domaine Maroc
+		</h2>
+		
+		<!-- Main Heading -->
+		<h1 class="text-white text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light mb-4 leading-none">
+			Acheter un nom<br />
+			de domaine .MA
+		</h1>
+		
+		<!-- Price -->
+		<p class="text-(--color-primary) text-2xl md:text-3xl lg:text-4xl italic font-serif mb-12">
+			à 118 MAD
+		</p>
+
+		<!-- Search Form -->
+		<div class="flex justify-center">
+			<DomainSearchForm registries={registries} />
+		</div>
+	</div>
+</section>
+
+<style>
+	/* Responsive text sizing */
+	@media (max-width: 640px) {
+		h1 {
+			font-size: 2rem;
+		}
+	}
+</style>
+

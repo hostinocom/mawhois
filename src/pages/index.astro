@@ -8,8 +8,8 @@ import UseCases from '../components/sections/landing-page/UseCases.astro';
 import PublicData from '../components/sections/landing-page/PublicData.astro';
 import Privacy from '../components/sections/landing-page/Privacy.astro';
 import Reliability from '../components/sections/landing-page/Reliability.astro';
-import FAQ from '../components/sections/landing-page/FAQ.astro';
-
+import FAQ from '../components/ui/FAQ.astro';
+import { faqsLandingPage } from '../config/faqsContent';
 ---
 	
 <Layout>
@@ -23,5 +23,5 @@ import FAQ from '../components/sections/landing-page/FAQ.astro';
 	<PublicData />
 	<Privacy />
 	<Reliability />
-	<FAQ />
+	<FAQ faqs={faqsLandingPage} title="FAQ - Whois Maroc" />
 </Layout>
