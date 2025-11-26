@@ -1,17 +1,8 @@
 ---
 // Hero section with search functionality
 import DomainSearchForm from '../ui/DomainSearchForm.astro';
+import { registries } from '../../config/registries.ts';
 
-interface Props {
-	registries: Array<{
-		code: string;
-		name: string;
-		placeholder: string;
-		extension: string;
-	}>;
-}
-
-const { registries } = Astro.props;
 ---
 
 <section class="bg-(--color-secondary) px-3 py-16 md:py-20 lg:py-24 md:px-10 lg:px-20">

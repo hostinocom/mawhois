@@ -9,13 +9,14 @@ import PublicData from '../components/sections/PublicData.astro';
 import Privacy from '../components/sections/Privacy.astro';
 import Reliability from '../components/sections/Reliability.astro';
 import FAQ from '../components/sections/FAQ.astro';
-import { registries } from '../config/registries';
+
 ---
 	
 <Layout>
 	<!-- Home Page -->
 	<Header />
-	<Hero registries={registries} />
+	
+	<Hero />
 	<Description />
 	<ServiceInfo />
 	<UseCases />
