@@ -1,0 +1,10 @@
+---
+// Reusable section wrapper component
+const { backgroundColor = 'bg-white' } = Astro.props;
+---
+
+<section class={`${backgroundColor} px-6 py-20 md:py-32 md:px-16 lg:px-24`}>
+	<div class="max-w-7xl mx-auto">
+        <slot />
+    </div>
+</section>
