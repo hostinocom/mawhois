@@ -1,12 +1,12 @@
 ---
 import type { FAQItem } from '../../config/faqsContent';
+import Section from './Section.astro';
 
 const { faqs, title } = Astro.props as { faqs: FAQItem[], title: string };
 
 ---
 
-<section class="bg-white px-6 py-20 md:py-32 md:px-16 lg:px-24">
-	<div class="max-w-7xl mx-auto">
+<Section>
 		<!-- Title -->
 		<h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold text-(--color-secondary) text-center leading-tight mb-12 md:mb-16">
 			{title}
@@ -44,8 +44,7 @@ const { faqs, title } = Astro.props as { faqs: FAQItem[], title: string };
 				</div>
 			))}
 		</div>
-	</div>
-</section>
+</Section>
 
 <script>
 	document.addEventListener('DOMContentLoaded', () => {

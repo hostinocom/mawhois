@@ -28,8 +28,10 @@
 		opacity: 0.6;
 	}
 
-	/* Focus states */
-	input:focus,
+	/* Input cursor - should be text cursor, not pointer */
+	input {
+		cursor: text;
+	}
 
 	/* Custom select styling */
 	select {
