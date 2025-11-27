@@ -2,7 +2,7 @@
 // Public data access section explaining what information is available
 import Section from '../../ui/Section.astro';
 import Title from '../../ui/Title.astro';
-
+import Paragraph from '../../ui/Paragraph.astro';
 ---
 
 <Section backgroundColor="bg-white">
@@ -13,7 +13,7 @@ import Title from '../../ui/Title.astro';
 					Accès aux données publiques via Whois Maroc
 				</Title>
 				
-				<div class="space-y-4 text-(--color-secondary) text-base md:text-xl leading-relaxed">
+				<Paragraph>
 					<p>
 						Les données accessibles via notre platform Whois Maroc regroupent l'ensemble des <strong>informations publiques</strong> liées à un domaine enregistré sous l'extension .MA.
 					</p>
@@ -25,7 +25,7 @@ import Title from '../../ui/Title.astro';
 					<p>
 						Vous pouvez également consulter le prestataire responsable du domaine et ses coordonnées. Le service affiche en outre les <strong>serveurs DNS</strong> associés, les données du titulaire du domaine, telles que le nom, l'organisation, l'adresse e-mail ou le numéro de téléphone.
 					</p>
-				</div>
+				</Paragraph>
 			</div>
 			
 			<!-- Right column: Image -->

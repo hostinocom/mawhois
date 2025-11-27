@@ -2,6 +2,7 @@
 // Privacy section explaining WHOIS Privacy for .MA domains
 import Section from '../../ui/Section.astro';
 import Title from '../../ui/Title.astro';
+import Paragraph from '../../ui/Paragraph.astro';
 ---
 
 <Section backgroundColor="bg-white">
@@ -12,7 +13,7 @@ import Title from '../../ui/Title.astro';
 					Whois Privacy : confidentialité des informations pour les domaines .MA
 				</Title>
 				
-				<div class="space-y-4 text-(--color-secondary) text-base md:text-xl leading-relaxed">
+				<Paragraph>
 					<p>
 						L'option <strong>"Whois Privacy .MA"</strong> n'est pas proposée pour les domaines .ma. Selon les informations officielles, toutes les données de contact essentielles des titulaires sont rendues publiques dans la base WHOIS du registre .MA.
 					</p>
@@ -28,7 +29,7 @@ import Title from '../../ui/Title.astro';
 					<p>
 						Toute tentative de masquer ces informations (via un service de "privacy WHOIS") n'est légalement pas autorisée pour les domaines .ma.
 					</p>
-				</div>
+				</Paragraph>
 			</div>
 			
 			<!-- Right column: Image -->
