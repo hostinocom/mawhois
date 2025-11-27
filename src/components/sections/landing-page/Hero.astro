@@ -6,17 +6,19 @@ import HeroSection from '../../ui/HeroSection.astro';
 
 ---
 
-<HeroSection>
+<HeroSection center={true}>
 		<!-- Breadcrumb -->
-		<h1 class="text-white/70 text-xs md:text-xl mb-8">Whois Maroc</h1>
+		<h1 class="text-white/70 text-base md:text-xl mb-4 md:mb-8">Whois Maroc</h1>
 		
 		<!-- Main Heading -->
-		<h2 class="text-white text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light mb-12 leading-none">
+		<h2 class="text-white text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light mb-8 md:mb-12 leading-none">
 			Recherche d'un<br />
 			domaine dans <em class="italic font-serif">le<br />registre WHOIS Maroc</em>
 		</h2>
 
 	<!-- Search Form - Pure Astro Component (No JavaScript hydration needed) -->
-	<DomainSearchForm registries={registries} />
+	<div class="flex justify-center">
+		<DomainSearchForm registries={registries} />
+	</div>
 </HeroSection>
 
