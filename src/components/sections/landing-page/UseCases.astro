@@ -2,6 +2,8 @@
 // Use cases section explaining what WHOIS Maroc tool is used for
 import Section from '../../ui/Section.astro';
 import Title from '../../ui/Title.astro';
+import Subtitle from '../../ui/Subtitle.astro';
+import Paragraph from '../../ui/Paragraph.astro';
 ---
 
 <Section backgroundColor="bg-white">
@@ -18,42 +20,50 @@ import Title from '../../ui/Title.astro';
 		<div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12 md:gap-y-16">
 			<!-- Use case 1 -->
 			<div class="space-y-4">
-				<h3 class="text-xl md:text-2xl lg:text-3xl font-semibold text-(--color-secondary)">
+				<Subtitle>
 					Vérifier la disponibilité d'un domaine .MA
-				</h3>
-				<p class="text-(--color-secondary) text-base md:text-xl leading-relaxed">
-					L'outil Whois Maroc permet de <strong>vérifier la disponibilité</strong> d'un domaine .MA. Testez votre nom ou ses variantes pour trouver rapidement le domaine idéal pour votre site web.
-				</p>
+				</Subtitle>
+				<Paragraph>
+					<p>
+						L'outil Whois Maroc permet de <strong>vérifier la disponibilité</strong> d'un domaine .MA. Testez votre nom ou ses variantes pour trouver rapidement le domaine idéal pour votre site web.
+					</p>
+				</Paragraph>
 			</div>
 			
 			<!-- Use case 2 -->
 			<div class="space-y-4">
-				<h3 class="text-xl md:text-2xl lg:text-3xl font-semibold text-(--color-secondary)">
+				<Subtitle>
 					Trouver le propriétaire d'un domaine .MA
-				</h3>
-				<p class="text-(--color-secondary) text-base md:text-xl leading-relaxed">
-					Consultez les informations publiques (nom, e-mail, téléphone) du <strong>propriétaire d'un domaine</strong> .MA enregistré, ainsi que toutes les données fournies par le registre .MA.
-				</p>
+				</Subtitle>
+				<Paragraph>
+					<p>
+						Consultez les informations publiques (nom, e-mail, téléphone) du <strong>propriétaire d'un domaine</strong> .MA enregistré, ainsi que toutes les données fournies par le registre .MA.
+					</p>
+				</Paragraph>
 			</div>
 			
 			<!-- Use case 3 -->
 			<div class="space-y-4">
-				<h3 class="text-xl md:text-2xl lg:text-3xl font-semibold text-(--color-secondary)">
+				<Subtitle>
 					Consulter la date d'expiration du domaine
-				</h3>
-				<p class="text-(--color-secondary) text-base md:text-xl leading-relaxed">
+				</Subtitle>
+				<Paragraph>
+					<p>
 					Consultez la date d'expiration d'un domaine, ainsi que les informations de renouvellement et le bureau d'enregistrement, <strong>pour éviter toute interruption</strong> de service.
-				</p>
+					</p>
+				</Paragraph>
 			</div>
 			
 			<!-- Use case 4 -->
 			<div class="space-y-4">
-				<h3 class="text-xl md:text-2xl lg:text-3xl font-semibold text-(--color-secondary)">
+				<Subtitle>
 					État d'un domaine .MA
-				</h3>
-				<p class="text-(--color-secondary) text-base md:text-xl leading-relaxed">
-					Whois Maroc affiche le statut d'un domaine .MA — <strong>pending create</strong>, pending transfer, redemption period — et de suivre son cycle de vie en temps réel.
-				</p>
+				</Subtitle>
+				<Paragraph>
+					<p>
+						Whois Maroc affiche le statut d'un domaine .MA — <strong>pending create</strong>, pending transfer, redemption period — et de suivre son cycle de vie en temps réel.
+					</p>
+				</Paragraph>
 			</div>
 		</div>
 </Section>
