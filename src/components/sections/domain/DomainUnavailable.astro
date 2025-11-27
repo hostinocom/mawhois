@@ -1,6 +1,7 @@
 ---
 import HeroSection from '../../ui/HeroSection.astro';
 import DownArrow from '../../ui/DownArrow.astro';
+import Section from '../../ui/Section.astro';
 
 interface Props {
 	domain: string;
@@ -37,8 +38,7 @@ function formatDate(dateString: string): string {
 </HeroSection>
 
 <!-- WHOIS Information Section -->
-<section id="whois-info" class="bg-white min-h-screen px-6 py-12 md:px-12 lg:px-16">
-	<div class="max-w-5xl mx-auto">
+<Section backgroundColor="bg-white" extraClasses="pt-20">
 		<!-- Section Title -->
 		<div class="mb-8">
 			<h2 class="text-2xl md:text-3xl font-normal text-(--color-secondary) flex items-center gap-2">
@@ -66,8 +66,23 @@ function formatDate(dateString: string): string {
 							<div class="text-gray-900">
 								{(() => {
 									try {
-										const status = info['Domain Status'] || info.status || '';
-										return status.toLowerCase().includes('active') ? 'Disponible' : 'Indisponible';
+										const status = info['Domain Status'] || info.status;
+										
+										if (!status) {
+											return 'N/A';
+										}
+										
+										// Handle array of strings
+										if (Array.isArray(status)) {
+											return status.length > 0 ? status.join(', ') : 'N/A';
+										}
+										
+										// Handle string
+										if (typeof status === 'string') {
+											return status;
+										}
+										
+										return 'N/A';
 									} catch (error) {
 										return 'N/A';
 									}
@@ -218,6 +233,5 @@ function formatDate(dateString: string): string {
 				Nouvelle recherche
 			</a>
 		</div>
-	</div>
-</section>
+</Section>
 
