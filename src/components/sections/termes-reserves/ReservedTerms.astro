@@ -1,0 +1,114 @@
+---
+// Reserved terms list section with search functionality
+import Section from '../../ui/Section.astro';
+import Title from '../../ui/Title.astro';
+import { reservedTerms } from '../../../config/reservedTerms';
+---
+
+<Section backgroundColor="bg-white">
+	<Title>
+		Liste des termes réservés
+	</Title>
+	
+	<!-- Search Box -->
+	<div class="mb-8 md:mb-12">
+		<div class="relative max-w-2xl mx-auto">
+			<input 
+				type="text" 
+				id="searchInput" 
+				placeholder="Rechercher un terme réservé..." 
+				class="w-full px-6 py-4 pl-12 text-base md:text-lg text-(--color-secondary) bg-gray-50 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-(--color-primary) focus:bg-white transition-all duration-200 placeholder:text-gray-400"
+			/>
+			<svg 
+				class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" 
+				fill="none" 
+				stroke="currentColor" 
+				viewBox="0 0 24 24"
+			>
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+			</svg>
+		</div>
+	</div>
+
+	<!-- Categories Container -->
+	<div id="categoriesContainer" class="space-y-8 md:space-y-12"></div>
+	
+	<!-- Source Link -->
+	<div class="mt-12 md:mt-16 pt-8 border-t border-gray-200">
+		<p class="text-center text-sm md:text-base text-gray-600">
+			<strong class="text-(--color-secondary)">Source :</strong>{' '}
+			<a 
+				href="https://www.registre.ma/wp-content/themes/domaine/pdf/Liste_terme_reserves.pdf" 
+				target="_blank" 
+				rel="noopener noreferrer"
+				class="text-(--color-primary) hover:underline transition-colors"
+			>
+				Liste officielle des termes réservés (PDF)
+			</a>
+		</p>
+	</div>
+</Section>
+
+<script define:vars={{ reservedTerms }}>
+	document.addEventListener('DOMContentLoaded', () => {
+		const container = document.getElementById('categoriesContainer');
+		const searchInput = document.getElementById('searchInput');
+		
+		if (!container || !searchInput) return;
+		
+		function renderCategories(searchTerm = '') {
+			container.innerHTML = '';
+			const normalizedSearch = searchTerm.toLowerCase().trim();
+			
+			for (const [category, terms] of Object.entries(reservedTerms)) {
+				const filteredTerms = terms.filter(term => 
+					normalizedSearch === '' || term.toLowerCase().includes(normalizedSearch)
+				);
+				
+				if (filteredTerms.length === 0) continue;
+				
+				const section = document.createElement('div');
+				section.className = 'category-section bg-gray-50 rounded-xl p-6 md:p-8 border border-gray-200';
+				
+				const header = document.createElement('h3');
+				header.className = 'text-xl md:text-2xl font-semibold text-(--color-secondary) mb-4 md:mb-6';
+				header.textContent = category;
+				section.appendChild(header);
+				
+				const grid = document.createElement('div');
+				grid.className = 'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4';
+				
+				filteredTerms.forEach(term => {
+					const item = document.createElement('div');
+					item.className = 'term-badge bg-white px-3 py-2 rounded-lg border border-gray-200 text-sm md:text-base text-(--color-secondary) text-center font-medium transition-all duration-200 hover:border-(--color-primary) hover:shadow-md hover:scale-105';
+					item.textContent = term;
+					grid.appendChild(item);
+				});
+				
+				section.appendChild(grid);
+				container.appendChild(section);
+			}
+			
+			// Show message if no results
+			if (normalizedSearch && container.children.length === 0) {
+				const noResults = document.createElement('div');
+				noResults.className = 'text-center py-12';
+				noResults.innerHTML = `
+					<p class="text-lg md:text-xl text-gray-500 mb-2">Aucun terme trouvé</p>
+					<p class="text-sm md:text-base text-gray-400">Essayez une autre recherche</p>
+				`;
+				container.appendChild(noResults);
+			}
+		}
+		
+		searchInput.addEventListener('input', (e) => {
+			const target = e.target;
+			if (target && 'value' in target) {
+				renderCategories(target.value);
+			}
+		});
+		
+		// Initial render
+		renderCategories();
+	});
+</script>
