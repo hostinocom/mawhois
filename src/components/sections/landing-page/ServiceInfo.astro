@@ -3,44 +3,32 @@
 import Section from '../../ui/Section.astro';
 import Title from '../../ui/Title.astro';
 import Paragraph from '../../ui/Paragraph.astro';
+import TextImageSection from '../../ui/TextImageSection.astro';
 ---
 
 <Section backgroundColor="bg-white">
-		<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-			<!-- Left column: Text content -->
-			<div class="space-y-6">
-				<Title>
-					Service WHOIS — Base de données du registre .MA
-				</Title>
+	<TextImageSection image="/service-whois-maroc.jpg" alt="Service WHOIS Maroc - Logo .MA et drapeau marocain avec ANRT">
+		<Title>
+			Service WHOIS — Base de données du registre .MA
+		</Title>
 				
-				<Paragraph>
-					<p>
-						Avec notre service Whois Maroc, accédez instantanément aux <strong>informations publiques</strong> de n'importe quel nom de domaine.ma.
-					</p>
+		<Paragraph>
+			<p>
+			   Avec notre service Whois Maroc, accédez instantanément aux <strong>informations publiques</strong> de n'importe quel nom de domaine.ma.
+			</p>
 					
-					<p>
-						En interrogeant la base officielle gérée par l'ANRT, vous vérifiez en temps réel la disponibilité et les données techniques d'un site web.
-					</p>
+			<p>
+				En interrogeant la base officielle gérée par l'ANRT, vous vérifiez en temps réel la disponibilité et les données techniques d'un site web.
+			</p>
 					
-					<p>
-						Vous obtiendrez des détails précis sur le titulaire, affichant le nom de la société pour les <strong>personnes morales</strong> ou l'identité pour les <strong>personnes physiques</strong>.
-					</p>
+			<p>
+				Vous obtiendrez des détails précis sur le titulaire, affichant le nom de la société pour les <strong>personnes morales</strong> ou l'identité pour les <strong>personnes physiques</strong>.
+			</p>
 					
-					<p>
-						Notez toutefois que l'utilisation de ces données est restreinte. La <strong>consultation du WHOIS</strong> est limitée à la recherche sur les domaines «.ma », les serveurs et les contacts, uniquement dans le cadre légitime de l'enregistrement ou de la gestion d'un nom de domaine.
-					</p>
-				</Paragraph>
-			</div>
-			
-			<!-- Right column: Image -->
-			<div class="flex justify-center lg:justify-end">
-				<img 
-					src="/service-whois-maroc.jpg" 
-					alt="Service WHOIS Maroc - Logo .MA et drapeau marocain avec ANRT"
-					class="w-full max-w-md lg:max-w-lg object-contain"
-					loading="lazy"
-				/>
-			</div>
-		</div>
+			<p>
+				Notez toutefois que l'utilisation de ces données est restreinte. La <strong>consultation du WHOIS</strong> est limitée à la recherche sur les domaines «.ma », les serveurs et les contacts, uniquement dans le cadre légitime de l'enregistrement ou de la gestion d'un nom de domaine.
+			</p>
+		</Paragraph>
+	</TextImageSection>		
 </Section>
 

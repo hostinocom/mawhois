@@ -3,40 +3,28 @@
 import Section from '../../ui/Section.astro';
 import Title from '../../ui/Title.astro';
 import Paragraph from '../../ui/Paragraph.astro';
+import TextImageSection from '../../ui/TextImageSection.astro';
 ---
 
 <Section backgroundColor="bg-white">
-		<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-			<!-- Left column: Text content -->
-			<div class="space-y-6">
-				<Title>
-					Qu'est ce qu'un nom de domaine Maroc ?
-				</Title>
+	<TextImageSection image="/nom-de-domaine-maroc-que.jpg" alt="Service WHOIS Maroc - Logo .MA et drapeau marocain avec ANRT">
+		<Title>
+			Qu'est ce qu'un nom de domaine Maroc ?
+		</Title>
 				
-				<Paragraph>
-					<p>
-						Un nom de domaine marocain est toute adresse de site web se terminant par l'<strong>extension nationale .ma</strong>, servant d'identifiant unique et mémorable sur Internet.
-					</p>
+		<Paragraph>
+			<p>
+				Un nom de domaine marocain est toute adresse de site web se terminant par l'<strong>extension nationale .ma</strong>, servant d'identifiant unique et mémorable sur Internet.
+			</p>
 					
-					<p>
-						Ce <strong>domaine national de premier niveau (ccTLD)</strong> est essentiel pour les entreprises, professionnels ou particuliers souhaitant établir une identité numérique forte et crédible au Maroc, signalant aux clients et aux moteurs de recherche que votre contenu est destiné au marché marocain.
-					</p>
+			<p>
+				Ce <strong>domaine national de premier niveau (ccTLD)</strong> est essentiel pour les entreprises, professionnels ou particuliers souhaitant établir une identité numérique forte et crédible au Maroc, signalant aux clients et aux moteurs de recherche que votre contenu est destiné au marché marocain.
+			</p>
 					
-					<p>
-						L'enregistrement des domaines <strong>".ma"</strong> <strong>est ouvert à tous</strong> les projets liés au Maroc, sans exigence de résidence ou de présence physique dans le pays.
-					</p>
-				</Paragraph>
-			</div>
-			
-			<!-- Right column: Image -->
-			<div class="flex justify-center lg:justify-end">
-				<img 
-					src="/nom-de-domaine-maroc-que.jpg" 
-					alt="Service WHOIS Maroc - Logo .MA et drapeau marocain avec ANRT"
-					class="w-full max-w-md lg:max-w-lg object-contain"
-					loading="lazy"
-				/>
-			</div>
-		</div>
+		    <p>
+				L'enregistrement des domaines <strong>".ma"</strong> <strong>est ouvert à tous</strong> les projets liés au Maroc, sans exigence de résidence ou de présence physique dans le pays.
+			</p>
+		</Paragraph>
+	</TextImageSection>
 </Section>
 

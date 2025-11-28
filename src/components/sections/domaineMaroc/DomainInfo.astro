@@ -3,45 +3,33 @@
 import Section from '../../ui/Section.astro';
 import Title from '../../ui/Title.astro';
 import Paragraph from '../../ui/Paragraph.astro';
+import TextImageSection from '../../ui/TextImageSection.astro';
 ---
 
 <Section backgroundColor="bg-white">
 	<!-- extraClasses="pt-30" -->
-		<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-			<!-- Left column: Text content -->
-			<div class="space-y-6">
-				<Title>
-					Nom de domaine en .MA
-				</Title>
+	<TextImageSection image="/nom-domaine-maroc.jpg" alt="Service WHOIS Maroc - Logo .MA et drapeau marocain avec ANRT">
+		<Title>
+			Nom de domaine en .MA
+		</Title>
 				
-				<Paragraph>
-					<p>
-						Nous accompagnons nos clients, particuliers et professionnels, au <strong>Maroc et à l'étranger</strong>, dans l'acquisition, la gestion et la <strong>protection</strong> de leurs noms de domaine .ma.
-					</p>
+		<Paragraph>
+			<p>
+				Nous accompagnons nos clients, particuliers et professionnels, au <strong>Maroc et à l'étranger</strong>, dans l'acquisition, la gestion et la <strong>protection</strong> de leurs noms de domaine .ma.
+			</p>
 					
-					<p>
-						Depuis nos bureaux au Maroc, notre équipe d'experts vous propose un service <strong>client réactif</strong> et une <strong>plateforme intuitive</strong>, facile à utiliser, vous permettant de gérer simplement et à tout moment tous les aspects de vos noms de domaine.
-					</p>
+			<p>
+				Depuis nos bureaux au Maroc, notre équipe d'experts vous propose un service <strong>client réactif</strong> et une <strong>plateforme intuitive</strong>, facile à utiliser, vous permettant de gérer simplement et à tout moment tous les aspects de vos noms de domaine.
+			</p>
 					
-					<p>
-						Grâce à l'automatisation des processus, l'<strong>activation immédiate</strong> d'un nom de domaine .ma est effective après validation de votre commande, vous permettant de lancer vos projets sans délai.
-					</p>
+			<p>
+				Grâce à l'automatisation des processus, l'<strong>activation immédiate</strong> d'un nom de domaine .ma est effective après validation de votre commande, vous permettant de lancer vos projets sans délai.
+			</p>
 					
-					<p>
-						En tant que Bureau d'enregistrement accrédité par l'ANRT (sous le numéro ANRT/SVA/"MA"/119/2022), nous garantissons un service conforme aux <strong>normes locales</strong> les plus rigoureuses.
-					</p>
-				</Paragraph>
-			</div>
-			
-			<!-- Right column: Image -->
-			<div class="flex justify-center lg:justify-end">
-				<img 
-					src="/nom-domaine-maroc.jpg" 
-					alt="Service WHOIS Maroc - Logo .MA et drapeau marocain avec ANRT"
-					class="w-full max-w-md lg:max-w-lg object-contain"
-					loading="lazy"
-				/>
-			</div>
-		</div>
+			<p>
+				En tant que Bureau d'enregistrement accrédité par l'ANRT (sous le numéro ANRT/SVA/"MA"/119/2022), nous garantissons un service conforme aux <strong>normes locales</strong> les plus rigoureuses.
+			</p>
+		</Paragraph>
+	</TextImageSection>
 </Section>
 
