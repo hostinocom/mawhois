@@ -1,14 +1,14 @@
 ---
 export const prerender = false; // this page becomes SSR
 
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/layout/Header.astro';
-import Footer from '../components/layout/Footer.astro';
-import DomainAvailable from '../components/sections/domain/DomainAvailable.astro';
-import DomainUnavailable from '../components/sections/domain/DomainUnavailable.astro';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/layout/Header.astro';
+import Footer from '../../components/layout/Footer.astro';
+import DomainAvailable from '../../components/sections/domain/DomainAvailable.astro';
+import DomainUnavailable from '../../components/sections/domain/DomainUnavailable.astro';
 
-// Get domain from URL
-const domain = Astro.url.searchParams.get('domain');
+// Get domain from URL params
+const domain = Astro.params.id;
 
 // Fetch WHOIS data server-side
 let result = null;
