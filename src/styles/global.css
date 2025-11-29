@@ -105,7 +105,7 @@
 /* Cookie Consent Styles */
 #cc-main {
 	--cc-font-family: var(--font-sans);
-	--cc-text-color: var(--color-secondary);
+	--cc-text: var(--color-secondary);
 
 	/** Change button primary color to black **/
 	--cc-btn-primary-bg: var(--color-primary);
