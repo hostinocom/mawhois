@@ -74,7 +74,31 @@ const defaultRegistry = registries[0];
 <script>
 	// Parse domain to extract extension if present
 	function parseDomain(input: string, fallbackExtension: string, registries: any[]): { domain: string; extension: string } {
-		const trimmed = input.trim().toLowerCase();
+		let trimmed = input.trim().toLowerCase();
+		
+		// Remove leading slashes
+		trimmed = trimmed.replace(/^\/+/g, '');
+		
+		// Extract domain from URL if input is a full URL
+		try {
+			// Check if input looks like a URL (contains protocol or starts with www.)
+			if (trimmed.includes('://') || trimmed.startsWith('www.')) {
+				// If it doesn't have a protocol, add http:// for URL parsing
+				const urlString = trimmed.includes('://') ? trimmed : `http://${trimmed}`;
+				const url = new URL(urlString);
+				
+				// Extract hostname (domain)
+				let hostname = url.hostname;
+				
+				// Remove www. prefix if present
+				hostname = hostname.replace(/^www\./i, '');
+				
+				trimmed = hostname;
+			}
+		} catch (error) {
+			// If URL parsing fails, continue with the original trimmed input
+			// This handles cases where it's not a valid URL format
+		}
 		
 		// Sort registries by extension length (longest first) to match more specific extensions first
 		const sortedRegistries = [...registries].sort((a, b) => b.extension.length - a.extension.length);
