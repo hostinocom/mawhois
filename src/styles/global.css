@@ -101,3 +101,21 @@
 		background: #94a3b8;
 	}
 }
+
+/* Cookie Consent Styles */
+#cc-main {
+	--cc-font-family: var(--font-sans);
+
+	/** Change button primary color to black **/
+	--cc-btn-primary-bg: var(--color-primary);
+	--cc-btn-primary-border-color: var(--color-primary);
+	--cc-btn-primary-hover-bg: var(--color-secondary); 
+	--cc-btn-primary-hover-border-color: var(--color-secondary);
+
+	/** Also make toggles the same color as the button **/
+	--cc-toggle-on-bg: var(--cc-btn-primary-bg);
+
+	/** Make the buttons a bit rounder **/
+	--cc-btn-border-radius: 10px;
+  }
+  

@@ -24,6 +24,12 @@ const { domain } = Astro.props;
 		<h2 class="text-white text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light mb-12 leading-none">
 			<em class="text-(--color-primary) italic font-serif">{domain}</em> est disponible!
 		</h2>
+
+		<!-- Price -->
+		<p class="text-white text-xl md:text-2xl mb-8">
+			1 an à <span class="font-bold">118.00 MAD</span> <br>
+			+ DNS Gratuit
+		</p>
 		
 		<!-- Register button -->
 		<div class="mb-8">
@@ -31,12 +37,6 @@ const { domain } = Astro.props;
 				Ajouter au panier
 			</Button>
 		</div>
-		
-		<!-- Price -->
-		<p class="text-white text-xl md:text-2xl">
-			1 an à <span class="font-bold">118.00 MAD</span> <br>
-			+ DNS Gratuit
-		</p>
 		
 		<!-- Down Arrow Indicator -->
 		<DownArrow />
