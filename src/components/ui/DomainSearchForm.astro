@@ -174,9 +174,27 @@ const defaultRegistry = registries[0];
 				return;
 			}
 			
-			// Build full domain and redirect
-			const fullDomain = domain + extension;
-			window.location.href = `/domain/${encodeURIComponent(fullDomain)}`;
+		async function loadSignature(fullDomain: string) {
+			try {
+				const response = await fetch('/api/search', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify({ fullDomain }),
+				});
+				const data = await response.json();
+				if (data.success) {
+					window.location.href = `/domain/${encodeURIComponent(fullDomain)}?sig=${data.signature}`;
+				} else {
+					showError(data.error || 'Une erreur est survenue');
+				}
+			} catch (error) {
+				showError('Une erreur est survenue');
+			}
+		}
+		loadSignature(domain + extension);
+
 		});
 	});
 </script>

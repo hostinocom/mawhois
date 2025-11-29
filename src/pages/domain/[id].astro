@@ -4,27 +4,56 @@ export const prerender = false; // this page becomes SSR
 import Layout from '../../layouts/Layout.astro';
 import DomainAvailable from '../../components/sections/domain/DomainAvailable.astro';
 import DomainUnavailable from '../../components/sections/domain/DomainUnavailable.astro';
+import { jwtVerify, type JWTPayload } from 'jose';
 
 // Get domain from URL params
 const domain = Astro.params.id;
+const signature = Astro.url.searchParams.get('sig');
 
-// Fetch WHOIS data server-side
-let result = null;
-
-if (domain) {
-	const apiUrl = import.meta.env.PUBLIC_API_URL || 'http://localhost:4321';
-	try {
-		const response = await fetch(`${apiUrl}/api/whois?domain=${encodeURIComponent(domain)}`);
-		result = await response.json();
-		console.log("WHOIS data:", result);
-	} catch (error) {
-		console.error('Error fetching domain:', error);
-	}
+// Redirect to home if no domain parameter or signature
+if (!domain || !signature) {
+	return Astro.redirect('/');
 }
 
-// Redirect to home if no domain parameter
-if (!domain) {
+// Verify JWT signature and validate domain
+let isValid = false;
+let payload: JWTPayload | undefined;
+
+try {
+	const secret = import.meta.env.DOMAIN_SECRET_KEY || 'aaaaa39';
+	const secretKey = new TextEncoder().encode(secret);
+	
+	const verificationResult = await jwtVerify(signature, secretKey, {
+		algorithms: ['HS256'],
+	});
+	
+	payload = verificationResult.payload;
+	
+	// Verify the domain in the token matches the URL parameter
+	if (payload?.domain === domain) {
+		isValid = true;
+	}
+} catch (error) {
+	// JWT verification failed (expired, invalid signature, etc.)
+	console.error('JWT verification error:', error);
+	isValid = false;
+}
+
+// Redirect if signature is invalid or domain doesn't match
+if (!isValid) {
 	return Astro.redirect('/');
+}
+
+// Fetch WHOIS data server-side (only if signature is valid)
+let result = null;
+
+try {
+	const apiUrl = import.meta.env.PUBLIC_API_URL || 'http://localhost:4321';
+	const response = await fetch(`${apiUrl}/api/whois?domain=${encodeURIComponent(domain)}`);
+	result = await response.json();
+	console.log("WHOIS data:", result);
+} catch (error) {
+	console.error('Error fetching domain:', error);
 }
 ---
 
