@@ -1,7 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/layout/Header.astro';
-import Footer from '../components/layout/Footer.astro';
 import Hero from '../components/sections/domaineMaroc/Hero.astro';
 import DomainInfo from '../components/sections/domaineMaroc/DomainInfo.astro';
 import WhyRegister from '../components/sections/domaineMaroc/WhyRegister.astro';
@@ -15,7 +13,6 @@ import { faqsDomainMaroc } from '../config/faqsContent';
 ---
 
 <Layout>
-	<Header />
 	
 	<Hero />
 	<DomainInfo />
@@ -24,7 +21,5 @@ import { faqsDomainMaroc } from '../config/faqsContent';
 	<Pricing />
 	<FAQ faqs={faqsDomainMaroc} title="FAQ - Nom de domaine Maroc" />
 	
-	<Footer />
-
 </Layout>
 

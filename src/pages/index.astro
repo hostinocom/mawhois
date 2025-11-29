@@ -1,7 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/layout/Header.astro';
-import Footer from '../components/layout/Footer.astro';
 import Hero from '../components/sections/landing-page/Hero.astro';
 import Description from '../components/sections/landing-page/Description.astro';
 import ServiceInfo from '../components/sections/landing-page/ServiceInfo.astro';
@@ -14,8 +12,6 @@ import { faqsLandingPage } from '../config/faqsContent';
 ---
 	
 <Layout>
-	<!-- Home Page -->
-	<Header />
 
 	<Hero />
 	<Description />
@@ -26,5 +22,4 @@ import { faqsLandingPage } from '../config/faqsContent';
 	<Reliability />
 	<FAQ faqs={faqsLandingPage} title="FAQ - Whois Maroc" />
 	
-	<Footer />
 </Layout>

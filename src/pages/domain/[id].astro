@@ -2,8 +2,6 @@
 export const prerender = false; // this page becomes SSR
 
 import Layout from '../../layouts/Layout.astro';
-import Header from '../../components/layout/Header.astro';
-import Footer from '../../components/layout/Footer.astro';
 import DomainAvailable from '../../components/sections/domain/DomainAvailable.astro';
 import DomainUnavailable from '../../components/sections/domain/DomainUnavailable.astro';
 
@@ -31,7 +29,6 @@ if (!domain) {
 ---
 
 <Layout>
-	<Header />
 	
 	{result?.available ? (
 		<DomainAvailable domain={domain} />
@@ -39,5 +36,4 @@ if (!domain) {
 		<DomainUnavailable domain={domain} info={result?.info} />
 	)}
 	
-	<Footer />
 </Layout>
