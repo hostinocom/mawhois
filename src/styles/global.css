@@ -105,7 +105,7 @@
 /* Cookie Consent Styles */
 #cc-main {
 	--cc-font-family: var(--font-sans);
-	--cc-text: var(--color-secondary);
+	--cc-: var(--color-secondary);
 
 	/** Change button primary color to black **/
 	--cc-btn-primary-bg: var(--color-primary);
@@ -119,4 +119,36 @@
 	/** Make the buttons a bit rounder **/
 	--cc-btn-border-radius: 10px;
   }
+  
+  #cc-main .cm__body,
+  #cc-main .pm__header,
+  #cc-main .pm__body,
+  #cc-main .pm__footer,
+  #cc-main .pm__section-desc,
+  #cc-main .cm__footer,
+  #cc-main .cm__link,
+  #cc-main .cm__link:hover,
+  #cc-main .cm__link:active,
+  #cc-main .cm__link:focus,
+  #cc-main .cm__link:visited,
+  #cc-main .cm__link:focus-visible,
+  #cc-main .cm__link:focus-within,
+  #cc-main .cm__link:focus-visible:active,
+  #cc-main .cm__link:focus-visible:focus,
+  #cc-main .cm__link:focus-visible:visited,
+  #cc-main .cm__link:focus-visible:focus-within,
+  #cc-main .cm__title,
+  #cc-main .cm__desc,
+  #cc-main .cm__footer,
+  #cc-main .cc__link {
+  color: var(--color-secondary) !important;
+}
+
+#cc-main .pm__btn--secondary {
+	color: var(--color-secondary) !important;
+}
+
+#cc-main .cm__btn--secondary {
+	color: var(--color-secondary) !important;
+}
   
