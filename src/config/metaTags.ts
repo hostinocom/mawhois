@@ -37,24 +37,6 @@ const termesReservesMeta = {
 	imageUrl: defaultImageUrl,
 };
 
-// Helper function to create schema for domain search page
-export function createDomainSchema(domain: string) {
-	return {
-		"@context": "https://schema.org",
-		"@graph": [
-			{
-				"@type": "WebPage",
-				"@id": `${baseUrl}/domain/${domain}#webpage`,
-				url: `${baseUrl}/domain/${domain}`,
-				name: `Recherche WHOIS pour ${domain}`,
-				description: `Informations WHOIS et disponibilité du domaine ${domain}`,
-				isPartOf: {
-					"@id": `${baseUrl}/#website`,
-				},
-			},
-		],
-	};
-}
 
 export const metaTags = {
 	homePage: {
