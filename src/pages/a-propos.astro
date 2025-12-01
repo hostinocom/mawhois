@@ -2,10 +2,20 @@
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/sections/propos/Hero.astro';
 import About from '../components/sections/propos/About.astro';
+import { metaTags } from '../config/metaTags';
 
+const { title, description, canonical_url, ogAlt, imageUrl, articleSchema } = metaTags.aPropos;
 ---
 
-<Layout title="A propos de WHOIS Maroc">
+<Layout 
+	title={title}
+	description={description}
+	lang="fr"
+	canonical_url={canonical_url}
+	imageUrl={imageUrl}
+	ogAlt={ogAlt}
+	articleSchema={articleSchema}
+>
 	
 	<Hero />
 	<About />

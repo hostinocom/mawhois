@@ -6,24 +6,72 @@ import Footer from '../components/layout/Footer.astro';
 interface Props {
 	title?: string;
 	description?: string;
+	lang?: string;
+	canonical_url?: string;
+	imageUrl?: string;
+	ogAlt?: string;
+	articleSchema?: any;
 }
 
 const { 
 	title = "WHOIS Maroc - Recherche de domaine .MA", 
-	description = "Service de répertoire en ligne basé sur la base de données du registre .ma qui permet de rechercher des renseignements sur les noms de domaine."
+	description = "Service de répertoire en ligne basé sur la base de données du registre .ma qui permet de rechercher des renseignements sur les noms de domaine.",
+	lang = "fr",
+	canonical_url = "https://whoisma.com",
+	imageUrl = "https://whoisma.com/images/og-image.png",
+	ogAlt = "WHOIS Maroc - Recherche de domaine .MA",
+	articleSchema = null,
 } = Astro.props;
 ---
-
 <!doctype html>
-<html lang="fr">
+<html lang={lang == "en" ? "en-US" : "fr"} prefix="og:https://ogp.me/ns#">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta name="description" content={description} />
-		<meta name="generator" content={Astro.generator} />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+	
+		<!-- Title & Description -->
 		<title>{title}</title>
-	</head>
+		<meta name="description" content={description} />
+		<meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
+		<link rel="canonical" href={canonical_url} />
+
+		<!-- Open Graph -->
+		<meta property="og:type" content="website" />
+		<meta property="og:locale" content={lang == "en" ? "en_US" : "fr"} />
+		<meta property="og:url" content={canonical_url} />
+		<meta property="og:site_name" content="Hostino BE" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={imageUrl} />
+		<meta property="og:image:secure_url" content={imageUrl} />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta property="og:image:alt" content={ogAlt} />
+		<meta property="og:image:type" content="image/png" />
+
+		<!-- Twitter Card -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={imageUrl} />
+		<meta name="twitter:creator" content="@admin" />
+
+		<!-- Favicon -->
+		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+		<!-- DNS Prefetch & Preconnect (in order of priority) -->
+		<link rel="dns-prefetch" href="//www.whoisma.com" />
+
+		<!-- Critical Fonts (preload only fonts used above the fold) -->
+		<link rel="preload" href="/fonts/Poppins-Regular.woff2" as="font" type="font/woff2" crossorigin />
+		<link rel="preload" href="/fonts/Poppins-SemiBold.woff2" as="font" type="font/woff2" crossorigin />
+		<link rel="preload" href="/fonts/Poppins-Bold.woff2" as="font" type="font/woff2" crossorigin />
+
+		<!-- Structured Data (JSON-LD) -->
+		{articleSchema && (
+			<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+		)}
+    </head>
 	<body>
 		<Header />
 		<slot />

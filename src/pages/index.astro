@@ -9,9 +9,20 @@ import Privacy from '../components/sections/landing-page/Privacy.astro';
 import Reliability from '../components/sections/landing-page/Reliability.astro';
 import FAQ from '../components/ui/FAQ.astro';
 import { faqsLandingPage } from '../config/faqsContent';
+import { metaTags } from '../config/metaTags';
+
+const { title, description, canonical_url, ogAlt, imageUrl, articleSchema } = metaTags.homePage;
 ---
 	
-<Layout>
+<Layout 
+	title={title} 
+	description={description} 
+	lang="fr" 
+	canonical_url={canonical_url} 
+	imageUrl={imageUrl} 
+	ogAlt={ogAlt}
+	articleSchema={articleSchema}
+>
 
 	<Hero />
 	<Description />

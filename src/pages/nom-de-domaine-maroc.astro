@@ -7,12 +7,20 @@ import WhatIsDomain from '../components/sections/domaineMaroc/WhatIsDomain.astro
 import Pricing from '../components/sections/domaineMaroc/Pricing.astro';
 import FAQ from '../components/ui/FAQ.astro';
 import { faqsDomainMaroc } from '../config/faqsContent';
+import { metaTags } from '../config/metaTags';
 
-// Sections will be imported here as they are created
-// import Section6 from '../components/sections/domaineMaroc/Section6.astro';
+const { title, description, canonical_url, ogAlt, imageUrl, articleSchema } = metaTags.nomDeDomaineMaroc;
 ---
 
-<Layout>
+<Layout 
+	title={title}
+	description={description}
+	lang="fr"
+	canonical_url={canonical_url}
+	imageUrl={imageUrl}
+	ogAlt={ogAlt}
+	articleSchema={articleSchema}
+>
 	
 	<Hero />
 	<DomainInfo />
