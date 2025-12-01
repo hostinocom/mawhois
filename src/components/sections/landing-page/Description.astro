@@ -1,10 +1,12 @@
 ---
 // Description section explaining WHOIS Maroc service
 import Section from '../../ui/Section.astro';
+
+const { title } = Astro.props;
+
 ---
 
 <Section backgroundColor="bg-(--color-tertiary)">
-		<h2 class="text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-(--color-secondary) text-center leading-none font-light">
-			<span class="font-semibold">"WHOIS Maroc"</span> est un <em class="italic font-serif">service de répertoire en ligne basé sur la base de données du registre .ma</em> qui permet de rechercher des renseignements sur les noms de domaine.
+		<h2 set:html={title} class="text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-(--color-secondary) text-center leading-none font-light">
 		</h2>
 </Section>

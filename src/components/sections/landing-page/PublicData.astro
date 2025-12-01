@@ -4,26 +4,18 @@ import Section from '../../ui/Section.astro';
 import Title from '../../ui/Title.astro';
 import Paragraph from '../../ui/Paragraph.astro';
 import TextImageSection from '../../ui/TextImageSection.astro';
+
+const { title, paragraphs = [] } = Astro.props;
 ---
 
 <Section backgroundColor="bg-white">
 	<TextImageSection image="/donnees-whois-maroc.jpg" alt="Exemple de données WHOIS pour le domaine hostino.ma">
 		<Title>
-			Accès aux données publiques via Whois Maroc
+			{title}
 		</Title>
 		
 		<Paragraph>
-			<p>
-				Les données accessibles via notre platform Whois Maroc regroupent l'ensemble des <strong>informations publiques</strong> liées à un domaine enregistré sous l'extension .MA.
-			</p>
-					
-			<p>
-				Whois Maroc permettent de connaître le <strong>statut actuel</strong> du domaine (actif, suspendu ou expiré), ainsi que les dates importantes, comme la création, la dernière mise à jour et l'expiration.
-			</p>
-					
-			<p>
-				Vous pouvez également consulter le prestataire responsable du domaine et ses coordonnées. Le service affiche en outre les <strong>serveurs DNS</strong> associés, les données du titulaire du domaine, telles que le nom, l'organisation, l'adresse e-mail ou le numéro de téléphone.
-			</p>
+			{paragraphs.map((paragraph: string) => <p set:html={paragraph} />)}
 		</Paragraph>
 	</TextImageSection>
 </Section>

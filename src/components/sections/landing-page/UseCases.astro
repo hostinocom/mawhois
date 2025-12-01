@@ -4,13 +4,14 @@ import Section from '../../ui/Section.astro';
 import Title from '../../ui/Title.astro';
 import Subtitle from '../../ui/Subtitle.astro';
 import Paragraph from '../../ui/Paragraph.astro';
+
+const { title, paragraphTitle = [] } = Astro.props;
 ---
 
 <Section backgroundColor="bg-white">
 		<!-- Main title -->
 		<Title>
-			À quoi sert<br />
-			l'outil Whois Maroc ?
+			{title}
 		</Title>
 		
 		<!-- Green decorative line -->
@@ -18,53 +19,16 @@ import Paragraph from '../../ui/Paragraph.astro';
 		
 		<!-- Grid of use cases -->
 		<div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12 md:gap-y-16">
-			<!-- Use case 1 -->
-			<div class="space-y-4">
-				<Subtitle>
-					Vérifier la disponibilité d'un domaine .MA
-				</Subtitle>
-				<Paragraph>
-					<p>
-						L'outil Whois Maroc permet de <strong>vérifier la disponibilité</strong> d'un domaine .MA. Testez votre nom ou ses variantes pour trouver rapidement le domaine idéal pour votre site web.
-					</p>
-				</Paragraph>
-			</div>
-			
-			<!-- Use case 2 -->
-			<div class="space-y-4">
-				<Subtitle>
-					Trouver le propriétaire d'un domaine .MA
-				</Subtitle>
-				<Paragraph>
-					<p>
-						Consultez les informations publiques (nom, e-mail, téléphone) du <strong>propriétaire d'un domaine</strong> .MA enregistré, ainsi que toutes les données fournies par le registre .MA.
-					</p>
-				</Paragraph>
-			</div>
-			
-			<!-- Use case 3 -->
-			<div class="space-y-4">
-				<Subtitle>
-					Consulter la date d'expiration du domaine
-				</Subtitle>
-				<Paragraph>
-					<p>
-					Consultez la date d'expiration d'un domaine, ainsi que les informations de renouvellement et le bureau d'enregistrement, <strong>pour éviter toute interruption</strong> de service.
-					</p>
-				</Paragraph>
-			</div>
-			
-			<!-- Use case 4 -->
-			<div class="space-y-4">
-				<Subtitle>
-					État d'un domaine .MA
-				</Subtitle>
-				<Paragraph>
-					<p>
-						Whois Maroc affiche le statut d'un domaine .MA — <strong>pending create</strong>, pending transfer, redemption period — et de suivre son cycle de vie en temps réel.
-					</p>
-				</Paragraph>
-			</div>
+			{paragraphTitle.map((paragraph: { title: string, description: string }) => (
+				<div class="space-y-4">
+					<Subtitle>
+						{paragraph.title}
+					</Subtitle>
+					<Paragraph>
+						<p set:html={paragraph.description} />
+					</Paragraph>
+				</div>
+			))}
 		</div>
 </Section>
 

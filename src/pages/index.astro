@@ -8,8 +8,8 @@ import PublicData from '../components/sections/landing-page/PublicData.astro';
 import Privacy from '../components/sections/landing-page/Privacy.astro';
 import Reliability from '../components/sections/landing-page/Reliability.astro';
 import FAQ from '../components/ui/FAQ.astro';
-import { faqsLandingPage } from '../config/faqsContent';
 import { metaTags } from '../config/metaTags';
+import { fr } from '../config/i18n/fr';
 
 const { title, description, canonical_url, ogAlt, imageUrl, articleSchema } = metaTags.homePage;
 ---
@@ -24,13 +24,13 @@ const { title, description, canonical_url, ogAlt, imageUrl, articleSchema } = me
 	articleSchema={articleSchema}
 >
 
-	<Hero />
-	<Description />
-	<ServiceInfo />
-	<UseCases />
-	<PublicData />
-	<Privacy />
-	<Reliability />
-	<FAQ faqs={faqsLandingPage} title="FAQ - Whois Maroc" />
+	<Hero title={fr.home.title} />
+	<Description title={fr.Description.title} />
+	<ServiceInfo title={fr.ServiceInfo.title} paragraphs={fr.ServiceInfo.paragraphs} />
+	<UseCases title={fr.UseCases.title} paragraphTitle={fr.UseCases.paragraphTitle} />
+	<PublicData title={fr.PublicData.title} paragraphs={fr.PublicData.paragraphs} />
+	<Privacy title={fr.Privacy.title} paragraphs={fr.Privacy.paragraphs} />
+	<Reliability title={fr.Reliability.title} paragraphs={fr.Reliability.paragraphs} />
+	<FAQ faqs={fr.FAQ.faqs} title={fr.FAQ.title} />
 	
 </Layout>
