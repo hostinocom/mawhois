@@ -40,6 +40,17 @@
 	}
 
 
+	html {
+		/* Account for sticky header when scrolling to anchor links */
+		scroll-padding-top: 100px; /* Default for desktop */
+	}
+
+	@media (max-width: 768px) {
+		html {
+			scroll-padding-top: 80px; /* Smaller offset for mobile */
+		}
+	}
+
 	body {
 		margin: 0;
 		padding: 0;
