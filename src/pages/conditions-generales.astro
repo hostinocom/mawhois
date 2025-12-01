@@ -1,10 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Hero from '../components/sections/propos/Hero.astro';
-import About from '../components/sections/propos/About.astro';
+import Hero from '../components/sections/conditions-generales/Hero.astro';
+import Terms from '../components/sections/conditions-generales/Terms.astro';
 import { metaTags } from '../config/metaTags';
 
-const { title, description, canonical_url, ogAlt, imageUrl, articleSchema } = metaTags.aPropos;
+const { title, description, canonical_url, ogAlt, imageUrl, articleSchema } = metaTags.conditionsGenerales;
 ---
 
 <Layout 
@@ -18,7 +18,7 @@ const { title, description, canonical_url, ogAlt, imageUrl, articleSchema } = me
 >
 	
 	<Hero />
-	<About />
+	<Terms />
 	
 </Layout>
 

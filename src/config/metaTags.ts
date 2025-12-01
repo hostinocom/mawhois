@@ -37,6 +37,15 @@ const termesReservesMeta = {
 	imageUrl: defaultImageUrl,
 };
 
+// Terms of Service Page Meta
+const conditionsGeneralesMeta = {
+	title: "Conditions générales d'utilisation - WHOIS Maroc",
+	description: "Consultez les conditions générales d'utilisation du site whoisma.com. Règles d'utilisation du WHOIS, responsabilités, propriété intellectuelle et contact.",
+	canonical_url: `${baseUrl}/conditions-generales`,
+	ogAlt: "Conditions générales d'utilisation - WHOIS Maroc",
+	imageUrl: defaultImageUrl,
+};
+
 
 export const metaTags = {
 	homePage: {
@@ -229,6 +238,46 @@ export const metaTags = {
 							item: {
 								"@id": termesReservesMeta.canonical_url,
 								name: "Termes réservés",
+							},
+						},
+					],
+				},
+			],
+		},
+	},
+	conditionsGenerales: {
+		...conditionsGeneralesMeta,
+		articleSchema: {
+			"@context": "https://schema.org",
+			"@graph": [
+				{
+					"@type": "WebPage",
+					"@id": `${conditionsGeneralesMeta.canonical_url}/#webpage`,
+					url: conditionsGeneralesMeta.canonical_url,
+					name: conditionsGeneralesMeta.title,
+					description: conditionsGeneralesMeta.description,
+					isPartOf: {
+						"@id": `${baseUrl}/#website`,
+					},
+				},
+				{
+					"@type": "BreadcrumbList",
+					"@id": `${conditionsGeneralesMeta.canonical_url}/#breadcrumb`,
+					itemListElement: [
+						{
+							"@type": "ListItem",
+							position: 1,
+							item: {
+								"@id": baseUrl,
+								name: "Accueil",
+							},
+						},
+						{
+							"@type": "ListItem",
+							position: 2,
+							item: {
+								"@id": conditionsGeneralesMeta.canonical_url,
+								name: "Conditions générales",
 							},
 						},
 					],

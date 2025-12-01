@@ -1,0 +1,30 @@
+---
+import Section from '../../ui/Section.astro';
+import Title from '../../ui/Title.astro';
+import Paragraph from '../../ui/Paragraph.astro';
+---
+
+<Section backgroundColor="bg-white">
+		<Title>
+			Module Registrar (ANRT) WHMCS pour l'Extension .MA
+		</Title>
+		
+		<Paragraph>
+			<p>
+                Le module WHMCS EPP pour les domaines .MA (ANRT) permet aux registraires et prestataires de services d'automatiser entièrement la gestion des noms de domaine .MA au sein de leur plateforme WHMCS. Grâce à une intégration native du protocole EPP utilisé par l'ANRT, il assure une communication fiable, sécurisée et conforme aux exigences techniques du registre marocain. Ce module simplifie la gestion opérationnelle tout en garantissant une qualité de service optimale pour les utilisateurs finaux.
+			</p>
+			
+			<p>
+                L'une des nouveautés majeures introduites par l'ANRT est l'ajout du champ obligatoire NID (National ID), désormais requis lors des opérations d'enregistrement, de transfert ou de mise à jour de contacts. Le module intègre pleinement cette exigence : il vérifie la présence du NID, empêche les commandes incomplètes et transmet correctement la donnée au registre via les commandes EPP dédiées. Cette conformité native évite les erreurs de provisioning et garantit que toutes les opérations respectent les règles du registre .MA.
+			</p>
+			
+			<p>
+                Le module inclut également une fonction de synchronisation à la demande via le SRS de l'ANRT. À tout moment, l'administrateur peut déclencher une requête pour récupérer l'état réel des domaines : dates d'expiration, statuts, verrous EPP, suspensions éventuelles, ou encore renouvellements effectués directement depuis le registre. Cette synchronisation manuelle garantit un alignement parfait entre WHMCS et le registre, évitant les divergences de données sans dépendre d'un cycle automatique journalier.
+			</p>
+
+            <p>
+                En plus de cette synchronisation flexible, le module prend en charge toutes les opérations EPP essentielles : création et mise à jour des contacts, enregistrement de domaines, transferts avec auth-code, modifications de serveurs DNS, verrouillage/déverrouillage EPP et suppressions programmées. L'ensemble des actions est exécuté en temps réel, avec un retour d'information clair dans WHMCS, renforçant l'efficacité opérationnelle pour le prestataire.
+            </p>
+		</Paragraph>
+</Section>
+
