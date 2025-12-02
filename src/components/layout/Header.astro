@@ -1,5 +1,44 @@
 ---
 // Header component for the WHOIS Maroc landing page
+
+// Get current pathname
+const currentPath = Astro.url.pathname;
+
+// Navigation items
+const navItems = [
+	{ href: '/', label: 'Accueil' },
+	{ href: '/nom-de-domaine-maroc', label: 'Acheter un .MA' },
+	{ href: '/a-propos', label: 'À propos' },
+	{ href: '/termes-reserves', label: 'Termes réservés' },
+	{ href: '/WHMCS', label: 'WHMCS' },
+	{ href: '/', label: 'Whois Maroc' }
+];
+
+// Helper function to check if a link is active
+function isActive(href: string, index: number): boolean {
+	// Special case for home page - only active if exactly "/" and it's the first item
+	if (href === '/') {
+		// Only the first "/" link (Accueil) should be active on home page
+		if (index === 0) {
+			return currentPath === '/' || currentPath === '';
+		}
+		// The last "/" link (Whois Maroc) should not be active on home page
+		return false;
+	}
+	// For other pages, check if current path starts with the href
+	return currentPath.startsWith(href);
+}
+
+// Helper function to get link classes
+function getLinkClasses(href: string, index: number): string {
+	const baseClasses = 'hover:text-white transition-colors';
+	const activeClasses = 'text-(--color-primary)';
+	const inactiveClasses = 'text-white/80';
+	
+	return isActive(href, index) 
+		? `${baseClasses} ${activeClasses}` 
+		: `${baseClasses} ${inactiveClasses}`;
+}
 ---
 
 <header class="sticky top-0 z-50 bg-(--color-secondary) px-6 py-6 md:px-16 lg:px-24">
@@ -33,32 +72,28 @@
 			</button>
 			
 			<!-- Desktop Navigation (hidden on mobile) -->
-			<div class="hidden md:flex items-center gap-4 text-white/80 text-sm">
-				<a href="/" class="hover:text-white transition-colors">Accueil</a>
-				<span>/</span>
-				<a href="/nom-de-domaine-maroc" class="text-(--color-primary) hover:text-white transition-colors">Acheter un .MA</a>
-				<span>/</span>
-				<a href="/a-propos" class="hover:text-white transition-colors">À propos</a>
-				<span>/</span>
-				<a href="/termes-reserves" class="hover:text-white transition-colors">Termes réservés</a>
-				<span>/</span>
-				<a href="/WHMCS" class="hover:text-white transition-colors">WHMCS</a>
-				<span>/</span>
-				<a href="/" class="hover:text-white transition-colors">Whois Maroc</a>
+			<div class="hidden md:flex items-center gap-4 text-sm">
+				{navItems.map((item, index) => (
+					<>
+						<a href={item.href} class={getLinkClasses(item.href, index)}>
+							{item.label}
+						</a>
+						{index < navItems.length - 1 && <span class="text-white/80">/</span>}
+					</>
+				))}
 			</div>
 		</nav>
 	</div>
 	
 	<!-- Mobile Menu (hidden by default) -->
 	<div id="mobile-menu" class="hidden md:hidden bg-(--color-secondary) border-t border-white/10">
-		<div class="max-w-7xl mx-auto px-6 py-4 text-white/80">
+		<div class="max-w-7xl mx-auto px-6 py-4">
 			<nav class="flex flex-col gap-4">
-				<a href="/" class=" hover:text-white transition-colors text-sm py-2">Accueil</a>
-				<a href="/nom-de-domaine-maroc" class=" hover:text-white transition-colors text-sm py-2">Acheter un .MA</a>
-				<a href="/a-propos" class=" hover:text-white transition-colors text-sm py-2">À propos</a>
-				<a href="/termes-reserves" class=" hover:text-white transition-colors text-sm py-2">Termes réservés</a>
-				<a href="/WHMCS" class=" hover:text-white transition-colors text-sm py-2">WHMCS</a>
-				<a href="/" class=" hover:text-white transition-colors text-sm py-2">Whois Maroc</a>
+				{navItems.map((item, index) => (
+					<a href={item.href} class={`${getLinkClasses(item.href, index)} text-sm py-2`}>
+						{item.label}
+					</a>
+				))}
 			</nav>
 		</div>
 	</div>
