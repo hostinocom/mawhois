@@ -1,4 +1,4 @@
-const baseUrl = "https://www.mawhois.com";
+const baseUrl = "https://www.mawhois.com/";
 export const defaultImageUrl = `${baseUrl}/images/og-image.png`;
 
 // Home Page Meta EN
