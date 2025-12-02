@@ -1,19 +1,20 @@
 ---
 // Hero section for Nom de domaine Maroc page
 import DomainSearchForm from '../../shared/DomainSearchForm.astro';
-import { registries } from '../../../config/registries.ts';
 import HeroSection from '../../ui/HeroSection.astro';
 
 interface Props {
-	subtitle?: string;
-	title?: string;
-	price?: string;
+	subtitle: string;
+	title: string;
+	price: string;
+	registries :any
 }
 
 const {
-	subtitle = "Nom de domaine Maroc",
-	title = "Acheter un nom<br />de domaine .MA",
-	price = "à 118 MAD"
+	subtitle ,
+	title,
+	price,
+	registries
 } = Astro.props;
 ---
 

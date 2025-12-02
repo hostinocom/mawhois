@@ -6,17 +6,18 @@ import WhyRegister from '../components/sections/domaineMaroc/WhyRegister.astro';
 import WhatIsDomain from '../components/sections/domaineMaroc/WhatIsDomain.astro';
 import Pricing from '../components/sections/domaineMaroc/Pricing.astro';
 import FAQ from '../components/ui/FAQ.astro';
-import { faqsDomainMaroc } from '../config/faqsContent';
 import { metaTags } from '../config/metaTags';
-import { frNomDeDomaineMaroc } from '../config/i18n/fr';
+import { enNomDeDomaineMaroc } from '../config/i18n/en';
+import { enRegistries } from '../config/registries';
 
+const locale = 'en';
 const { title, description, canonical_url, ogAlt, imageUrl, articleSchema } = metaTags.nomDeDomaineMaroc;
 ---
 
 <Layout 
 	title={title}
 	description={description}
-	lang="fr"
+	lang={locale}
 	canonical_url={canonical_url}
 	imageUrl={imageUrl}
 	ogAlt={ogAlt}
@@ -24,30 +25,31 @@ const { title, description, canonical_url, ogAlt, imageUrl, articleSchema } = me
 >
 	
 	<Hero 
-		subtitle={frNomDeDomaineMaroc.Hero.subtitle}
-		title={frNomDeDomaineMaroc.Hero.title}
-		price={frNomDeDomaineMaroc.Hero.price}
+		subtitle={enNomDeDomaineMaroc.Hero.subtitle}
+		title={enNomDeDomaineMaroc.Hero.title}
+		price={enNomDeDomaineMaroc.Hero.price}
+		registries={enRegistries}
 	/>
 	<DomainInfo 
-		title={frNomDeDomaineMaroc.DomainInfo.title}
-		paragraphs={frNomDeDomaineMaroc.DomainInfo.paragraphs}
+		title={enNomDeDomaineMaroc.DomainInfo.title}
+		paragraphs={enNomDeDomaineMaroc.DomainInfo.paragraphs}
 	/>
 	<WhyRegister 
-		title={frNomDeDomaineMaroc.WhyRegister.title}
-		columns={frNomDeDomaineMaroc.WhyRegister.columns}
+		title={enNomDeDomaineMaroc.WhyRegister.title}
+		columns={enNomDeDomaineMaroc.WhyRegister.columns}
 	/>
 	<WhatIsDomain 
-		title={frNomDeDomaineMaroc.WhatIsDomain.title}
-		paragraphs={frNomDeDomaineMaroc.WhatIsDomain.paragraphs}
+		title={enNomDeDomaineMaroc.WhatIsDomain.title}
+		paragraphs={enNomDeDomaineMaroc.WhatIsDomain.paragraphs}
 	/>
 	<Pricing 
-		title={frNomDeDomaineMaroc.Pricing.title}
-		intro={frNomDeDomaineMaroc.Pricing.intro}
-		features={frNomDeDomaineMaroc.Pricing.features}
-		pricing={frNomDeDomaineMaroc.Pricing.pricing}
-		details={frNomDeDomaineMaroc.Pricing.details}
+		title={enNomDeDomaineMaroc.Pricing.title}
+		intro={enNomDeDomaineMaroc.Pricing.intro}
+		features={enNomDeDomaineMaroc.Pricing.features}
+		pricing={enNomDeDomaineMaroc.Pricing.pricing}
+		details={enNomDeDomaineMaroc.Pricing.details}
 	/>
-	<FAQ faqs={faqsDomainMaroc} title={frNomDeDomaineMaroc.FAQ.title} />
+	<FAQ faqs={enNomDeDomaineMaroc.FAQ.faqs} title={enNomDeDomaineMaroc.FAQ.title} />
 	
 </Layout>
 

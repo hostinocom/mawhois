@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Hero from '../components/sections/conditions-generales/Hero.astro';
 import Terms from '../components/sections/conditions-generales/Terms.astro';
 import { metaTags } from '../config/metaTags';
+import { enConditionsGenerales } from '../config/i18n/en';
 
 const { title, description, canonical_url, ogAlt, imageUrl, articleSchema } = metaTags.conditionsGenerales;
 ---
@@ -10,15 +11,19 @@ const { title, description, canonical_url, ogAlt, imageUrl, articleSchema } = me
 <Layout 
 	title={title}
 	description={description}
-	lang="fr"
+	lang={"en"}
 	canonical_url={canonical_url}
 	imageUrl={imageUrl}
 	ogAlt={ogAlt}
 	articleSchema={articleSchema}
 >
 	
-	<Hero />
-	<Terms />
+	<Hero title={enConditionsGenerales.Hero.title} />
+	<Terms 
+		mainTitle={enConditionsGenerales.Terms.mainTitle}
+		mainParagraph={enConditionsGenerales.Terms.mainParagraph}
+		paragraphsAndSubtitles={enConditionsGenerales.Terms.paragraphsAndSubtitles}
+	/>
 	
 </Layout>
 

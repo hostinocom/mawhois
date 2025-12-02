@@ -5,34 +5,37 @@ import WhmcsInfo from '../components/sections/WHMCS/WhmcsInfo.astro';
 import WhmcsInfoMa from '../components/sections/WHMCS/WhmcsInfo.ma.astro';
 import ContactSection from '../components/shared/ContactSection.astro';
 import { metaTags } from '../config/metaTags';
-import { frWHMCS } from '../config/i18n/fr';
+import { enWHMCS } from '../config/i18n/en';
+import FAQ from '../components/ui/FAQ.astro';
 
+const locale = 'en';
 const { title, description, canonical_url, ogAlt, imageUrl, articleSchema } = metaTags.aPropos;
 ---
 
 <Layout 
 	title={title} 
 	description={description} 
-	lang="fr" 
+	lang={locale}
 	canonical_url={canonical_url} 
 	imageUrl={imageUrl} 
 	ogAlt={ogAlt}
 	articleSchema={articleSchema}
 >
-
-	<Hero title={frWHMCS.Hero.title} />
+	<Hero title={enWHMCS.Hero.title} />
 	<WhmcsInfo 
-		title={frWHMCS.WhmcsInfo.title}
-		paragraphs={frWHMCS.WhmcsInfo.paragraphs}
-		button={frWHMCS.WhmcsInfo.button}
+		title={enWHMCS.WhmcsInfo.title}
+		paragraphs={enWHMCS.WhmcsInfo.paragraphs}
+		button={enWHMCS.WhmcsInfo.button}
 	/>
 	<WhmcsInfoMa 
-		title={frWHMCS.WhmcsInfoMa.title}
-		paragraphs={frWHMCS.WhmcsInfoMa.paragraphs}
+		title={enWHMCS.WhmcsInfoMa.title}
+		paragraphs={enWHMCS.WhmcsInfoMa.paragraphs}
 	/>
 	<ContactSection 
-		title={frWHMCS.ContactSection.title}
-		description={frWHMCS.ContactSection.description}
+		title={enWHMCS.ContactSection.title}
+		description={enWHMCS.ContactSection.description}
 	/>
+	<FAQ faqs={enWHMCS.FAQ.faqs} title={enWHMCS.FAQ.title} />
 	
 </Layout>
+

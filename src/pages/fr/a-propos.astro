@@ -1,0 +1,34 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/sections/propos/Hero.astro';
+import About from '../../components/sections/propos/About.astro';
+import { metaTags } from '../../config/metaTags';
+import { frAPropos } from '../../config/i18n/fr';
+
+const locale = 'fr';
+const { title, description, canonical_url, ogAlt, imageUrl, articleSchema } = metaTags.aPropos;
+---
+
+<Layout 
+	title={title}
+	description={description}
+	lang={locale}
+	canonical_url={canonical_url}
+	imageUrl={imageUrl}
+	ogAlt={ogAlt}
+	articleSchema={articleSchema}
+>
+	
+	<Hero title={frAPropos.Hero.title} />
+	<About 
+		title={frAPropos.About.title}
+		paragraphs={frAPropos.About.paragraphs}
+		companyInfo={frAPropos.About.companyInfo}
+		legalInfo={frAPropos.About.legalInfo}
+		accreditation={frAPropos.About.accreditation}
+		legalNotice={frAPropos.About.legalNotice}
+		contact={frAPropos.About.contact}
+	/>
+	
+</Layout>
+

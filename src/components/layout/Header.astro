@@ -1,32 +1,37 @@
 ---
 // Header component for the WHOIS Maroc landing page
+import { enHeader } from '../../config/i18n/en';
+import { frHeader } from '../../config/i18n/fr';
 
-// Get current pathname
+interface Props {
+	lang: "en" | "fr";
+}
+
+// Get locale from prop or detect from pathname
 const currentPath = Astro.url.pathname;
+const lang = Astro.props.lang ;
 
-// Navigation items
-const navItems = [
-	{ href: '/', label: 'Accueil' },
-	{ href: '/nom-de-domaine-maroc', label: 'Acheter un .MA' },
-	{ href: '/a-propos', label: 'À propos' },
-	{ href: '/termes-reserves', label: 'Termes réservés' },
-	{ href: '/WHMCS', label: 'WHMCS' },
-	{ href: '/', label: 'Whois Maroc' }
-];
+// Get translations based on locale
+const headerTranslations = lang === "fr" ? frHeader : enHeader;
+const navItems = headerTranslations.navItems;
 
 // Helper function to check if a link is active
 function isActive(href: string, index: number): boolean {
+	// Remove locale prefix for comparison
+	const pathWithoutLocale = currentPath.replace(/^\/fr/, '').replace(/^\/$/, '/') || '/';
+	const hrefWithoutLocale = href.replace(/^\/fr/, '').replace(/^\/$/, '/') || '/';
+	
 	// Special case for home page - only active if exactly "/" and it's the first item
-	if (href === '/') {
-		// Only the first "/" link (Accueil) should be active on home page
+	if (hrefWithoutLocale === '/') {
+		// Only the first "/" link should be active on home page
 		if (index === 0) {
-			return currentPath === '/' || currentPath === '';
+			return pathWithoutLocale === '/' || pathWithoutLocale === '';
 		}
-		// The last "/" link (Whois Maroc) should not be active on home page
+		// The last "/" link should not be active on home page
 		return false;
 	}
 	// For other pages, check if current path starts with the href
-	return currentPath.startsWith(href);
+	return pathWithoutLocale.startsWith(hrefWithoutLocale);
 }
 
 // Helper function to get link classes
@@ -39,38 +44,52 @@ function getLinkClasses(href: string, index: number): string {
 		? `${baseClasses} ${activeClasses}` 
 		: `${baseClasses} ${inactiveClasses}`;
 }
+
+// Function to switch language based on current page
+function getAlternateLanguagePath(currentPath: string, currentLang: "en" | "fr"): string {
+	// Determine alternate language
+	const alternateLang = currentLang === "en" ? "fr" : "en";
+	
+	// Remove trailing slash for consistent processing
+	let path = currentPath.replace(/\/$/, '') || '/';
+	
+	// If current path starts with /fr/, remove it
+	if (path.startsWith('/fr/')) {
+		path = path.replace('/fr', '') || '/';
+	} else if (path.startsWith('/fr')) {
+		path = '/';
+	}
+	
+	// Handle root path
+	if (path === '/') {
+		return alternateLang === 'fr' ? '/fr/' : '/';
+	}
+	
+	// For French, add /fr prefix
+	if (alternateLang === 'fr') {
+		return `/fr${path}`;
+	}
+	
+	// For English, return path as-is (no prefix)
+	return path;
+}
+
+// Get alternate language path
+const alternatePath = getAlternateLanguagePath(currentPath, lang);
+
 ---
 
 <header class="sticky top-0 z-50 bg-(--color-secondary) px-6 py-6 md:px-16 lg:px-24">
 	<div class="max-w-7xl mx-auto flex items-center justify-between">
 		<!-- Logo -->
 		<div class="flex items-center gap-2">
-			<a href="/" aria-label="WHOIS Maroc Home">
-				<img src="/whois-logo.png" alt="WHOIS Maroc Logo" class="h-10 md:h-12" />
+			<a href={headerTranslations.logo.href} aria-label="WHOIS Morocco Home">
+				<img src="/whois-logo.png" alt={headerTranslations.logo.alt} class="h-10 md:h-12" />
 			</a>
 		</div>
 		
 		<!-- Navigation -->
-		<nav class="flex items-center gap-6">
-			<!-- Mobile Menu Button (only visible on mobile) -->
-			<button 
-				id="mobile-menu-button"
-				class="md:hidden text-white/90 hover:text-white flex items-center gap-2" 
-				aria-label="Toggle menu"
-				aria-expanded="false"
-			>
-				<span class="text-sm">Menu</span>
-				<svg id="menu-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-					<line x1="3" y1="12" x2="21" y2="12"></line>
-					<line x1="3" y1="6" x2="21" y2="6"></line>
-					<line x1="3" y1="18" x2="21" y2="18"></line>
-				</svg>
-				<svg id="close-icon" class="hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-					<line x1="18" y1="6" x2="6" y2="18"></line>
-					<line x1="6" y1="6" x2="18" y2="18"></line>
-				</svg>
-			</button>
-			
+		<nav class="flex items-center gap-4 md:gap-6">
 			<!-- Desktop Navigation (hidden on mobile) -->
 			<div class="hidden md:flex items-center gap-4 text-sm">
 				{navItems.map((item, index) => (
@@ -82,6 +101,53 @@ function getLinkClasses(href: string, index: number): string {
 					</>
 				))}
 			</div>
+			
+			<!-- Language Switcher Dropdown -->
+			<div class="relative group">
+				<button 
+					id="language-switcher"
+					class="flex items-center gap-2 text-white/80 hover:text-white transition-colors text-sm px-3 py-2 rounded-lg hover:bg-white/10"
+					aria-label="Switch language"
+					aria-expanded="false"
+				>
+					<span>{headerTranslations.languageSwitcher.current}</span>
+					<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+					</svg>
+				</button>
+				
+				<!-- Dropdown Menu -->
+				<div 
+					id="language-dropdown"
+					class="hidden absolute right-0 mt-2 w-32 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50"
+				>
+					<a 
+						href={alternatePath}
+						class="block px-4 py-2 text-(--color-secondary) hover:bg-gray-50 transition-colors text-sm"
+					>
+						{headerTranslations.languageSwitcher.switchTo}
+					</a>
+				</div>
+			</div>
+			
+			<!-- Mobile Menu Button (only visible on mobile) -->
+			<button 
+				id="mobile-menu-button"
+				class="md:hidden text-white/90 hover:text-white flex items-center gap-2" 
+				aria-label="Toggle menu"
+				aria-expanded="false"
+			>
+				<span class="text-sm">{headerTranslations.menu}</span>
+				<svg id="menu-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+					<line x1="3" y1="12" x2="21" y2="12"></line>
+					<line x1="3" y1="6" x2="21" y2="6"></line>
+					<line x1="3" y1="18" x2="21" y2="18"></line>
+				</svg>
+				<svg id="close-icon" class="hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+					<line x1="18" y1="6" x2="6" y2="18"></line>
+					<line x1="6" y1="6" x2="18" y2="18"></line>
+				</svg>
+			</button>
 		</nav>
 	</div>
 	
@@ -105,37 +171,64 @@ function getLinkClasses(href: string, index: number): string {
 		const mobileMenu = document.getElementById('mobile-menu');
 		const menuIcon = document.getElementById('menu-icon');
 		const closeIcon = document.getElementById('close-icon');
+		const languageSwitcher = document.getElementById('language-switcher');
+		const languageDropdown = document.getElementById('language-dropdown');
 		
-		if (!menuButton || !mobileMenu || !menuIcon || !closeIcon) return;
-		
-		menuButton.addEventListener('click', () => {
-			const isOpen = !mobileMenu.classList.contains('hidden');
-			
-			if (isOpen) {
-				// Close menu
-				mobileMenu.classList.add('hidden');
-				menuIcon.classList.remove('hidden');
-				closeIcon.classList.add('hidden');
-				menuButton.setAttribute('aria-expanded', 'false');
-			} else {
-				// Open menu
-				mobileMenu.classList.remove('hidden');
-				menuIcon.classList.add('hidden');
-				closeIcon.classList.remove('hidden');
-				menuButton.setAttribute('aria-expanded', 'true');
-			}
-		});
-		
-		// Close menu when clicking on a link
-		const menuLinks = mobileMenu.querySelectorAll('a');
-		menuLinks.forEach(link => {
-			link.addEventListener('click', () => {
-				mobileMenu.classList.add('hidden');
-				menuIcon.classList.remove('hidden');
-				closeIcon.classList.add('hidden');
-				menuButton.setAttribute('aria-expanded', 'false');
+		// Mobile menu toggle
+		if (menuButton && mobileMenu && menuIcon && closeIcon) {
+			menuButton.addEventListener('click', () => {
+				const isOpen = !mobileMenu.classList.contains('hidden');
+				
+				if (isOpen) {
+					// Close menu
+					mobileMenu.classList.add('hidden');
+					menuIcon.classList.remove('hidden');
+					closeIcon.classList.add('hidden');
+					menuButton.setAttribute('aria-expanded', 'false');
+				} else {
+					// Open menu
+					mobileMenu.classList.remove('hidden');
+					menuIcon.classList.add('hidden');
+					closeIcon.classList.remove('hidden');
+					menuButton.setAttribute('aria-expanded', 'true');
+				}
 			});
-		});
+			
+			// Close menu when clicking on a link
+			const menuLinks = mobileMenu.querySelectorAll('a');
+			menuLinks.forEach(link => {
+				link.addEventListener('click', () => {
+					mobileMenu.classList.add('hidden');
+					menuIcon.classList.remove('hidden');
+					closeIcon.classList.add('hidden');
+					menuButton.setAttribute('aria-expanded', 'false');
+				});
+			});
+		}
+		
+		// Language switcher dropdown
+		if (languageSwitcher && languageDropdown) {
+			languageSwitcher.addEventListener('click', (e) => {
+				e.stopPropagation();
+				const isOpen = !languageDropdown.classList.contains('hidden');
+				
+				if (isOpen) {
+					languageDropdown.classList.add('hidden');
+					languageSwitcher.setAttribute('aria-expanded', 'false');
+				} else {
+					languageDropdown.classList.remove('hidden');
+					languageSwitcher.setAttribute('aria-expanded', 'true');
+				}
+			});
+			
+			// Close dropdown when clicking outside
+			document.addEventListener('click', (e) => {
+				if (!languageSwitcher.contains(e.target as Node) && !languageDropdown.contains(e.target as Node)) {
+					languageDropdown.classList.add('hidden');
+					languageSwitcher.setAttribute('aria-expanded', 'false');
+				}
+			});
+		}
 	});
 </script>
 

@@ -1,0 +1,29 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/sections/conditions-generales/Hero.astro';
+import Terms from '../../components/sections/conditions-generales/Terms.astro';
+import { metaTags } from '../../config/metaTags';
+import { frConditionsGenerales } from '../../config/i18n/fr';
+
+const { title, description, canonical_url, ogAlt, imageUrl, articleSchema } = metaTags.conditionsGenerales;
+---
+
+<Layout 
+	title={title}
+	description={description}
+	lang={"fr"}
+	canonical_url={canonical_url}
+	imageUrl={imageUrl}
+	ogAlt={ogAlt}
+	articleSchema={articleSchema}
+>
+	
+	<Hero title={frConditionsGenerales.Hero.title} />
+	<Terms 
+		mainTitle={frConditionsGenerales.Terms.mainTitle}
+		mainParagraph={frConditionsGenerales.Terms.mainParagraph}
+		paragraphsAndSubtitles={frConditionsGenerales.Terms.paragraphsAndSubtitles}
+	/>
+	
+</Layout>
+

@@ -1,0 +1,40 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/sections/WHMCS/Hero.astro';
+import WhmcsInfo from '../../components/sections/WHMCS/WhmcsInfo.astro';
+import WhmcsInfoMa from '../../components/sections/WHMCS/WhmcsInfo.ma.astro';
+import ContactSection from '../../components/shared/ContactSection.astro';
+import { metaTags } from '../../config/metaTags';
+import { frWHMCS } from '../../config/i18n/fr';
+import FAQ from '../../components/ui/FAQ.astro';
+
+const locale = 'fr';
+const { title, description, canonical_url, ogAlt, imageUrl, articleSchema } = metaTags.aPropos;
+---
+
+<Layout 
+	title={title} 
+	description={description} 
+	lang={locale}
+	canonical_url={canonical_url} 
+	imageUrl={imageUrl} 
+	ogAlt={ogAlt}
+	articleSchema={articleSchema}
+>
+	<Hero title={frWHMCS.Hero.title} />
+	<WhmcsInfo 
+		title={frWHMCS.WhmcsInfo.title}
+		paragraphs={frWHMCS.WhmcsInfo.paragraphs}
+		button={frWHMCS.WhmcsInfo.button}
+	/>
+	<WhmcsInfoMa 
+		title={frWHMCS.WhmcsInfoMa.title}
+		paragraphs={frWHMCS.WhmcsInfoMa.paragraphs}
+	/>
+	<ContactSection 
+		title={frWHMCS.ContactSection.title}
+		description={frWHMCS.ContactSection.description}
+	/>
+	<FAQ faqs={frWHMCS.FAQ.faqs} title={frWHMCS.FAQ.title} />
+</Layout>
+

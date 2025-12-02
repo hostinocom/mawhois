@@ -162,7 +162,17 @@ export const frNomDeDomaineMaroc = {
         }
     },
     FAQ: {
-        title: "FAQ - Nom de domaine Maroc"
+        title: "FAQ - Nom de domaine Maroc",
+        faqs: [
+            {
+                question: "Qu'est-ce que le Whois Maroc ?",
+                answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+            },
+            {
+                question: "Est-il obligatoire de fournir le CIN ou l'ICE pour enregistrer un domaine .MA ?",
+                answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            }
+        ]
     }
 };
 
@@ -251,6 +261,15 @@ export const frWHMCS = {
 	ContactSection: {
 		title: "Contacter un conseiller WHOIS Maroc",
 		description: "L'équipe WHOIS Maroc se met à votre disposition pour répondre à toutes vos questions concernant le module WHMCS EPP pour les domaines .MA."
+	},
+    FAQ: {
+		title: "FAQ - WHMCS EPP Module for .MA Domains",
+		faqs: [
+			{
+				question: "What is the WHMCS EPP Module for .MA Domains?",
+				answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+			}
+		]
 	}
 };
 
@@ -368,4 +387,116 @@ export const frDomain = {
 	error: {
 		fetchError: "Une erreur est survenue lors de la récupération des données du domaine."
 	}
+};
+
+export const frHeader = {
+	menu: "Menu",
+    logo: {
+        href: '/fr/',
+        alt: "WHOIS Maroc Logo"
+    },
+	navItems: [
+		{ href: '/fr/', label: 'Accueil' },
+		{ href: '/fr/nom-de-domaine-maroc', label: 'Acheter un .MA' },
+		{ href: '/fr/a-propos', label: 'À propos' },
+		{ href: '/fr/termes-reserves', label: 'Termes réservés' },
+		{ href: '/fr/WHMCS', label: 'WHMCS' },
+		{ href: '/fr/', label: 'Whois Maroc' }
+	],
+	languageSwitcher: {
+		current: "FR",
+		switchTo: "EN",
+		switchToLabel: "Passer à l'anglais"
+	}
+};
+
+export const frFooter = {
+    logo: {
+        href: '/fr/',
+        alt: "WHOIS Maroc Logo"
+    },
+	description: "Service de répertoire en ligne basé sur la base de données du registre .ma qui permet de rechercher des renseignements sur les noms de domaine.",
+	sections: {
+		pages: {
+			title: "Pages",
+			links: [
+				{ href: '/fr/', label: 'Accueil' },
+				{ href: '/fr/nom-de-domaine-maroc', label: 'Nom de domaine .MA' },
+				{ href: '/fr/a-propos', label: 'À propos' }
+			]
+		},
+		contact: {
+			title: "Contact",
+			email: "contact@whois.ma",
+			phone: "+212 522 123 456",
+			location: "Rabat, Maroc"
+		},
+		usefulLinks: {
+			title: "Liens utiles",
+			links: [
+				{ href: '/fr/', label: 'Recherche de domaine' },
+				{ href: '/fr/nom-de-domaine-maroc', label: 'Enregistrer un domaine .MA' },
+				{ href: '/fr/a-propos', label: 'Qui sommes-nous' }
+			]
+		}
+	},
+	copyright: `© ${new Date().getFullYear()} WHOIS Maroc. Tous droits réservés.`,
+	legal: {
+		legalNotice: {href: "/fr/mentions-legales", label: "Mentions légales"},
+		privacyPolicy: {href: "/fr/conditions-generales", label: "Politique de confidentialité"}
+	}
+};
+
+export const frConditionsGenerales = {
+    Hero: {
+        title: "Conditions générales"
+    },
+    Terms :{
+        mainTitle: "Conditions générales d'utilisation",
+        mainParagraph:["Les présentes Conditions Générales d'Utilisation (ci-après « CGU ») encadrent l'accès et l'utilisation du site whoisma.com, exploité par la société Hostino. En utilisant ce site, vous acceptez pleinement les présentes CGU."],
+        paragraphsAndSubtitles: [{
+            subtitle: "1. Objet du site",
+            paragraphs: ["Le site whoisma.com fournit des services liés aux noms de domaine, notamment la consultation d'informations publiques (WHOIS), l'accès à des outils techniques, et la mise à disposition de modules ou solutions de gestion de domaines."]
+        },
+        {
+            subtitle: "2. Accès au site",
+            paragraphs: ["L'accès au site est libre. Certaines fonctionnalités peuvent toutefois nécessiter la création d'un compte client ou une autorisation spécifique. Hostino se réserve le droit de modifier, suspendre ou interrompre tout ou partie du site à tout moment."]
+        },
+        {
+            subtitle: "3. Utilisation du WHOIS",
+            paragraphs: ["L'utilisation de la base de données WHOIS est limitée à la recherche d'informations sur les noms de domaine « .ma », les noms de serveurs et les personnes contact. Elle ne peut être effectuée que dans le cadre de l'enregistrement d'un nom de domaine, de la mise à jour des informations associées, ou pour un besoin de vérification visant à résoudre des problèmes techniques ou administratifs liés aux noms de domaine et à leurs titulaires.",
+                "La base de données WHOIS est maintenue à jour par les prestataires agréés, chaque fois qu'une modification des données leur est communiquée par le titulaire.",
+                "<div class=\"mt-4 p-4 bg-yellow-50 border-l-4 border-yellow-400 rounded\"><strong>⚠ Important :</strong> Tout usage abusif du WHOIS ou des données d'identification qui y sont publiées engage la responsabilité de la ou des personnes concernées. L'utilisation des données WHOIS à des fins de prospection, d'extraction massive, de spam ou de toute activité non autorisée est strictement interdite.</div>"
+            ],
+        },
+        {
+            subtitle: "4. Utilisation du site",
+            paragraphs: ["L'utilisateur s'engage à utiliser le site conformément aux lois en vigueur et à ne pas en faire un usage abusif. Toute tentative d'extraction automatisée de données, de contournement de sécurité ou d'utilisation malveillante pourra entraîner une suspension ou une interdiction d'accès."]
+        },
+        {
+            subtitle: "5. Données et confidentialité",
+            paragraphs: ["Certaines informations peuvent être collectées dans le cadre de l'utilisation du site (formulaires, inscriptions, actions techniques). Hostino s'engage à respecter la confidentialité des données conformément à sa politique interne et à la réglementation applicable."],
+        },
+        {
+            subtitle: "6. Propriété intellectuelle",
+            paragraphs: ["L'ensemble des contenus présents sur whoisma.com (textes, logos, outils, modules, éléments graphiques) est la propriété exclusive d'Hostino ou de ses partenaires. Toute reproduction, distribution ou utilisation non autorisée est strictement interdite."]
+        },
+        {
+            subtitle: "7. Responsabilité",
+            paragraphs: ["Hostino met tout en œuvre pour garantir la disponibilité du site et l'exactitude des informations, sans pour autant offrir de garantie absolue. Hostino ne peut être tenu responsable en cas d'indisponibilité, de perte de données, d'erreur technique ou de dommages indirects."]
+        },
+        {
+            subtitle: "8. Modification des conditions générales",
+            paragraphs: ["Hostino se réserve le droit de modifier à tout moment les présentes CGU. Les versions actualisées seront publiées sur le site et applicables immédiatement."]
+        },
+        {
+            subtitle: "9. Contact",
+            paragraphs: ["Pour toute question relative aux présentes conditions :",
+                '<p class="mt-4"><strong>Hostino – Service Support</strong></p><p class="mt-2">Email : <a href="mailto:support@whoisma.com" class="text-(--color-primary) underline hover:text-(--color-secondary)">support@whoisma.com</a></p>',
+            ]
+        }
+        
+    ]
+    }
+
 };

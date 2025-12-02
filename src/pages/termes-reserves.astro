@@ -1,30 +1,32 @@
----
-import Layout from '../layouts/Layout.astro';
-import Hero from '../components/sections/termes-reserves/Hero.astro';
-import ReservedTermsInfo from '../components/sections/termes-reserves/ReservedTermsInfo.astro';
-import ReservedTerms from '../components/sections/termes-reserves/ReservedTerms.astro';
-import { metaTags } from '../config/metaTags';
-import { frTermesReserves } from '../config/i18n/fr';
+	---
+	import Layout from '../layouts/Layout.astro';
+	import Hero from '../components/sections/termes-reserves/Hero.astro';
+	import ReservedTermsInfo from '../components/sections/termes-reserves/ReservedTermsInfo.astro';
+	import ReservedTerms from '../components/sections/termes-reserves/ReservedTerms.astro';
+	import { metaTags } from '../config/metaTags';
+	import { enTermesReserves } from '../config/i18n/en';
+	import { enReservedTerms } from '../config/reservedTerms';
 
-const { title, description, canonical_url, ogAlt, imageUrl, articleSchema } = metaTags.termesReserves;
----
+	const locale = 'en';
+	const { title, description, canonical_url, ogAlt, imageUrl, articleSchema } = metaTags.termesReserves;
+	---
 
-<Layout 
-	title={title}
-	description={description}
-	lang="fr"
-	canonical_url={canonical_url}
-	imageUrl={imageUrl}
-	ogAlt={ogAlt}
-	articleSchema={articleSchema}
->
-	
-	<Hero title={frTermesReserves.Hero.title} />
-	<ReservedTermsInfo 
-		title={frTermesReserves.ReservedTermsInfo.title}
-		paragraphs={frTermesReserves.ReservedTermsInfo.paragraphs}
-	/>
-	<ReservedTerms />
-	
-</Layout>
+	<Layout 
+		title={title}
+		description={description}
+		lang={locale}
+		canonical_url={canonical_url}
+		imageUrl={imageUrl}
+		ogAlt={ogAlt}
+		articleSchema={articleSchema}
+	>
+		
+		<Hero title={enTermesReserves.Hero.title} />
+		<ReservedTermsInfo 
+			title={enTermesReserves.ReservedTermsInfo.title}
+			paragraphs={enTermesReserves.ReservedTermsInfo.paragraphs}
+		/>
+		<ReservedTerms title="List of Reserved Terms" reservedTerms={enReservedTerms} source="Official list of reserved terms (PDF)" />
+		
+	</Layout>
 

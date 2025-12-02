@@ -1,0 +1,55 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/sections/domaineMaroc/Hero.astro';
+import DomainInfo from '../../components/sections/domaineMaroc/DomainInfo.astro';
+import WhyRegister from '../../components/sections/domaineMaroc/WhyRegister.astro';
+import WhatIsDomain from '../../components/sections/domaineMaroc/WhatIsDomain.astro';
+import Pricing from '../../components/sections/domaineMaroc/Pricing.astro';
+import FAQ from '../../components/ui/FAQ.astro';
+import { metaTags } from '../../config/metaTags';
+import { frNomDeDomaineMaroc } from '../../config/i18n/fr';
+import { frRegistries } from '../../config/registries';
+
+const locale = 'fr';
+const { title, description, canonical_url, ogAlt, imageUrl, articleSchema } = metaTags.nomDeDomaineMaroc;
+---
+
+<Layout 
+	title={title}
+	description={description}
+	lang={locale}
+	canonical_url={canonical_url}
+	imageUrl={imageUrl}
+	ogAlt={ogAlt}
+	articleSchema={articleSchema}
+>
+	
+	<Hero 
+		subtitle={frNomDeDomaineMaroc.Hero.subtitle}
+		title={frNomDeDomaineMaroc.Hero.title}
+		price={frNomDeDomaineMaroc.Hero.price}
+		registries={frRegistries}
+	/>
+	<DomainInfo 
+		title={frNomDeDomaineMaroc.DomainInfo.title}
+		paragraphs={frNomDeDomaineMaroc.DomainInfo.paragraphs}
+	/>
+	<WhyRegister 
+		title={frNomDeDomaineMaroc.WhyRegister.title}
+		columns={frNomDeDomaineMaroc.WhyRegister.columns}
+	/>
+	<WhatIsDomain 
+		title={frNomDeDomaineMaroc.WhatIsDomain.title}
+		paragraphs={frNomDeDomaineMaroc.WhatIsDomain.paragraphs}
+	/>
+	<Pricing 
+		title={frNomDeDomaineMaroc.Pricing.title}
+		intro={frNomDeDomaineMaroc.Pricing.intro}
+		features={frNomDeDomaineMaroc.Pricing.features}
+		pricing={frNomDeDomaineMaroc.Pricing.pricing}
+		details={frNomDeDomaineMaroc.Pricing.details}
+	/>
+	<FAQ faqs={frNomDeDomaineMaroc.FAQ.faqs} title={frNomDeDomaineMaroc.FAQ.title} />
+	
+</Layout>
+

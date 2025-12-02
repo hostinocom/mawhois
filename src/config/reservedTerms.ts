@@ -1,4 +1,4 @@
-export const reservedTerms: Record<string, string[]> = {
+export const frReservedTerms: Record<string, string[]> = {
 	"Organismes et institutions nationaux - A": ["ada", "aderee", "adm", "adn", "ads", "amci", "amdi", "anapec", "anam", "ancfcc", "anlca", "anlhi", "anpme", "anre", "anrmp", "anrt", "ansr", "attijariwafa", "anp", "aui", "aiea"],
 	"Organismes et institutions nationaux - B": ["bam", "bm", "bmda", "bnrm", "brpm", "bmce", "bmci", "banquepopulaire", "banquecentrale", "bad", "banquemondiale", "banque-mondiale", "bid", "bie", "bird", "bit", "bith", "bm"],
 	"Organismes et institutions nationaux - C": ["ccdh", "ccg", "cdg", "cder", "cdvm", "cered", "cgi", "cidc", "cimr", "cmc", "cmpe", "cmr", "cnd", "cnep", "cnesten", "cnops", "cnrst", "cnss", "corcas", "crts", "cg", "cih", "cdt", "cmdh", "codedelaroute", "cri", "crt", "cicr", "cidc", "cij", "cnuced"],
@@ -41,4 +41,95 @@ export const reservedTerms: Record<string, string[]> = {
 	"Pays et Continents - Z": ["zambie", "zimbabwe"],
 	"Termes liés à l'Internet": ["anycast", "arpanet", "afrinic", "courrierelectronique", "cctld", "dhcp", "dns", "dnssec", "e-164", "e-mail", "e164", "enum", "epp", "file", "ftp", "html", "http", "in-addr", "internet", "internets", "ip", "ipsec", "ipv4", "ipv6", "iana", "icann", "ietf", "isoc", "multicast", "ndd", "nomdedomaine", "rfc", "registre", "registry", "tcp", "tcpip", "tld", "unicast", "url", "wais", "whois", "www", "w3", "w3c", "3w"],
 	"Termes liés au fonctionnement de l'État": ["15", "150", "177", "19", "190", "aeroport", "administration", "administrationpublique", "agenceurbaine", "artisan", "arrete", "ambassade", "arrondissement", "association", "autorite", "agriculture", "allah", "appelsdoffres", "archive", "aref", "assurance", "audiovisuel", "artisanat", "banque", "bourse", "bulletinofficiel", "bo", "bac", "barreau", "cabinetroyal", "collectivite", "collectivitelocale", "college", "constitution", "consulat", "cour", "coursupreme", "commune", "chambreartisanat", "cin", "cine", "communication", "concurrence", "communeurbaine", "cu", "culture", "codedelaroute", "camp", "courdappel", "drapeau", "dynastie", "defense", "dirham", "diplomatie", "dostour", "douane", "decret", "droitsdelhomme", "ecole", "election", "electionselectorales", "etat", "education", "egov", "elu", "emploi", "energie", "enseignement", "egouvernement", "enseignementsuperieur", "etatcivil", "fondation", "forces", "fondmohammed6", "gendarmerie", "gouvernement", "gouvernance", "gendarmerieroyale", "god", "hopital", "impot", "islam", "indh", "industrie", "investissement", "independance", "justice", "loi", "lycee", "marchepublic", "ministere", "monarchie", "mairie", "maroc", "morocco", "marock", "marok", "marruecos", "maghreb", "maghrib", "marcheverte", "marine", "marineroyale", "marocain", "marocco", "moroccan", "nation", "national", "nadorwestmed", "office", "parlement", "parti", "police", "port", "ports", "prefecture", "prince", "princesse", "province", "peche", "palaisroyal", "passport", "permisdeconduire", "prison", "region", "religion", "Roi", "Royaume", "Royal", "referendum", "ressourcesnaturelles", "securitenationale", "securite", "serviceuniversel", "societe", "souverain", "souverainete", "syndicat", "syndicats", "su", "sahara", "sante", "tribunal", "tourisme", "telecommunication", "technologie", "transport", "travauxpublic", "tangermed", "universite", "ville", "villes", "willaya", "wilaya"]
+};
+
+
+export const enReservedTerms: Record<string, string[]> = {
+    // Original: "Organismes et institutions nationaux - A"
+    "National Bodies and Institutions - A": ["ada", "aderee", "adm", "adn", "ads", "amci", "amdi", "anapec", "anam", "ancfcc", "anlca", "anlhi", "anpme", "anre", "anrmp", "anrt", "ansr", "attijariwafa", "anp", "aui", "aiea"],
+    // Original: "Organismes et institutions nationaux - B"
+    "National Bodies and Institutions - B": ["bam", "bm", "bmda", "bnrm", "brpm", "bmce", "bmci", "banquepopulaire", "banquecentrale", "bad", "banquemondiale", "banque-mondiale", "bid", "bie", "bird", "bit", "bith", "bm"],
+    // Original: "Organismes et institutions nationaux - C"
+    "National Bodies and Institutions - C": ["ccdh", "ccg", "cdg", "cder", "cdvm", "cered", "cgi", "cidc", "cimr", "cmc", "cmpe", "cmr", "cnd", "cnep", "cnesten", "cnops", "cnrst", "cnss", "corcas", "crts", "cg", "cih", "cdt", "cmdh", "codedelaroute", "cri", "crt", "cicr", "cidc", "cij", "cnuced"],
+    // Original: "Organismes et institutions nationaux - D"
+    "National Bodies and Institutions - D": ["dfp", "dpm"],
+    // Original: "Organismes et institutions nationaux - E"
+    "National Bodies and Institutions - E": ["eacce", "ehtp", "emi", "ena", "encg", "ensa", "ensam", "ensem", "enpl", "era", "est", "eu"],
+    // Original: "Organismes et institutions nationaux - F"
+    "National Bodies and Institutions - F": ["fec", "fst", "fao", "fida", "fmi"],
+    // Original: "Organismes et institutions nationaux - H"
+    "National Bodies and Institutions - H": ["haca", "hcp", "hcr"],
+    // Original: "Organismes et institutions nationaux - I"
+    "National Bodies and Institutions - I": ["iav", "imanor", "inpt", "insea", "iscae", "ismac", "isic", "ista", "ibe", "icdo", "icrc", "imo", "isesco", "iso", "itcb", "itu"],
+    // Original: "Organismes et institutions nationaux - M"
+    "National Bodies and Institutions - M": ["mdjs", "marocainedesjeux"],
+    // Original: "Organismes et institutions nationaux - O"
+    "National Bodies and Institutions - O": ["oc", "oce", "ocp", "odeco", "odep", "odi", "ofec", "ofppt", "ompic", "oncf", "onda", "onarep", "one", "onep", "onhym", "onicl", "onmt", "onp", "ont", "onts", "ormva", "ormvad", "ormval", "ormvam", "ormva-ouarzazate", "ormvah", "ormvao", "ormvag", "ormva-sm", "ormvatafilalet", "ormvat", "ormva-tf", "odco", "oadim", "ocde", "oci", "oim", "oipc", "oit", "omc", "omi", "omm", "ompi", "oms", "ong", "onu", "opep", "otan", "oua"],
+    // Original: "Organismes et institutions nationaux - P"
+    "National Bodies and Institutions - P": ["pm", "pnud", "pnue", "pnueh"],
+    // Original: "Organismes et institutions nationaux - R"
+    "National Bodies and Institutions - R": ["ram", "rcar", "rtm"],
+    // Original: "Organismes et institutions nationaux - S"
+    "National Bodies and Institutions - S": ["sgg", "snrt"],
+    // Original: "Organismes et institutions nationaux - T"
+    "National Bodies and Institutions - T": ["tpi", "tgr", "tresorduroyaume"],
+    // Original: "Organismes et institutions nationaux - U"
+    "National Bodies and Institutions - U": ["uae", "uca", "ucd", "uh1", "uh2c", "uit", "uiz", "um5", "umi", "ump", "usmba", "usms", "ua", "ue", "uma", "uncitral", "unesco", "unicef", "unidir", "unrwa", "upu", "usaid"],
+    // Original: "Organismes et institutions nationaux - W"
+    "National Bodies and Institutions - W": ["wipo", "worldbank"],
+    
+    // Original: "Pays et Continents - A"
+    "Countries and Continents - A": ["afghanistan", "afrique", "afrique-du-sud", "afrique-dusud", "afriquedu-sud", "afriquedusud", "albanie", "algerie", "angola", "angleterre", "antiguaetbarbuda", "arabiesaoudite", "arabie-saoudite", "argentine", "armenie", "asie", "australie", "autriche", "azerbaidjan", "allemagne", "amerique", "andorre"],
+    // Original: "Pays et Continents - B"
+    "Countries and Continents - B": ["bahamas", "bahrein", "bangladesh", "barbade", "bhoutan", "belarus", "belgique", "belize", "benin", "bielorussie", "birmanie", "bolivie", "bosnie-herzegovine", "bosnieherzegovine", "botswana", "bresil", "brunei", "bulgarie", "burkina-faso", "burkinafaso", "burundi"],
+    // Original: "Pays et Continents - C"
+    "Countries and Continents - C": ["cambodge", "cameroun", "canada", "centrafique", "capvert", "cap-vert", "chili", "chine", "chypre", "colombie", "comores", "congo", "coree", "coree-du-nord", "coree-du-sud", "coree-dunord", "coree-dusud", "coreedu-nord", "coreedu-sud", "coreedunord", "coreedusud", "costa-rica", "costarica", "cote-d-ivoire", "cote-divoire", "coted-ivoire", "cotedivoire", "coteivoire", "croatie", "cuba"],
+    // Original: "Pays et Continents - D"
+    "Countries and Continents - D": ["danemark", "djibouti", "dominique"],
+    // Original: "Pays et Continents - E"
+    "Countries and Continents - E": ["egypte", "el-salvador", "elsalvador", "emirats-arabes-unis", "emirats-arabesunis", "emiratsarabes-unis", "emiratsarabesunis", "equateur", "erythree", "espagne", "estonie", "etats-unis", "etats-unis-d-amerique", "etatsunis", "ethiopie", "europe"],
+    // Original: "Pays et Continents - F"
+    "Countries and Continents - F": ["fidji", "finlande", "france"],
+    // Original: "Pays et Continents - G"
+    "Countries and Continents - G": ["gabon", "gambie", "georgie", "ghana", "grande-bretagne", "grandebretagne", "grece", "grenade", "guatemala", "guinee", "guinee-bissau", "guinee-equatoriale", "guineebissau", "guineeequatoriale", "guyana"],
+    // Original: "Pays et Continents - H"
+    "Countries and Continents - H": ["haiti", "hollande", "honduras", "hongrie"],
+    // Original: "Pays et Continents - I"
+    "Countries and Continents - I": ["inde", "indonesie", "iran", "iraq", "irlande", "islande", "israel", "italie"],
+    // Original: "Pays et Continents - J"
+    "Countries and Continents - J": ["jamaique", "japon", "jordanie"],
+    // Original: "Pays et Continents - K"
+    "Countries and Continents - K": ["kazakhstan", "kenya", "kirghizistan", "kiribati", "koweit"],
+    // Original: "Pays et Continents - L"
+    "Countries and Continents - L": ["laos", "lesotho", "lettonie", "liban", "liberia", "libye", "liechtenstein", "lituanie", "luxembourg"],
+    // Original: "Pays et Continents - M"
+    "Countries and Continents - M": ["madagascar", "malaisie", "malawi", "maldives", "mali", "malte", "maroc", "marshall", "maurice", "mauritanie", "mexique", "micronesie", "moldavie", "moldova", "monaco", "mongolie", "mozambique"],
+    // Original: "Pays et Continents - N"
+    "Countries and Continents - N": ["namibie", "nauru", "nepal", "nicaragua", "niger", "nigeria", "norvege", "nouvelle-zelande", "nouvellezelande"],
+    // Original: "Pays et Continents - O"
+    "Countries and Continents - O": ["oceanie", "oman", "ouganda", "ouzbekistan"],
+    // Original: "Pays et Continents - P"
+    "Countries and Continents - P": ["pakistan", "palaos", "palau", "panama", "papouasie-nouvelle-guinee", "papouasie-nouvelleguinee", "papouasienouvelle-guinee", "papouasienouvelleguinee", "paraguay", "pays-bas", "paysbas", "perou", "philippines", "pologne", "portuga"],
+    // Original: "Pays et Continents - Q"
+    "Countries and Continents - Q": ["qatar"],
+    // Original: "Pays et Continents - R"
+    "Countries and Continents - R": ["roumanie", "royaume-uni", "royaumeuni", "russie", "rwanda"],
+    // Original: "Pays et Continents - S"
+    "Countries and Continents - S": ["saint-kitts", "saint-kitts-et-nevis", "saint-marin", "saint-siege", "saint-vincent-et-les-grenadines", "sainte-lucie", "saintelucie", "saintkittnevis", "saintkitts", "saintkitts-et-nevis", "saintkittsetnevis", "saintmarin", "saintsiege", "salomon", "salvador", "samoa", "sao-tome-et-principe", "sao-tome-principe", "saotome-et-principe", "saotome-principe", "saotomeetetprincipe", "saotomeprincipe", "senegal", "serbie", "seychelles", "sierra-leone", "sierraleone", "singapour", "slovaquie", "slovenie", "somalie", "soudan", "sri-lanka", "srilanka", "suede", "suisse", "suriname", "swaziland", "syrie"],
+    // Original: "Pays et Continents - T"
+    "Countries and Continents - T": ["tadjikistan", "tanzanie", "tchad", "tcheque", "thailande", "timor", "togo", "tonga", "trinite-et-tobago", "trinite-ettobago", "triniteet-tobago", "triniteettobago", "tunisie", "turkmenistan", "turquie", "tuvalu"],
+    // Original: "Pays et Continents - U"
+    "Countries and Continents - U": ["ukraine", "uruguay", "usa"],
+    // Original: "Pays et Continents - V"
+    "Countries and Continents - V": ["vanuatu", "vatican", "venezuela", "viet-nam", "vietnam"],
+    // Original: "Pays et Continents - Y"
+    "Countries and Continents - Y": ["yemen"],
+    // Original: "Pays et Continents - Z"
+    "Countries and Continents - Z": ["zambie", "zimbabwe"],
+    
+    // Original: "Termes liés à l'Internet"
+    "Internet Related Terms": ["anycast", "arpanet", "afrinic", "courrierelectronique", "cctld", "dhcp", "dns", "dnssec", "e-164", "e-mail", "e164", "enum", "epp", "file", "ftp", "html", "http", "in-addr", "internet", "internets", "ip", "ipsec", "ipv4", "ipv6", "iana", "icann", "ietf", "isoc", "multicast", "ndd", "nomdedomaine", "rfc", "registre", "registry", "tcp", "tcpip", "tld", "unicast", "url", "wais", "whois", "www", "w3", "w3c", "3w"],
+    
+    // Original: "Termes liés au fonctionnement de l'État"
+    "Terms related to State Functioning": ["15", "150", "177", "19", "190", "aeroport", "administration", "administrationpublique", "agenceurbaine", "artisan", "arrete", "ambassade", "arrondissement", "association", "autorite", "agriculture", "allah", "appelsdoffres", "archive", "aref", "assurance", "audiovisuel", "artisanat", "banque", "bourse", "bulletinofficiel", "bo", "bac", "barreau", "cabinetroyal", "collectivite", "collectivitelocale", "college", "constitution", "consulat", "cour", "coursupreme", "commune", "chambreartisanat", "cin", "cine", "communication", "concurrence", "communeurbaine", "cu", "culture", "codedelaroute", "camp", "courdappel", "drapeau", "dynastie", "defense", "dirham", "diplomatie", "dostour", "douane", "decret", "droitsdelhomme", "ecole", "election", "electionselectorales", "etat", "education", "egov", "elu", "emploi", "energie", "enseignement", "egouvernement", "enseignementsuperieur", "etatcivil", "fondation", "forces", "fondmohammed6", "gendarmerie", "gouvernement", "gouvernance", "gendarmerieroyale", "god", "hopital", "impot", "islam", "indh", "industrie", "investissement", "independance", "justice", "loi", "lycee", "marchepublic", "ministere", "monarchie", "mairie", "maroc", "morocco", "marock", "marok", "marruecos", "maghreb", "maghrib", "marcheverte", "marine", "marineroyale", "marocain", "marocco", "moroccan", "nation", "national", "nadorwestmed", "office", "parlement", "parti", "police", "port", "ports", "prefecture", "prince", "princesse", "province", "peche", "palaisroyal", "passport", "permisdeconduire", "prison", "region", "religion", "Roi", "Royaume", "Royal", "referendum", "ressourcesnaturelles", "securitenationale", "securite", "serviceuniversel", "societe", "souverain", "souverainete", "syndicat", "syndicats", "su", "sahara", "sante", "tribunal", "tourisme", "telecommunication", "technologie", "transport", "travauxpublic", "tangermed", "universite", "ville", "villes", "willaya", "wilaya"]
 };

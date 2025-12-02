@@ -9,28 +9,31 @@ import Privacy from '../components/sections/landing-page/Privacy.astro';
 import Reliability from '../components/sections/landing-page/Reliability.astro';
 import FAQ from '../components/ui/FAQ.astro';
 import { metaTags } from '../config/metaTags';
-import { frHomePage } from '../config/i18n/fr';
+import { enHomePage } from '../config/i18n/en';
+import { enRegistries } from '../config/registries';
 
+const locale = 'en';
 const { title, description, canonical_url, ogAlt, imageUrl, articleSchema } = metaTags.homePage;
 ---
 	
 <Layout 
 	title={title} 
 	description={description} 
-	lang="fr" 
+	lang={locale}
 	canonical_url={canonical_url} 
 	imageUrl={imageUrl} 
 	ogAlt={ogAlt}
 	articleSchema={articleSchema}
 >
 
-	<Hero title={frHomePage.home.title} />
-	<Description title={frHomePage.Description.title} />
-	<ServiceInfo title={frHomePage.ServiceInfo.title} paragraphs={frHomePage.ServiceInfo.paragraphs} />
-	<UseCases title={frHomePage.UseCases.title} paragraphTitle={frHomePage.UseCases.paragraphTitle} />
-	<PublicData title={frHomePage.PublicData.title} paragraphs={frHomePage.PublicData.paragraphs} />
-	<Privacy title={frHomePage.Privacy.title} paragraphs={frHomePage.Privacy.paragraphs} />
-	<Reliability title={frHomePage.Reliability.title} paragraphs={frHomePage.Reliability.paragraphs} />
-	<FAQ faqs={frHomePage.FAQ.faqs} title={frHomePage.FAQ.title} />
+	<Hero title={enHomePage.home.title} registries={enRegistries} />
+	<Description title={enHomePage.Description.title} />
+	<ServiceInfo title={enHomePage.ServiceInfo.title} paragraphs={enHomePage.ServiceInfo.paragraphs} />
+	<UseCases title={enHomePage.UseCases.title} paragraphTitle={enHomePage.UseCases.paragraphTitle} />
+	<PublicData title={enHomePage.PublicData.title} paragraphs={enHomePage.PublicData.paragraphs} />
+	<Privacy title={enHomePage.Privacy.title} paragraphs={enHomePage.Privacy.paragraphs} />
+	<Reliability title={enHomePage.Reliability.title} paragraphs={enHomePage.Reliability.paragraphs} />
+	<FAQ faqs={enHomePage.FAQ.faqs} title={enHomePage.FAQ.title} />
 	
 </Layout>
+

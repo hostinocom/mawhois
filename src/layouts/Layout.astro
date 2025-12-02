@@ -14,12 +14,12 @@ interface Props {
 }
 
 const { 
-	title = "WHOIS Maroc - Recherche de domaine .MA", 
-	description = "Service de répertoire en ligne basé sur la base de données du registre .ma qui permet de rechercher des renseignements sur les noms de domaine.",
-	lang = "fr",
+	title = "WHOIS Morocco - .MA Domain Search", 
+	description = "Online directory service based on the .ma registry database that allows you to search for information on domain names.",
+	lang = "en",
 	canonical_url = "https://whoisma.com",
 	imageUrl = "https://whoisma.com/images/og-image.png",
-	ogAlt = "WHOIS Maroc - Recherche de domaine .MA",
+	ogAlt = "WHOIS Morocco - .MA Domain Search",
 	articleSchema = null,
 } = Astro.props;
 ---
@@ -73,11 +73,11 @@ const {
 		)}
     </head>
 	<body>
-		<Header />
+		<Header lang={lang as "en" | "fr"} />
 		<slot />
 		<br />
 		<CookieConsent />
-		<Footer />
+		<Footer lang={lang as "en" | "fr"} />
 	</body>
 </html>
 

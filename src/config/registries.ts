@@ -8,7 +8,70 @@ export interface Registry {
 	extension: string;
 }
 
-export const registries: Registry[] = [
+export const enRegistries: Registry[] = [
+	{ 
+		code: 'ma', 
+		name: 'Morocco (.ma)', 
+		placeholder: 'Search for a .MA domain', 
+		extension: '.ma' 
+	},
+	{
+		code: 'net.ma',
+		name: 'Net (.net.ma)',
+		placeholder: 'Search for a .NET.MA domain',
+		extension: '.net.ma'
+	},
+	{
+		code: 'ac.ma',
+		name: 'Ac (.ac.ma)',
+		placeholder: 'Search for a .AC.MA domain',
+		extension: '.ac.ma'
+	},
+	{
+		code: 'co.ma',
+		name: 'Co (.co.ma)',
+		placeholder: 'Search for a .CO.MA domain',
+		extension: '.co.ma'
+	},
+	{
+		code: 'press.ma',
+		name: 'Press (.press.ma)',
+		placeholder: 'Search for a .PRESS.MA domain',
+		extension: '.press.ma'
+	},
+	{
+		code: 'org.ma',
+		name: 'Org (.org.ma)',
+		placeholder: 'Search for a .ORG.MA domain',
+		extension: '.org.ma'
+	},
+	{
+		code: 'gov.ma',
+		name: 'Gov (.gov.ma)',
+		placeholder: 'Search for a .GOV.MA domain',
+		extension: '.gov.ma'
+	},
+	{
+		code: 'com',
+		name: 'Com (.com)',
+		placeholder: 'Search for a .COM domain',
+		extension: '.com'
+	},
+	{
+		code: 'net',
+		name: 'Net (.net)',
+		placeholder: 'Search for a .NET domain',
+		extension: '.net'
+	},
+	{
+		code: 'org',
+		name: 'Org (.org)',
+		placeholder: 'Search for a .ORG domain',
+		extension: '.org'
+	}
+];
+
+export const frRegistries: Registry[] = [
 	{ 
 		code: 'ma', 
 		name: 'Maroc (.ma)', 
@@ -72,13 +135,6 @@ export const registries: Registry[] = [
 ];
 
 
-// Helper function to get registry by code
-export function getRegistryByCode(code: string): Registry | undefined {
-	return registries.find(r => r.code === code);
-}
 
-// Helper function to get all extension names
-export function getAllExtensions(): string[] {
-	return registries.map(r => r.extension);
-}
+
 

@@ -1,0 +1,39 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/sections/landing-page/Hero.astro';
+import Description from '../../components/sections/landing-page/Description.astro';
+import ServiceInfo from '../../components/sections/landing-page/ServiceInfo.astro';
+import UseCases from '../../components/sections/landing-page/UseCases.astro';
+import PublicData from '../../components/sections/landing-page/PublicData.astro';
+import Privacy from '../../components/sections/landing-page/Privacy.astro';
+import Reliability from '../../components/sections/landing-page/Reliability.astro';
+import FAQ from '../../components/ui/FAQ.astro';
+import { metaTags } from '../../config/metaTags';
+import { frHomePage } from '../../config/i18n/fr';
+import { frRegistries } from '../../config/registries';
+
+const locale = 'fr';
+const { title, description, canonical_url, ogAlt, imageUrl, articleSchema } = metaTags.homePage;
+---
+	
+<Layout 
+	title={title} 
+	description={description} 
+	lang={locale}
+	canonical_url={canonical_url} 
+	imageUrl={imageUrl} 
+	ogAlt={ogAlt}
+	articleSchema={articleSchema}
+>
+
+	<Hero title={frHomePage.home.title} registries={frRegistries} />
+	<Description title={frHomePage.Description.title} />
+	<ServiceInfo title={frHomePage.ServiceInfo.title} paragraphs={frHomePage.ServiceInfo.paragraphs} />
+	<UseCases title={frHomePage.UseCases.title} paragraphTitle={frHomePage.UseCases.paragraphTitle} />
+	<PublicData title={frHomePage.PublicData.title} paragraphs={frHomePage.PublicData.paragraphs} />
+	<Privacy title={frHomePage.Privacy.title} paragraphs={frHomePage.Privacy.paragraphs} />
+	<Reliability title={frHomePage.Reliability.title} paragraphs={frHomePage.Reliability.paragraphs} />
+	<FAQ faqs={frHomePage.FAQ.faqs} title={frHomePage.FAQ.title} />
+	
+</Layout>
+

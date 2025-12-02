@@ -3,140 +3,37 @@ import Section from '../../ui/Section.astro';
 import Title from '../../ui/Title.astro';
 import Subtitle from '../../ui/Subtitle.astro';
 import Paragraph from '../../ui/Paragraph.astro';
+
+const { mainTitle, mainParagraph, paragraphsAndSubtitles } = Astro.props;	
 ---
 
 <Section backgroundColor="bg-white">
 	<!-- Main Title -->
 	<div class="mb-12">
 		<Title>
-			Conditions générales
+			{mainTitle}
 		</Title>
 		
-		<Paragraph>
-			<p>
-				Les présentes Conditions Générales d'Utilisation (ci-après « CGU ») encadrent l'accès et l'utilisation du site whoisma.com, exploité par la société Hostino. En utilisant ce site, vous acceptez pleinement les présentes CGU.
-			</p>
-		</Paragraph>
+	<Paragraph>
+		{Array.isArray(mainParagraph) ? (
+			mainParagraph.map((para: string) => <p set:html={para} />)
+		) : (
+			<p>{mainParagraph}</p>
+		)}
+	</Paragraph>
 	</div>
 	
 	<!-- Section 1 -->
+	{paragraphsAndSubtitles.map((item: any) => (
 	<div class="mb-8 md:mb-12">
 		<Subtitle>
-			1. Objet du site
+			{item.subtitle}
 		</Subtitle>
 		<Paragraph>
-			<p>
-				Le site whoisma.com fournit des services liés aux noms de domaine, notamment la consultation d'informations publiques (WHOIS), l'accès à des outils techniques, et la mise à disposition de modules ou solutions de gestion de domaines.
-			</p>
+			{item.paragraphs.map((paragraph: string) => <p set:html={paragraph} />)}
 		</Paragraph>
 	</div>
+	))}
 	
-	<!-- Section 2 -->
-	<div class="mb-8 md:mb-12">
-		<Subtitle>
-			2. Accès au service
-		</Subtitle>
-		<Paragraph>
-			<p>
-				L'accès au site est libre. Certaines fonctionnalités peuvent toutefois nécessiter la création d'un compte client ou une autorisation spécifique. Hostino se réserve le droit de modifier, suspendre ou interrompre tout ou partie du site à tout moment.
-			</p>
-		</Paragraph>
-	</div>
-	
-	<!-- Section 3 -->
-	<div class="mb-8 md:mb-12">
-		<Subtitle>
-			3. Utilisation du WHOIS
-		</Subtitle>
-		<Paragraph>
-			<p>
-				L'utilisation de la base de données WHOIS est limitée à la recherche d'informations sur les noms de domaine « .ma », les noms de serveurs et les personnes contact. Elle ne peut être effectuée que dans le cadre de l'enregistrement d'un nom de domaine, de la mise à jour des informations associées, ou pour un besoin de vérification visant à résoudre des problèmes techniques ou administratifs liés aux noms de domaine et à leurs titulaires.
-			</p>
-			<p>
-				La base de données WHOIS est maintenue à jour par les prestataires agréés, chaque fois qu'une modification des données leur est communiquée par le titulaire.
-			</p>
-			<p class="mt-4 p-4 bg-yellow-50 border-l-4 border-yellow-400 rounded">
-				<strong>⚠ Important :</strong> Tout usage abusif du WHOIS ou des données d'identification qui y sont publiées engage la responsabilité de la ou des personnes concernées. L'utilisation des données WHOIS à des fins de prospection, d'extraction massive, de spam ou de toute activité non autorisée est strictement interdite.
-			</p>
-		</Paragraph>
-	</div>
-	
-	<!-- Section 4 -->
-	<div class="mb-8 md:mb-12">
-		<Subtitle>
-			4. Utilisation du site
-		</Subtitle>
-		<Paragraph>
-			<p>
-				L'utilisateur s'engage à utiliser le site conformément aux lois en vigueur et à ne pas en faire un usage abusif. Toute tentative d'extraction automatisée de données, de contournement de sécurité ou d'utilisation malveillante pourra entraîner une suspension ou une interdiction d'accès.
-			</p>
-		</Paragraph>
-	</div>
-	
-	<!-- Section 5 -->
-	<div class="mb-8 md:mb-12">
-		<Subtitle>
-			5. Données et confidentialité
-		</Subtitle>
-		<Paragraph>
-			<p>
-				Certaines informations peuvent être collectées dans le cadre de l'utilisation du site (formulaires, inscriptions, actions techniques). Hostino s'engage à respecter la confidentialité des données conformément à sa politique interne et à la réglementation applicable.
-			</p>
-		</Paragraph>
-	</div>
-	
-	<!-- Section 6 -->
-	<div class="mb-8 md:mb-12">
-		<Subtitle>
-			6. Propriété intellectuelle
-		</Subtitle>
-		<Paragraph>
-			<p>
-				L'ensemble des contenus présents sur whoisma.com (textes, logos, outils, modules, éléments graphiques) est la propriété exclusive d'Hostino ou de ses partenaires. Toute reproduction, distribution ou utilisation non autorisée est strictement interdite.
-			</p>
-		</Paragraph>
-	</div>
-	
-	<!-- Section 7 -->
-	<div class="mb-8 md:mb-12">
-		<Subtitle>
-			7. Responsabilité
-		</Subtitle>
-		<Paragraph>
-			<p>
-				Hostino met tout en œuvre pour garantir la disponibilité du site et l'exactitude des informations, sans pour autant offrir de garantie absolue. Hostino ne peut être tenu responsable en cas d'indisponibilité, de perte de données, d'erreur technique ou de dommages indirects.
-			</p>
-		</Paragraph>
-	</div>
-	
-	<!-- Section 8 -->
-	<div class="mb-8 md:mb-12">
-		<Subtitle>
-			8. Modification des conditions générales
-		</Subtitle>
-		<Paragraph>
-			<p>
-				Hostino se réserve le droit de modifier à tout moment les présentes CGU. Les versions actualisées seront publiées sur le site et applicables immédiatement.
-			</p>
-		</Paragraph>
-	</div>
-	
-	<!-- Section 9 -->
-	<div class="mb-8 md:mb-12">
-		<Subtitle>
-			9. Contact
-		</Subtitle>
-		<Paragraph>
-			<p>
-				Pour toute question relative aux présentes conditions :
-			</p>
-			<p class="mt-4">
-				<strong>Hostino – Service Support</strong>
-			</p>
-			<p class="mt-2">
-				Email : <a href="mailto:support@whoisma.com" class="text-(--color-primary) underline hover:text-(--color-secondary)">support@whoisma.com</a>
-			</p>
-		</Paragraph>
-	</div>
 </Section>
 

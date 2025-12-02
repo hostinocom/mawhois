@@ -1,19 +1,18 @@
 ---
 export const prerender = false; // this page becomes SSR
 
-import Layout from '../../layouts/Layout.astro';
-import DomainAvailable from '../../components/sections/domain/DomainAvailable.astro';
-import DomainUnavailable from '../../components/sections/domain/DomainUnavailable.astro';
+import Layout from '../../../layouts/Layout.astro';
+import DomainAvailable from '../../../components/sections/domain/DomainAvailable.astro';
+import DomainUnavailable from '../../../components/sections/domain/DomainUnavailable.astro';
 import { jwtVerify, type JWTPayload } from 'jose';
-import { enDomain } from '../../config/i18n/en';
-import { getLocale } from '../../utils/i18n';
-
-const locale = 'en'; // Default to English for root domain pages
+import { frDomain } from '../../../config/i18n/fr';
 
 interface Result {
 	available: boolean;
 	info: string;
 }
+
+const locale = 'fr';
 
 // Get domain from URL params
 const domain = Astro.params.id;
@@ -21,7 +20,7 @@ const signature = Astro.url.searchParams.get('sig');
 
 // Redirect to home if no domain parameter or signature
 if (!domain || !signature) {
-	return Astro.redirect('/');
+	return Astro.redirect('/fr/');
 }
 
 // Verify JWT signature and validate domain
@@ -51,34 +50,35 @@ try {
 
 // Redirect if signature is invalid or domain doesn't match
 if (!isValid) {
-	return Astro.redirect('/');
+	return Astro.redirect('/fr/');
 }
 
 // Fetch WHOIS data server-side (only if signature is valid)
 let result: Result | null = null;
 
-	try {
-		const apiUrl = import.meta.env.PUBLIC_API_URL || 'http://localhost:4321';
-		const response = await fetch(`${apiUrl}/api/whois?domain=${encodeURIComponent(domain)}`);
-		result = await response.json();
-	} catch (error) {
-		console.error('Error fetching domain:', error);
-		error = enDomain.error.fetchError;
-	}
+try {
+	const apiUrl = import.meta.env.PUBLIC_API_URL || 'http://localhost:4321';
+	const response = await fetch(`${apiUrl}/api/whois?domain=${encodeURIComponent(domain)}`);
+	result = await response.json();
+} catch (error) {
+	console.error('Error fetching domain:', error);
+	error = frDomain.error.fetchError;
+}
 ---
 
-<Layout locale={locale} lang={locale}>
+<Layout lang={locale}>
 	
 	{error ? (
 		<div class="text-red-500">{error}</div>
 	  ) : (
 		result?.available ? (
-		  <DomainAvailable domain={domain} translations={enDomain.DomainAvailable} />
+		  <DomainAvailable domain={domain} translations={frDomain.DomainAvailable} />
 		) : (
-		  <DomainUnavailable domain={domain} info={result?.info} translations={enDomain.DomainUnavailable} />
+		  <DomainUnavailable domain={domain} info={result?.info} translations={frDomain.DomainUnavailable} />
 		)
 	  )}
 	  
 	  
 	
 </Layout>
+

@@ -2,12 +2,14 @@
 // Reserved terms list section with search functionality
 import Section from '../../ui/Section.astro';
 import Title from '../../ui/Title.astro';
-import { reservedTerms } from '../../../config/reservedTerms';
+
+
+const { title, reservedTerms, source } = Astro.props;
 ---
 
 <Section backgroundColor="bg-white">
 	<Title>
-		Liste des termes réservés
+		{title}
 	</Title>
 	
 	<!-- Search Box -->
@@ -36,14 +38,13 @@ import { reservedTerms } from '../../../config/reservedTerms';
 	<!-- Source Link -->
 	<div class="mt-12 md:mt-16 pt-8 border-t border-gray-200">
 		<p class="text-center text-sm md:text-base text-gray-600">
-			<strong class="text-(--color-secondary)">Source :</strong>{' '}
 			<a 
 				href="https://www.registre.ma/wp-content/themes/domaine/pdf/Liste_terme_reserves.pdf" 
 				target="_blank" 
 				rel="noopener noreferrer"
 				class="text-(--color-primary) hover:underline transition-colors"
 			>
-				Liste officielle des termes réservés (PDF)
+				{source}
 			</a>
 		</p>
 	</div>
