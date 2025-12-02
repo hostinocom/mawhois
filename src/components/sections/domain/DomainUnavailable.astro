@@ -6,9 +6,52 @@ import Section from '../../ui/Section.astro';
 interface Props {
 	domain: string;
 	info?: any;
+	translations?: {
+		hero?: {
+			title?: string;
+			registered?: string;
+		};
+		whoisInfo?: {
+			title?: string;
+			sections?: {
+				domain?: { title?: string; labels?: { domainName?: string; status?: string } };
+				registrar?: { title?: string; labels?: { registrar?: string; creationDate?: string; expiryDate?: string; lastUpdate?: string } };
+				registrant?: { title?: string; labels?: { registrant?: string } };
+				contact?: { title?: string; labels?: { admin?: string; tech?: string } };
+				nameServers?: { title?: string };
+			};
+			notAvailable?: string;
+			noData?: string;
+			newSearch?: string;
+		};
+	};
 }
 
-const { domain, info } = Astro.props;
+const { 
+	domain, 
+	info,
+	translations = {
+		hero: {
+			title: "Le domaine",
+			registered: "est déjà enregistré"
+		},
+		whoisInfo: {
+			title: "Informations Whois sur le domaine",
+			sections: {
+				domain: { title: "Information sur le domaine", labels: { domainName: "Nom de domaine", status: "Statut du domaine" } },
+				registrar: { title: "Information sur le registraire", labels: { registrar: "Registraire", creationDate: "Date de création", expiryDate: "Date d'expiration", lastUpdate: "Dernière mise à jour" } },
+				registrant: { title: "Information sur le titulaire", labels: { registrant: "Titulaire" } },
+				contact: { title: "Information sur le contact", labels: { admin: "Contact administratif", tech: "Contact technique" } },
+				nameServers: { title: "Serveurs de noms" }
+			},
+			notAvailable: "N/A",
+			noData: "N/A",
+			newSearch: "Nouvelle recherche"
+		}
+	}
+} = Astro.props;
+
+const t = translations;
 
 // Format date from ISO string to YYYY-MM-DD
 function formatDate(dateString: string): string {
@@ -28,9 +71,9 @@ function formatDate(dateString: string): string {
 <!-- Hero Section -->
 <HeroSection center={true}>
 		<h1 class="text-white text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light mb-12 leading-none">
-			Le domaine <br />
+			{t.hero?.title} <br />
 			<em class="italic font-serif text-(--color-primary)">{domain}</em> <br />
-			est déjà enregistré
+			{t.hero?.registered}
 		</h1>
 		
 		<!-- Down Arrow Indicator -->
@@ -43,7 +86,7 @@ function formatDate(dateString: string): string {
 		<!-- Section Title -->
 		<div class="mb-8">
 			<h2 class="text-2xl md:text-3xl font-normal text-(--color-secondary) flex items-center gap-2">
-				Informations Whois sur le domaine
+				{t.whoisInfo?.title}
 				<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
 				</svg>
@@ -55,15 +98,15 @@ function formatDate(dateString: string): string {
 				<!-- Information sur le domaine -->
 				<div class="bg-gray-50 rounded-lg overflow-hidden border border-gray-200">
 					<div class="bg-white px-6 py-4 border-b border-gray-200">
-						<h3 class="text-lg font-semibold text-gray-900">Information sur le domaine</h3>
+						<h3 class="text-lg font-semibold text-gray-900">{t.whoisInfo?.sections?.domain?.title}</h3>
 					</div>
 					<div class="divide-y divide-gray-200">
 						<div class="grid grid-cols-1 md:grid-cols-2 px-6 py-4 bg-white">
-							<div class="font-medium text-gray-700">Nom de domaine</div>
+							<div class="font-medium text-gray-700">{t.whoisInfo?.sections?.domain?.labels?.domainName}</div>
 							<div class="text-gray-900">{info['Domain Name'] || info.domain || domain}</div>
 						</div>
 						<div class="grid grid-cols-1 md:grid-cols-2 px-6 py-4 bg-white">
-							<div class="font-medium text-gray-700">Statut du domaine</div>
+							<div class="font-medium text-gray-700">{t.whoisInfo?.sections?.domain?.labels?.status}</div>
 							<div class="text-gray-900">
 								{(() => {
 									try {
@@ -97,28 +140,28 @@ function formatDate(dateString: string): string {
 				{(info.Registrar || info.registrar) && (
 					<div class="bg-gray-50 rounded-lg overflow-hidden border border-gray-200">
 						<div class="bg-white px-6 py-4 border-b border-gray-200">
-							<h3 class="text-lg font-semibold text-gray-900">Information sur le registraire</h3>
+							<h3 class="text-lg font-semibold text-gray-900">{t.whoisInfo?.sections?.registrar?.title}</h3>
 						</div>
 						<div class="divide-y divide-gray-200">
 							<div class="grid grid-cols-1 md:grid-cols-2 px-6 py-4 bg-white">
-								<div class="font-medium text-gray-700">Registraire</div>
+								<div class="font-medium text-gray-700">{t.whoisInfo?.sections?.registrar?.labels?.registrar}</div>
 								<div class="text-gray-900">{info.Registrar || info.registrar}</div>
 							</div>
 							{(info['Creation Date'] || info.created) && (
 								<div class="grid grid-cols-1 md:grid-cols-2 px-6 py-4 bg-white">
-									<div class="font-medium text-gray-700">Date de création</div>
+									<div class="font-medium text-gray-700">{t.whoisInfo?.sections?.registrar?.labels?.creationDate}</div>
 									<div class="text-gray-900">{formatDate(info['Creation Date'] || info.created)}</div>
 								</div>
 							)}
 							{(info['Registry Expiry Date'] || info['Registrar Registration Expiration Date'] || info.expires) && (
 								<div class="grid grid-cols-1 md:grid-cols-2 px-6 py-4 bg-white">
-									<div class="font-medium text-gray-700">Date d'expiration</div>
+									<div class="font-medium text-gray-700">{t.whoisInfo?.sections?.registrar?.labels?.expiryDate}</div>
 									<div class="text-gray-900">{formatDate(info['Registry Expiry Date'] || info['Registrar Registration Expiration Date'] || info.expires)}</div>
 								</div>
 							)}
 							{(info['Updated Date'] || info.updated) && (
 								<div class="grid grid-cols-1 md:grid-cols-2 px-6 py-4 bg-white">
-									<div class="font-medium text-gray-700">Dernière mise à jour</div>
+									<div class="font-medium text-gray-700">{t.whoisInfo?.sections?.registrar?.labels?.lastUpdate}</div>
 									<div class="text-gray-900">{formatDate(info['Updated Date'] || info.updated)}</div>
 								</div>
 							)}
@@ -130,12 +173,12 @@ function formatDate(dateString: string): string {
 				{(info['Registrant Name'] || info.registrant) && (
 					<div class="bg-gray-50 rounded-lg overflow-hidden border border-gray-200">
 						<div class="bg-white px-6 py-4 border-b border-gray-200">
-							<h3 class="text-lg font-semibold text-gray-900">Information sur le titulaire</h3>
+							<h3 class="text-lg font-semibold text-gray-900">{t.whoisInfo?.sections?.registrant?.title}</h3>
 						</div>
 						<div class="divide-y divide-gray-200">
 							<div class="grid grid-cols-1 md:grid-cols-2 px-6 py-4 bg-white">
-								<div class="font-medium text-gray-700">Titulaire</div>
-								<div class="text-gray-900">{info['Registrant Name'] || info.registrant || 'N/A'}</div>
+								<div class="font-medium text-gray-700">{t.whoisInfo?.sections?.registrant?.labels?.registrant}</div>
+								<div class="text-gray-900">{info['Registrant Name'] || info.registrant || t.whoisInfo?.notAvailable}</div>
 							</div>
 						</div>
 					</div>
@@ -145,13 +188,13 @@ function formatDate(dateString: string): string {
 				{(info['Admin Name'] || info.admin || info['Tech Name'] || info.tech) && (
 					<div class="bg-gray-50 rounded-lg overflow-hidden border border-gray-200">
 						<div class="bg-white px-6 py-4 border-b border-gray-200">
-							<h3 class="text-lg font-semibold text-gray-900">Information sur le contact</h3>
+							<h3 class="text-lg font-semibold text-gray-900">{t.whoisInfo?.sections?.contact?.title}</h3>
 						</div>
 						<div class="divide-y divide-gray-200">
 							{(info['Admin Name'] || info.admin) && (
 								<>
 									<div class="grid grid-cols-1 md:grid-cols-2 px-6 py-4 bg-white">
-										<div class="font-medium text-gray-700">Contact administratif</div>
+										<div class="font-medium text-gray-700">{t.whoisInfo?.sections?.contact?.labels?.admin}</div>
 										<div class="text-gray-900">{info['Admin Name'] || info.admin}</div>
 									</div>
 									{info['Admin Phone'] && (
@@ -171,7 +214,7 @@ function formatDate(dateString: string): string {
 							{(info['Tech Name'] || info.tech) && (
 								<>
 									<div class="grid grid-cols-1 md:grid-cols-2 px-6 py-4 bg-white">
-										<div class="font-medium text-gray-700">Contact technique</div>
+										<div class="font-medium text-gray-700">{t.whoisInfo?.sections?.contact?.labels?.tech}</div>
 										<div class="text-gray-900">{info['Tech Name'] || info.tech}</div>
 									</div>
 									{info['Tech Phone'] && (
@@ -196,19 +239,19 @@ function formatDate(dateString: string): string {
 				{info['Name Server'] && (
 					<div class="bg-gray-50 rounded-lg overflow-hidden border border-gray-200">
 						<div class="bg-white px-6 py-4 border-b border-gray-200">
-							<h3 class="text-lg font-semibold text-gray-900">Serveurs de noms</h3>
+							<h3 class="text-lg font-semibold text-gray-900">{t.whoisInfo?.sections?.nameServers?.title}</h3>
 						</div>
 						<div class="divide-y divide-gray-200">
 							{Array.isArray(info['Name Server']) ? (
 								info['Name Server'].map((ns: string, index: number) => (
 									<div class="grid grid-cols-1 md:grid-cols-2 px-6 py-4 bg-white">
-										<div class="font-medium text-gray-700">N/A</div>
-										<div class="text-gray-900">{ns || 'N/A'}</div>
+										<div class="font-medium text-gray-700">{t.whoisInfo?.notAvailable}</div>
+										<div class="text-gray-900">{ns || t.whoisInfo?.notAvailable}</div>
 									</div>
 								))
 							) : (
 								<div class="grid grid-cols-1 md:grid-cols-2 px-6 py-4 bg-white">
-									<div class="font-medium text-gray-700">N/A</div>
+									<div class="font-medium text-gray-700">{t.whoisInfo?.notAvailable}</div>
 									<div class="text-gray-900">{info['Name Server']}</div>
 								</div>
 							)}
@@ -218,7 +261,7 @@ function formatDate(dateString: string): string {
 			</div>
 		) : (
 			<div class="bg-gray-50 rounded-lg p-8 text-center">
-				<p class="text-gray-600 text-lg">N/A</p>
+				<p class="text-gray-600 text-lg">{t.whoisInfo?.noData}</p>
 			</div>
 		)}
 
@@ -231,7 +274,7 @@ function formatDate(dateString: string): string {
 				<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
 				</svg>
-				Nouvelle recherche
+				{t.whoisInfo?.newSearch}
 			</a>
 		</div>
 </Section>

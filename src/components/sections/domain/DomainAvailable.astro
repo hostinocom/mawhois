@@ -6,9 +6,57 @@ import Section from '../../ui/Section.astro';
 
 interface Props {
 	domain: string;
+	translations?: {
+		hero?: {
+			congratulations?: string;
+			available?: string;
+			price?: string;
+			priceAmount?: string;
+			dnsFree?: string;
+			addToCart?: string;
+		};
+		whoisInfo?: {
+			title?: string;
+			sections?: {
+				domain?: { title?: string; labels?: { domainName?: string; status?: string }; statusAvailable?: string };
+				registrar?: { title?: string; labels?: { registrar?: string; creationDate?: string; expiryDate?: string; lastUpdate?: string } };
+				registrant?: { title?: string; labels?: { registrant?: string } };
+				contact?: { title?: string; labels?: { admin?: string; tech?: string } };
+				nameServers?: { title?: string };
+			};
+			notAvailable?: string;
+			newSearch?: string;
+		};
+	};
 }
 
-const { domain } = Astro.props;
+const { 
+	domain,
+	translations = {
+		hero: {
+			congratulations: "Félicitations!",
+			available: "est disponible!",
+			price: "1 an à",
+			priceAmount: "118.00 MAD",
+			dnsFree: "+ DNS Gratuit",
+			addToCart: "Ajouter au panier"
+		},
+		whoisInfo: {
+			title: "Informations Whois sur le domaine",
+			sections: {
+				domain: { title: "Information sur le domaine", labels: { domainName: "Nom de domaine", status: "Statut du domaine" }, statusAvailable: "Disponible" },
+				registrar: { title: "Information sur le registraire", labels: { registrar: "Registraire", creationDate: "Date de création", expiryDate: "Date d'expiration", lastUpdate: "Dernière mise à jour" } },
+				registrant: { title: "Information sur le titulaire", labels: { registrant: "Titulaire" } },
+				contact: { title: "Information sur le contact", labels: { admin: "Contact administratif", tech: "Contact technique" } },
+				nameServers: { title: "Serveurs de noms" }
+			},
+			notAvailable: "N/A",
+			newSearch: "Nouvelle recherche"
+		}
+	}
+} = Astro.props;
+
+const t = translations;
 
 
 ---
@@ -17,24 +65,24 @@ const { domain } = Astro.props;
 <HeroSection center={true}>
 		<!-- Félicitations! Heading -->
 		<h1 class="text-white text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light mb-2 leading-none">
-			Félicitations!
+			{t.hero?.congratulations}
 		</h1>
 		
 		<!-- Domain name in green italic and "est disponible!" -->
 		<h2 class="text-white text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light mb-12 leading-none">
-			<em class="text-(--color-primary) italic font-serif">{domain}</em> est disponible!
+			<em class="text-(--color-primary) italic font-serif">{domain}</em> {t.hero?.available}
 		</h2>
 
 		<!-- Price -->
 		<p class="text-white text-xl md:text-2xl mb-8">
-			1 an à <span class="font-bold">118.00 MAD</span> <br>
-			+ DNS Gratuit
+			{t.hero?.price} <span class="font-bold">{t.hero?.priceAmount}</span> <br>
+			{t.hero?.dnsFree}
 		</p>
 		
 		<!-- Register button -->
 		<div class="mb-8">
 			<Button variant="ghost" size="lg">
-				Ajouter au panier
+				{t.hero?.addToCart}
 			</Button>
 		</div>
 		
@@ -48,7 +96,7 @@ const { domain } = Astro.props;
 		<!-- Section Title -->
 		<div class="mb-8">
 			<h2 class="text-2xl md:text-3xl font-normal text-(--color-secondary) flex items-center gap-2">
-				Informations Whois sur le domaine
+				{t.whoisInfo?.title}
 				<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
 				</svg>
@@ -59,16 +107,16 @@ const { domain } = Astro.props;
 			<!-- Information sur le domaine -->
 			<div class="bg-gray-50 rounded-lg overflow-hidden border border-gray-200">
 				<div class="bg-white px-6 py-4 border-b border-gray-200">
-					<h3 class="text-lg font-semibold text-gray-900">Information sur le domaine</h3>
+					<h3 class="text-lg font-semibold text-gray-900">{t.whoisInfo?.sections?.domain?.title}</h3>
 				</div>
 				<div class="divide-y divide-gray-200">
 					<div class="grid grid-cols-1 md:grid-cols-2 px-6 py-4 bg-white">
-						<div class="font-medium text-gray-700">Nom de domaine</div>
+						<div class="font-medium text-gray-700">{t.whoisInfo?.sections?.domain?.labels?.domainName}</div>
 						<div class="text-gray-900">{domain}</div>
 					</div>
 					<div class="grid grid-cols-1 md:grid-cols-2 px-6 py-4 bg-white">
-						<div class="font-medium text-gray-700">Statut du domaine</div>
-						<div class="text-gray-900">Disponible</div>
+						<div class="font-medium text-gray-700">{t.whoisInfo?.sections?.domain?.labels?.status}</div>
+						<div class="text-gray-900">{t.whoisInfo?.sections?.domain?.statusAvailable}</div>
 					</div>
 				</div>
 			</div>
@@ -76,24 +124,24 @@ const { domain } = Astro.props;
 			<!-- Information sur le registraire -->
 			<div class="bg-gray-50 rounded-lg overflow-hidden border border-gray-200">
 				<div class="bg-white px-6 py-4 border-b border-gray-200">
-					<h3 class="text-lg font-semibold text-gray-900">Information sur le registraire</h3>
+					<h3 class="text-lg font-semibold text-gray-900">{t.whoisInfo?.sections?.registrar?.title}</h3>
 				</div>
 				<div class="divide-y divide-gray-200">
 					<div class="grid grid-cols-1 md:grid-cols-2 px-6 py-4 bg-white">
-						<div class="font-medium text-gray-700">Registraire</div>
-						<div class="text-gray-900">N/A</div>
+						<div class="font-medium text-gray-700">{t.whoisInfo?.sections?.registrar?.labels?.registrar}</div>
+						<div class="text-gray-900">{t.whoisInfo?.notAvailable}</div>
 					</div>
 					<div class="grid grid-cols-1 md:grid-cols-2 px-6 py-4 bg-white">
-						<div class="font-medium text-gray-700">Date de création</div>
-						<div class="text-gray-900">N/A</div>
+						<div class="font-medium text-gray-700">{t.whoisInfo?.sections?.registrar?.labels?.creationDate}</div>
+						<div class="text-gray-900">{t.whoisInfo?.notAvailable}</div>
 					</div>
 					<div class="grid grid-cols-1 md:grid-cols-2 px-6 py-4 bg-white">
-						<div class="font-medium text-gray-700">Date d'expiration</div>
-						<div class="text-gray-900">N/A</div>
+						<div class="font-medium text-gray-700">{t.whoisInfo?.sections?.registrar?.labels?.expiryDate}</div>
+						<div class="text-gray-900">{t.whoisInfo?.notAvailable}</div>
 					</div>
 					<div class="grid grid-cols-1 md:grid-cols-2 px-6 py-4 bg-white">
-						<div class="font-medium text-gray-700">Dernière mise à jour</div>
-						<div class="text-gray-900">N/A</div>
+						<div class="font-medium text-gray-700">{t.whoisInfo?.sections?.registrar?.labels?.lastUpdate}</div>
+						<div class="text-gray-900">{t.whoisInfo?.notAvailable}</div>
 					</div>
 				</div>
 			</div>
@@ -101,12 +149,12 @@ const { domain } = Astro.props;
 			<!-- Information sur le titulaire -->
 			<div class="bg-gray-50 rounded-lg overflow-hidden border border-gray-200">
 				<div class="bg-white px-6 py-4 border-b border-gray-200">
-					<h3 class="text-lg font-semibold text-gray-900">Information sur le titulaire</h3>
+					<h3 class="text-lg font-semibold text-gray-900">{t.whoisInfo?.sections?.registrant?.title}</h3>
 				</div>
 				<div class="divide-y divide-gray-200">
 					<div class="grid grid-cols-1 md:grid-cols-2 px-6 py-4 bg-white">
-						<div class="font-medium text-gray-700">Titulaire</div>
-						<div class="text-gray-900">N/A</div>
+						<div class="font-medium text-gray-700">{t.whoisInfo?.sections?.registrant?.labels?.registrant}</div>
+						<div class="text-gray-900">{t.whoisInfo?.notAvailable}</div>
 					</div>
 				</div>
 			</div>
@@ -114,16 +162,16 @@ const { domain } = Astro.props;
 			<!-- Information sur le contact -->
 			<div class="bg-gray-50 rounded-lg overflow-hidden border border-gray-200">
 				<div class="bg-white px-6 py-4 border-b border-gray-200">
-					<h3 class="text-lg font-semibold text-gray-900">Information sur le contact</h3>
+					<h3 class="text-lg font-semibold text-gray-900">{t.whoisInfo?.sections?.contact?.title}</h3>
 				</div>
 				<div class="divide-y divide-gray-200">
 					<div class="grid grid-cols-1 md:grid-cols-2 px-6 py-4 bg-white">
-						<div class="font-medium text-gray-700">Contact administratif</div>
-						<div class="text-gray-900">N/A</div>
+						<div class="font-medium text-gray-700">{t.whoisInfo?.sections?.contact?.labels?.admin}</div>
+						<div class="text-gray-900">{t.whoisInfo?.notAvailable}</div>
 					</div>
 					<div class="grid grid-cols-1 md:grid-cols-2 px-6 py-4 bg-white">
-						<div class="font-medium text-gray-700">Contact technique</div>
-						<div class="text-gray-900">N/A</div>
+						<div class="font-medium text-gray-700">{t.whoisInfo?.sections?.contact?.labels?.tech}</div>
+						<div class="text-gray-900">{t.whoisInfo?.notAvailable}</div>
 					</div>
 				</div>
 			</div>
@@ -131,12 +179,12 @@ const { domain } = Astro.props;
 			<!-- Serveurs de noms -->
 			<div class="bg-gray-50 rounded-lg overflow-hidden border border-gray-200">
 				<div class="bg-white px-6 py-4 border-b border-gray-200">
-					<h3 class="text-lg font-semibold text-gray-900">Serveurs de noms</h3>
+					<h3 class="text-lg font-semibold text-gray-900">{t.whoisInfo?.sections?.nameServers?.title}</h3>
 				</div>
 				<div class="divide-y divide-gray-200">
 					<div class="grid grid-cols-1 md:grid-cols-2 px-6 py-4 bg-white">
-						<div class="font-medium text-gray-700">N/A</div>
-						<div class="text-gray-900">N/A</div>
+						<div class="font-medium text-gray-700">{t.whoisInfo?.notAvailable}</div>
+						<div class="text-gray-900">{t.whoisInfo?.notAvailable}</div>
 					</div>
 				</div>
 			</div>
@@ -151,7 +199,7 @@ const { domain } = Astro.props;
 				<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
 				</svg>
-				Nouvelle recherche
+				{t.whoisInfo?.newSearch}
 			</a>
 		</div>
 </Section>

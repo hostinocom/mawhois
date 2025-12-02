@@ -253,3 +253,119 @@ export const frWHMCS = {
 		description: "L'équipe WHOIS Maroc se met à votre disposition pour répondre à toutes vos questions concernant le module WHMCS EPP pour les domaines .MA."
 	}
 };
+
+export const frTermesReserves = {
+	Hero: {
+		title: "Termes réservés"
+	},
+	ReservedTermsInfo: {
+		title: "Termes réservés pour les noms de<br />domaine .ma",
+		paragraphs: [
+			"Les termes réservés pour les noms de domaine .ma constituent une liste de mots et d'expressions protégés par l'ANRT afin d'assurer l'intérêt public et d'éviter un usage abusif ou trompeur. Ces termes sont généralement liés aux institutions nationales, aux fonctions officielles, aux collectivités territoriales ou aux services publics. L'objectif est de garantir <strong>un usage conforme</strong> de ces dénominations sensibles.",
+			"Certaines catégories de termes sont automatiquement protégées en raison de leur sensibilité ou de leur importance réglementaire. Il s'agit notamment des noms d'institutions de l'État, des <strong>dénominations des autorités administratives</strong>, des titres officiels, ou de tout terme qui pourrait faussement représenter une activité réglementée. L'objectif est de préserver l'intégrité de l'espace de noms .ma.",
+			"L'enregistrement d'un domaine avec un terme réservé n'est possible que sous des conditions strictes, nécessitant des justifications officielles. L'ANRT vérifie systématiquement si le demandeur est autorisé à utiliser le terme. Cela peut impliquer des documents juridiques, des autorisations administratives ou des preuves d'usage légitime. Sans ces éléments, la demande sera refusée afin de <strong>protéger les droits et l'ordre public</strong>."
+		]
+	}
+};
+
+export const frDomain = {
+	DomainAvailable: {
+		hero: {
+			congratulations: "Félicitations!",
+			available: "est disponible!",
+			price: "1 an à",
+			priceAmount: "118.00 MAD",
+			dnsFree: "+ DNS Gratuit",
+			addToCart: "Ajouter au panier"
+		},
+		whoisInfo: {
+			title: "Informations Whois sur le domaine",
+			sections: {
+				domain: {
+					title: "Information sur le domaine",
+					labels: {
+						domainName: "Nom de domaine",
+						status: "Statut du domaine"
+					},
+					statusAvailable: "Disponible"
+				},
+				registrar: {
+					title: "Information sur le registraire",
+					labels: {
+						registrar: "Registraire",
+						creationDate: "Date de création",
+						expiryDate: "Date d'expiration",
+						lastUpdate: "Dernière mise à jour"
+					}
+				},
+				registrant: {
+					title: "Information sur le titulaire",
+					labels: {
+						registrant: "Titulaire"
+					}
+				},
+				contact: {
+					title: "Information sur le contact",
+					labels: {
+						admin: "Contact administratif",
+						tech: "Contact technique"
+					}
+				},
+				nameServers: {
+					title: "Serveurs de noms"
+				}
+			},
+			notAvailable: "N/A",
+			newSearch: "Nouvelle recherche"
+		}
+	},
+	DomainUnavailable: {
+		hero: {
+			title: "Le domaine",
+			registered: "est déjà enregistré"
+		},
+		whoisInfo: {
+			title: "Informations Whois sur le domaine",
+			sections: {
+				domain: {
+					title: "Information sur le domaine",
+					labels: {
+						domainName: "Nom de domaine",
+						status: "Statut du domaine"
+					}
+				},
+				registrar: {
+					title: "Information sur le registraire",
+					labels: {
+						registrar: "Registraire",
+						creationDate: "Date de création",
+						expiryDate: "Date d'expiration",
+						lastUpdate: "Dernière mise à jour"
+					}
+				},
+				registrant: {
+					title: "Information sur le titulaire",
+					labels: {
+						registrant: "Titulaire"
+					}
+				},
+				contact: {
+					title: "Information sur le contact",
+					labels: {
+						admin: "Contact administratif",
+						tech: "Contact technique"
+					}
+				},
+				nameServers: {
+					title: "Serveurs de noms"
+				}
+			},
+			notAvailable: "N/A",
+			noData: "N/A",
+			newSearch: "Nouvelle recherche"
+		}
+	},
+	error: {
+		fetchError: "Une erreur est survenue lors de la récupération des données du domaine."
+	}
+};

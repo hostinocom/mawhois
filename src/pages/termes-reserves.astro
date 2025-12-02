@@ -4,6 +4,7 @@ import Hero from '../components/sections/termes-reserves/Hero.astro';
 import ReservedTermsInfo from '../components/sections/termes-reserves/ReservedTermsInfo.astro';
 import ReservedTerms from '../components/sections/termes-reserves/ReservedTerms.astro';
 import { metaTags } from '../config/metaTags';
+import { frTermesReserves } from '../config/i18n/fr';
 
 const { title, description, canonical_url, ogAlt, imageUrl, articleSchema } = metaTags.termesReserves;
 ---
@@ -18,8 +19,11 @@ const { title, description, canonical_url, ogAlt, imageUrl, articleSchema } = me
 	articleSchema={articleSchema}
 >
 	
-	<Hero />
-	<ReservedTermsInfo />
+	<Hero title={frTermesReserves.Hero.title} />
+	<ReservedTermsInfo 
+		title={frTermesReserves.ReservedTermsInfo.title}
+		paragraphs={frTermesReserves.ReservedTermsInfo.paragraphs}
+	/>
 	<ReservedTerms />
 	
 </Layout>
