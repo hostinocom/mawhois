@@ -165,3 +165,60 @@ export const frNomDeDomaineMaroc = {
         title: "FAQ - Nom de domaine Maroc"
     }
 };
+
+export const frAPropos = {
+    Hero: {
+        title: "À propos"
+    },
+    About: {
+        title: "À propos de Whois Maroc",
+        paragraphs: [
+            "WhoisMaroc est une plateforme développée par la <span class=\"font-bold\">société Hostino</span>, spécialisée dans les solutions d'hébergement web, la gestion de noms de domaine et les services numériques au Maroc. À travers cette plateforme, Hostino met à disposition un outil simple, rapide et fiable permettant de consulter les informations et la disponibilité des noms de domaine .MA.",
+            "Hostino s'engage depuis ses débuts à offrir des services performants, sécurisés et adaptés aux besoins des professionnels comme des particuliers. Notre expertise technique, associée à <span class=\"font-bold\">une volonté constante d'innovation</span>, nous permet de proposer des solutions digitales modernes et accessibles.",
+            "Avec WhoisMaroc et l'ensemble de nos services, notre objectif est de faciliter l'accès aux outils numériques, d'accompagner nos clients dans leur croissance et de garantir une expérience utilisateur fluide, transparente et de haute qualité."
+        ],
+        companyInfo: {
+            title: "Hostino SARL AU",
+            address: {
+                label: "Adresse du siège",
+                value: "T100 Technopark, Tanger"
+            },
+            director: {
+                label: "Directeur général",
+                value: "Aniss KIASSI"
+            },
+            email: {
+                label: "E-mail",
+                value: "info@hostino.com"
+            },
+            website: {
+                label: "Site web",
+                value: "https://www.hostino.ma",
+                display: "www.hostino.ma"
+            }
+        },
+        legalInfo: {
+            rc: { label: "R.C", value: "123893" },
+            patente: { label: "Patente", value: "50412781" },
+            if: { label: "I.F", value: "51707097" },
+            rib: { label: "R.I.B", value: ["164 640 21211", "52330320002 28"] },
+            ice: { label: "ICE", value: "002984236000036" }
+        },
+        accreditation: {
+            title: "Accréditation ANRT",
+            number: "N°ANRT \\ SVA \\ «.ma» \\ 119 \\ 2022"
+        },
+        legalNotice: "Toutes les informations sur ce site Internet sont en conformité avec la loi Marocaine et internationale.",
+        contact: {
+            title: "Coordonnées",
+            email: {
+                label: "E-mail :",
+                value: "info@hostino.com"
+            },
+            website: {
+                label: "Site web :",
+                value: "https://www.hostino.ma"
+            }
+        }
+    }
+};
