@@ -4,51 +4,39 @@ import Section from '../../ui/Section.astro';
 import Title from '../../ui/Title.astro';
 import Paragraph from '../../ui/Paragraph.astro';
 import Subtitle from '../../ui/Subtitle.astro';
+
+interface Props {
+	title?: string;
+	columns?: Array<{
+		subtitle: string;
+		paragraph: string;
+	}>;
+}
+
+const {
+	title = "Pourquoi dois-je enregistrer un nom de domaine Maroc ?",
+	columns = []
+} = Astro.props;
 ---
 
 <Section backgroundColor="bg-(--color-tertiary)">
 	<!-- Main title -->
 	<Title>
-		Pourquoi dois-je enregistrer un nom de domaine Maroc ?
+		{title}
 	</Title>
 		
 	<!-- Three columns - one row with three columns -->
 	<div class="flex flex-col sm:flex-row gap-6 md:gap-8 lg:gap-12">
-		<!-- Column 1 -->
-		<div class="flex-1">
-		<Subtitle>
-			L'adresse web pour votre site internet
-		</Subtitle>
-		<Paragraph>
-			<p>
-				L'achat d'un nom de domaine .ma vous permet de mettre votre site web en ligne, de le lier à votre <strong>hébergement</strong> existant ou d'opter pour un hébergement dès maintenant.
-			</p>
-		</Paragraph>
-			</div>
-			
-			<!-- Column 2 -->
-		    <div class="flex-1">
-				<Subtitle>
-					Créer des adresses mail @domaine.ma
-				</Subtitle>
-				<Paragraph>
-					<p>
-					Avec un nom de domaine .ma, vous pouvez créer un nombre illimité d'adresses mail en <strong>@entreprise.ma</strong>. Nous vous accompagnons par la suite pour configurer votre e-mail professionnel.
-					</p>
-				</Paragraph>
-			</div>
-			
-			<!-- Column 3 -->
+		{columns.map((column: { subtitle: string; paragraph: string }) => (
 			<div class="flex-1">
 				<Subtitle>
-					Sécuriser le nom de votre marque
+					{column.subtitle}
 				</Subtitle>
 				<Paragraph>
-					<p>
-					<strong>Anticipez et enregistrez</strong> votre nom de domaine maroc à l'avance : évitez les utilisations abusives et assurez-vous que personne d'autre ne puisse enregistrer le nom de votre entreprise en .ma.
-					</p>
+					<p set:html={column.paragraph} />
 				</Paragraph>
 			</div>
+		))}
 	</div>
 </Section>
 

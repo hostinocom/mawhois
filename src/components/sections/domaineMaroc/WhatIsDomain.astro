@@ -4,26 +4,26 @@ import Section from '../../ui/Section.astro';
 import Title from '../../ui/Title.astro';
 import Paragraph from '../../ui/Paragraph.astro';
 import TextImageSection from '../../ui/TextImageSection.astro';
+
+interface Props {
+	title?: string;
+	paragraphs?: string[];
+}
+
+const {
+	title = "Qu'est ce qu'un nom de domaine Maroc ?",
+	paragraphs = []
+} = Astro.props;
 ---
 
 <Section backgroundColor="bg-white">
 	<TextImageSection image="/nom-de-domaine-maroc-que.jpg" alt="Service WHOIS Maroc - Logo .MA et drapeau marocain avec ANRT">
 		<Title>
-			Qu'est ce qu'un nom de domaine Maroc ?
+			{title}
 		</Title>
 				
 		<Paragraph>
-			<p>
-				Un nom de domaine marocain est toute adresse de site web se terminant par l'<strong>extension nationale .ma</strong>, servant d'identifiant unique et mémorable sur Internet.
-			</p>
-					
-			<p>
-				Ce <strong>domaine national de premier niveau (ccTLD)</strong> est essentiel pour les entreprises, professionnels ou particuliers souhaitant établir une identité numérique forte et crédible au Maroc, signalant aux clients et aux moteurs de recherche que votre contenu est destiné au marché marocain.
-			</p>
-					
-		    <p>
-				L'enregistrement des domaines <strong>".ma"</strong> <strong>est ouvert à tous</strong> les projets liés au Maroc, sans exigence de résidence ou de présence physique dans le pays.
-			</p>
+			{paragraphs.map((paragraph: string) => <p set:html={paragraph} />)}
 		</Paragraph>
 	</TextImageSection>
 </Section>

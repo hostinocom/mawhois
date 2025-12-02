@@ -1,4 +1,4 @@
-export const fr = {
+export const frHomePage = {
 	home: {
 		title:`Recherche d'un<br />domaine dans <em class="italic font-serif">le<br />registre WHOIS Maroc</em>`,
 	},
@@ -92,5 +92,76 @@ export const fr = {
                 answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
             }
         ]
+    }
+};
+
+export const frNomDeDomaineMaroc = {
+    Hero: {
+        subtitle: "Nom de domaine Maroc",
+        title: "Acheter un nom<br />de domaine .MA",
+        price: "à 118 MAD"
+    },
+    DomainInfo: {
+        title: "Nom de domaine en .MA",
+        paragraphs: [
+            "Nous accompagnons nos clients, particuliers et professionnels, au <strong>Maroc et à l'étranger</strong>, dans l'acquisition, la gestion et la <strong>protection</strong> de leurs noms de domaine .ma.",
+            "Depuis nos bureaux au Maroc, notre équipe d'experts vous propose un service <strong>client réactif</strong> et une <strong>plateforme intuitive</strong>, facile à utiliser, vous permettant de gérer simplement et à tout moment tous les aspects de vos noms de domaine.",
+            "Grâce à l'automatisation des processus, l'<strong>activation immédiate</strong> d'un nom de domaine .ma est effective après validation de votre commande, vous permettant de lancer vos projets sans délai.",
+            "En tant que Bureau d'enregistrement accrédité par l'ANRT (sous le numéro ANRT/SVA/\"MA\"/119/2022), nous garantissons un service conforme aux <strong>normes locales</strong> les plus rigoureuses."
+        ]
+    },
+    WhyRegister: {
+        title: "Pourquoi dois-je enregistrer un nom de domaine Maroc ?",
+        columns: [
+            {
+                subtitle: "L'adresse web pour votre site internet",
+                paragraph: "L'achat d'un nom de domaine .ma vous permet de mettre votre site web en ligne, de le lier à votre <strong>hébergement</strong> existant ou d'opter pour un hébergement dès maintenant."
+            },
+            {
+                subtitle: "Créer des adresses mail @domaine.ma",
+                paragraph: "Avec un nom de domaine .ma, vous pouvez créer un nombre illimité d'adresses mail en <strong>@entreprise.ma</strong>. Nous vous accompagnons par la suite pour configurer votre e-mail professionnel."
+            },
+            {
+                subtitle: "Sécuriser le nom de votre marque",
+                paragraph: "<strong>Anticipez et enregistrez</strong> votre nom de domaine maroc à l'avance : évitez les utilisations abusives et assurez-vous que personne d'autre ne puisse enregistrer le nom de votre entreprise en .ma."
+            }
+        ]
+    },
+    WhatIsDomain: {
+        title: "Qu'est ce qu'un nom de domaine Maroc ?",
+        paragraphs: [
+            "Un nom de domaine marocain est toute adresse de site web se terminant par l'<strong>extension nationale .ma</strong>, servant d'identifiant unique et mémorable sur Internet.",
+            "Ce <strong>domaine national de premier niveau (ccTLD)</strong> est essentiel pour les entreprises, professionnels ou particuliers souhaitant établir une identité numérique forte et crédible au Maroc, signalant aux clients et aux moteurs de recherche que votre contenu est destiné au marché marocain.",
+            "L'enregistrement des domaines <strong>\".ma\"</strong> <strong>est ouvert à tous</strong> les projets liés au Maroc, sans exigence de résidence ou de présence physique dans le pays."
+        ]
+    },
+    Pricing: {
+        title: "Prix nom de domaine Maroc",
+        intro: "Pour l'enregistrement d'un nom de domaine en .ma, le tarif est fixé à 118 MAD HT par an pour une durée allant de 1 à 5 ans. Le renouvellement est quant à lui proposé à 150 MAD HT par an, également pour une durée de 1 à 5 ans. Si vous souhaitez transférer un domaine, le coût est de 150 MAD HT avec un délai de 1 à 5 jours, tandis qu'un changement de titulaire vous coûtera 118 MAD HT.",
+        features: {
+            characters: "CARACTÈRES",
+            noPremium: "PAS DE<br/>PREMIUM",
+            noIdn: "Pas d'IDN",
+            noIdnSubtext: "CARACTÈRES<br/>ASCII<br/>UNIQUEMENT",
+            noWhoisPrivacy: "PAS DE<br/>CONFIDENTIALITÉ<br/>WHOIS",
+            restricted: "RESTREINTE",
+            noDnssec: "PAS DE<br/>DNSSEC"
+        },
+        pricing: {
+            registration: { label: "Enregistrement", price: "118 MAD HT / an" },
+            renewal: { label: "Renouvellement", price: "150 MAD HT / an" },
+            transfer: { label: "Transfert", price: "150 MAD HT" },
+            restoration: { label: "Restauration", price: "Non disponible" },
+            ownerChange: { label: "Changement de titulaire", price: "118 MAD HT" }
+        },
+        details: {
+            registrationDuration: { label: "Durée d'enregistrement", value: "1 à 5 ans" },
+            renewalDuration: { label: "Durée de renouvellement", value: "1 à 5 ans" },
+            registrationDelay: { label: "Délai d'enregistrement", value: "Activation instantanée" },
+            transferDelay: { label: "Délai de transfert", value: "1 à 5 jours" }
+        }
+    },
+    FAQ: {
+        title: "FAQ - Nom de domaine Maroc"
     }
 };

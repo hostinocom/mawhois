@@ -9,7 +9,7 @@ import Privacy from '../components/sections/landing-page/Privacy.astro';
 import Reliability from '../components/sections/landing-page/Reliability.astro';
 import FAQ from '../components/ui/FAQ.astro';
 import { metaTags } from '../config/metaTags';
-import { fr } from '../config/i18n/fr';
+import { frHomePage } from '../config/i18n/fr';
 
 const { title, description, canonical_url, ogAlt, imageUrl, articleSchema } = metaTags.homePage;
 ---
@@ -24,13 +24,13 @@ const { title, description, canonical_url, ogAlt, imageUrl, articleSchema } = me
 	articleSchema={articleSchema}
 >
 
-	<Hero title={fr.home.title} />
-	<Description title={fr.Description.title} />
-	<ServiceInfo title={fr.ServiceInfo.title} paragraphs={fr.ServiceInfo.paragraphs} />
-	<UseCases title={fr.UseCases.title} paragraphTitle={fr.UseCases.paragraphTitle} />
-	<PublicData title={fr.PublicData.title} paragraphs={fr.PublicData.paragraphs} />
-	<Privacy title={fr.Privacy.title} paragraphs={fr.Privacy.paragraphs} />
-	<Reliability title={fr.Reliability.title} paragraphs={fr.Reliability.paragraphs} />
-	<FAQ faqs={fr.FAQ.faqs} title={fr.FAQ.title} />
+	<Hero title={frHomePage.home.title} />
+	<Description title={frHomePage.Description.title} />
+	<ServiceInfo title={frHomePage.ServiceInfo.title} paragraphs={frHomePage.ServiceInfo.paragraphs} />
+	<UseCases title={frHomePage.UseCases.title} paragraphTitle={frHomePage.UseCases.paragraphTitle} />
+	<PublicData title={frHomePage.PublicData.title} paragraphs={frHomePage.PublicData.paragraphs} />
+	<Privacy title={frHomePage.Privacy.title} paragraphs={frHomePage.Privacy.paragraphs} />
+	<Reliability title={frHomePage.Reliability.title} paragraphs={frHomePage.Reliability.paragraphs} />
+	<FAQ faqs={frHomePage.FAQ.faqs} title={frHomePage.FAQ.title} />
 	
 </Layout>
