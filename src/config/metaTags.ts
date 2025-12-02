@@ -1,13 +1,13 @@
-const baseUrl = "https://whoisma.com";
+const baseUrl = "https://www.mawhois.com";
 export const defaultImageUrl = `${baseUrl}/images/og-image.png`;
 
 // Home Page Meta
 const homePageMeta = {
-	title: "WHOIS Maroc - Recherche de domaine .MA",
-	description: "Service de répertoire en ligne basé sur la base de données du registre .ma qui permet de rechercher des renseignements sur les noms de domaine.",
-	canonical_url: baseUrl,
-	ogAlt: "WHOIS Maroc - Recherche de domaine .MA",
-	imageUrl: defaultImageUrl,
+	title: "Whois MA | Search & Lookup for Moroccan Domains",
+	description: "Whois MA domain name. Find who owns a .MA with our WHOIS Morocco tool. Search and secure your ma domain easily",
+	canonical_url: "https://www.mawhois.com/",
+	ogAlt: "Whois MA | Search & Lookup for Moroccan Domains",
+	imageUrl: "http://www.mawhois.com/images/ma-whois.jpg",
 };
 
 // About Page Meta
