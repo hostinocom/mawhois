@@ -17,7 +17,7 @@ const aProposMeta = {
 	canonical_url: "https://www.mawhois.com/a-propos/",
 	ogAlt: "About WHOIS Morocco",
 	imageUrl: "http://www.mawhois.com/images/ma-whois.jpg",
-};
+	};
 
 // Domain Registration Page Meta
 const nomDeDomaineMarocMeta = {
