@@ -14,12 +14,12 @@ interface Props {
 }
 
 const { 
-	title = "WHOIS Morocco - .MA Domain Search", 
-	description = "Online directory service based on the .ma registry database that allows you to search for information on domain names.",
+	title = "MA Whois | WHOIS Lookup for Moroccan Domains", 
+	description = "MA Whois. Find who owns a .MA domain with our WHOIS Morocco tool. Search and secure your .MA domain easily.",
 	lang = "en",
-	canonical_url = "https://whoisma.com",
-	imageUrl = "https://whoisma.com/images/og-image.png",
-	ogAlt = "WHOIS Morocco - .MA Domain Search",
+	canonical_url = "https://www.mawhois.com",
+	imageUrl = "https://www.mawhois.com/images/ma-whois.jpg",
+	ogAlt = "MA Whois | WHOIS Lookup for Moroccan Domains",
 	articleSchema = null,
 } = Astro.props;
 ---
@@ -39,7 +39,7 @@ const {
 		<meta property="og:type" content="website" />
 		<meta property="og:locale" content={lang == "en" ? "en_US" : "fr"} />
 		<meta property="og:url" content={canonical_url} />
-		<meta property="og:site_name" content="Hostino BE" />
+		<meta property="og:site_name" content="MA Whois" />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:image" content={imageUrl} />
@@ -60,7 +60,6 @@ const {
 		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
 		<!-- DNS Prefetch & Preconnect (in order of priority) -->
-		<link rel="dns-prefetch" href="//www.whoisma.com" />
 
 		<!-- Critical Fonts (preload only fonts used above the fold) -->
 		<link rel="preload" href="/fonts/Poppins-Regular.woff2" as="font" type="font/woff2" crossorigin />
