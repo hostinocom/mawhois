@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Hero from '../components/sections/WHMCS/Hero.astro';
 import WhmcsInfo from '../components/sections/WHMCS/WhmcsInfo.astro';
 import WhmcsInfoMa from '../components/sections/WHMCS/WhmcsInfo.ma.astro';
+import ContactSection from '../components/shared/ContactSection.astro';
 import { metaTags } from '../config/metaTags';
 
 const { title, description, canonical_url, ogAlt, imageUrl, articleSchema } = metaTags.aPropos;
@@ -20,4 +21,8 @@ const { title, description, canonical_url, ogAlt, imageUrl, articleSchema } = me
 	<Hero />
 	<WhmcsInfo />
 	<WhmcsInfoMa />
+	<ContactSection 
+		title="Contacter un conseiller WHOIS Maroc"
+		description="L'équipe WHOIS Maroc se met à votre disposition pour répondre à toutes vos questions concernant le module WHMCS EPP pour les domaines .MA."
+	/>
 </Layout>
