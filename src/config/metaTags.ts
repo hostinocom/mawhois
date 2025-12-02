@@ -186,6 +186,8 @@ export const metaTags = {
 			],
 		},
 	},
+
+	
 	aPropos: {
 		...aProposMeta,
 		articleSchema: {
@@ -231,6 +233,8 @@ export const metaTags = {
 			],
 		},
 	},
+
+	
 	nomDeDomaineMaroc: {
 		...nomDeDomaineMarocMeta,
 		articleSchema: {
@@ -287,6 +291,8 @@ export const metaTags = {
 			],
 		},
 	},
+
+	
 	termesReserves: {
 		...termesReservesMeta,
 		articleSchema: {
@@ -327,6 +333,8 @@ export const metaTags = {
 			],
 		},
 	},
+
+	
 	conditionsGenerales: {
 		...conditionsGeneralesMeta,
 		articleSchema: {
