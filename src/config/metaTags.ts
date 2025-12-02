@@ -13,8 +13,8 @@ const homePageMeta = {
 // About Page Meta EN
 const aProposMeta = {
 	title: "About WHOIS Morocco – Information about our service",
-	description: "WHOIS Morocco Tool, online directory service based on the official .ma registry database.",
-	canonical_url: "https://www.mawhois.com/a-propos/",
+	description: "WHOIS Morocco Tool, online directory service based on the official .ma registry database",
+	canonical_url: "https://www.mawhois.com/about-us/",
 	ogAlt: "About WHOIS Morocco",
 	imageUrl: "http://www.mawhois.com/images/ma-whois.jpg",
 	};
@@ -22,7 +22,7 @@ const aProposMeta = {
 // Domain Registration Page Meta EN
 const nomDeDomaineMarocMeta = {
 	title: "Ma Domain Name | Official Morocco Domains Registration",
-	description: "Ma Domain Name. Protect your brand in Morocco — search and secure your official .MA domain name instantly.",
+	description: "Ma Domain Name. Protect your brand in Morocco — search and secure your official .MA domain name instantly",
 	canonical_url: "https://www.mawhois.com/ma-domain-name/",
 	ogAlt: "Ma Domain Name",
 	imageUrl: "http://www.mawhois.com/images/ma-domain-name.jpg",
@@ -39,19 +39,91 @@ const termesReservesMeta = {
 
 // Terms of Service Page Meta EN
 const conditionsGeneralesMeta = {
-	title: "Conditions générales d'utilisation - WHOIS Maroc",
-	description: "Consultez les conditions générales d'utilisation du site whoisma.com. Règles d'utilisation du WHOIS, responsabilités, propriété intellectuelle et contact.",
-	canonical_url: `${baseUrl}/conditions-generales`,
-	ogAlt: "Conditions générales d'utilisation - WHOIS Maroc",
-	imageUrl: defaultImageUrl,
+	title: "Terms and Conditions - WHOIS Morocco",
+	description: "View the Terms of Use for mawhois.com, including WHOIS usage rules, responsibilities, intellectual property rights, and contact information",
+	canonical_url: "https://www.mawhois.com/terms/",
+	ogAlt: "Terms and Conditions - WHOIS Morocco",
+	imageUrl: "http://www.mawhois.com/images/ma-whois.jpg",
 };
 
+// Legal notice Page Meta EN
+const mentionslegalesMeta = {
+	title: "Legal notice - WHOIS Morocco",
+	description: "View the Legal Notice of mawhois.com, including company details, hosting information, legal responsibilities, and contact information",
+	canonical_url: "https://www.mawhois.com/legal-notice/",
+	ogAlt: "Legal notice - WHOIS Morocco",
+	imageUrl: "http://www.mawhois.com/images/ma-whois.jpg",
+};
 
 // WHMCS Page Meta EN
 const whmcsMeta = {
 	title: "WHMCS EPP Module .MA Domains - ANRT SRS",
 	description: "WHMCS EPP module for .MA domains — connect to ANRT SRS and automate registration, renewal, and domain management",
 	canonical_url: "https://www.mawhois.com/whmcs-ma-anrt/",
+	ogAlt: "WHMCS EPP Module .MA Domains - ANRT SRS",
+	imageUrl: "http://www.mawhois.com/images/reserved-terms.jpg",
+};
+
+
+// Accueil Page Meta FR
+const homePageFRMeta = {
+	title: "Whois Maroc | Outil de recherche de domaine .MA",
+	description: "Whois Maroc. Trouvez le propriétaire d’un nom de domaine .MA avec WHOIS .ma Maroc. Recherchez maintenant",
+	canonical_url: "https://www.mawhois.com/fr/",
+	ogAlt: "Whois Maroc | Outil de recherche de domaine .MA",
+	imageUrl: "http://www.mawhois.com/images/whois-ma.jpg",
+};
+
+// À propos Page Meta FR
+const aProposFRMeta = {
+	title: "À propos de WHOIS Maroc – Informations sur notre service",
+	description: "WHOIS Maroc est un outil de recherche en ligne basé sur la base de données officielle du registre .ma",
+	canonical_url: "https://www.mawhois.com/fr/a-propos/",
+	ogAlt: "À propos de WHOIS Maroc",
+	imageUrl: "http://www.mawhois.com/images/whois-ma.jpg",
+	};
+
+// Nom de domaine Maroc Page Meta FR
+const nomDeDomaineMarocFRMeta = {
+	title: "Nom de domaine Maroc | Achetez votre domaine en .MA",
+	description: "Nom de domaine Maroc. Protégez votre marque au Maroc, recherchez et sécurisez instantanément votre nom de domaine .ma",
+	canonical_url: "https://www.mawhois.com/fr/nom-domaine-maroc/",
+	ogAlt: "Nom de domaine Maroc",
+	imageUrl: "http://www.mawhois.com/images/nom-domaine-ma.jpg",
+};
+
+// Termes réservés Page Meta FR
+const termesReservesFRMeta = {
+	title: "Liste des termes réservés – Nom de domaine .MA",
+	description: "Consultez les termes réservés des domaines .MA et les mots nécessitant l’approbation de l’ANRT",
+	canonical_url: "https://www.mawhois.com/fr/termes-reserves/",
+	ogAlt: "Liste des termes réservés – Nom de domaine .MA",
+	imageUrl: "http://www.mawhois.com/images/whois-ma.jpg",
+};
+
+// Conditions générales Page Meta FR
+const conditionsGeneralesFRMeta = {
+	title: "Conditions générales - WHOIS Maroc",
+	description: "Consultez les Conditions d’utilisation de mawhois.com, incluant les règles d’usage du WHOIS, les responsabilités, les droits des informations de contact",
+	canonical_url: "https://www.mawhois.com/fr/conditions-generales/",
+	ogAlt: "Conditions générales - WHOIS Maroc",
+	imageUrl: "http://www.mawhois.com/images/whois-ma.jpg",
+};
+
+// Mentions légales Page Meta FR
+const mentionslegalesFRMeta = {
+	title: "Mentions légales - WHOIS Maroc",
+	description: "Consultez les mentions légales de mawhois.com, incluant les informations sur l’entreprise, l’hébergement et les coordonnées de contact",
+	canonical_url: "https://www.mawhois.com/fr/mentions-legales/",
+	ogAlt: "Mentions légales - WHOIS Maroc",
+	imageUrl: "http://www.mawhois.com/images/ma-whois.jpg",
+};
+
+// WHMCS Page Meta FR
+const whmcsMeta = {
+	title: "Module EPP WHMCS pour domaines .MA – ANRT SRS",
+	description: "Module EPP WHMCS pour domaines .MA — synchronisez avec le SRS de l’ANRT pour automatiser l’enregistrement et la gestion",
+	canonical_url: "https://www.mawhois.com/fr/whmcs-ma-anrt/",
 	ogAlt: "WHMCS EPP Module .MA Domains - ANRT SRS",
 	imageUrl: "http://www.mawhois.com/images/reserved-terms.jpg",
 };
