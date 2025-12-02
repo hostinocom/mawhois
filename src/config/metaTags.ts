@@ -12,20 +12,20 @@ const homePageMeta = {
 
 // About Page Meta
 const aProposMeta = {
-	title: "À propos de WHOIS Maroc - Informations sur notre service",
-	description: "Découvrez WHOIS Maroc, un service de répertoire en ligne basé sur la base de données du registre .ma. Informations sur notre entreprise, accréditation ANRT et coordonnées.",
-	canonical_url: `${baseUrl}/a-propos`,
-	ogAlt: "À propos de WHOIS Maroc",
-	imageUrl: defaultImageUrl,
+	title: "About WHOIS Morocco – Information about our service",
+	description: "WHOIS Morocco Tool, online directory service based on the official .ma registry database.",
+	canonical_url: "https://www.mawhois.com/a-propos/",
+	ogAlt: "About WHOIS Morocco",
+	imageUrl: "http://www.mawhois.com/images/ma-whois.jpg",
 };
 
 // Domain Registration Page Meta
 const nomDeDomaineMarocMeta = {
-	title: "Nom de domaine Maroc - Acheter un domaine .MA à 118 MAD",
-	description: "Achetez votre nom de domaine .MA au Maroc à seulement 118 MAD. Enregistrement instantané, activation immédiate. Découvrez pourquoi enregistrer un domaine .ma et comment procéder.",
-	canonical_url: `${baseUrl}/nom-de-domaine-maroc`,
-	ogAlt: "Nom de domaine Maroc - Acheter un domaine .MA",
-	imageUrl: defaultImageUrl,
+	title: "Ma Domain Name | Official Morocco Domains Registration",
+	description: "Ma Domain Name. Protect your brand in Morocco — search and secure your official .MA domain name instantly.",
+	canonical_url: "https://www.mawhois.com/ma-domain-name/",
+	ogAlt: "Ma Domain Name",
+	imageUrl: "http://www.mawhois.com/images/ma-domain-name.jpg",
 };
 
 // Reserved Terms Page Meta
