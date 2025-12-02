@@ -1,11 +1,16 @@
 ---
 import HeroSection from '../../ui/HeroSection.astro';
 import DownArrow from '../../ui/DownArrow.astro';
+
+interface Props {
+	title?: string;
+}
+
+const { title = "Module WHMCS EPP <br/> Domaines .MA" } = Astro.props;
 ---
 
 <HeroSection center={true}>
-	<h1 class="text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white font-light leading-none">
-		Module WHMCS EPP <br/> Domaines .MA
+	<h1 set:html={title} class="text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white font-light leading-none">
 	</h1>
 	
 	<DownArrow />

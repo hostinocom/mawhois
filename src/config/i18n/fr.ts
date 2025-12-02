@@ -209,16 +209,47 @@ export const frAPropos = {
             number: "N°ANRT \\ SVA \\ «.ma» \\ 119 \\ 2022"
         },
         legalNotice: "Toutes les informations sur ce site Internet sont en conformité avec la loi Marocaine et internationale.",
-        contact: {
-            title: "Coordonnées",
-            email: {
-                label: "E-mail :",
-                value: "info@hostino.com"
-            },
-            website: {
-                label: "Site web :",
-                value: "https://www.hostino.ma"
-            }
-        }
-    }
+		contact: {
+			title: "Coordonnées",
+			email: {
+				label: "E-mail :",
+				value: "info@hostino.com"
+			},
+			website: {
+				label: "Site web :",
+				value: "https://www.hostino.ma"
+			}
+		}
+	}
+};
+
+export const frWHMCS = {
+	Hero: {
+		title: "Module WHMCS EPP <br/> Domaines .MA"
+	},
+	WhmcsInfo: {
+		title: "Module WHMCS EPP pour le .MA (ANRT)",
+		paragraphs: [
+			"Le module WHMCS pour le .MA permet de gérer automatiquement les noms de domaine .MA via le SRS de l'ANRT : enregistrement, renouvellement, transfert et mise à jour des informations.",
+			"Nous prenons en charge l'installation et le paramétrage complet du module, incluant la <strong> configuration des accès SRS </strong> , les tâches automatiques et les réglages spécifiques à l'extension .MA. Notre solution est <strong> déjà adoptée par plusieurs prestataires agréés de l'ANRT </strong>, garantissant une intégration fiable et éprouvée. Grâce à cette expérience, nous sommes prêts à assurer une mise en service rapide et conforme – y compris pour les nouveaux prestataires de l'ANRT.",
+			"Appelez le +212 663 75 09 08 et commandez dès maintenant le module EPP WHMCS pour les domaines .MA."
+		],
+		button: {
+			text: "Contactez-nous",
+			href: "https://www.hostino.ma/contact/"
+		}
+	},
+	WhmcsInfoMa: {
+		title: "Module Registrar (ANRT) WHMCS pour l'Extension .MA",
+		paragraphs: [
+			"Le module WHMCS EPP pour les domaines .MA (ANRT) permet aux registraires et prestataires de services d'automatiser entièrement la gestion des noms de domaine .MA au sein de leur plateforme WHMCS. Grâce à une intégration native du protocole EPP utilisé par l'ANRT, il assure une communication fiable, sécurisée et conforme aux exigences techniques du registre marocain. Ce module simplifie la gestion opérationnelle tout en garantissant une qualité de service optimale pour les utilisateurs finaux.",
+			"L'une des nouveautés majeures introduites par l'ANRT est l'ajout du champ obligatoire NID (National ID), désormais requis lors des opérations d'enregistrement, de transfert ou de mise à jour de contacts. Le module intègre pleinement cette exigence : il vérifie la présence du NID, empêche les commandes incomplètes et transmet correctement la donnée au registre via les commandes EPP dédiées. Cette conformité native évite les erreurs de provisioning et garantit que toutes les opérations respectent les règles du registre .MA.",
+			"Le module inclut également une fonction de synchronisation à la demande via le SRS de l'ANRT. À tout moment, l'administrateur peut déclencher une requête pour récupérer l'état réel des domaines : dates d'expiration, statuts, verrous EPP, suspensions éventuelles, ou encore renouvellements effectués directement depuis le registre. Cette synchronisation manuelle garantit un alignement parfait entre WHMCS et le registre, évitant les divergences de données sans dépendre d'un cycle automatique journalier.",
+			"En plus de cette synchronisation flexible, le module prend en charge toutes les opérations EPP essentielles : création et mise à jour des contacts, enregistrement de domaines, transferts avec auth-code, modifications de serveurs DNS, verrouillage/déverrouillage EPP et suppressions programmées. L'ensemble des actions est exécuté en temps réel, avec un retour d'information clair dans WHMCS, renforçant l'efficacité opérationnelle pour le prestataire."
+		]
+	},
+	ContactSection: {
+		title: "Contacter un conseiller WHOIS Maroc",
+		description: "L'équipe WHOIS Maroc se met à votre disposition pour répondre à toutes vos questions concernant le module WHMCS EPP pour les domaines .MA."
+	}
 };
