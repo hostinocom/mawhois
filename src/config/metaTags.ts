@@ -1,7 +1,7 @@
 const baseUrl = "https://www.mawhois.com";
 export const defaultImageUrl = `${baseUrl}/images/og-image.png`;
 
-// Home Page Meta
+// Home Page Meta EN
 const homePageMeta = {
 	title: "Whois MA | Search & Lookup for Moroccan Domains",
 	description: "Whois MA domain name. Find who owns a .MA with our WHOIS Morocco tool. Search and secure your ma domain easily",
@@ -10,7 +10,7 @@ const homePageMeta = {
 	imageUrl: "http://www.mawhois.com/images/ma-whois.jpg",
 };
 
-// About Page Meta
+// About Page Meta EN
 const aProposMeta = {
 	title: "About WHOIS Morocco – Information about our service",
 	description: "WHOIS Morocco Tool, online directory service based on the official .ma registry database.",
@@ -19,7 +19,7 @@ const aProposMeta = {
 	imageUrl: "http://www.mawhois.com/images/ma-whois.jpg",
 	};
 
-// Domain Registration Page Meta
+// Domain Registration Page Meta EN
 const nomDeDomaineMarocMeta = {
 	title: "Ma Domain Name | Official Morocco Domains Registration",
 	description: "Ma Domain Name. Protect your brand in Morocco — search and secure your official .MA domain name instantly.",
@@ -28,22 +28,32 @@ const nomDeDomaineMarocMeta = {
 	imageUrl: "http://www.mawhois.com/images/ma-domain-name.jpg",
 };
 
-// Reserved Terms Page Meta
+// Reserved Terms Page Meta EN
 const termesReservesMeta = {
-	title: "Termes réservés pour les noms de domaine .ma - WHOIS Maroc",
-	description: "Consultez la liste des termes réservés pour les noms de domaine .ma. Découvrez quels mots et expressions sont protégés par l'ANRT et les conditions d'enregistrement.",
-	canonical_url: `${baseUrl}/termes-reserves`,
+	title: "Reserved Terms for .MA Domains – WHOIS Morocco",
+	description: "View the reserved terms for .MA domains and see which words require manual ANRT approval for rights holders",
+	canonical_url: "https://www.mawhois.com/reserved-terms/",
 	ogAlt: "Termes réservés pour les noms de domaine .ma",
-	imageUrl: defaultImageUrl,
+	imageUrl: "http://www.mawhois.com/images/ma-domain-name.jpg",
 };
 
-// Terms of Service Page Meta
+// Terms of Service Page Meta EN
 const conditionsGeneralesMeta = {
 	title: "Conditions générales d'utilisation - WHOIS Maroc",
 	description: "Consultez les conditions générales d'utilisation du site whoisma.com. Règles d'utilisation du WHOIS, responsabilités, propriété intellectuelle et contact.",
 	canonical_url: `${baseUrl}/conditions-generales`,
 	ogAlt: "Conditions générales d'utilisation - WHOIS Maroc",
 	imageUrl: defaultImageUrl,
+};
+
+
+// WHMCS Page Meta EN
+const whmcsMeta = {
+	title: "WHMCS EPP Module .MA Domains - ANRT SRS",
+	description: "WHMCS EPP module for .MA domains — connect to ANRT SRS and automate registration, renewal, and domain management",
+	canonical_url: "https://www.mawhois.com/whmcs-ma-anrt/",
+	ogAlt: "WHMCS EPP Module .MA Domains - ANRT SRS",
+	imageUrl: "http://www.mawhois.com/images/reserved-terms.jpg",
 };
 
 
