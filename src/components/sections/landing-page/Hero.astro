@@ -3,7 +3,7 @@
 import DomainSearchForm from '../../shared/DomainSearchForm.astro';
 import HeroSection from '../../ui/HeroSection.astro';
 
-const { title, registries } = Astro.props;
+const { title, registries, baseRoute, searchButtonText } = Astro.props;
 
 ---
 
@@ -17,7 +17,7 @@ const { title, registries } = Astro.props;
 
 	<!-- Search Form - Pure Astro Component (No JavaScript hydration needed) -->
 	<div class="flex justify-center">
-		<DomainSearchForm registries={registries} />
+		<DomainSearchForm registries={registries} baseRoute={baseRoute} searchButtonText={searchButtonText} />
 	</div>
 </HeroSection>
 

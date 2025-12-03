@@ -1,5 +1,7 @@
 import type { Language } from "../type";
 
+const globalLanguages: Language[] = ["fr", "en"];
+
 export const navItems= [
     { fr: { href: '/fr/', label: 'Accueil' }, en: { href: '/', label: 'Home' } },
     { fr: { href: '/fr/a-propos', label: 'À propos' }, en: { href: '/about', label: 'About' } },
@@ -10,9 +12,10 @@ export const navItems= [
 
 export function selectLanguage (currentLang: Language, currentPath: string){
     const currentLangItem = navItems.find(item => item[currentLang].href === currentPath);
-    const  otherLangItem = currentLang === "fr" ? currentLangItem?.en : currentLangItem?.fr;
+    let otherLangs = globalLanguages.filter(lang => lang !== currentLang);
+    const otherLangItem = otherLangs.map(item =>{ return{language:item, href: currentLangItem?.[item as Language]?.href};});
     return {
-        currentLangLabel: currentLang === "fr" ? "FR" : "EN",
-        switchTo: {label: currentLang === "fr" ? "EN" : "FR", href: otherLangItem?.href || "" }
+        currentLangLabel: currentLang,
+        switchTo: otherLangItem
     }
 }

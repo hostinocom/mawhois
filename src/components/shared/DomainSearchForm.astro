@@ -10,9 +10,11 @@ interface Registry {
 
 interface Props {
 	registries: Registry[];
+	baseRoute: string;
+	searchButtonText: string;
 }
 
-const { registries } = Astro.props;
+const { registries, baseRoute, searchButtonText } = Astro.props;
 const defaultRegistry = registries[0];
 ---
 
@@ -63,7 +65,7 @@ const defaultRegistry = registries[0];
 			class="bg-(--color-primary) hover:bg-[#00c157] text-white px-6 sm:px-8 py-4 md:py-5 text-sm sm:text-base md:text-lg font-semibold rounded-b-lg sm:rounded-r-lg sm:rounded-bl-none transition-all duration-200 hover:shadow-lg active:scale-[0.98] shadow-xl shrink-0"
 			aria-label="Rechercher le domaine"
 		>
-			Rechercher
+			{searchButtonText}
 		</button>
 	</form>
 	
@@ -71,9 +73,9 @@ const defaultRegistry = registries[0];
 	<Message id="domain-search-message" type="error" autoHide={true} autoHideDuration={5000} />
 </div>
 
-<script>
+<script define:vars={{ baseRoute }}>
 	// Parse domain to extract extension if present
-	function parseDomain(input: string, fallbackExtension: string, registries: any[]): { domain: string; extension: string } {
+	function parseDomain(input, fallbackExtension, registries) {
 		let trimmed = input.trim().toLowerCase();
 		
 		// Remove leading slashes
@@ -121,7 +123,7 @@ const defaultRegistry = registries[0];
 	}
 
 	// Validate domain name
-	function validateDomain(domain: string): { valid: boolean; error?: string } {
+	function validateDomain(domain) {
 		const validDomainPattern = /^[a-z0-9]([a-z0-9-]*[a-z0-9])?$/i;
 		
 		if (domain.length < 2) {
@@ -142,7 +144,7 @@ const defaultRegistry = registries[0];
 	// Use global message utility functions
 	const MESSAGE_ID = 'domain-search-message';
 	
-	function showError(message: string) {
+	function showError(message) {
 		if (window.showMessage) {
 			window.showMessage(MESSAGE_ID, message, 'error');
 		}
@@ -156,11 +158,11 @@ const defaultRegistry = registries[0];
 
 	// Initialize form
 	document.addEventListener('DOMContentLoaded', () => {
-		const form = document.querySelector('.domain-search-form') as HTMLFormElement;
+		const form = document.querySelector('.domain-search-form');
 		if (!form) return;
 
-		const input = form.querySelector('#domain-search') as HTMLInputElement;
-		const select = form.querySelector('#registry-select') as HTMLSelectElement;
+		const input = form.querySelector('#domain-search');
+		const select = form.querySelector('#registry-select');
 		const registriesData = JSON.parse(form.dataset.registries || '[]');
 
 		// Hide error when user starts typing
@@ -198,7 +200,7 @@ const defaultRegistry = registries[0];
 				return;
 			}
 			
-		async function loadSignature(fullDomain: string) {
+		async function loadSignature(fullDomain) {
 			try {
 				const response = await fetch('/api/search', {
 					method: 'POST',
@@ -209,7 +211,7 @@ const defaultRegistry = registries[0];
 				});
 				const data = await response.json();
 				if (data.success) {
-					window.location.href = `/domain/${encodeURIComponent(fullDomain)}?sig=${data.signature}`;
+					window.location.href = `${baseRoute}/${encodeURIComponent(fullDomain)}?sig=${data.signature}`;
 				} else {
 					showError(data.error || 'Une erreur est survenue');
 				}
