@@ -488,3 +488,9 @@ export const frConditionsGenerales = {
     }
 
 };
+
+export const fr404 = {
+    title: "404",
+    message: "Cette page est introuvable.",
+    buttonText: "Retour à l'accueil"
+};

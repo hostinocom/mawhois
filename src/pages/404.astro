@@ -1,0 +1,48 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { en404 } from '../config/i18n/en';
+import { fr404 } from '../config/i18n/fr';
+
+// Detect locale from pathname
+const currentPath = Astro.url.pathname;
+const isFrench = currentPath.startsWith('/fr');
+const locale = isFrench ? 'fr' : 'en';
+const translations = isFrench ? fr404 : en404;
+
+// Get home URL based on locale
+const homeUrl = isFrench ? '/fr/' : '/';
+
+const title = `404 - ${translations.message}`;
+const description = translations.message;
+---
+
+<Layout 
+	title={title} 
+	description={description} 
+	lang={locale}
+	canonical_url={Astro.url.href}
+	metaRobots={false}
+>
+	<div class="min-h-screen flex items-center justify-center bg-gray-50 px-6">
+		<div class="text-center">
+			<!-- 404 Number -->
+			<h1 class="text-8xl md:text-9xl font-bold text-(--color-primary) mb-6">
+				{translations.title}
+			</h1>
+			
+			<!-- Error Message -->
+			<p class="text-xl md:text-2xl text-gray-900 mb-8">
+				{translations.message}
+			</p>
+			
+			<!-- Return to Home Button -->
+			<a 
+				href={homeUrl}
+				class="inline-block bg-(--color-primary) hover:bg-[#00c157] text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200 hover:shadow-lg active:scale-[0.98]"
+			>
+				{translations.buttonText}
+			</a>
+		</div>
+	</div>
+</Layout>
+

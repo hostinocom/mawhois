@@ -500,3 +500,9 @@ export const enConditionsGenerales = {
         ]
     }
 };
+
+export const en404 = {
+    title: "404",
+    message: "This page cannot be found.",
+    buttonText: "Return to home"
+};
