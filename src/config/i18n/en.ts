@@ -406,19 +406,7 @@ export const enHeader = {
     logo: {
         href: '/',
         alt: "WHOIS Morocco Logo"
-    },
-	navItems: [
-		{ href: '/', label: 'Home' },
-        { href: '/a-propos', label: 'About' },
-		{ href: '/nom-de-domaine-maroc', label: 'Buy a .MA' },
-		{ href: '/termes-reserves', label: 'Reserved terms' },
-		{ href: '/WHMCS', label: 'WHMCS' }
-	],
-	languageSwitcher: {
-		current: "EN",
-		switchTo: "FR",
-		switchToLabel: "Switch to French"
-	}
+    }
 };
 
 export const enFooter = {
@@ -432,8 +420,8 @@ export const enFooter = {
 			title: "Pages",
 			links: [
 				{ href: '/', label: 'Home' },
-				{ href: '/nom-de-domaine-maroc', label: '.MA Domain Name' },
-				{ href: '/a-propos', label: 'About' }
+				{ href: '/buy-ma-domain', label: '.MA Domain Name' },
+				{ href: '/about', label: 'About' }
 			]
 		},
 		contact: {
@@ -446,15 +434,15 @@ export const enFooter = {
 			title: "Useful links",
 			links: [
 				{ href: '/', label: 'Domain search' },
-				{ href: '/nom-de-domaine-maroc', label: 'Register a .MA domain' },
-				{ href: '/a-propos', label: 'Who we are' }
+				{ href: '/buy-ma-domain', label: 'Register a .MA domain' },
+				{ href: '/about', label: 'Who we are' }
 			]
 		}
 	},
 	copyright: `© ${new Date().getFullYear()} WHOIS Morocco. All rights reserved.`,
 	legal: {
-		legalNotice: { href: "/mentions-legales", label: "Legal notice" },
-		privacyPolicy: { href: "/conditions-generales", label: "Privacy policy" }
+		legalNotice: { href: "/legal-notice", label: "Legal notice" },
+		privacyPolicy: { href: "/general-conditions", label: "Privacy policy" }
 	}
 };
 

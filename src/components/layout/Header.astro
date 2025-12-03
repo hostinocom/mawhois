@@ -2,9 +2,12 @@
 // Header component for the WHOIS Maroc landing page
 import { enHeader } from '../../config/i18n/en';
 import { frHeader } from '../../config/i18n/fr';
+import { navItems, selectLanguage } from '../../config/i18n/translation';
+import { getLinkClasses } from '../../utils/header';
+import type { Language } from '../../config/type';
 
 interface Props {
-	lang: "en" | "fr";
+	lang: Language;
 }
 
 // Get locale from prop or detect from pathname
@@ -13,69 +16,8 @@ const lang = Astro.props.lang ;
 
 // Get translations based on locale
 const headerTranslations = lang === "fr" ? frHeader : enHeader;
-const navItems = headerTranslations.navItems;
 
-// Helper function to check if a link is active
-function isActive(href: string, index: number): boolean {
-	// Remove locale prefix for comparison
-	const pathWithoutLocale = currentPath.replace(/^\/fr/, '').replace(/^\/$/, '/') || '/';
-	const hrefWithoutLocale = href.replace(/^\/fr/, '').replace(/^\/$/, '/') || '/';
-	
-	// Special case for home page - only active if exactly "/" and it's the first item
-	if (hrefWithoutLocale === '/') {
-		// Only the first "/" link should be active on home page
-		if (index === 0) {
-			return pathWithoutLocale === '/' || pathWithoutLocale === '';
-		}
-		// The last "/" link should not be active on home page
-		return false;
-	}
-	// For other pages, check if current path starts with the href
-	return pathWithoutLocale.startsWith(hrefWithoutLocale);
-}
-
-// Helper function to get link classes
-function getLinkClasses(href: string, index: number): string {
-	const baseClasses = 'hover:text-(--color-primary) transition-colors';
-	const activeClasses = 'text-(--color-primary)';
-	const inactiveClasses = 'text-white/80';
-	
-	return isActive(href, index) 
-		? `${baseClasses} ${activeClasses}` 
-		: `${baseClasses} ${inactiveClasses}`;
-}
-
-// Function to switch language based on current page
-function getAlternateLanguagePath(currentPath: string, currentLang: "en" | "fr"): string {
-	// Determine alternate language
-	const alternateLang = currentLang === "en" ? "fr" : "en";
-	
-	// Remove trailing slash for consistent processing
-	let path = currentPath.replace(/\/$/, '') || '/';
-	
-	// If current path starts with /fr/, remove it
-	if (path.startsWith('/fr/')) {
-		path = path.replace('/fr', '') || '/';
-	} else if (path.startsWith('/fr')) {
-		path = '/';
-	}
-	
-	// Handle root path
-	if (path === '/') {
-		return alternateLang === 'fr' ? '/fr/' : '/';
-	}
-	
-	// For French, add /fr prefix
-	if (alternateLang === 'fr') {
-		return `/fr${path}`;
-	}
-	
-	// For English, return path as-is (no prefix)
-	return path;
-}
-
-// Get alternate language path
-const alternatePath = getAlternateLanguagePath(currentPath, lang);
+const { currentLangLabel, switchTo } = selectLanguage(lang, currentPath);
 
 ---
 
@@ -94,8 +36,8 @@ const alternatePath = getAlternateLanguagePath(currentPath, lang);
 			<div class="hidden md:flex items-center gap-4 text-sm">
 				{navItems.map((item, index) => (
 					<>
-						<a href={item.href} class={getLinkClasses(item.href, index)}>
-							{item.label}
+						<a href={item[lang].href} class={getLinkClasses(item[lang].href, index, currentPath)}>
+							{item[lang].label}
 						</a>
 						{index < navItems.length - 1 && <span class="text-white/80">/</span>}
 					</>
@@ -110,7 +52,7 @@ const alternatePath = getAlternateLanguagePath(currentPath, lang);
 					aria-label="Switch language"
 					aria-expanded="false"
 				>
-					<span>{headerTranslations.languageSwitcher.current}</span>
+					<span>{currentLangLabel}</span>
 					<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
 					</svg>
@@ -122,10 +64,10 @@ const alternatePath = getAlternateLanguagePath(currentPath, lang);
 					class="hidden absolute right-0 mt-2 w-32 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50"
 				>
 					<a 
-						href={alternatePath}
+						href={switchTo.href}
 						class="block px-4 py-2 text-(--color-secondary) hover:bg-gray-50 transition-colors text-sm"
 					>
-						{headerTranslations.languageSwitcher.switchTo}
+						{switchTo.label}
 					</a>
 				</div>
 			</div>
@@ -156,8 +98,8 @@ const alternatePath = getAlternateLanguagePath(currentPath, lang);
 		<div class="max-w-7xl mx-auto px-6 py-4">
 			<nav class="flex flex-col gap-4">
 				{navItems.map((item, index) => (
-					<a href={item.href} class={`${getLinkClasses(item.href, index)} text-sm py-2`}>
-						{item.label}
+					<a href={item[lang]?.href} class={`${getLinkClasses(item[lang]?.href, index, currentPath)} text-sm py-2`}>
+						{item[lang]?.label}
 					</a>
 				))}
 			</nav>

@@ -11,6 +11,7 @@ interface Props {
 	imageUrl?: string;
 	ogAlt?: string;
 	articleSchema?: any;
+	metaRobots?: boolean;
 }
 
 const { 
@@ -21,6 +22,7 @@ const {
 	imageUrl = "https://www.mawhois.com/images/ma-whois.jpg",
 	ogAlt = "MA Whois | WHOIS Lookup for Moroccan Domains",
 	articleSchema = null,
+	metaRobots = true,
 } = Astro.props;
 ---
 <!doctype html>
@@ -55,6 +57,13 @@ const {
 		<meta name="twitter:description" content={description} />
 		<meta name="twitter:image" content={imageUrl} />
 		<meta name="twitter:creator" content="@admin" />
+
+		<!-- Meta Robots -->
+		{metaRobots ? (
+			<meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"/>
+		) : (
+			<meta name="robots" content="noindex, nofollow" />
+		)}
 
 		<!-- Favicon -->
 		<link rel="icon" type="image/x-icon" href="/favicon.ico" />

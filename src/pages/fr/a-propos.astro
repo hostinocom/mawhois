@@ -1,7 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Hero from '../../components/sections/propos/Hero.astro';
-import About from '../../components/sections/propos/About.astro';
+import AboutSection from '../../components/sections/propos/AboutSection.astro';
 import { frMetaTags } from '../../config/metaTags';
 import { frAPropos } from '../../config/i18n/fr';
 
@@ -64,7 +64,7 @@ const articleSchema = {
 >
 	
 	<Hero title={frAPropos.Hero.title} />
-	<About 
+	<AboutSection 
 		title={frAPropos.About.title}
 		paragraphs={frAPropos.About.paragraphs}
 		companyInfo={frAPropos.About.companyInfo}

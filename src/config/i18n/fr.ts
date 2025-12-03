@@ -395,18 +395,7 @@ export const frHeader = {
         href: '/fr/',
         alt: "WHOIS Maroc Logo"
     },
-	navItems: [
-		{ href: '/fr/', label: 'Accueil' },
-        { href: '/fr/a-propos', label: 'À propos' },
-		{ href: '/fr/nom-de-domaine-maroc', label: 'Acheter un .MA' },
-		{ href: '/fr/termes-reserves', label: 'Termes réservés' },
-		{ href: '/fr/WHMCS', label: 'WHMCS' }
-	],
-	languageSwitcher: {
-		current: "FR",
-		switchTo: "EN",
-		switchToLabel: "Passer à l'anglais"
-	}
+	
 };
 
 export const frFooter = {

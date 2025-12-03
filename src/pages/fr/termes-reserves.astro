@@ -2,7 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import Hero from '../../components/sections/termes-reserves/Hero.astro';
 import ReservedTermsInfo from '../../components/sections/termes-reserves/ReservedTermsInfo.astro';
-import ReservedTerms from '../../components/sections/termes-reserves/ReservedTerms.astro';
+import ReservedTermsSection from '../../components/sections/termes-reserves/ReservedTermsSection.astro';
 import { frMetaTags } from '../../config/metaTags';
 import { frTermesReserves } from '../../config/i18n/fr';
 import { frReservedTerms } from '../../config/reservedTerms';
@@ -71,7 +71,7 @@ const articleSchema = {
 		title={frTermesReserves.ReservedTermsInfo.title}
 		paragraphs={frTermesReserves.ReservedTermsInfo.paragraphs}
 	/>
-	<ReservedTerms title="Liste des termes réservés" reservedTerms={frReservedTerms} source="Liste officielle des termes réservés (PDF)" />
+	<ReservedTermsSection title="Liste des termes réservés" reservedTerms={frReservedTerms} source="Liste officielle des termes réservés (PDF)" />
 	
 </Layout>
 
