@@ -57,20 +57,20 @@ const { currentLangLabel, switchTo } = selectLanguage(lang, currentPath);
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
 					</svg>
 				</button>
-				{switchTo.map((item) => (
 				<!-- Dropdown Menu -->
 				<div 
 					id="language-dropdown"
 					class="hidden absolute right-0 mt-2 w-32 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50"
 				>
-					<a 
-						href={item.href}
-						class="block px-4 py-2 text-(--color-secondary) hover:bg-gray-50 transition-colors text-sm"
-					>
-						{item.language.toUpperCase()}
-					</a>
+					{switchTo.map((item) => (
+						<a 
+							href={item.href}
+							class="block px-4 py-2 text-(--color-secondary) hover:bg-gray-50 transition-colors text-sm"
+						>
+							{item.language.toUpperCase()}
+						</a>
+					))}
 				</div>
-			))}
 			</div>
 			
 			<!-- Mobile Menu Button (only visible on mobile) -->
@@ -109,7 +109,10 @@ const { currentLangLabel, switchTo } = selectLanguage(lang, currentPath);
 </header>
 
 <script>
-	document.addEventListener('DOMContentLoaded', () => {
+	// Store abort controller for cleanup
+	let clickOutsideAbortController: AbortController | null = null;
+	
+	function initHeader() {
 		const menuButton = document.getElementById('mobile-menu-button');
 		const mobileMenu = document.getElementById('mobile-menu');
 		const menuIcon = document.getElementById('menu-icon');
@@ -151,6 +154,14 @@ const { currentLangLabel, switchTo } = selectLanguage(lang, currentPath);
 		
 		// Language switcher dropdown
 		if (languageSwitcher && languageDropdown) {
+			// Clean up previous click outside listener
+			if (clickOutsideAbortController) {
+				clickOutsideAbortController.abort();
+			}
+			
+			// Create new abort controller for this instance
+			clickOutsideAbortController = new AbortController();
+			
 			languageSwitcher.addEventListener('click', (e) => {
 				e.stopPropagation();
 				const isOpen = !languageDropdown.classList.contains('hidden');
@@ -166,12 +177,24 @@ const { currentLangLabel, switchTo } = selectLanguage(lang, currentPath);
 			
 			// Close dropdown when clicking outside
 			document.addEventListener('click', (e) => {
-				if (!languageSwitcher.contains(e.target as Node) && !languageDropdown.contains(e.target as Node)) {
+				if (languageSwitcher && languageDropdown && 
+					!languageSwitcher.contains(e.target as Node) && 
+					!languageDropdown.contains(e.target as Node)) {
 					languageDropdown.classList.add('hidden');
 					languageSwitcher.setAttribute('aria-expanded', 'false');
 				}
-			});
+			}, { signal: clickOutsideAbortController.signal });
 		}
-	});
+	}
+	
+	// Initialize on DOMContentLoaded
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', initHeader);
+	} else {
+		initHeader();
+	}
+	
+	// Re-initialize on navigation (for view transitions or client-side routing)
+	document.addEventListener('astro:page-load', initHeader);
 </script>
 

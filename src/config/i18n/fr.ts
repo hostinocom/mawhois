@@ -207,6 +207,10 @@ export const frAPropos = {
             "Hostino s'engage depuis ses débuts à offrir des services performants, sécurisés et adaptés aux besoins des professionnels comme des particuliers. Notre expertise technique, associée à <span class=\"font-bold\">une volonté constante d'innovation</span>, nous permet de proposer des solutions digitales modernes et accessibles.",
             "Avec WhoisMaroc et l'ensemble de nos services, notre objectif est de faciliter l'accès aux outils numériques, d'accompagner nos clients dans leur croissance et de garantir une expérience utilisateur fluide, transparente et de haute qualité."
         ],
+        image: {
+            src: "/anrt.png",
+            alt: "anrt logo"
+        },
         companyInfo: {
             title: "Hostino SARL AU",
             address: {
@@ -524,6 +528,10 @@ export const frMentionsLegales = {
         paragraphs: [
             "Dans cet espace, l'utilisateur peut consulter toutes les informations relatives aux mentions légales encadrant l'utilisation du site Hostino.<strong> Il est essentiel, en tant qu'utilisateur, de prendre connaissance de ces mentions avant de poursuivre la navigation.</strong>"
         ],
+        image: {
+            src: "/anrt.png",
+            alt: "anrt logo"
+        },
         companyInfo: {
             title: "Hostino SARL AU",
             address: {

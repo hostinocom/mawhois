@@ -219,6 +219,10 @@ export const enAPropos = {
             "Since its inception, Hostino has been committed to offering high-performance, secure services tailored to the needs of both businesses and individuals. Our technical expertise, combined with <span class=\"font-bold\">a constant drive to innovate</span>, enables us to deliver modern and accessible digital solutions.",
             "With WHOIS Morocco and all our services, our goal is to facilitate access to digital tools, support our clients' growth, and guarantee a smooth, transparent, and high-quality user experience."
         ],
+        image: {
+            src: "/anrt.png",
+            alt: "anrt logo"
+        },
         companyInfo: {
             title: "Hostino SARL AU",
             address: {
@@ -536,6 +540,10 @@ export const enMentionsLegales = {
         paragraphs: [
             "In this space, the user can consult all the information relating to the legal notices governing the use of the Hostino website.<strong> It is essential, as a user, to read these notices before continuing to browse.</strong>"
         ],
+        image: {
+            src: "/anrt.png",
+            alt: "anrt logo"
+        },
         companyInfo: {
             title: "Hostino SARL AU",
             address: {

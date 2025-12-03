@@ -7,6 +7,10 @@ import Paragraph from '../../ui/Paragraph.astro';
 interface Props {
 	title?: string;
 	paragraphs?: string[];
+	image: {
+		src: string;
+		alt: string;
+	};
 	companyInfo?: {
 		title: string;
 		address: { label: string; value: string };
@@ -35,6 +39,7 @@ interface Props {
 
 const {
 	title = "À propos de Whois Maroc",
+	image,
 	paragraphs = [],
 	companyInfo,
 	legalInfo,
@@ -118,7 +123,7 @@ const {
 			{accreditation && (
 				<div class="flex flex-col md:flex-row items-start md:items-center gap-6 mb-8">
 					<div class="w-32 md:w-40">
-						<img src="/anrt.png" alt="ANRT Logo" class="w-full h-auto" />
+						<img src={image.src} alt={image.alt} class="w-full h-auto" />
 					</div>
 					<div>
 						<h4 class="text-xl font-bold text-(--color-secondary) mb-1">{accreditation.title}</h4>
