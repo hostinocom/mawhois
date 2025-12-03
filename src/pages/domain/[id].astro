@@ -6,9 +6,6 @@ import DomainAvailable from '../../components/sections/domain/DomainAvailable.as
 import DomainUnavailable from '../../components/sections/domain/DomainUnavailable.astro';
 import { jwtVerify, type JWTPayload } from 'jose';
 import { enDomain } from '../../config/i18n/en';
-import { getLocale } from '../../utils/i18n';
-
-const locale = 'en'; // Default to English for root domain pages
 
 interface Result {
 	available: boolean;
@@ -67,7 +64,7 @@ let result: Result | null = null;
 	}
 ---
 
-<Layout locale={locale} lang={locale}>
+<Layout lang="en">
 	
 	{error ? (
 		<div class="text-red-500">{error}</div>

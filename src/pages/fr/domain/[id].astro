@@ -12,7 +12,6 @@ interface Result {
 	info: string;
 }
 
-const locale = 'fr';
 
 // Get domain from URL params
 const domain = Astro.params.id;
@@ -66,7 +65,7 @@ try {
 }
 ---
 
-<Layout lang={locale}>
+<Layout lang="fr">
 	
 	{error ? (
 		<div class="text-red-500">{error}</div>

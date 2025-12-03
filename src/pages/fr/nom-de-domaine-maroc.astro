@@ -6,18 +6,62 @@ import WhyRegister from '../../components/sections/domaineMaroc/WhyRegister.astr
 import WhatIsDomain from '../../components/sections/domaineMaroc/WhatIsDomain.astro';
 import Pricing from '../../components/sections/domaineMaroc/Pricing.astro';
 import FAQ from '../../components/ui/FAQ.astro';
-import { metaTags } from '../../config/metaTags';
+import { frMetaTags } from '../../config/metaTags';
 import { frNomDeDomaineMaroc } from '../../config/i18n/fr';
 import { frRegistries } from '../../config/registries';
 
-const locale = 'fr';
-const { title, description, canonical_url, ogAlt, imageUrl, articleSchema } = metaTags.nomDeDomaineMaroc;
+const { title, description, canonical_url, ogAlt, imageUrl } = frMetaTags.nomDeDomaineMaroc;
+
+const articleSchema = {
+	"@context": "https://schema.org",
+	"@graph": [
+		{
+			"@type": "WebPage",
+			"@id": `${canonical_url}/#webpage`,
+			url: canonical_url,
+			name: title,
+			description: description,
+			isPartOf: {
+				"@id": `https://www.mawhois.com/#website`,
+				},
+		},
+		{
+			"@type": "BreadcrumbList",
+			"@id": `${canonical_url}/#breadcrumb`,
+			itemListElement: [
+				{
+					"@type": "ListItem",
+					position: 1,
+					item: {
+						"@id": canonical_url,
+						name: "Accueil",
+					},
+				},
+				{
+				    "@type": "ListItem",
+					position: 2,
+					item: {
+						"@id": canonical_url,
+						name: "À propos",
+					},
+				},
+			],
+		},
+
+		{
+			"@type": "AboutPage",
+			name: title,
+			description: description,
+		},
+	],
+};
+
 ---
 
 <Layout 
 	title={title}
 	description={description}
-	lang={locale}
+	lang="fr"
 	canonical_url={canonical_url}
 	imageUrl={imageUrl}
 	ogAlt={ogAlt}
