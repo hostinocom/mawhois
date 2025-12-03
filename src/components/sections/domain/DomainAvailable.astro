@@ -3,6 +3,7 @@ import Button from '../../ui/Button.astro';
 import HeroSection from '../../ui/HeroSection.astro';
 import DownArrow from '../../ui/DownArrow.astro';
 import Section from '../../ui/Section.astro';
+import Title from '../../ui/Title.astro';
 
 interface Props {
 	domain: string;
@@ -58,7 +59,6 @@ const {
 
 const t = translations;
 
-
 ---
 
 <!-- Hero Section -->
@@ -71,16 +71,14 @@ const t = translations;
 		<!-- Domain name in green italic and "est disponible!" -->
 		<h2 class="text-white text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light mb-12 leading-none">
 			<em class="text-(--color-primary) italic font-serif">{domain}</em> {t.hero?.available}
-		</h2>
+		</h2>	
 
-		<!-- Price -->
-		<p class="text-white text-xl md:text-2xl mb-8">
-			{t.hero?.price} <span class="font-bold">{t.hero?.priceAmount}</span> <br>
-			{t.hero?.dnsFree}
-		</p>
-		
-		<!-- Register button -->
-		<div class="mb-8">
+		<!-- Price and Register button -->
+		<div class="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 mb-8">
+			<p class="text-white text-xl md:text-2xl text-center">
+				{t.hero?.price} <span class="font-bold">{t.hero?.priceAmount}</span> <br>
+				{t.hero?.dnsFree}
+			</p>
 			<Button variant="ghost" size="lg">
 				{t.hero?.addToCart}
 			</Button>
@@ -92,15 +90,12 @@ const t = translations;
 
 <!-- WHOIS Information Section -->
  <!-- extraClasses="pt-30" -->
-<Section backgroundColor="bg-white">
+<Section backgroundColor="bg-white" extraClasses="pt-15 md:pt-30">
 		<!-- Section Title -->
 		<div class="mb-8">
-			<h2 class="text-2xl md:text-3xl font-normal text-(--color-secondary) flex items-center gap-2">
+			<Title>
 				{t.whoisInfo?.title}
-				<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-				</svg>
-			</h2>
+			</Title>
 		</div>
 
 		<div class="space-y-6">

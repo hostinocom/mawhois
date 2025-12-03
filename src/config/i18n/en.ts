@@ -409,11 +409,10 @@ export const enHeader = {
     },
 	navItems: [
 		{ href: '/', label: 'Home' },
+        { href: '/a-propos', label: 'About' },
 		{ href: '/nom-de-domaine-maroc', label: 'Buy a .MA' },
-		{ href: '/a-propos', label: 'About' },
 		{ href: '/termes-reserves', label: 'Reserved terms' },
-		{ href: '/WHMCS', label: 'WHMCS' },
-		{ href: '/', label: 'Whois Morocco' }
+		{ href: '/WHMCS', label: 'WHMCS' }
 	],
 	languageSwitcher: {
 		current: "EN",

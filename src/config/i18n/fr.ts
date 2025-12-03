@@ -397,11 +397,10 @@ export const frHeader = {
     },
 	navItems: [
 		{ href: '/fr/', label: 'Accueil' },
+        { href: '/fr/a-propos', label: 'À propos' },
 		{ href: '/fr/nom-de-domaine-maroc', label: 'Acheter un .MA' },
-		{ href: '/fr/a-propos', label: 'À propos' },
 		{ href: '/fr/termes-reserves', label: 'Termes réservés' },
-		{ href: '/fr/WHMCS', label: 'WHMCS' },
-		{ href: '/fr/', label: 'Whois Maroc' }
+		{ href: '/fr/WHMCS', label: 'WHMCS' }
 	],
 	languageSwitcher: {
 		current: "FR",

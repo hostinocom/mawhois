@@ -36,7 +36,7 @@ function isActive(href: string, index: number): boolean {
 
 // Helper function to get link classes
 function getLinkClasses(href: string, index: number): string {
-	const baseClasses = 'hover:text-white transition-colors';
+	const baseClasses = 'hover:text-(--color-primary) transition-colors';
 	const activeClasses = 'text-(--color-primary)';
 	const inactiveClasses = 'text-white/80';
 	
