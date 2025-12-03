@@ -290,7 +290,7 @@ export const enTermesReserves = {
 		title: "Reserved terms"
 	},
 	ReservedTermsInfo: {
-		title: "Reserved terms for .ma<br />domain names",
+		title: "Reserved terms for .ma domain names",
 		paragraphs: [
 			"Reserved terms for .ma domain names constitute a list of words and expressions protected by ANRT to safeguard public interest and prevent abusive or misleading use. These terms are generally related to national institutions, official functions, territorial authorities, or public services. The objective is to ensure <strong>compliant use</strong> of these sensitive designations.",
 			"Certain categories of terms are automatically protected due to their sensitivity or regulatory importance. These include names of state institutions, <strong>administrative authority designations</strong>, official titles, or any term that could falsely represent a regulated activity. The objective is to preserve the integrity of the .ma namespace.",
