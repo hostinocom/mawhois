@@ -4,18 +4,61 @@ import Hero from '../components/sections/WHMCS/Hero.astro';
 import WhmcsInfo from '../components/sections/WHMCS/WhmcsInfo.astro';
 import WhmcsInfoMa from '../components/sections/WHMCS/WhmcsInfo.ma.astro';
 import ContactSection from '../components/shared/ContactSection.astro';
-import { metaTags } from '../config/metaTags';
+import { enMetaTags } from '../config/metaTags';
 import { enWHMCS } from '../config/i18n/en';
 import FAQ from '../components/ui/FAQ.astro';
 
-const locale = 'en';
-const { title, description, canonical_url, ogAlt, imageUrl, articleSchema } = metaTags.aPropos;
+const { title, description, canonical_url, ogAlt, imageUrl } = enMetaTags.whmcs;
+
+const articleSchema = {
+	"@context": "https://schema.org",
+	"@graph": [
+		{
+			"@type": "WebPage",
+			"@id": `${canonical_url}/#webpage`,
+			url: canonical_url,
+			name: title,
+			description: description,
+			isPartOf: {
+				"@id": `https://www.mawhois.com/#website`,
+				},
+		},
+		{
+			"@type": "BreadcrumbList",
+			"@id": `${canonical_url}/#breadcrumb`,
+			itemListElement: [
+				{
+					"@type": "ListItem",
+					position: 1,
+					item: {
+						"@id": canonical_url,
+						name: "Accueil",
+					},
+				},
+				{
+				    "@type": "ListItem",
+					position: 2,
+					item: {
+						"@id": canonical_url,
+						name: "À propos",
+					},
+				},
+			],
+		},
+
+		{
+			"@type": "AboutPage",
+			name: title,
+			description: description,
+		},
+	],
+};
 ---
 
 <Layout 
 	title={title} 
 	description={description} 
-	lang={locale}
+	lang="en"
 	canonical_url={canonical_url} 
 	imageUrl={imageUrl} 
 	ogAlt={ogAlt}
