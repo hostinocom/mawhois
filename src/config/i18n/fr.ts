@@ -12,7 +12,11 @@ export const frHomePage = {
             "En interrogeant la base officielle gérée par l'ANRT, vous vérifiez en temps réel la disponibilité et les données techniques d'un site web.",
             "Vous obtiendrez des détails précis sur le titulaire, affichant le nom de la société pour les <strong>personnes morales</strong> ou l'identité pour les <strong>personnes physiques</strong>.",
             "Notez toutefois que l'utilisation de ces données est restreinte. La <strong>consultation du WHOIS</strong> est limitée à la recherche sur les domaines «.ma », les serveurs et les contacts, uniquement dans le cadre légitime de l'enregistrement ou de la gestion d'un nom de domaine.",
-        ]
+        ],
+        image: {
+            src: "/service-whois-maroc.jpg",
+            alt: "Service WHOIS Maroc - Logo .MA et drapeau marocain avec ANRT"
+        }
     },
     UseCases: {
         title:`À quoi sert l'outil Whois Maroc ?`,
@@ -41,7 +45,11 @@ export const frHomePage = {
             "Les données accessibles via notre platform Whois Maroc regroupent l'ensemble des <strong>informations publiques</strong> liées à un domaine enregistré sous l'extension .MA.",
             "Whois Maroc permettent de connaître le <strong>statut actuel</strong> du domaine (actif, suspendu ou expiré), ainsi que les dates importantes, comme la création, la dernière mise à jour et l'expiration.",
             "Vous pouvez également consulter le prestataire responsable du domaine et ses coordonnées. Le service affiche en outre les <strong>serveurs DNS</strong> associés, les données du titulaire du domaine, telles que le nom, l'organisation, l'adresse e-mail ou le numéro de téléphone.",
-        ]
+        ],
+        image: {
+            src: "/donnees-whois-maroc.jpg",
+            alt: "Exemple de données WHOIS pour le domaine hostino.ma"
+        }
     },
     Privacy: {
         title: "Confidentialité des informations pour les domaines .MA",
@@ -50,7 +58,11 @@ export const frHomePage = {
             "En vertu du règlement de l'ANRT, certaines données — comme le nom du titulaire, son prestataire, les dates de création ou d'expiration — doivent obligatoirement être publiées.",
             "Cela répond à une exigence de transparence imposée par l'organisme de régulation des télécommunications au Maroc.",
             "Toute tentative de masquer ces informations (via un service de 'privacy WHOIS') n'est légalement pas autorisée pour les domaines .ma.",
-        ]
+        ],
+        image: {
+            src: "/whois-privacy-maroc.jpg",
+            alt: "WHOIS Privacy - Protection des données pour les domaines .MA"
+        }
     },
     Reliability: {
         title: "Fiabilité de la base Whois Maroc : mise à jour obligatoire du CIN ou de l'ICE",
@@ -108,7 +120,11 @@ export const frNomDeDomaineMaroc = {
             "Depuis nos bureaux au Maroc, notre équipe d'experts vous propose un service <strong>client réactif</strong> et une <strong>plateforme intuitive</strong>, facile à utiliser, vous permettant de gérer simplement et à tout moment tous les aspects de vos noms de domaine.",
             "Grâce à l'automatisation des processus, l'<strong>activation immédiate</strong> d'un nom de domaine .ma est effective après validation de votre commande, vous permettant de lancer vos projets sans délai.",
             "En tant que Bureau d'enregistrement accrédité par l'ANRT (sous le numéro ANRT/SVA/\"MA\"/119/2022), nous garantissons un service conforme aux <strong>normes locales</strong> les plus rigoureuses."
-        ]
+        ],
+        image: {
+            src: "/nom-domaine-maroc.jpg",
+            alt: "Service WHOIS Maroc - Logo .MA et drapeau marocain avec ANRT"
+        }
     },
     WhyRegister: {
         title: "Pourquoi dois-je enregistrer un nom de domaine Maroc ?",
@@ -133,7 +149,11 @@ export const frNomDeDomaineMaroc = {
             "Un nom de domaine marocain est toute adresse de site web se terminant par l'<strong>extension nationale .ma</strong>, servant d'identifiant unique et mémorable sur Internet.",
             "Ce <strong>domaine national de premier niveau (ccTLD)</strong> est essentiel pour les entreprises, professionnels ou particuliers souhaitant établir une identité numérique forte et crédible au Maroc, signalant aux clients et aux moteurs de recherche que votre contenu est destiné au marché marocain.",
             "L'enregistrement des domaines <strong>\".ma\"</strong> <strong>est ouvert à tous</strong> les projets liés au Maroc, sans exigence de résidence ou de présence physique dans le pays."
-        ]
+        ],
+        image: {
+            src: "/nom-de-domaine-maroc-que.jpg",
+            alt: "Service WHOIS Maroc - Logo .MA et drapeau marocain avec ANRT"
+        }
     },
     Pricing: {
         title: "Prix nom de domaine Maroc",
@@ -247,6 +267,10 @@ export const frWHMCS = {
 		button: {
 			text: "Contactez-nous",
 			href: "https://www.hostino.ma/contact/"
+		},
+		image: {
+			src: "/ma-epp-whmcs-module.jpg",
+			alt: "module WHMCS EPP"
 		}
 	},
 	WhmcsInfoMa: {
@@ -278,7 +302,7 @@ export const frTermesReserves = {
 		title: "Termes réservés"
 	},
 	ReservedTermsInfo: {
-		title: "Termes réservés pour les noms de<br />domaine .ma",
+		title: "Termes réservés pour les noms de domaine .ma",
 		paragraphs: [
 			"Les termes réservés pour les noms de domaine .ma constituent une liste de mots et d'expressions protégés par l'ANRT afin d'assurer l'intérêt public et d'éviter un usage abusif ou trompeur. Ces termes sont généralement liés aux institutions nationales, aux fonctions officielles, aux collectivités territoriales ou aux services publics. L'objectif est de garantir <strong>un usage conforme</strong> de ces dénominations sensibles.",
 			"Certaines catégories de termes sont automatiquement protégées en raison de leur sensibilité ou de leur importance réglementaire. Il s'agit notamment des noms d'institutions de l'État, des <strong>dénominations des autorités administratives</strong>, des titres officiels, ou de tout terme qui pourrait faussement représenter une activité réglementée. L'objectif est de préserver l'intégrité de l'espace de noms .ma.",
@@ -417,7 +441,7 @@ export const frFooter = {
 			title: "Contact",
 			email: "contact@whois.ma",
 			phone: "+212 522 123 456",
-			location: "Rabat, Maroc"
+			location: "Tanger, Maroc"
 		},
 		usefulLinks: {
 			title: "Liens utiles",
@@ -492,4 +516,56 @@ export const frConditionsGenerales = {
 export const fr404 = {
     message: "Cette page est introuvable.",
     buttonText: "Retour à l'accueil"
+};
+
+export const frMentionsLegales = {
+    information: {
+        title: "Mentions légales",
+        paragraphs: [
+            "Dans cet espace, l'utilisateur peut consulter toutes les informations relatives aux mentions légales encadrant l'utilisation du site Hostino.<strong> Il est essentiel, en tant qu'utilisateur, de prendre connaissance de ces mentions avant de poursuivre la navigation.</strong>"
+        ],
+        companyInfo: {
+            title: "Hostino SARL AU",
+            address: {
+                label: "Adresse du siège",
+                value: "T100 Technopark, Tanger"
+            },
+            director: {
+                label: "Directeur général",
+                value: "Aniss KIASSI"
+            },
+            email: {
+                label: "E-mail",
+                value: "info@hostino.com"
+            },
+            website: {
+                label: "Site web",
+                value: "https://www.hostino.ma",
+                display: "www.hostino.ma"
+            }
+        },
+        legalInfo: {
+            rc: { label: "R.C", value: "123893" },
+            patente: { label: "Patente", value: "50412781" },
+            if: { label: "I.F", value: "51707097" },
+            rib: { label: "R.I.B", value: ["164 640 21211", "52330320002 28"] },
+            ice: { label: "ICE", value: "002984236000036" }
+        },
+        accreditation: {
+            title: "Accréditation ANRT",
+            number: "N°ANRT \\ SVA \\ «.ma» \\ 119 \\ 2022"
+        },
+        legalNotice: "Toutes les informations sur ce site Internet sont en conformité avec la loi Marocaine et internationale.",
+		contact: {
+			title: "Coordonnées",
+			email: {
+				label: "E-mail :",
+				value: "info@hostino.com"
+			},
+			website: {
+				label: "Site web :",
+				value: "https://www.hostino.ma"
+			}
+		}
+	}
 };

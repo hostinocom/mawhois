@@ -12,17 +12,22 @@ interface Props {
 		text: string;
 		href: string;
 	};
+	image?: {
+		src: string;
+		alt: string;
+	};
 }
 
 const {
 	title = "Module WHMCS EPP pour le .MA (ANRT)",
 	paragraphs = [],
-	button
+	button,
+	image
 } = Astro.props;
 ---
 
 <Section backgroundColor="bg-white" extraClasses="pt-15 md:pt-30">
-	<TextImageSection image="/ma-epp-whmcs-module.jpg" alt="module WHMCS EPP">
+	<TextImageSection image={image?.src || "/ma-epp-whmcs-module.jpg"} alt={image?.alt || "module WHMCS EPP"}>
 		<Title>
 			{title}
 		</Title>

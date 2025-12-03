@@ -6,18 +6,23 @@ import Paragraph from '../../ui/Paragraph.astro';
 import TextImageSection from '../../ui/TextImageSection.astro';
 
 interface Props {
-	title?: string;
+	title: string;
 	paragraphs?: string[];
+	image: {
+		src: string;
+		alt: string;
+	};
 }
 
 const {
-	title = "Qu'est ce qu'un nom de domaine Maroc ?",
-	paragraphs = []
+	title ,
+	paragraphs = [],
+	image
 } = Astro.props;
 ---
 
 <Section backgroundColor="bg-white"  extraClasses="pt-15 md:pt-30">
-	<TextImageSection image="/nom-de-domaine-maroc-que.jpg" alt="Service WHOIS Maroc - Logo .MA et drapeau marocain avec ANRT">
+	<TextImageSection image={image.src} alt={image.alt}>
 		<Title>
 			{title}
 		</Title>

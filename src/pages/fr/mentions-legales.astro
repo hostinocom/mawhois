@@ -1,10 +1,10 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import InformationSection from '../components/sections/legal-notice/information.astro';
-import { enMetaTags } from '../config/metaTags';
-import { enMentionsLegales } from '../config/i18n/en';
+import Layout from '../../layouts/Layout.astro';
+import { frMetaTags } from '../../config/metaTags';
+import InformationSection from '../../components/sections/legal-notice/information.astro';
+import { frMentionsLegales } from '../../config/i18n/fr';
 
-const { title, description, canonical_url, ogAlt, imageUrl } = enMetaTags.mentionslegales;
+const { title, description, canonical_url, ogAlt, imageUrl } = frMetaTags.mentionslegales;
 
 const articleSchema = {
 	"@context": "https://schema.org",
@@ -48,13 +48,14 @@ const articleSchema = {
 			description: description,
 		},
 	],
-};	
+};
+
 ---
 
 <Layout 
 	title={title}
 	description={description}
-	lang="en"
+	lang="fr"
 	canonical_url={canonical_url}
 	imageUrl={imageUrl}
 	ogAlt={ogAlt}
@@ -62,13 +63,13 @@ const articleSchema = {
 >
 	
 	<InformationSection 
-		title={enMentionsLegales.information.title}
-		paragraphs={enMentionsLegales.information.paragraphs}
-		companyInfo={enMentionsLegales.information.companyInfo}
-		legalInfo={enMentionsLegales.information.legalInfo}
-		accreditation={enMentionsLegales.information.accreditation}
-		legalNotice={enMentionsLegales.information.legalNotice}
-		contact={enMentionsLegales.information.contact}
+		title={frMentionsLegales.information.title}
+		paragraphs={frMentionsLegales.information.paragraphs}
+		companyInfo={frMentionsLegales.information.companyInfo}
+		legalInfo={frMentionsLegales.information.legalInfo}
+		accreditation={frMentionsLegales.information.accreditation}
+		legalNotice={frMentionsLegales.information.legalNotice}
+		contact={frMentionsLegales.information.contact}
 	/>
 	
 </Layout>

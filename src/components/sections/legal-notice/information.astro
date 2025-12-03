@@ -1,0 +1,149 @@
+---
+import Section from '../../ui/Section.astro';
+import Title from '../../ui/Title.astro';
+import Subtitle from '../../ui/Subtitle.astro';
+import Paragraph from '../../ui/Paragraph.astro';
+
+interface Props {
+	title: string;
+	paragraphs: string[];
+	companyInfo: {
+		title: string;
+		address: { label: string; value: string };
+		director: { label: string; value: string };
+		email: { label: string; value: string };
+		website: { label: string; value: string; display: string };
+	};
+	legalInfo: {
+		rc: { label: string; value: string };
+		patente: { label: string; value: string };
+		if: { label: string; value: string };
+		rib: { label: string; value: string[] };
+		ice: { label: string; value: string };
+	};
+	accreditation: {
+		title: string;
+		number: string;
+	};
+	legalNotice: string;
+	contact: {
+		title: string;
+		email: { label: string; value: string };
+		website: { label: string; value: string };
+	};
+}
+
+const {
+	title,
+	paragraphs = [],
+	companyInfo,
+	legalInfo,
+	accreditation,
+	legalNotice,
+	contact
+} = Astro.props;
+---
+
+<Section backgroundColor="bg-white" extraClasses="pt-15 md:pt-30">
+	<!-- extraClasses="pt-30" -->
+	<!-- Main Content -->
+	<div class="mb-16">
+		<Title>
+			{title}
+		</Title>
+		
+		<Paragraph>
+			{paragraphs.map((paragraph: string) => <p set:html={paragraph} />)}
+		</Paragraph>
+	</div>
+	
+	<!-- Company Info -->
+	{companyInfo && (
+		<div class="mb-12" id="hostino-info">
+			<Subtitle>
+				{companyInfo.title}
+			</Subtitle>
+			
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+				<div>
+					<h4 class="text-xl font-bold text-(--color-secondary) mb-2">{companyInfo.address.label}</h4>
+					<p class="text-(--color-secondary)">{companyInfo.address.value}</p>
+				</div>
+				
+				<div>
+					<h4 class="text-xl font-bold text-(--color-secondary) mb-2">{companyInfo.director.label}</h4>
+					<p class="text-(--color-secondary)">{companyInfo.director.value}</p>
+				</div>
+				
+				<div>
+					<h4 class="text-xl font-bold text-(--color-secondary) mb-2">{companyInfo.email.label}</h4>
+					<a href={`mailto:${companyInfo.email.value}`} class="text-(--color-secondary) underline hover:text-(--color-primary)">{companyInfo.email.value}</a>
+				</div>
+				
+				<div>
+					<h4 class="text-xl font-bold text-(--color-secondary) mb-2">{companyInfo.website.label}</h4>
+					<a href={companyInfo.website.value} target="_blank" rel="noopener noreferrer" class="text-(--color-secondary) underline hover:text-(--color-primary)">{companyInfo.website.display}</a>
+				</div>
+			</div>
+			
+			<!-- Legal Info Grid -->
+			{legalInfo && (
+				<div class="border-t border-gray-200 py-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 text-sm md:text-base">
+					<div>
+						<span class="block font-bold text-(--color-secondary) mb-1">{legalInfo.rc.label}</span>
+						<span class="text-(--color-secondary)">{legalInfo.rc.value}</span>
+					</div>
+					<div>
+						<span class="block font-bold text-(--color-secondary) mb-1">{legalInfo.patente.label}</span>
+						<span class="text-(--color-secondary)">{legalInfo.patente.value}</span>
+					</div>
+					<div>
+						<span class="block font-bold text-(--color-secondary) mb-1">{legalInfo.if.label}</span>
+						<span class="text-(--color-secondary)">{legalInfo.if.value}</span>
+					</div>
+					<div class="col-span-2 md:col-span-2 lg:col-span-1">
+						<span class="block font-bold text-(--color-secondary) mb-1">{legalInfo.rib.label}</span>
+						{legalInfo.rib.value.map((line: string) => (
+							<span class="block text-(--color-secondary)">{line}</span>
+						))}
+					</div>
+					<div>
+						<span class="block font-bold text-(--color-secondary) mb-1">{legalInfo.ice.label}</span>
+						<span class="text-(--color-secondary)">{legalInfo.ice.value}</span>
+					</div>
+				</div>
+			)}
+			
+			<!-- Accreditation -->
+			{accreditation && (
+				<div class="flex flex-col md:flex-row items-start md:items-center gap-6 mb-8">
+					<div class="w-32 md:w-40">
+						<img src="/anrt.png" alt="ANRT Logo" class="w-full h-auto" />
+					</div>
+					<div>
+						<h4 class="text-xl font-bold text-(--color-secondary) mb-1">{accreditation.title}</h4>
+						<p class="text-lg md:text-xl text-(--color-secondary)">{accreditation.number}</p>
+					</div>
+				</div>
+			)}
+			
+			<div class="border-t border-gray-200 pt-8 pb-12">
+				<p class="text-sm text-(--color-secondary)">
+					{legalNotice}
+				</p>
+			</div>
+			
+			<!-- Coordonnées -->
+			{contact && (
+				<div>
+					<h3 class="text-2xl font-bold text-(--color-secondary) mb-6">{contact.title}</h3>
+					<div class="space-y-2 text-(--color-secondary) text-xl">
+						<p>{contact.email.label} <a href={`mailto:${contact.email.value}`} class="underline hover:text-(--color-primary)">{contact.email.value}</a></p>
+						<p>{contact.website.label} <a href={contact.website.value} target="_blank" rel="noopener noreferrer" class="underline hover:text-(--color-primary)">{contact.website.value}</a></p>
+					</div>
+				</div>
+			)}
+		</div>
+	)}
+</Section>
+

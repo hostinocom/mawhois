@@ -5,11 +5,11 @@ import Title from '../../ui/Title.astro';
 import Paragraph from '../../ui/Paragraph.astro';
 import TextImageSection from '../../ui/TextImageSection.astro';
 
-const { title, paragraphs = [] } = Astro.props;
+const { title, paragraphs = [], image } = Astro.props;
 ---
 
 <Section backgroundColor="bg-white">
-	<TextImageSection image="/whois-privacy-maroc.jpg" alt="WHOIS Privacy - Protection des données pour les domaines .MA">
+	<TextImageSection image={image.src} alt={image.alt}>
 		<Title>
 			{title}
 		</Title>

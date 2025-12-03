@@ -12,7 +12,11 @@ export const enHomePage = {
             "By querying the official database managed by ANRT, you can verify in real-time the availability and technical data of any website.",
             "You'll receive detailed information about the registrant, displaying the company name for <strong>legal entities</strong> or the individual's identity for <strong>private registrants</strong>.",
             "Please note that the use of this data is restricted. <strong>WHOIS queries</strong> are limited to searching for .ma domains, servers, and contacts, only within the legitimate framework of registering or managing a domain name.",
-        ]
+        ],
+        image: {
+            src: "/service-whois-maroc.jpg",
+            alt: "Service WHOIS Maroc - Logo .MA and Moroccan flag with ANRT"
+        }
     },
     UseCases: {
         title: `What is the WHOIS Morocco tool used for?`,
@@ -41,7 +45,11 @@ export const enHomePage = {
             "The data accessible via our WHOIS Morocco platform includes all <strong>public information</strong> related to domains registered under the .MA extension.",
             "WHOIS Morocco enables you to view the <strong>current status</strong> of a domain (active, suspended, or expired), as well as important dates such as creation, last update, and expiration.",
             "You can also view the provider responsible for the domain and their contact details. The service also displays the associated <strong>DNS servers</strong> and domain registrant data, such as name, organization, email address, and phone number.",
-        ]
+        ],
+        image: {
+            src: "/donnees-whois-maroc.jpg",
+            alt: "Example of WHOIS data for hostino.ma domain"
+        }
     },
     Privacy: {
         title: "Privacy of information for .MA domains",
@@ -50,7 +58,11 @@ export const enHomePage = {
             "Under ANRT regulations, certain data — such as the registrant's name, their provider, and creation or expiration dates — must be published.",
             "This fulfills a transparency requirement imposed by the telecommunications regulatory authority in Morocco.",
             "Any attempt to hide this information (via a 'WHOIS privacy' service) is not legally authorized for .ma domains.",
-        ]
+        ],
+        image: {
+            src: "/whois-privacy-maroc.jpg",
+            alt: "WHOIS Privacy - Data protection for .MA domains"
+        }
     },
     Reliability: {
         title: "Reliability of the WHOIS Morocco database: mandatory update of CIN or ICE",
@@ -108,7 +120,11 @@ export const enNomDeDomaineMaroc = {
             "From our offices in Morocco, our team of experts offers you <strong>responsive customer service</strong> and an <strong>intuitive platform</strong> that's easy to use, allowing you to manage all aspects of your domain names at any time.",
             "Thanks to process automation, <strong>immediate activation</strong> of a .ma domain name takes effect after validation of your order, enabling you to launch your projects without delay.",
             "As a registrar accredited by ANRT (under number ANRT/SVA/\"MA\"/119/2022), we guarantee service compliant with the most rigorous <strong>local standards</strong>."
-        ]
+        ],
+        image: {
+            src: "/nom-domaine-maroc.jpg",
+            alt: "WHOIS Morocco Service - .MA logo and Moroccan flag with ANRT"
+        }
     },
     WhyRegister: {
         title: "Why should I register a Morocco domain name?",
@@ -133,7 +149,11 @@ export const enNomDeDomaineMaroc = {
             "A Moroccan domain name is any website address ending with the <strong>national .ma extension</strong>, serving as a unique and memorable identifier on the Internet.",
             "This <strong>country code top-level domain (ccTLD)</strong> is essential for businesses, professionals, or individuals wishing to establish a strong and credible digital presence in Morocco, signaling to clients and search engines that your content is intended for the Moroccan market.",
             "Registration of <strong>\".ma\"</strong> domains <strong>is open to everyone</strong> with projects related to Morocco, without requiring residence or physical presence in the country."
-        ]
+        ],
+        image: {
+            src: "/nom-de-domaine-maroc-que.jpg",
+            alt: "WHOIS Morocco Service - .MA logo and Moroccan flag with ANRT"
+        }
     },
     Pricing: {
         title: "Morocco domain name pricing",
@@ -259,6 +279,10 @@ export const enWHMCS = {
 		button: {
 			text: "Contact us",
 			href: "https://www.hostino.ma/contact/"
+		},
+		image: {
+			src: "/ma-epp-whmcs-module.jpg",
+			alt: "WHMCS EPP module"
 		}
 	},
 	WhmcsInfoMa: {
@@ -428,7 +452,7 @@ export const enFooter = {
 			title: "Contact",
 			email: "contact@whois.ma",
 			phone: "+212 522 123 456",
-			location: "Rabat, Morocco"
+			location: "Tanger, Morocco"
 		},
 		usefulLinks: {
 			title: "Useful links",
@@ -442,7 +466,7 @@ export const enFooter = {
 	copyright: `© ${new Date().getFullYear()} WHOIS Morocco. All rights reserved.`,
 	legal: {
 		legalNotice: { href: "/legal-notice", label: "Legal notice" },
-		privacyPolicy: { href: "/general-conditions", label: "Privacy policy" }
+		privacyPolicy: { href: "/terms", label: "Privacy policy" }
 	}
 };
 
@@ -504,4 +528,56 @@ export const enConditionsGenerales = {
 export const en404 = {
     message: "This page cannot be found.",
     buttonText: "Return to home"
+};
+
+export const enMentionsLegales = {
+    information: {
+        title: "Legal notice",
+        paragraphs: [
+            "In this space, the user can consult all the information relating to the legal notices governing the use of the Hostino website.<strong> It is essential, as a user, to read these notices before continuing to browse.</strong>"
+        ],
+        companyInfo: {
+            title: "Hostino SARL AU",
+            address: {
+                label: "Headquarters address",
+                value: "T100 Technopark, Tangier"
+            },
+            director: {
+                label: "General Manager",
+                value: "Aniss KIASSI"
+            },
+            email: {
+                label: "Email",
+                value: "info@hostino.com"
+            },
+            website: {
+                label: "Website",
+                value: "https://www.hostino.ma",
+                display: "www.hostino.ma"
+            }
+        },
+        legalInfo: {
+            rc: { label: "Trade Register", value: "123893" },
+            patente: { label: "Business License", value: "50412781" },
+            if: { label: "Tax ID", value: "51707097" },
+            rib: { label: "Bank Details", value: ["164 640 21211", "52330320002 28"] },
+            ice: { label: "ICE", value: "002984236000036" }
+        },
+        accreditation: {
+            title: "ANRT Accreditation",
+            number: "N°ANRT \\ SVA \\ «.ma» \\ 119 \\ 2022"
+        },
+        legalNotice: "All information on this website complies with Moroccan and international law.",
+		contact: {
+			title: "Contact Information",
+			email: {
+				label: "Email:",
+				value: "info@hostino.com"
+			},
+			website: {
+				label: "Website:",
+				value: "https://www.hostino.ma"
+			}
+		}
+	}
 };

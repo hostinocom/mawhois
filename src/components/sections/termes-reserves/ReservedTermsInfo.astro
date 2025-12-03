@@ -5,12 +5,12 @@ import Title from '../../ui/Title.astro';
 import Paragraph from '../../ui/Paragraph.astro';
 
 interface Props {
-	title?: string;
+	title: string;
 	paragraphs?: string[];
 }
 
 const {
-	title = "Termes réservés pour les noms de<br />domaine .ma",
+	title,
 	paragraphs = []
 } = Astro.props;
 
