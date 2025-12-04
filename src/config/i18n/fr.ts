@@ -288,7 +288,49 @@ export const frWHMCS = {
 	},
 	ContactSection: {
 		title: "Contacter un conseiller WHOIS Maroc",
-		description: "L'équipe WHOIS Maroc se met à votre disposition pour répondre à toutes vos questions concernant le module WHMCS EPP pour les domaines .MA."
+		description: "L'équipe WHOIS Maroc se met à votre disposition pour répondre à toutes vos questions concernant le module WHMCS EPP pour les domaines .MA.",
+		phone: {
+			label: "Téléphone",
+			value: "+212 663 75 09 08"
+		},
+		whatsapp: {
+			label: "WhatsApp",
+			value: "+212 663 75 09 08"
+		},
+		email: {
+			label: "E-mail",
+			value: "info@hostino.com"
+		},
+		privacyPolicyUrl: {
+			href: "/fr/conditions-generales",
+			linkText: "Politique de confidentialité",
+            label: "En soumettant ce formulaire, vous acceptez notre "
+		},
+		formFields: {
+			name: {
+				label: "Nom complet",
+				placeholder: "Entrez votre nom complet"
+			},
+			company: {
+				label: "Entreprise",
+				placeholder: "Entrez le nom de votre entreprise"
+			},
+			phone: {
+				label: "Téléphone",
+				placeholder: "Entrez votre numéro de téléphone"
+			},
+			email: {
+				label: "E-mail",
+				placeholder: "Entrez votre adresse e-mail"
+			},
+			message: {
+				label: "Message",
+				placeholder: "Entrez votre message"
+			},
+			submit: {
+				label: "Envoyer le message"
+			},
+		}
 	},
     FAQ: {
 		title: "FAQ - WHMCS EPP Module for .MA Domains",
@@ -437,21 +479,21 @@ export const frFooter = {
 			title: "Pages",
 			links: [
 				{ href: '/fr/', label: 'Accueil' },
-				{ href: '/fr/nom-de-domaine-maroc', label: 'Nom de domaine .MA' },
+				{ href: '/fr/nom-domaine-maroc', label: 'Nom de domaine .MA' },
 				{ href: '/fr/a-propos', label: 'À propos' }
 			]
 		},
 		contact: {
 			title: "Contact",
-			email: "contact@whois.ma",
-			phone: "+212 522 123 456",
+			email: "info@hostino.com",
+			phone: "+212 663 75 09 08",
 			location: "Tanger, Maroc"
 		},
 		usefulLinks: {
 			title: "Liens utiles",
 			links: [
 				{ href: '/fr/', label: 'Recherche de domaine' },
-				{ href: '/fr/nom-de-domaine-maroc', label: 'Enregistrer un domaine .MA' },
+				{ href: '/fr/nom-domaine-maroc', label: 'Enregistrer un domaine .MA' },
 				{ href: '/fr/a-propos', label: 'Qui sommes-nous' }
 			]
 		}
@@ -517,10 +559,10 @@ export const frConditionsGenerales = {
 
 };
 
-export const fr404 = {
-    message: "Cette page est introuvable.",
-    buttonText: "Retour à l'accueil"
-};
+// export const fr404 = {
+//    message: "Cette page est introuvable.",
+//    buttonText: "Retour à l'accueil"
+//};
 
 export const frMentionsLegales = {
     information: {

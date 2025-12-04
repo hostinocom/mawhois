@@ -1,26 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { en404 } from '../config/i18n/en';
-import { fr404 } from '../config/i18n/fr';
 import Button from '../components/ui/Button.astro';
 
-// Detect locale from pathname
-const currentPath = Astro.url.pathname;
-const isFrench = currentPath.startsWith('/fr');
-const locale = isFrench ? 'fr' : 'en';
-const translations = isFrench ? fr404 : en404;
-
-// Get home URL based on locale
-const homeUrl = isFrench ? '/fr/' : '/';
-
-const title = `404 - Page not found`;
-const description = translations.message;
+const title = "404 - Page not found";
+const description = "This page cannot be found.";
 ---
 
 <Layout 
 	title={title} 
 	description={description} 
-	lang={locale}
+	lang="en"
 	canonical_url={Astro.url.href}
 	metaRobots={false}
 >
@@ -33,7 +22,7 @@ const description = translations.message;
 			
 			<!-- Error Message -->
 			<p class="text-xl md:text-2xl text-gray-900 mb-8">
-				{translations.message}
+				This page cannot be found.
 			</p>
 			
 			<!-- Return to Home Button -->
@@ -41,8 +30,8 @@ const description = translations.message;
 				variant="primary"
 				size="lg"
 			>
-            <a href={homeUrl}>
-				{translations.buttonText}
+            <a href="/">
+				Return to home
             </a>
 			</Button>
 		</div>

@@ -300,7 +300,49 @@ export const enWHMCS = {
 	},
 	ContactSection: {
 		title: "Contact a WHOIS Morocco advisor",
-		description: "The WHOIS Morocco team is available to answer all your questions regarding the WHMCS EPP module for .MA domains."
+		description: "The WHOIS Morocco team is available to answer all your questions regarding the WHMCS EPP module for .MA domains.",
+		phone: {
+			label: "Phone",
+			value: "+212 663 75 09 08"
+		},
+		whatsapp: {
+			label: "WhatsApp",
+			value: "+212 663 75 09 08"
+		},
+		email: {
+			label: "Email",
+			value: "info@hostino.com"
+		},
+		privacyPolicyUrl: {
+			href: "/terms",
+			linkText: "Privacy Policy",
+			label: "By submitting this form, you agree to our "
+		},
+		formFields: {
+			name: {
+				label: "Full Name",
+				placeholder: "Enter your full name"
+			},
+			company: {
+				label: "Company",
+				placeholder: "Enter your company name"
+			},
+			phone: {
+				label: "Phone",
+				placeholder: "Enter your phone number"
+			},
+			email: {
+				label: "Email",
+				placeholder: "Enter your email address"
+			},
+			message: {
+				label: "Message",
+				placeholder: "Enter your message"
+			},
+			submit: {
+				label: "Send Message"
+			}
+		}
 	},
 	FAQ: {
 		title: "FAQ - WHMCS EPP Module for .MA Domains",
@@ -448,22 +490,22 @@ export const enFooter = {
 			title: "Pages",
 			links: [
 				{ href: '/', label: 'Home' },
-				{ href: '/buy-ma-domain', label: '.MA Domain Name' },
-				{ href: '/about', label: 'About' }
+				{ href: '/ma-domain-name', label: '.MA Domain Name' },
+				{ href: '/about-us', label: 'About Us' }
 			]
 		},
 		contact: {
 			title: "Contact",
-			email: "contact@whois.ma",
-			phone: "+212 522 123 456",
+			email: "info@hostino.com",
+			phone: "+212 663 75 09 08",
 			location: "Tanger, Morocco"
 		},
 		usefulLinks: {
 			title: "Useful links",
 			links: [
 				{ href: '/', label: 'Domain search' },
-				{ href: '/buy-ma-domain', label: 'Register a .MA domain' },
-				{ href: '/about', label: 'Who we are' }
+				{ href: '/ma-domain-name', label: 'Register a .MA domain' },
+				{ href: '/about-us', label: 'Who we are' }
 			]
 		}
 	},
@@ -529,10 +571,10 @@ export const enConditionsGenerales = {
     }
 };
 
-export const en404 = {
-    message: "This page cannot be found.",
-    buttonText: "Return to home"
-};
+//export const en404 = {
+//    message: "This page cannot be found.",
+//    buttonText: "Return to home"
+//};
 
 export const enMentionsLegales = {
     information: {

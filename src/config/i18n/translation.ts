@@ -25,6 +25,7 @@ export function selectLanguage (currentLang: Language, currentPath: string){
             switchTo: [{language: currentLang === "fr" ? "en" : "fr", href: currentLang === "fr" ? "/" : "/fr/"}]
         }
     }
+    
     else{
         let otherLangs = globalLanguages.filter(lang => lang !== currentLang);
         const otherLangItem = otherLangs.map(item =>{ return{language:item, href: currentLangItem?.[item as Language]?.href};});
