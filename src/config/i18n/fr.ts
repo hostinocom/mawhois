@@ -74,36 +74,36 @@ export const frHomePage = {
     },
     FAQ: {
         title: "FAQ - Whois Maroc",
-        faqs: [
+        faqs:[
             {
-                question: "Qu'est-ce que le Whois Maroc ?",
-                answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+              question: "Qu'est-ce que le WHOIS Maroc?",
+              answer: "Le <a href=\"#\">WHOIS Maroc</a> est un service de consultation public synchronisé avec le Registre. **MA** (l'<a href=\"#\">ANRT</a>) (l'Agence Nationale de Réglementation des Télécommunications), l'autorité marocaine responsable des domaines.MA. Il permet à tout un chacun de visualiser les informations publiques d'un domaine.MA, telles que le titulaire enregistré, le <a href=\"#\">bureau d'enregistrement</a> (<a href=\"#\">registrar</a>) accrédité, et les serveurs DNS actuellement assignés au domaine. En termes simples, il agit comme une fiche d'identité numérique pour les noms de domaine marocains. Cette transparence renforce la confiance, la sécurité et la traçabilité au sein de l'écosystème numérique marocain. Les organismes et les entreprises utilisent souvent le <a href=\"#\">WHOIS Maroc</a> pour vérifier la propriété d'un domaine ou pour s'assurer qu'un nom de domaine.MA est disponible avant de procéder à son enregistrement ou au lancement d'un projet. Pour les entreprises locales, les particuliers et les sociétés internationales ciblant le marché marocain, le <a href=\"#\">WHOIS</a> est un outil essentiel pour surveiller le statut du domaine, suivre toute mise à jour et garantir la pleine conformité avec les exigences de l'<a href=\"#\">ANRT</a> et les réglementations nationales de cybersécurité."
             },
             {
-                question: "Est-il obligatoire de fournir le CIN ou l'ICE pour enregistrer un domaine .MA ?",
-                answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+              question: "Est-il obligatoire de fournir le CIN ou l'ICE pour enregistrer un domaine.MA?",
+              answer: "Oui, la fourniture d'une pièce d'identification officielle est désormais une exigence obligatoire pour enregistrer ou maintenir un domaine.MA. Les personnes physiques doivent fournir une pièce d'identité nationale (CIN) ou un passeport valide, tandis que les entreprises doivent présenter leur Identifiant Commun de l'Entreprise (ICE) (ou RC ou statuts le cas échéant). Cette vérification est appliquée directement par l'<a href=\"#\">ANRT</a> par l'intermédiaire des <a href=\"#\">registrars</a> accrédités. Cette règle vise à réduire la fraude, le cybersquatting et l'utilisation de fausses identités commerciales en ligne. L'écosystème numérique marocain est de plus en plus réglementé pour garantir que le détenteur d'un domaine.MA soit pleinement identifié et légalement responsable du contenu hébergé. Cela fait de l'extension MA un choix local fiable pour les entreprises, les startups et les professionnels souhaitant établir leur crédibilité auprès de la clientèle marocaine."
             },
             {
-                question: "Comment mettre à jour mes informations sur le Whois Maroc ?",
-                answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+              question: "Comment mettre à jour mes informations sur WHOIS Maroc ?",
+              answer: "Les informations <a href=\"#\">WHOIS</a> ne sont pas gérées directement par l'<a href=\"#\">ANRT</a>, mais par votre <a href=\"#\">registrar</a> accrédité - la société auprès de laquelle vous avez enregistré votre nom de domaine. Si vous avez besoin de mettre à jour les détails de propriété, les coordonnées ou la documentation de l'entreprise, vous devez en faire la demande via votre <a href=\"#\">registrar</a>. Dans la plupart des cas, les mises à jour nécessitent que des documents officiels soient re-validés par l'<a href=\"#\">ANRT</a> (par exemple, changement de raison sociale, changement d'ID, changement de représentant légal). Les <a href=\"#\">registrars</a> vous assistent dans la vérification et la soumission de ces documents en votre nom. Il est crucial de maintenir vos données <a href=\"#\">WHOIS</a> exactes et à jour, d'autant plus que la réglementation marocaine exige une identité réelle et vérifiable pour les domaines.MA. Des informations incorrectes peuvent entraîner des retards, des suspensions, voire la suppression du domaine par le registre."
             },
             {
-                question: "Le Whois Maroc est-il accessible au public ?",
-                answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+              question: "Le WHOIS Maroc est-il accessible au public ?",
+              answer: "Oui, le <a href=\"#\">WHOIS Maroc</a> est un service d'accès public. Toute personne peut effectuer une recherche pour consulter les données essentielles et non-sensibles de tout domaine .MA. Ceci fait partie de la politique de transparence de la gouvernance numérique marocaine. Cependant, certains détails peuvent être partiellement masqués ou limités pour des raisons de protection de la vie privée (particulièrement pour les titulaires individuels). Le système assure un équilibre entre l'information du public et les obligations de protection des données conformément aux normes juridiques marocaines. L'accès public contribue à renforcer la confiance en ligne: les clients peuvent vérifier si une marque ou une boutique en ligne est officiellement liée à une entité commerciale marocaine réelle."
             },
             {
-                question: "Mon domaine .ma est toujours en « Pending Create », quel est le problème ?",
-                answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit."
+              question: "Mon domaine ma est toujours en \"Pending Create\", quel est le problème ?",
+              answer: "Lorsqu'un domaine.MA est bloqué en \"Pending Create\" (Création en attente), cela signifie généralement que l'<a href=\"#\">ANRT</a> est encore en train d'examiner la demande d'enregistrement et qu'elle pourrait nécessiter des informations supplémentaires avant d'activer le domaine. Même si le paiement est effectué, le domaine ne sera pas mis en ligne tant que le registre n'aura pas tout approuvé. Cela peut se produire pour plusieurs raisons : L'<a href=\"#\">ANRT</a> a besoin de documents additionnels ou de clarifications de la part du titulaire. Les informations fournies ne correspondent pas entièrement aux détails de contact <a href=\"#\">WHOIS</a>. Le nom de domaine choisi inclut un terme réservé qui nécessite une justification (par exemple: noms de villes, termes liés au gouvernement ou mots-clés d'industries protégées). La meilleure démarche est de contacter votre <a href=\"#\">registrar</a> accrédité pour assurer le suivi de la demande. Il peut vous fournir des détails sur ce que l'<a href=\"#\">ANRT</a> attend, vous assister avec la documentation requise et s'assurer que le dossier est complété. Une fois que l'<a href=\"#\">ANRT</a> valide la demande, le domaine passera automatiquement à l'état \"Actif\" et commencera à fonctionner normalement."
             },
             {
-                question: "Comment fonctionne le changement de propriétaire d'un domaine .MA ?",
-                answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+              question: "Comment fonctionne le changement de propriétaire d'un domaine.MΑ ?",
+              answer: "Un transfert de propriété.MA n'est pas un simple changement administratif: il est traité comme un changement légal de droits. L'<a href=\"#\">ANRT</a> exige des pièces d'identité ou des documents d'entreprise valides à la fois du titulaire actuel et du nouveau titulaire. Le <a href=\"#\">registrar</a> gère le processus et transmet l'ensemble au registre pour approbation. Ceci garantit que le domaine n'est pas transféré sans le consentement du propriétaire actuel et aide à prévenir les litiges. C'est particulièrement important lors de la vente d'une entreprise, d'un changement de marque ou de la mise à jour d'informations d'entreprise. Une fois que le registre valide la demande, les données <a href=\"#\">WHOIS</a> sont mises à jour et le nouveau titulaire devient officiellement l'entité responsable du domaine en vertu de la loi marocaine."
             },
             {
-                question: "Mon domaine contient un terme réservé, que dois-je faire ?",
-                answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+              question: "Mon domaine contient un terme réservé, que dois-je faire ?",
+              answer: "Certains mots sont considérés comme restreints ou protégés au Maroc - tels que les noms de villes, les termes liés au gouvernement ou les mots-clés d'industries sensibles. Si votre domaine choisi en inclut un, l'<a href=\"#\">ANRT</a> pourrait demander des documents justificatifs pour prouver votre éligibilité. Le domaine ne sera pas activé tant que vous n'aurez pas fourni la preuve (par exemple: certificat de marque, licence commerciale ou une autorisation écrite). Cela contribue à protéger les institutions nationales, l'intérêt public et l'identité des marques dans le cyberespace marocain. Si vous estimez avoir des droits légitimes sur le terme, contactez votre <a href=\"#\">registrar</a> pour soumettre les documents requis. Dans le cas contraire, vous devrez peut-être choisir un nom de domaine différent qui respecte la liste des termes réservés."
             }
-        ]
+          ]
     }
 };
 
@@ -185,14 +185,38 @@ export const frNomDeDomaineMaroc = {
         title: "FAQ - Nom de domaine Maroc",
         faqs: [
             {
-                question: "Qu'est-ce que le Whois Maroc ?",
-                answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+              question: "Qu'est-ce qu'un nom de domaine.MA?",
+              answer: "Un nom de domaine.MA est le domaine de premier niveau national (ccTLD) officiel du Maroc, géré par l'<a href=\"#\">ANRT</a>. Il représente votre identité numérique au sein de l'écosystème marocain et est le signe le plus fort qu'un site web est authentiquement lié au Maroc. Les entreprises et les particuliers utilisent les domaines.MA pour établir la confiance avec les clients marocains, améliorer la visibilité en SEO local et se conformer aux normes numériques nationales. Une extension .MA signale que votre marque est légalement identifiable et opère dans un environnement local réglementé, supervisé par l'<a href=\"#\">ANRT</a>. Choisir le.MA vous donne également une forte empreinte numérique marocaine - cela ancre votre présence en ligne au Maroc et indique le respect des règles nationales de cybersécurité."
             },
             {
-                question: "Est-il obligatoire de fournir le CIN ou l'ICE pour enregistrer un domaine .MA ?",
-                answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+              question: "Qui peut enregistrer un nom de domaine.MA?",
+              answer: "Toute personne physique ou morale peut enregistrer un nom de domaine.MA - qu'elle soit basée au Maroc ou à l'étranger - à condition de fournir une identification valide. Les particuliers doivent fournir une pièce d'identité officielle (CIN ou passeport), tandis que les entreprises doivent fournir des documents commerciaux tels que l'ICE, le RC ou les statuts. Les marques internationales ciblant le Maroc peuvent également obtenir un domaine .MA pour protéger leur marque localement. L'exigence fondamentale est de prouver une identité légitime, garantissant que le domaine n'est pas utilisé pour usurper l'identité d'autrui."
+            },
+            {
+              question: "La protection WHOIS est-elle disponible pour les domaines.MA?",
+              answer: "Non - la protection de la vie privée (<a href=\"#\">WHOIS</a> privacy protection) n'est pas disponible pour les noms de domaine.MA. L'<a href=\"#\">ANRT</a> exige une transparence totale de l'identité pour s'assurer que chaque titulaire de domaine est réel, vérifié et légalement responsable de sa présence en ligne. Cette règle est conçue pour prévenir la fraude, les entreprises fictives et les abus d'anonymat au sein de l'espace numérique marocain. Le registre doit toujours être en mesure de retrouver la personne réelle ou l'entité juridique derrière un domaine.MA lorsque les autorités ou les contrôles de conformité l'exigent. Contrairement aux extensions génériques comme le .com, l'espace de noms.ΜΑ privilégie la confiance et la responsabilité sur l'anonymat. C'est pourquoi la protection <a href=\"#\">WHOIS</a> n'est pas autorisée par les politiques de l'<a href=\"#\">ANRT</a>."
+            },
+            {
+              question: "Comment puis-je vérifier la disponibilité d'un nom de domaine.MA?",
+              answer: "Vous pouvez facilement vérifier la disponibilité d'un nom de domaine.MA en utilisant une recherche <a href=\"#\">WHOIS</a> ou l'outil de recherche de tout <a href=\"#\">registrar</a> marocain accrédité. Si le domaine est libre, vous pouvez l'enregistrer immédiatement, à condition de soumettre vos documents et votre paiement. Si le nom apparaît indisponible, le résultat <a href=\"#\">WHOIS</a> indiquera qui le possède et quel fournisseur le gère. Cela aide les entreprises à vérifier les marques, à prévenir le cybersquatting et à évaluer une négociation s'ils souhaitent acquérir le domaine."
+            },
+            {
+              question: "Mon domaine.MA a expiré et le fournisseur est indisponible, que dois-je faire ?",
+              answer: "Si votre <a href=\"#\">registrar</a> ne répond plus ou a cessé ses services, votre domaine est toujours enregistré auprès du Registre <a href=\"#\">ANRT</a>, et vous en restez le propriétaire légal tant qu'il n'a pas atteint le statut de suppression (deletion status). Vous pouvez demander une récupération ou un transfert de domaine par l'intermédiaire de n'importe quel autre <a href=\"#\">registrar</a> accrédité. Tant que le domaine est encore dans la période de grâce ou de rédemption, vous pouvez le restaurer en fournissant vos documents d'identité et en confirmant votre propriété. Le nouveau fournisseur vous aidera à reprendre le contrôle, à renouveler le domaine et à mettre à jour votre <a href=\"#\">WHOIS</a>."
+            },
+            {
+              question: "Je souhaite changer la propriété d'un domaine.MA, comment cela fonctionne-t-il?",
+              answer: "Changer la propriété d'un domaine.MA est traité comme un transfert légal de droits. Le titulaire actuel et le futur titulaire doivent tous deux fournir des documents d'identification ou d'entreprise valides via le <a href=\"#\">registrar</a>, qui les soumettra à l'<a href=\"#\">ANRT</a> pour vérification. Une fois que le registre approuve la demande, les données de contact <a href=\"#\">WHOIS</a> sont mises à jour et le nouveau propriétaire devient entièrement responsable du domaine conformément à la réglementation marocaine. Cela garantit des transferts sûrs et transparents sans litiges."
+            },
+            {
+              question: "Est-il autorisé de vendre ou revendre des noms de domaine.MA?",
+              answer: "Non - le commerce de noms de domaine.MA à des fins lucratives (revente de domaine ou activité spéculative) n'est pas autorisé par l'<a href=\"#\">ANRT</a>. Un domaine.MA doit rester lié à une identité réelle et justifiée ou à une activité commerciale, et ne peut être traité comme un produit commercial destiné à la vente aux enchères ou à la revente. Les transferts de propriété ne sont autorisés que dans des cas légitimes tels que l'acquisition d'entreprise, le changement de marque ou le transfert de droits de projet. Dans tous les cas, le nouveau titulaire doit fournir une identification valide et l'<a href=\"#\">ANRT</a> doit approuver le transfert avant qu'il ne devienne officiel. Cette règle protège les entreprises et les titulaires de marques au Maroc en empêchant le cybersquatting, les faux marchés de domaines et l'accumulation spéculative de noms de domaine. Toute tentative de vendre un domaine.MA en dehors du processus réglementé peut entraîner un litige, une suspension ou la suppression du domaine par le registre."
+            },
+            {
+              question: "Y a-t-il des termes restreints ou réservés pour les domaines.MA?",
+              answer: "Oui certains mots-clés sont considérés comme réglementés ou réservés au Maroc. Cela inclut les noms de villes, les termes liés au gouvernement, les institutions nationales et certains secteurs sensibles. L'enregistrement de tels domaines peut nécessiter une autorisation ou des documents justificatifs. Si votre domaine demandé inclut un terme protégé, l'<a href=\"#\">ANRT</a> peut placer le domaine en Pending Create et exiger une preuve justificative. Votre <a href=\"#\">registrar</a> vous guidera tout au long du processus d'approbation et, s'il est accepté, le domaine sera activé normalement."
             }
-        ]
+          ]
     }
 };
 
@@ -290,11 +314,27 @@ export const frWHMCS = {
     FAQ: {
 		title: "FAQ - WHMCS EPP Module<br/> for .MA Domains",
 		faqs: [
-			{
-				question: "What is the WHMCS EPP Module for .MA Domains?",
-				answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-			}
-		]
+            {
+              question: "Qu'est-ce que le Module EPP WHMCS pour les domaines.MA?",
+              answer: "C'est un module qui connecte votre plateforme WHMCS directement au registre EPP de l'<a href=\"#\">ANRT</a> afin que vous puissiez automatiser l'enregistrement, le renouvellement, le transfert et la gestion de nom de domaine.MA sans intervention manuelle."
+            },
+            {
+              question: "Pourquoi ai-je besoin de ce module pour mon activité de domaine.MΑ ?",
+              answer: "Parce que l'extension .MA est gérée par l'<a href=\"#\">ANRT</a> et requiert une communication basée sur le protocole EPP (Extensible Provisioning Protocol). Ce module permet aux <a href=\"#\">registrars</a> ou aux revendeurs d'offrir les domaines.MA de manière transparente au sein de WHMCS, tout comme les extensions génériques (.com, .net)."
+            },
+            {
+              question: "Quelles fonctionnalités le module prend-il en charge ?",
+              answer: "Le module prend en charge toutes les opérations essentielles requises pour gérer efficacement les domaines.MA dans le système de registre marocain. Cela inclut l'enregistrement de nouveaux domaines, le renouvellement de ceux existants, et la gestion des mises à jour administratives ou techniques tout au long du cycle de vie du domaine. Il permet également la création et la gestion des contacts de domaine, les transferts sécurisés à l'aide des codes d'autorisation, et les modifications de DNS ou de serveurs de noms en temps réel. Ces opérations sont entièrement alignées sur les règles de l'<a href=\"#\">ANRT</a> pour garantir une expérience de gestion fluide pour les titulaires et les revendeurs. De plus, le module assure une synchronisation automatique avec le registre .MA, y compris le champ NID - un identifiant obligatoire introduit par l'<a href=\"#\">ANRT</a> pour chaque domaine."
+            },
+            {
+              question: "Le module est-il conforme aux exigences de l'ANRT ?",
+              answer: "Oui un module EPP correctement développé respecte les politiques EPP de l'<a href=\"#\">ANRT</a>, assure une communication sécurisée et prend en charge les dernières règles .MA telles que la validation de l'identité du propriétaire ou les champs de contact obligatoires."
+            },
+            {
+              question: "Qui peut utiliser un Module EPP.MA dans WHMCS ?",
+              answer: "Seuls les <a href=\"#\">registrars</a> officiellement accrédités par l'<a href=\"#\">ANRT</a> peuvent se connecter directement au registre en utilisant le protocole EPP."
+            }
+          ]
 	}
 };
 

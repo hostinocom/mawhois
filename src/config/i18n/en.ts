@@ -19,7 +19,7 @@ export const enHomePage = {
         }
     },
     UseCases: {
-        title: `What is the WHOIS Morocco tool used for?`,
+        title: `What is the WHOIS <br/> Morocco tool used for?`,
         paragraphTitle: [
             {
                 title: "Check the availability of a .MA domain",
@@ -65,7 +65,7 @@ export const enHomePage = {
         }
     },
     Reliability: {
-        title: "Reliability of the WHOIS Morocco database: mandatory update of CIN or ICE",
+        title: "Reliability of the WHOIS <br/> Morocco database: mandatory update of CIN or ICE",
         paragraphs: [
             "ANRT reminds providers, via an official notification sent on October 16, 2025, that to ensure the reliability of information in the WHOIS Morocco database, all data provided when registering a domain must be accurate and regularly updated.",
             "This requirement applies to all registrants, whether individuals or companies, and involves providing or updating the CIN (National Identity Card) for individuals and ICE (Common Company Identifier) for companies, in accordance with <strong>articles 45 and 54 of Decision ANRT/DG/N°02/2024</strong>.",
@@ -74,36 +74,36 @@ export const enHomePage = {
     },
     FAQ: {
         title: "FAQ - WHOIS Morocco",
-        faqs: [
+        faqs:[
             {
-                question: "What is WHOIS Morocco?",
-                answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+              question: "What is WHOIS Morocco?",
+              answer: "WHOIS Morocco is a public lookup service synchronized with the .MA registry and managed by ANRT, the Moroccan authority responsible for .MA domains. It allows anyone to view public information about a .MA domain, such as the registered holder, the accredited registrar, and the DNS servers currently assigned to the domain. In simple terms, it works like a digital ID card for Moroccan domain names. This transparency strengthens trust, security, and accountability within the Moroccan digital ecosystem. Organizations and businesses often use WHOIS Morocco to verify domain ownership or to check whether a MA domain name is available before registering it or launching a project. For local businesses, individuals, and international companies targeting the Moroccan market, WHOIS is a standard tool to monitor domain status, track any updates, and ensure full compliance with ANRT requirements and national cybersecurity regulations. It helps maintain a secure digital presence and prevents unauthorized or fraudulent changes to ownership or technical settings."
             },
             {
-                question: "Is it mandatory to provide CIN or ICE to register a .MA domain?",
-                answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+              question: "Is it mandatory to provide CIN or ICE to register a .MA domain?",
+              answer: "Yes - providing official identification is now a mandatory requirement to register or maintain a .MA domain. Individuals must provide a valid national ID or passport, while companies must provide ICE (or RC or statutes if applicable). This verification is enforced directly by ANRT through accredited registrars. The purpose behind this rule is to reduce fraud, cybersquatting, and fake business identities online. The Moroccan digital ecosystem has become more regulated to ensure that when someone owns a .MA domain, they are fully identified and legally responsible for the content they host. This makes the .MA extension a trusted local choice for businesses, startups, and professionals who want to build credibility with Moroccan customers."
             },
             {
-                question: "How do I update my information on WHOIS Morocco?",
-                answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+              question: "How do I update my information on WHOIS Morocco?",
+              answer: "WHOIS information is not managed directly by ANRT, but through your accredited registrar the company where you registered your domain name. If you need to update ownership details, contact info, or company documentation, you must request it via your registrar. In most cases, updates require official documents to be re-validated by ANRT (e.g., change of business name, change of ID, change of legal representative). Registrars assist in verifying and submitting these documents on your behalf. It's very important to keep your WHOIS data accurate and up to date, especially since Moroccan regulations require real and verifiable identity for .MA domains. Incorrect information can lead to delays, suspensions, or even domain deletion by the registry."
             },
             {
-                question: "Is WHOIS Morocco accessible to the public?",
-                answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+              question: "Is WHOIS Morocco accessible to the public?",
+              answer: "Yes - WHOIS Morocco is a public-access service. Anyone can perform a lookup to view essential and non-sensitive data of any .MA domain. This is part of the transparency policy in Morocco's digital governance. Some details, however, may be partially hidden or limited to protect personal privacy (especially for individual registrants). The system balances public awareness with data protection obligations under Moroccan legal standards. Public access helps strengthen trust online: customers can check whether a brand or online shop is officially linked to a real Moroccan business."
             },
             {
-                question: "My .ma domain is still in 'Pending Create', what's the issue?",
-                answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit."
+              question: "My .ma domain is still in \"Pending Create\", what's the issue?",
+              answer: "When a .MA domain is stuck in \"Pending Create\", it usually means that ANRT is still reviewing the registration request and may require additional information before activating the domain. Even if the payment is done, the domain will not go live until the registry approves everything. This can happen for several reasons: ANRT needs extra documents or clarification from the registrant; The information provided does not fully match the WHOIS contact details; The chosen domain name includes a reserved term that requires justification (for example: city names, government-related terms, or protected industry keywords). The best step is to contact your accredited registrar to follow up on the request. They can provide details on what ANRT needs, assist with the required documentation, and ensure the file is completed. Once ANRT validates the request, the domain will automatically switch to \"Active\" and start working normally."
             },
             {
-                question: "How does changing the owner of a .MA domain work?",
-                answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+              question: "How does changing the owner of a .MA domain work?",
+              answer: "A .MA ownership transfer is not just a \"form change\": it is treated as a legal change of rights. ANRT requires valid ID or company documents from both the current and the new holder. The registrar manages the process and sends everything to the registry for approval. This ensures that the domain is not transferred without the current owner's consent and helps avoid disputes. It's especially important when selling a business, rebranding, or updating company information. Once the registry validates the request, the WHOIS data is updated and the new holder officially becomes the responsible entity for the domain under Moroccan law."
             },
             {
-                question: "My domain contains a reserved term, what should I do?",
-                answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+              question: "My domain contains a reserved term, what should I do?",
+              answer: "Some words are considered restricted or protected in Morocco such as city names, government-related terms, or sensitive industry keywords. If your chosen domain includes one of these, ANRT may request supporting documents to justify your eligibility. The domain won't be activated until you provide proof (e.g., trademark certificate, commercial license, or a written authorization). This helps protect national institutions, public interest, and brand identity across Moroccan cyberspace. If you believe you have legitimate rights to the term, contact your registrar to submit the required documents. Otherwise, you may need to choose a different domain name that respects the reserved terms list."
             }
-        ]
+          ]
     }
 };
 
@@ -185,26 +185,38 @@ export const enNomDeDomaineMaroc = {
         title: "FAQ - Morocco Domain Name",
         faqs: [
             {
-                question: "What is WHOIS Morocco?",
-                answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+              question: "What is a .MA domain name?",
+              answer: "A .MA domain name is the official country-code top-level domain (ccTLD) of Morocco, managed by ANRT (National Telecommunications Regulatory Agency). It represents your digital identity within the Moroccan ecosystem and is the strongest indicator that a website is genuinely connected to Morocco. Businesses and individuals use .MA domains to build trust with Moroccan customers, improve local SEO visibility, and comply with national digital standards. A .MA extension signals that your brand is legally identifiable and operates within a regulated local environment, supervised by ANRT. Choosing .MA also gives you a strong Moroccan digital footprint - it shows that your website is rooted in Morocco, speaks to the local market, and respects the country's cyber-security rules. For brands targeting Morocco, it is the most authentic way to anchor your online identity in the Kingdom."
             },
             {
-                question: "Is it mandatory to provide CIN or ICE to register a .MA domain?",
-                answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+              question: "Who can register a .MA domain name?",
+              answer: "Any individual or business can register a .MA domain name whether they are located inside Morocco or abroad as long as they provide valid identification. Individuals must provide an official ID (CIN or passport), while companies must provide business documents such as ICE, RC, or statutes. International brands targeting Morocco can also secure a .MA domain to protect their trademark locally. The requirement is simply to prove a legitimate identity, ensuring the domain is not being used to impersonate someone else."
             },
             {
-                question: "How do I update my information on WHOIS Morocco?",
-                answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+              question: "Is WHOIS protection available for .MA domains?",
+              answer: "No - WHOIS privacy protection is not available for .MA domain names. ANRT requires full identity transparency to ensure that every domain holder is real, verified, and legally responsible for their online presence. This rule is designed to prevent fraud, fake businesses, and anonymity abuses within the Moroccan digital space. The registry must always be able to trace the real person or legal entity behind a .MA domain when needed by authorities or for compliance checks. Unlike generic extensions such as .com, the .MA namespace prioritizes trust and accountability over anonymity. That's why WHOIS protection is not permitted under ANRT policies."
             },
             {
-                question: "Is WHOIS Morocco accessible to the public?",
-                answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+              question: "How do I check if a .MA domain name is available?",
+              answer: "You can easily check the availability of a .MA domain name using a WHOIS lookup or any accredited Moroccan registrar's search tool. If the domain is free, you can register it immediately - provided you submit your documents and payment. If the name appears unavailable, the WHOIS result will show who owns it and which provider manages it. This helps businesses verify trademarks, prevent cybersquatting, and evaluate negotiation if they wish to acquire the domain."
             },
             {
-                question: "My .ma domain is still in 'Pending Create', what's the issue?",
-                answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit."
+              question: "My .MA domain has expired and the provider is unavailable what should I do?",
+              answer: "If your registrar is not responding or has stopped its services, your domain is still registered at the ANRT registry, and you remain the legal owner as long as it has not reached deletion status. You can request a domain recovery or transfer through any other accredited registrar. As long as the domain is still under the grace or redemption period, you can restore it by providing your identity documents and confirming your ownership. The new provider will help you regain control, renew the domain, and update your WHOIS."
             },
-        ]
+            {
+              question: "I want to change the ownership of a .MA domain, how does it work?",
+              answer: "Changing ownership of a .MA domain is treated as a legal transfer of rights. Both the current and the future holder must provide valid identification or business documents through the registrar, who will submit them to ANRT for verification. Once the registry approves the request, the WHOIS contact data is updated and the new owner becomes fully responsible for the domain under Moroccan regulations. This ensures safe and transparent transfers without disputes."
+            },
+            {
+              question: "Is it allowed to sell or resell .MA domain names?",
+              answer: "No trading .MA domain names for profit (domain resale or speculative business) is not permitted by ANRT. A .MA domain must remain linked to a real and justified identity or business activity, and cannot be treated as a commercial product for auction or reselling. Ownership transfers are only allowed in legitimate cases such as company acquisition, brand change, or transfer of project rights. In every case, the new holder must provide valid identification and ANRT must approve the transfer before it becomes official. This rule protects businesses and trademark owners in Morocco by preventing cybersquatting, fake domain markets, and speculative domain hoarding. Any attempt to sell a .MA domain outside of the regulated process may lead to dispute, suspension, or deletion of the domain by the registry."
+            },
+            {
+              question: "Are there restricted or reserved terms for .MA domains?",
+              answer: "Yes some keywords are considered regulated or reserved in Morocco. This includes city names, government-related terms, national institutions, and certain sensitive sectors. Registering such domains may require authorization or justification documents. If your requested domain includes a protected term, ANRT may place the domain in Pending Create and request supporting proof. Your registrar will guide you through the approval process, and if accepted, the domain will be activated normally."
+            }
+          ]
     }
 };
 
@@ -290,7 +302,7 @@ export const enWHMCS = {
 		}
 	},
 	WhmcsInfoMa: {
-		title: "WHMCS Registrar Module (ANRT) for .MA Extension",
+		title: "WHMCS Registrar Module <br/> (ANRT) for .MA Extension",
 		paragraphs: [
 			"The WHMCS EPP module for .MA domains (ANRT) allows registrars and service providers to fully automate the management of .MA domain names within their WHMCS platform. Thanks to native integration of the EPP protocol used by ANRT, it ensures reliable, secure communication that complies with the technical requirements of the Moroccan registry. This module simplifies operational management while guaranteeing optimal service quality for end users.",
 			"One of the major innovations introduced by ANRT is the addition of the mandatory NID (National ID) field, now required during registration, transfer, or contact update operations. The module fully integrates this requirement: it verifies the presence of the NID, prevents incomplete orders, and correctly transmits the data to the registry via dedicated EPP commands. This native compliance prevents provisioning errors and ensures that all operations comply with .MA registry rules.",
@@ -302,11 +314,27 @@ export const enWHMCS = {
 	FAQ: {
 		title: "FAQ - WHMCS EPP Module<br/> for .MA Domains",
 		faqs: [
-			{
-				question: "What is the WHMCS EPP Module for .MA Domains?",
-				answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-			}
-		]
+            {
+              question: "What is the WHMCS EPP Module for .MA domains?",
+              answer: "It's a module that connects your WHMCS platform directly to the ANRT EPP registry so you can automate the registration, renewal, transfer, and management of .MA domains without manual intervention."
+            },
+            {
+              question: "Why do I need this module for my .MA domain business?",
+              answer: "Because the .MA extension is managed by the ANRT and requires EPP-based communication. This module allows registrars or resellers to offer .MA domains seamlessly inside WHMCS, just like .com or .net."
+            },
+            {
+              question: "What features does the module support?",
+              answer: "The module supports all essential operations required to manage .MA domains efficiently within the Moroccan registry system. This includes registering new domains, renewing existing ones, and handling administrative or technical updates throughout the domain's lifecycle. It also enables the creation and management of domain contacts, secure domain transfers using authorization codes, and real-time DNS or nameserver modifications. These operations are fully aligned with ANRT rules to ensure a smooth management experience for registrants and resellers. Additionally, the module provides automatic synchronization with the .MA registry, including the NID field - a mandatory identifier introduced by ANRT for every domain. This ensures that data is always accurate, validated, and compliant with current Moroccan registry requirements."
+            },
+            {
+              question: "Is the module compliant with ANRT requirements?",
+              answer: "Yes a properly built EPP module respects ANRT's EPP policies, ensures secure communication, and supports the latest .MA rules such as owner identity validation or mandatory contact fields."
+            },
+            {
+              question: "Who can use a MA EPP Module in WHMCS?",
+              answer: "Only official .MA accredited registrars by the ANRT can connect directly to the registry using EPP."
+            }
+          ]
 	}
 };
 
@@ -315,7 +343,7 @@ export const enTermesReserves = {
 		title: "Reserved terms"
 	},
 	ReservedTermsInfo: {
-		title: "Reserved terms for .ma domain names",
+		title: "Reserved terms for<br/> .ma domain names",
 		paragraphs: [
 			"Reserved terms for .ma domain names constitute a list of words and expressions protected by ANRT to safeguard public interest and prevent abusive or misleading use. These terms are generally related to national institutions, official functions, territorial authorities, or public services. The objective is to ensure <strong>compliant use</strong> of these sensitive designations.",
 			"Certain categories of terms are automatically protected due to their sensitivity or regulatory importance. These include names of state institutions, <strong>administrative authority designations</strong>, official titles, or any term that could falsely represent a regulated activity. The objective is to preserve the integrity of the .ma namespace.",
