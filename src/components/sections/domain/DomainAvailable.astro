@@ -8,6 +8,7 @@ import Title from '../../ui/Title.astro';
 interface Props {
 	domain: string;
 	translations?: {
+		lang?: string;
 		hero?: {
 			congratulations?: string;
 			available?: string;
@@ -34,6 +35,7 @@ interface Props {
 const { 
 	domain,
 	translations = {
+		lang: "fr",
 		hero: {
 			congratulations: "Félicitations!",
 			available: "est disponible!",
@@ -58,6 +60,8 @@ const {
 } = Astro.props;
 
 const t = translations;
+const language = t.lang === "fr" ? "french" : "english";
+const addToCartLink = `https://my.hostino.com/order.php?spage=domain&action=register&a=add&query=${domain}&language=${language}&country=MA&currency=1`;
 
 ---
 
@@ -80,7 +84,9 @@ const t = translations;
 				{t.hero?.dnsFree}
 			</p>
 			<Button variant="primary" size="lg">
+				<a href={addToCartLink}>
 				{t.hero?.addToCart}
+				</a>
 			</Button>
 		</div>
 		

@@ -359,6 +359,7 @@ export const frTermesReserves = {
 
 export const frDomain = {
 	DomainAvailable: {
+		lang: "fr",
 		hero: {
 			congratulations: "Félicitations!",
 			available: "est disponible!",
@@ -465,7 +466,10 @@ export const frHeader = {
         href: '/fr/',
         alt: "WHOIS Maroc Logo"
     },
-	
+    buttonMaDomain: {
+        href: '/fr/nom-domaine-maroc',
+        label: 'Acheter un .MA'
+    }
 };
 
 export const frFooter = {
@@ -559,10 +563,10 @@ export const frConditionsGenerales = {
 
 };
 
-// export const fr404 = {
-//    message: "Cette page est introuvable.",
-//    buttonText: "Retour à l'accueil"
-//};
+export const fr404 = {
+    message: "Cette page est introuvable.",
+    buttonText: "Retour à l'accueil"
+};
 
 export const frMentionsLegales = {
     information: {

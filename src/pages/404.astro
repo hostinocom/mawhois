@@ -1,15 +1,26 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Button from '../components/ui/Button.astro';
+import { en404 } from '../config/i18n/en';
+import { fr404 } from '../config/i18n/fr';
 
 const title = "404 - Page not found";
 const description = "This page cannot be found.";
+const currentPath = Astro.url.pathname;
+let lang = 'en';
+
+if(currentPath.includes('/fr/')){
+	lang = 'fr';
+}
+
+const translations = lang === 'fr' ? fr404 : en404;
+
 ---
 
 <Layout 
 	title={title} 
 	description={description} 
-	lang="en"
+	lang={lang}
 	canonical_url={Astro.url.href}
 	metaRobots={false}
 >
@@ -22,7 +33,7 @@ const description = "This page cannot be found.";
 			
 			<!-- Error Message -->
 			<p class="text-xl md:text-2xl text-gray-900 mb-8">
-				This page cannot be found.
+				{translations.message}
 			</p>
 			
 			<!-- Return to Home Button -->
@@ -31,7 +42,7 @@ const description = "This page cannot be found.";
 				size="lg"
 			>
             <a href="/">
-				Return to home
+				{translations.buttonText}
             </a>
 			</Button>
 		</div>

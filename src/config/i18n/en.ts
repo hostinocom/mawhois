@@ -372,6 +372,7 @@ export const enTermesReserves = {
 
 export const enDomain = {
 	DomainAvailable: {
+        lang: "en",
 		hero: {
 			congratulations: "Congratulations!",
 			available: "is available!",
@@ -477,6 +478,10 @@ export const enHeader = {
     logo: {
         href: '/',
         alt: "WHOIS Morocco Logo"
+    },
+    buttonMaDomain: {
+        href: '/ma-domain-name',
+        label: 'Buy a .MA'
     }
 };
 
@@ -572,10 +577,10 @@ export const enConditionsGenerales = {
     }
 };
 
-//export const en404 = {
-//    message: "This page cannot be found.",
-//    buttonText: "Return to home"
-//};
+export const en404 = {
+    message: "This page cannot be found.",
+    buttonText: "Return to home"
+};
 
 export const enMentionsLegales = {
     information: {

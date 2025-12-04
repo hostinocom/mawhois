@@ -8,17 +8,26 @@ function normalizePath(path: string, currentLang: Language): string {
     return path.endsWith('/') ? path.slice(0, -1) : path;
 }
 
-export const navItems= [
+export const navItemsHeader= [
     { fr: { href: '/fr/', label: 'Accueil' }, en: { href: '/', label: 'Home' } },
     { fr: { href: '/fr/a-propos', label: 'À propos' }, en: { href: '/about-us', label: 'About' } },
-    { fr: { href: '/fr/nom-domaine-maroc', label: 'Acheter un .MA' }, en: { href: '/ma-domain-name', label: 'Buy a .MA' } },
     { fr: { href: '/fr/termes-reserves', label: 'Termes réservés' }, en: { href: '/reserved-terms', label: 'Reserved terms' } },
     { fr: { href: '/fr/whmcs-ma-anrt', label: 'WHMCS' }, en: { href: '/whmcs-ma-anrt', label: 'WHMCS' } }
 ]
 
+const pages = [
+    { fr: '/fr/', en: '/' },
+    { fr: '/fr/a-propos', en: '/about-us' },
+    { fr: '/fr/nom-domaine-maroc', en: '/ma-domain-name' },
+    { fr: '/fr/termes-reserves', en: '/reserved-terms' },
+    { fr: '/fr/whmcs-ma-anrt', en: '/whmcs-ma-anrt' },
+    { fr: '/fr/mentions-legales', en: '/legal-notice' },
+    { fr: '/fr/conditions-generales', en: '/terms' },
+]
+
 export function selectLanguage (currentLang: Language, currentPath: string){
     currentPath = normalizePath(currentPath, currentLang);
-    const currentLangItem = navItems.find(item => item[currentLang].href === currentPath);
+    const currentLangItem = pages.find(item => item[currentLang] === currentPath);
     if(!currentLangItem){
         return {
             currentLangLabel: currentLang,
@@ -28,7 +37,7 @@ export function selectLanguage (currentLang: Language, currentPath: string){
     
     else{
         let otherLangs = globalLanguages.filter(lang => lang !== currentLang);
-        const otherLangItem = otherLangs.map(item =>{ return{language:item, href: currentLangItem?.[item as Language]?.href};});
+        const otherLangItem = otherLangs.map(item =>{ return{language:item, href: currentLangItem?.[item as Language]};});
         return {
             currentLangLabel: currentLang,
             switchTo: otherLangItem

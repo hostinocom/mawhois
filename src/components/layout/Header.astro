@@ -2,9 +2,10 @@
 // Header component for the WHOIS Maroc landing page
 import { enHeader } from '../../config/i18n/en';
 import { frHeader } from '../../config/i18n/fr';
-import { navItems, selectLanguage } from '../../config/i18n/translation';
+import { navItemsHeader, selectLanguage } from '../../config/i18n/translation';
 import { getLinkClasses } from '../../utils/header';
 import type { Language } from '../../config/type';
+import Button from '../ui/Button.astro';
 
 interface Props {
 	lang: Language;
@@ -34,12 +35,12 @@ const { currentLangLabel, switchTo } = selectLanguage(lang, currentPath);
 		<nav class="flex items-center gap-4 md:gap-6">
 			<!-- Desktop Navigation (hidden on mobile) -->
 			<div class="hidden md:flex items-center gap-4 text-sm">
-				{navItems.map((item, index) => (
+				{navItemsHeader.map((item, index) => (
 					<>
 						<a href={item[lang].href} class={getLinkClasses(item[lang].href, index, currentPath)}>
 							{item[lang].label}
 						</a>
-						{index < navItems.length - 1 && <span class="text-white/80">/</span>}
+						{index < navItemsHeader.length - 1 && <span class="text-white/80">/</span>}
 					</>
 				))}
 			</div>
@@ -73,6 +74,21 @@ const { currentLangLabel, switchTo } = selectLanguage(lang, currentPath);
 				</div>
 			</div>
 			
+			<!-- Desktop Button (visible on md+) -->
+			<div class="hidden md:block">
+				<Button 
+					href={headerTranslations.buttonMaDomain.href}
+					variant="primary"
+					size="sm"
+					class="flex items-center gap-1"
+				>
+					{headerTranslations.buttonMaDomain.label}
+					<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+					</svg>
+				</Button>
+			</div>
+			
 			<!-- Mobile Menu Button (only visible on mobile) -->
 			<button 
 				id="mobile-menu-button"
@@ -98,12 +114,26 @@ const { currentLangLabel, switchTo } = selectLanguage(lang, currentPath);
 	<div id="mobile-menu" class="hidden md:hidden bg-(--color-secondary) border-t border-white/10 my-5">
 		<div class="max-w-7xl mx-auto px-6 py-4">
 			<nav class="flex flex-col gap-4">
-				{navItems.map((item, index) => (
+				{navItemsHeader.map((item, index) => (
 					<a href={item[lang]?.href} class={`${getLinkClasses(item[lang]?.href, index, currentPath)} text-sm py-2`}>
 						{item[lang]?.label}
 					</a>
 				))}
 			</nav>
+			<!-- Mobile Button at bottom of mobile menu -->
+			<div class="mt-4 pt-4 border-t border-white/10">
+				<Button 
+					href={headerTranslations.buttonMaDomain.href}
+					variant="primary"
+					size="sm"
+					class="w-full flex items-center justify-center gap-1"
+				>
+					{headerTranslations.buttonMaDomain.label}
+					<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+					</svg>
+				</Button>
+			</div>
 		</div>
 	</div>
 </header>
