@@ -11,6 +11,9 @@ export const navItems= [
 ]
 
 export function selectLanguage (currentLang: Language, currentPath: string){
+    if(!currentPath){
+        currentPath = currentLang === 'fr' ? '/fr/' : '/';
+    }
     const currentLangItem = navItems.find(item => item[currentLang].href === currentPath);
     let otherLangs = globalLanguages.filter(lang => lang !== currentLang);
     const otherLangItem = otherLangs.map(item =>{ return{language:item, href: currentLangItem?.[item as Language]?.href};});
