@@ -2,6 +2,12 @@ import type { Language } from "../type";
 
 const globalLanguages: Language[] = ["fr", "en"];
 
+function normalizePath(path: string, currentLang: Language): string {
+    if (!path) return currentLang === "fr" ? "/fr/" : "/";
+    if (path === '/') return path;
+    return path.endsWith('/') ? path.slice(0, -1) : path;
+}
+
 export const navItems= [
     { fr: { href: '/fr/', label: 'Accueil' }, en: { href: '/', label: 'Home' } },
     { fr: { href: '/fr/a-propos', label: 'À propos' }, en: { href: '/about-us', label: 'About' } },
@@ -11,14 +17,20 @@ export const navItems= [
 ]
 
 export function selectLanguage (currentLang: Language, currentPath: string){
-    if(!currentPath){
-        currentPath = currentLang === 'fr' ? '/fr/' : '/';
-    }
+    currentPath = normalizePath(currentPath, currentLang);
     const currentLangItem = navItems.find(item => item[currentLang].href === currentPath);
-    let otherLangs = globalLanguages.filter(lang => lang !== currentLang);
-    const otherLangItem = otherLangs.map(item =>{ return{language:item, href: currentLangItem?.[item as Language]?.href};});
-    return {
-        currentLangLabel: currentLang,
-        switchTo: otherLangItem
+    if(!currentLangItem){
+        return {
+            currentLangLabel: currentLang,
+            switchTo: [{language: currentLang === "fr" ? "en" : "fr", href: currentLang === "fr" ? "/" : "/fr/"}]
+        }
+    }
+    else{
+        let otherLangs = globalLanguages.filter(lang => lang !== currentLang);
+        const otherLangItem = otherLangs.map(item =>{ return{language:item, href: currentLangItem?.[item as Language]?.href};});
+        return {
+            currentLangLabel: currentLang,
+            switchTo: otherLangItem
+        }
     }
 }
