@@ -17,9 +17,7 @@ const {
 ---
 
 <Section backgroundColor="bg-white" extraClasses="pt-15 md:pt-30">
-	<Title>
-		{title}
-	</Title>
+	<Title title={title} />
 	
 	<Paragraph>
 		{paragraphs.map((paragraph: string) => <p set:html={paragraph} />)}

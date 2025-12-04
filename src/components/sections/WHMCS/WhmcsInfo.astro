@@ -28,9 +28,7 @@ const {
 
 <Section backgroundColor="bg-white" extraClasses="pt-15 md:pt-30">
 	<TextImageSection image={image?.src || "/ma-epp-whmcs-module.jpg"} alt={image?.alt || "module WHMCS EPP"}>
-		<Title>
-			{title}
-		</Title>
+		<Title title={title} />
 				
 		<Paragraph>
 			{paragraphs.map((paragraph: string) => <p set:html={paragraph} />)}

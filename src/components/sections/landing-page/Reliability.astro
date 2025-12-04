@@ -8,9 +8,7 @@ const { title, paragraphs = [] } = Astro.props;
 ---
 
 <Section backgroundColor="bg-white">
-		<Title>
-			{title}
-		</Title>
+		<Title title={title} />
 		
 		<Paragraph>
 			{paragraphs.map((paragraph: string) => <p set:html={paragraph} />)}

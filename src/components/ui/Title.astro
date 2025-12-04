@@ -1,7 +1,11 @@
 ---
+interface Props {
+    title: string;
+}
+const { title } = Astro.props;
 ---
 
-<h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold text-(--color-secondary) leading-tight mb-3 md:mb-5">
-    <slot />
+<h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold text-(--color-secondary) leading-tight mb-3 md:mb-5" set:html={title}>
+
 </h2>
 	

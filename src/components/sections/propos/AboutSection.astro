@@ -53,9 +53,7 @@ const {
 	<!-- extraClasses="pt-30" -->
 	<!-- Main Content -->
 	<div class="mb-16">
-		<Title>
-			{title}
-		</Title>
+		<Title title={title} />
 		
 		<Paragraph>
 			{paragraphs.map((paragraph: string) => <p set:html={paragraph} />)}

@@ -8,9 +8,7 @@ const { title, reservedTerms, source } = Astro.props;
 ---
 
 <Section backgroundColor="bg-white">
-	<Title>
-		{title}
-	</Title>
+	<Title title={title} />
 	
 	<!-- Search Box -->
 	<div class="mb-8 md:mb-12">

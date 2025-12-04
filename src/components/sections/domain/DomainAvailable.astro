@@ -96,9 +96,7 @@ const addToCartLink = `https://my.hostino.com/order.php?spage=domain&action=regi
 <Section backgroundColor="bg-white" extraClasses="pt-15 md:pt-30">
 		<!-- Section Title -->
 		<div class="mb-8">
-			<Title>
-				{t.whoisInfo?.title}
-			</Title>
+			<Title title={t.whoisInfo?.title || ''} />
 		</div>
 
 		<div class="space-y-6">

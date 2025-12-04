@@ -288,7 +288,7 @@ export const frWHMCS = {
 	},
 
     FAQ: {
-		title: "FAQ - WHMCS EPP Module for .MA Domains",
+		title: "FAQ - WHMCS EPP Module<br/> for .MA Domains",
 		faqs: [
 			{
 				question: "What is the WHMCS EPP Module for .MA Domains?",
@@ -303,7 +303,7 @@ export const frTermesReserves = {
 		title: "Termes réservés"
 	},
 	ReservedTermsInfo: {
-		title: "Termes réservés pour les noms de domaine .ma",
+		title: "Termes réservés pour<br/> les noms de domaine .ma",
 		paragraphs: [
 			"Les termes réservés pour les noms de domaine .ma constituent une liste de mots et d'expressions protégés par l'ANRT afin d'assurer l'intérêt public et d'éviter un usage abusif ou trompeur. Ces termes sont généralement liés aux institutions nationales, aux fonctions officielles, aux collectivités territoriales ou aux services publics. L'objectif est de garantir <strong>un usage conforme</strong> de ces dénominations sensibles.",
 			"Certaines catégories de termes sont automatiquement protégées en raison de leur sensibilité ou de leur importance réglementaire. Il s'agit notamment des noms d'institutions de l'État, des <strong>dénominations des autorités administratives</strong>, des titres officiels, ou de tout terme qui pourrait faussement représenter une activité réglementée. L'objectif est de préserver l'intégrité de l'espace de noms .ma.",

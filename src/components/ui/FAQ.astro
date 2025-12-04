@@ -8,8 +8,7 @@ const { faqs, title } = Astro.props as { faqs: FAQItem[], title: string };
 
 <Section>
 		<!-- Title -->
-		<h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold text-(--color-secondary) text-center leading-tight mb-12 md:mb-16">
-			{title}
+		<h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold text-(--color-secondary) text-center leading-tight mb-12 md:mb-16" set:html={title}>
 		</h2>
 		
 		<!-- FAQ Accordion -->

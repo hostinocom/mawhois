@@ -10,9 +10,7 @@ const { title, paragraphTitle = [] } = Astro.props;
 
 <Section backgroundColor="bg-white">
 		<!-- Main title -->
-		<Title>
-			{title}
-		</Title>
+		<Title title={title} />
 		
 		<!-- Green decorative line -->
 		<div class="w-16 h-2 bg-(--color-primary) mt-4 mb-4 md:mb-8"></div>

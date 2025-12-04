@@ -213,7 +213,7 @@ export const enAPropos = {
         title: "About"
     },
     About: {
-        title: "About WHOIS Morocco",
+        title: "About WHOIS <br/> Morocco",
         paragraphs: [
             "WHOIS Morocco is a platform developed by <span class=\"font-bold\">Hostino</span>, a company specialized in web hosting solutions, domain name management, and digital services in Morocco. Through this platform, Hostino provides a simple, fast, and reliable tool to access information and check availability of .MA domain names.",
             "Since its inception, Hostino has been committed to offering high-performance, secure services tailored to the needs of both businesses and individuals. Our technical expertise, combined with <span class=\"font-bold\">a constant drive to innovate</span>, enables us to deliver modern and accessible digital solutions.",
@@ -300,7 +300,7 @@ export const enWHMCS = {
 	},
         
 	FAQ: {
-		title: "FAQ - WHMCS EPP Module for .MA Domains",
+		title: "FAQ - WHMCS EPP Module<br/> for .MA Domains",
 		faqs: [
 			{
 				question: "What is the WHMCS EPP Module for .MA Domains?",

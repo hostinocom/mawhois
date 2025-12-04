@@ -10,9 +10,7 @@ const { mainTitle, mainParagraph, paragraphsAndSubtitles } = Astro.props;
 <Section backgroundColor="bg-white" extraClasses="pt-15 md:pt-30">
 	<!-- Main Title -->
 	<div class="mb-12">
-		<Title>
-			{mainTitle}
-		</Title>
+		<Title title={mainTitle} />
 		
 	<Paragraph>
 		{Array.isArray(mainParagraph) ? (
