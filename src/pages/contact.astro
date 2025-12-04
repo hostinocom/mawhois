@@ -1,15 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Hero from '../components/sections/WHMCS/Hero.astro';
-import WhmcsInfo from '../components/sections/WHMCS/WhmcsInfo.astro';
-import WhmcsInfoMa from '../components/sections/WHMCS/WhmcsInfo.ma.astro';
 import ContactSection from '../components/shared/ContactSection.astro';
 import { enMetaTags } from '../config/metaTags';
-import { enWHMCS } from '../config/i18n/en';
-import FAQ from '../components/ui/FAQ.astro';
 import { enContact } from '../config/i18n/en';
 
-const { title, description, canonical_url, ogAlt, imageUrl } = enMetaTags.whmcs;
+const { title, description, canonical_url, ogAlt, imageUrl } = enMetaTags.contact;
 
 const articleSchema = {
 	"@context": "https://schema.org",
@@ -65,17 +60,7 @@ const articleSchema = {
 	ogAlt={ogAlt}
 	articleSchema={articleSchema}
 >
-	<Hero title={enWHMCS.Hero.title} />
-	<WhmcsInfo 
-		title={enWHMCS.WhmcsInfo.title}
-		paragraphs={enWHMCS.WhmcsInfo.paragraphs}
-		button={enWHMCS.WhmcsInfo.button}
-		image={enWHMCS.WhmcsInfo.image}
-	/>
-	<WhmcsInfoMa 
-		title={enWHMCS.WhmcsInfoMa.title}
-		paragraphs={enWHMCS.WhmcsInfoMa.paragraphs}
-	/>
+
 	<ContactSection 
 		title={enContact.title}
 		description={enContact.description}
@@ -85,7 +70,6 @@ const articleSchema = {
 		privacyPolicyUrl={enContact.privacyPolicyUrl}
 		formFields={enContact.formFields}
 	/>
-	<FAQ faqs={enWHMCS.FAQ.faqs} title={enWHMCS.FAQ.title} />
 	
 </Layout>
 

@@ -298,53 +298,7 @@ export const enWHMCS = {
 			"In addition to this flexible synchronization, the module supports all essential EPP operations: creation and update of contacts, domain registration, transfers with auth-code, DNS server modifications, EPP lock/unlock, and scheduled deletions. All actions are executed in real-time, with clear feedback in WHMCS, enhancing operational efficiency for the provider."
 		]
 	},
-	ContactSection: {
-		title: "Contact a WHOIS Morocco advisor",
-		description: "The WHOIS Morocco team is available to answer all your questions regarding the WHMCS EPP module for .MA domains.",
-		phone: {
-            label: "Any questions?",
-            value: "+212 05 31 03 11 86"
-        },
-        whatsapp: {
-            label: "WhatsApp",
-            value: "+212 663 75 09 08"
-        },
-        email: {
-            label: "Consultation by email ?",
-            value: "info@hostino.com"
-        },
-        privacyPolicyUrl: {
-            href: "/en/terms-and-conditions",
-            linkText: "Privacy Policy",
-            label: 'By clicking "Send", you agree to our'
-        },
-        formFields: {
-            name: {
-                label: "Full name",
-                placeholder: "Your full name"
-            },
-            company: {
-                label: "Company",
-                placeholder: "Your company name"
-            },
-            phone: {
-                label: "Phone",
-                placeholder: "Your phone number"
-            },
-            email: {
-                label: "Email",
-                placeholder: "your@email.com"
-            },
-            message: {
-                label: "Message",
-                placeholder: "Your message..."
-            },
-            submit: {
-                label: "Send"
-            },
-        }
         
-	},
 	FAQ: {
 		title: "FAQ - WHMCS EPP Module for .MA Domains",
 		faqs: [
@@ -511,7 +465,8 @@ export const enFooter = {
 			links: [
 				{ href: '/', label: 'Whois Morocco' },
 				{ href: '/ma-domain-name', label: 'Register a .MA domain' },
-				{ href: '/about-us', label: 'Who we are' }
+				{ href: '/about-us', label: 'Who we are' },
+				{ href: '/contact', label: 'Contact' }
 			]
 		}
 	},
@@ -637,3 +592,50 @@ export const enMentionsLegales = {
 		}
 	}
 };
+
+export const enContact = {
+    title: "Contact a Hostino™ advisor",
+    description: "The Hostino team is at your disposal to answer all your questions.",
+    phone: {
+        label: "Any questions?",
+        value: "+212 05 31 03 11 86"
+    },
+    whatsapp: {
+        label: "WhatsApp",
+        value: "+212 663 75 09 08"
+    },
+    email: {
+        label: "Email consultation?",
+        value: "info@hostino.com"
+    },
+    privacyPolicyUrl: {
+        href: "/terms",
+        linkText: "Privacy Policy",
+        label: 'By clicking "Send", you agree to our'
+    },
+    formFields: {
+        name: {
+            label: "Full name",
+            placeholder: "Your full name"
+        },
+        company: {
+            label: "Company",
+            placeholder: "Your company name"
+        },
+        phone: {
+            label: "Phone",
+            placeholder: "Your phone number"
+        },
+        email: {
+            label: "Email",
+            placeholder: "your@email.com"
+        },
+        message: {
+            label: "Message",
+            placeholder: "Your message..."
+        },
+        submit: {
+            label: "Send"
+        },
+    }
+}

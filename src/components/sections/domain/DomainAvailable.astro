@@ -1,7 +1,6 @@
 ---
 import Button from '../../ui/Button.astro';
 import HeroSection from '../../ui/HeroSection.astro';
-import DownArrow from '../../ui/DownArrow.astro';
 import Section from '../../ui/Section.astro';
 import Title from '../../ui/Title.astro';
 
@@ -73,7 +72,7 @@ const addToCartLink = `https://my.hostino.com/order.php?spage=domain&action=regi
 		</h1>
 		
 		<!-- Domain name in green italic and "est disponible!" -->
-		<h2 class="text-white text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light mb-12 leading-none">
+		<h2 class="text-white text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light mb-8 leading-none">
 			<em class="text-(--color-primary) italic font-serif">{domain}</em> {t.hero?.available}
 		</h2>	
 
@@ -90,8 +89,6 @@ const addToCartLink = `https://my.hostino.com/order.php?spage=domain&action=regi
 			</Button>
 		</div>
 		
-		<!-- Down Arrow Indicator -->
-		<DownArrow />
 </HeroSection>
 
 <!-- WHOIS Information Section -->

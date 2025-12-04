@@ -286,52 +286,7 @@ export const frWHMCS = {
 			"En plus de cette synchronisation flexible, le module prend en charge toutes les opérations EPP essentielles : création et mise à jour des contacts, enregistrement de domaines, transferts avec auth-code, modifications de serveurs DNS, verrouillage/déverrouillage EPP et suppressions programmées. L'ensemble des actions est exécuté en temps réel, avec un retour d'information clair dans WHMCS, renforçant l'efficacité opérationnelle pour le prestataire."
 		]
 	},
-	ContactSection: {
-		title: "Contacter un conseiller Hostino™",
-		description: "L'équipe Hostino se met à votre disposition pour répondre à toutes vos questions.",
-		phone: {
-			label: "Des questions ?",
-			value: "+212 05 31 03 11 86"
-		},
-		whatsapp: {
-			label: "WhatsApp",
-			value: "+212 663 75 09 08"
-		},
-		email: {
-			label: "Consultation par email ?",
-			value: "info@hostino.com"
-		},
-		privacyPolicyUrl: {
-			href: "/fr/conditions-generales",
-			linkText: "Politique de confidentialité",
-            label: 'En cliquant sur "Envoyer", vous acceptez notre'
-		},
-		formFields: {
-			name: {
-				label: "Nom et prénom",
-				placeholder: "Votre nom complet"
-			},
-			company: {
-				label: "Entreprise",
-				placeholder: "Nom de votre entreprise"
-			},
-			phone: {
-				label: "Téléphone",
-				placeholder: "Votre numéro de téléphone"
-			},
-			email: {
-				label: "E-mail",
-				placeholder: "votre@email.com"
-			},
-			message: {
-				label: "Message",
-				placeholder: "Votre message..."
-			},
-			submit: {
-				label: "Envoyer"
-			},
-		}
-	},
+
     FAQ: {
 		title: "FAQ - WHMCS EPP Module for .MA Domains",
 		faqs: [
@@ -498,7 +453,8 @@ export const frFooter = {
 			links: [
 				{ href: '/fr/', label: 'Whois Maroc' },
 				{ href: '/fr/nom-domaine-maroc', label: 'Enregistrer un domaine .MA' },
-				{ href: '/fr/a-propos', label: 'Qui sommes-nous' }
+				{ href: '/fr/a-propos', label: 'Qui sommes-nous' },
+                { href: '/fr/contact', label: 'Contact' }
 			]
 		}
 	},
@@ -623,3 +579,50 @@ export const frMentionsLegales = {
 		}
 	}
 };
+
+export const frContact = {
+    title: "Contacter un conseiller Hostino™",
+    description: "L'équipe Hostino se met à votre disposition pour répondre à toutes vos questions.",
+    phone: {
+        label: "Des questions ?",
+        value: "+212 05 31 03 11 86"
+    },
+    whatsapp: {
+        label: "WhatsApp",
+        value: "+212 663 75 09 08"
+    },
+    email: {
+        label: "Consultation par email ?",
+        value: "info@hostino.com"
+    },
+    privacyPolicyUrl: {
+        href: "/fr/conditions-generales",
+        linkText: "Politique de confidentialité",
+        label: 'En cliquant sur "Envoyer", vous acceptez notre'
+    },
+    formFields: {
+        name: {
+            label: "Nom et prénom",
+            placeholder: "Votre nom complet"
+        },
+        company: {
+            label: "Entreprise",
+            placeholder: "Nom de votre entreprise"
+        },
+        phone: {
+            label: "Téléphone",
+            placeholder: "Votre numéro de téléphone"
+        },
+        email: {
+            label: "E-mail",
+            placeholder: "votre@email.com"
+        },
+        message: {
+            label: "Message",
+            placeholder: "Votre message..."
+        },
+        submit: {
+            label: "Envoyer"
+        },
+    }
+}

@@ -65,6 +65,13 @@ export const enMetaTags = {
 		ogAlt: "WHMCS EPP Module .MA Domains - ANRT SRS",
 		imageUrl: "http://www.mawhois.com/images/reserved-terms.jpg",
 	},
+	contact: {
+        title: "Contact WHOIS Morocco – Get in touch with our team",
+        description: "Contact WHOIS Morocco. Get in touch with our team to ask questions, request support, or provide feedback",
+        canonical_url: "https://www.mawhois.com/contact/",
+        ogAlt: "Contact WHOIS Morocco",
+        imageUrl: "http://www.mawhois.com/images/ma-whois.jpg",
+    }
 }
 
 
@@ -129,6 +136,13 @@ export const frMetaTags = {
 		canonical_url: "https://www.mawhois.com/fr/whmcs-ma-anrt/",
 		ogAlt: "WHMCS EPP Module .MA Domains - ANRT SRS",
 		imageUrl: "http://www.mawhois.com/images/reserved-terms.jpg",
+	},
+	contact: {
+		title: "Contact WHOIS Morocco – Get in touch with our team",
+		description: "Contact WHOIS Morocco. Get in touch with our team to ask questions, request support, or provide feedback",
+		canonical_url: "https://www.mawhois.com/contact/",
+		ogAlt: "Contact WHOIS Morocco",
+		imageUrl: "http://www.mawhois.com/images/ma-whois.jpg",
 	},
 }
 

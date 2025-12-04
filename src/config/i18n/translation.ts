@@ -23,6 +23,7 @@ const pages = [
     { fr: '/fr/whmcs-ma-anrt', en: '/whmcs-ma-anrt' },
     { fr: '/fr/mentions-legales', en: '/legal-notice' },
     { fr: '/fr/conditions-generales', en: '/terms' },
+    { fr: '/fr/contact', en: '/contact' },
 ]
 
 export function selectLanguage (currentLang: Language, currentPath: string){
