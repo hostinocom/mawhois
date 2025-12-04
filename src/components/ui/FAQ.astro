@@ -1,5 +1,5 @@
 ---
-import type { FAQItem } from '../../config/faqsContent';
+import type { FAQItem } from '../../config/type';
 import Section from './Section.astro';
 
 const { faqs, title } = Astro.props as { faqs: FAQItem[], title: string };
@@ -13,7 +13,7 @@ const { faqs, title } = Astro.props as { faqs: FAQItem[], title: string };
 		</h2>
 		
 		<!-- FAQ Accordion -->
-		<div class="space-y-4">
+		<div class="space-y-4 max-w-4xl mx-auto">
 			{faqs.map((faq, index) => (
 				<div class="faq-item bg-white rounded-lg border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-md">
 					<button 
