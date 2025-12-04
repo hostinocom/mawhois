@@ -106,93 +106,98 @@ const {
 		</div>
 
 		<!-- Right Section: Contact Form -->
-		<div class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+		<!-- p-6 md:p-8 -->
+		<div class="bg-white rounded-lg shadow-lg px-5 py-10 md:px-10 md:py-20">
 			<form 
 				id="contact-form"
-				class="space-y-5"
+				class="space-y-6"
 				method="POST"
 				action="/api/contact"
 			>
-				<!-- Name Field -->
-				<div>
-					<label 
-						for="contact-name" 
-						class="block text-sm font-semibold text-(--color-secondary) mb-2"
-					>
-						{formFields.name.label}
-					</label>
-					<input 
-						type="text" 
-						id="contact-name"
-						name="name"
-						placeholder={formFields.name.placeholder}
-						class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-(--color-primary) focus:border-transparent text-(--color-secondary) placeholder:text-gray-400 transition-all"
-						aria-label="Nom et prénom"
-					/>
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+					<!-- Name Field -->
+					<div>
+						<label 
+							for="contact-name" 
+							class="block text-sm font-bold text-(--color-secondary) mb-2 pl-1"
+						>
+							{formFields.name.label}
+						</label>
+						<input 
+							type="text" 
+							id="contact-name"
+							name="name"
+							placeholder={formFields.name.placeholder}
+							class="w-full px-6 py-4 bg-gray-50 border-none rounded-3xl focus:outline-none focus:ring-2 focus:ring-(--color-primary) text-(--color-secondary) placeholder:text-gray-400 transition-all"
+							aria-label="Nom et prénom"
+						/>
+					</div>
+
+					<!-- Company Field -->
+					<div>
+						<label 
+							for="contact-company" 
+							class="block text-sm font-bold text-(--color-secondary) mb-2 pl-1"
+						>
+							{formFields.company.label}
+						</label>
+						<input 
+							type="text" 
+							id="contact-company"
+							name="company"
+							placeholder={formFields.company.placeholder}
+							class="w-full px-6 py-4 bg-gray-50 border-none rounded-3xl focus:outline-none focus:ring-2 focus:ring-(--color-primary) text-(--color-secondary) placeholder:text-gray-400 transition-all"
+							aria-label="Entreprise"
+						/>
+					</div>
 				</div>
 
-				<!-- Company Field -->
-				<div>
-					<label 
-						for="contact-company" 
-						class="block text-sm font-semibold text-(--color-secondary) mb-2"
-					>
-						{formFields.company.label}
-					</label>
-					<input 
-						type="text" 
-						id="contact-company"
-						name="company"
-						placeholder={formFields.company.placeholder}
-						class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-(--color-primary) focus:border-transparent text-(--color-secondary) placeholder:text-gray-400 transition-all"
-						aria-label="Entreprise"
-					/>
-				</div>
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+					<!-- Phone Field -->
+					<div>
+						<label 
+							for="contact-phone" 
+							class="block text-sm font-bold text-(--color-secondary) mb-2 pl-1"
+						>
+							{formFields.phone.label}
+						</label>
+						<input 
+							type="tel" 
+							id="contact-phone"
+							name="phone"
+							placeholder={formFields.phone.placeholder}
+							class="w-full px-6 py-4 bg-gray-50 border-none rounded-3xl focus:outline-none focus:ring-2 focus:ring-(--color-primary) text-(--color-secondary) placeholder:text-gray-400 transition-all"
+							aria-label="Téléphone"
+						/>
+					</div>
 
-				<!-- Phone Field -->
-				<div>
-					<label 
-						for="contact-phone" 
-						class="block text-sm font-semibold text-(--color-secondary) mb-2"
-					>
-						{formFields.phone.label}
-					</label>
-					<input 
-						type="tel" 
-						id="contact-phone"
-						name="phone"
-						placeholder={formFields.phone.placeholder}
-						class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-(--color-primary) focus:border-transparent text-(--color-secondary) placeholder:text-gray-400 transition-all"
-						aria-label="Téléphone"
-					/>
-				</div>
-
-				<!-- Email Field -->
-				<div>
-					<label 
-						for="contact-email" 
-						class="block text-sm font-semibold text-(--color-secondary) mb-2"
-					>
-						{formFields.email.label} <span class="text-(--color-primary)">*</span>
-					</label>
-					<input 
-						type="email" 
-						id="contact-email"
-						name="email"
-						required
-						placeholder={formFields.email.placeholder}
-						class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-(--color-primary) focus:border-transparent text-(--color-secondary) placeholder:text-gray-400 transition-all"
-						aria-label="Email (requis)"
-					/>
+					<!-- Email Field -->
+					<div>
+						<label 
+							for="contact-email" 
+							class="block text-sm font-bold text-(--color-secondary) mb-2 pl-1"
+						>
+							{formFields.email.label} <span class="text-red-500">*</span>
+						</label>
+						<input 
+							type="email" 
+							id="contact-email"
+							name="email"
+							required
+							placeholder={formFields.email.placeholder}
+							class="w-full px-6 py-4 bg-gray-50 border-none rounded-3xl focus:outline-none focus:ring-2 focus:ring-(--color-primary) text-(--color-secondary) placeholder:text-gray-400 transition-all"
+							aria-label="Email (requis)"
+						/>
+					</div>
 				</div>
 
 				<!-- Message Field -->
 				<div>
 					<label 
 						for="contact-message" 
-						class="block text-sm font-semibold text-(--color-secondary) mb-2"
+						class="block text-sm font-bold text-(--color-secondary) mb-2 pl-1"
 					>
-						{formFields.message.label} <span class="text-(--color-primary)">*</span>
+						{formFields.message.label} <span class="text-red-500">*</span>
 					</label>
 					<textarea 
 						id="contact-message"
@@ -200,29 +205,28 @@ const {
 						required
 						rows="5"
 						placeholder={formFields.message.placeholder}
-						class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-(--color-primary) focus:border-transparent text-(--color-secondary) placeholder:text-gray-400 transition-all resize-none"
+						class="w-full px-6 py-4 bg-gray-50 border-none rounded-3xl focus:outline-none focus:ring-2 focus:ring-(--color-primary) text-(--color-secondary) placeholder:text-gray-400 transition-all resize-none"
 						aria-label="Message (requis)"
 					></textarea>
 				</div>
 
 				<!-- Submit Button -->
-				<div class="flex justify-center pt-2">
-					<Button type="submit" variant="primary" size="lg" class="w-full md:w-auto min-w-[200px]">
+				<div class="flex flex-col items-center pt-4 space-y-4">
+					<Button type="submit" variant="primary" size="lg" class="w-full md:w-2/3 rounded-full! font-bold text-lg shadow-lg hover:shadow-xl bg-[#00C157]! hover:bg-[#00a54b]!">
 						{formFields.submit.label}
 					</Button>
+					
+					<!-- Privacy Policy -->
+					<p class="text-xs text-gray-400 text-center max-w-md mx-auto">
+						{privacyPolicyUrl.label}
+						<a 
+							href={privacyPolicyUrl.href}
+							class="underline hover:text-(--color-primary) transition-colors"
+						>
+							{privacyPolicyUrl.linkText}
+						</a>.
+					</p>
 				</div>
-
-				<!-- Privacy Policy -->
-				<p class="text-xs md:text-sm text-gray-500 text-center leading-relaxed">
-					{privacyPolicyUrl.label}
-					<a 
-						href={privacyPolicyUrl.href}
-						class="underline hover:text-(--color-primary) transition-colors"
-					>
-						{privacyPolicyUrl.linkText}
-					</a>
-					.
-				</p>
 			</form>
 		</div>
 	</div>
