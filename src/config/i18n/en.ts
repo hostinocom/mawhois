@@ -302,47 +302,48 @@ export const enWHMCS = {
 		title: "Contact a WHOIS Morocco advisor",
 		description: "The WHOIS Morocco team is available to answer all your questions regarding the WHMCS EPP module for .MA domains.",
 		phone: {
-			label: "Phone",
-			value: "+212 663 75 09 08"
-		},
-		whatsapp: {
-			label: "WhatsApp",
-			value: "+212 663 75 09 08"
-		},
-		email: {
-			label: "Email",
-			value: "info@hostino.com"
-		},
-		privacyPolicyUrl: {
-			href: "/terms",
-			linkText: "Privacy Policy",
-			label: "By submitting this form, you agree to our "
-		},
-		formFields: {
-			name: {
-				label: "Full Name",
-				placeholder: "Enter your full name"
-			},
-			company: {
-				label: "Company",
-				placeholder: "Enter your company name"
-			},
-			phone: {
-				label: "Phone",
-				placeholder: "Enter your phone number"
-			},
-			email: {
-				label: "Email",
-				placeholder: "Enter your email address"
-			},
-			message: {
-				label: "Message",
-				placeholder: "Enter your message"
-			},
-			submit: {
-				label: "Send Message"
-			}
-		}
+            label: "Any questions?",
+            value: "+212 05 31 03 11 86"
+        },
+        whatsapp: {
+            label: "WhatsApp",
+            value: "+212 663 75 09 08"
+        },
+        email: {
+            label: "Consultation by email ?",
+            value: "info@hostino.com"
+        },
+        privacyPolicyUrl: {
+            href: "/en/terms-and-conditions",
+            linkText: "Privacy Policy",
+            label: 'By clicking "Send", you agree to our'
+        },
+        formFields: {
+            name: {
+                label: "Full name",
+                placeholder: "Your full name"
+            },
+            company: {
+                label: "Company",
+                placeholder: "Your company name"
+            },
+            phone: {
+                label: "Phone",
+                placeholder: "Your phone number"
+            },
+            email: {
+                label: "Email",
+                placeholder: "your@email.com"
+            },
+            message: {
+                label: "Message",
+                placeholder: "Your message..."
+            },
+            submit: {
+                label: "Send"
+            },
+        }
+        
 	},
 	FAQ: {
 		title: "FAQ - WHMCS EPP Module for .MA Domains",
@@ -496,14 +497,14 @@ export const enFooter = {
 		},
 		contact: {
 			title: "Contact",
-			email: "info@hostino.com",
+			email: "info(at)hostino.com",
 			phone: "+212 663 75 09 08",
-			location: "Tanger, Morocco"
+			location: "Technopark Morocco"
 		},
 		usefulLinks: {
 			title: "Useful links",
 			links: [
-				{ href: '/', label: 'Domain search' },
+				{ href: '/', label: 'Whois Morocco' },
 				{ href: '/ma-domain-name', label: 'Register a .MA domain' },
 				{ href: '/about-us', label: 'Who we are' }
 			]

@@ -287,48 +287,48 @@ export const frWHMCS = {
 		]
 	},
 	ContactSection: {
-		title: "Contacter un conseiller WHOIS Maroc",
-		description: "L'équipe WHOIS Maroc se met à votre disposition pour répondre à toutes vos questions concernant le module WHMCS EPP pour les domaines .MA.",
+		title: "Contacter un conseiller Hostino™",
+		description: "L'équipe Hostino se met à votre disposition pour répondre à toutes vos questions.",
 		phone: {
-			label: "Téléphone",
-			value: "+212 663 75 09 08"
+			label: "Des questions ?",
+			value: "+212 05 31 03 11 86"
 		},
 		whatsapp: {
 			label: "WhatsApp",
 			value: "+212 663 75 09 08"
 		},
 		email: {
-			label: "E-mail",
+			label: "Consultation par email ?",
 			value: "info@hostino.com"
 		},
 		privacyPolicyUrl: {
 			href: "/fr/conditions-generales",
 			linkText: "Politique de confidentialité",
-            label: "En soumettant ce formulaire, vous acceptez notre "
+            label: 'En cliquant sur "Envoyer", vous acceptez notre'
 		},
 		formFields: {
 			name: {
-				label: "Nom complet",
-				placeholder: "Entrez votre nom complet"
+				label: "Nom et prénom",
+				placeholder: "Votre nom complet"
 			},
 			company: {
 				label: "Entreprise",
-				placeholder: "Entrez le nom de votre entreprise"
+				placeholder: "Nom de votre entreprise"
 			},
 			phone: {
 				label: "Téléphone",
-				placeholder: "Entrez votre numéro de téléphone"
+				placeholder: "Votre numéro de téléphone"
 			},
 			email: {
 				label: "E-mail",
-				placeholder: "Entrez votre adresse e-mail"
+				placeholder: "votre@email.com"
 			},
 			message: {
 				label: "Message",
-				placeholder: "Entrez votre message"
+				placeholder: "Votre message..."
 			},
 			submit: {
-				label: "Envoyer le message"
+				label: "Envoyer"
 			},
 		}
 	},
@@ -485,14 +485,14 @@ export const frFooter = {
 		},
 		contact: {
 			title: "Contact",
-			email: "info@hostino.com",
+			email: "info(at)hostino.com",
 			phone: "+212 663 75 09 08",
-			location: "Tanger, Maroc"
+			location: "Technopark, Maroc"
 		},
 		usefulLinks: {
 			title: "Liens utiles",
 			links: [
-				{ href: '/fr/', label: 'Recherche de domaine' },
+				{ href: '/fr/', label: 'Whois Maroc' },
 				{ href: '/fr/nom-domaine-maroc', label: 'Enregistrer un domaine .MA' },
 				{ href: '/fr/a-propos', label: 'Qui sommes-nous' }
 			]
