@@ -23,7 +23,7 @@ export const enHomePage = {
         paragraphTitle: [
             {
                 title: "Check the availability of a .MA domain",
-                description: "The WHOIS Morocco tool allows you to <strong>check the availability</strong> <a href='https://www.mawhois.com/ma-domain-name/' class='text-(--color-primary) underline'>of a .MA domain</a>. Test your name or its variants to quickly find the ideal domain for your website.",
+                description: "The WHOIS Morocco tool allows you to <strong>check the availability</strong> <a href='https://www.mawhois.com/ma-domain-name/' class='underline'>of a .MA domain</a>. Test your name or its variants to quickly find the ideal domain for your website.",
             },
             {
                 title: "Find the owner of a .MA domain",
@@ -55,7 +55,7 @@ export const enHomePage = {
         title: "Privacy of information for .MA domains",
         paragraphs: [
             "The <strong>'WHOIS Privacy .MA'</strong> option is not available for .ma domains. According to official regulations, all essential contact data of registrants must be made public in the WHOIS database of the .MA registry.",
-            "Under<a href='https://www.anrt.ma/en/reglementation/lois/telecommunications/' class='text-(--color-primary) underline'> ANRT regulations</a>, certain data — such as the registrant's name, their provider, and creation or expiration dates — must be published.",
+            "Under<a href='https://www.anrt.ma/en/reglementation/lois/telecommunications/' class='underline'> ANRT regulations</a>, certain data — such as the registrant's name, their provider, and creation or expiration dates — must be published.",
             "This fulfills a transparency requirement imposed by the telecommunications regulatory authority in Morocco.",
             "Any attempt to hide this information (via a 'WHOIS privacy' service) is not legally authorized for .ma domains.",
         ],
@@ -68,7 +68,7 @@ export const enHomePage = {
         title: "Reliability of the WHOIS <br/> Morocco database: mandatory update of CIN or ICE",
         paragraphs: [
             "ANRT reminds providers, via an official notification sent on October 16, 2025, that to ensure the reliability of information in the WHOIS Morocco database, all data provided when registering a domain must be accurate and regularly updated.",
-            "This requirement applies to all registrants, whether individuals or companies, and involves providing or updating the CIN (National Identity Card) for individuals and ICE (Common Company Identifier) for companies, in accordance with articles 45 and 54 of Decision<a href='https://www.anrt.ma/sites/default/files/2024-06/decision_02-2024_-_ndd_fr_.pdf?csrt=11756597565866418969/' class='text-(--color-primary) underline'> ANRT/DG/N°02/2024</a>.",
+            "This requirement applies to all registrants, whether individuals or companies, and involves providing or updating the CIN (National Identity Card) for individuals and ICE (Common Company Identifier) for companies, in accordance with articles 45 and 54 of Decision<a href='https://www.anrt.ma/sites/default/files/2024-06/decision_02-2024_-_ndd_fr_.pdf?csrt=11756597565866418969/' class='underline'> ANRT/DG/N°02/2024</a>.",
             "Compliance with this obligation helps maintain the transparency and security of .MA domain names, while facilitating the management of transfers, claims, and any corrective actions.",
         ]
     },
