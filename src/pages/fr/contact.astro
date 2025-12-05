@@ -61,14 +61,18 @@ const articleSchema = {
 	ogAlt={ogAlt}
 	articleSchema={articleSchema}
 >	
-    <ContactSection 
-		title={frContact.title}
-		description={frContact.description}
-		phone={frContact.phone}
-		whatsapp={frContact.whatsapp}
-		email={frContact.email}
-		privacyPolicyUrl={frContact.privacyPolicyUrl}
-		formFields={frContact.formFields}
-	/>
+
+	<div class="w-full min-h-screen md:py-20 py-10">
+    	<ContactSection 
+			title={frContact.title}
+			description={frContact.description}
+			phone={frContact.phone}
+			whatsapp={frContact.whatsapp}
+			email={frContact.email}
+			privacyPolicyUrl={frContact.privacyPolicyUrl}
+			formFields={frContact.formFields}
+		/>
+
+	</div>
 </Layout>
 
