@@ -32,24 +32,24 @@ export default defineConfig({
         const highPriorityPages = [
           '/',
           '/fr/',
-          '/ma-domain-name',
-          '/fr/nom-domaine-maroc',
-          '/whmcs-ma-anrt',
-          '/fr/whmcs-ma-anrt',
-          '/reserved-terms',
-          '/fr/termes-reserves',
-          '/about-us',
-          '/fr/a-propos',
+          '/ma-domain-name/',
+          '/fr/nom-domaine-maroc/',
+          '/whmcs-ma-anrt/',
+          '/fr/whmcs-ma-anrt/',
+          '/reserved-terms/',
+          '/fr/termes-reserves/',
+          '/about-us/',
+          '/fr/a-propos/',
         ];
         
         // Low priority pages (legal, contact)
         const lowPriorityPages = [
-          '/contact',
-          '/fr/contact',
-          '/legal-notice',
-          '/fr/mentions-legales',
-          '/terms',
-          '/fr/conditions-generales',
+          '/contact/',
+          '/fr/contact/',
+          '/legal-notice/',
+          '/fr/mentions-legales/',
+          '/terms/',
+          '/fr/conditions-generales/',
         ];
         
         // Set priority based on page type
@@ -85,7 +85,7 @@ export default defineConfig({
           disallow: ['/api/', '/domain/', '/fr/domaine/'],
         },
       ],
-      sitemap: 'https://www.mawhois.com/sitemap.xml',
+      sitemap: 'https://www.mawhois.com/sitemap-index.xml',
     })
   ],
 
