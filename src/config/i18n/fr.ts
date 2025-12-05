@@ -78,7 +78,7 @@ export const frHomePage = {
             {
               "question": "Qu'est-ce que le WHOIS Maroc ?",
               "answer": [
-                "Le WHOIS Maroc est un service de publication public <strong>synchronisé avec le Registre .MA</strong> (ANRT) (<a href='https://www.anrt.ma/fr/' class='text-(--color-primary) underline'>l'Agence Nationale de Réglementation des Télécommunications</a>), l'autorité marocaine responsable des domaines .MA. Il permet à tout un chacun de visualiser les informations publiques d'un domaine .MA, telles que le titulaire enregistré, le bureau d'enregistrement (registrar) accrédité, et les serveurs DNS actuellement assignés au domaine.",
+                "Le WHOIS Maroc est un service de publication public <strong>synchronisé avec le Registre .MA</strong> (ANRT) (<a href='https://www.anrt.ma/fr/' class='underline'>l'Agence Nationale de Réglementation des Télécommunications</a>), l'autorité marocaine responsable des domaines .MA. Il permet à tout un chacun de visualiser les informations publiques d'un domaine .MA, telles que le titulaire enregistré, le bureau d'enregistrement (registrar) accrédité, et les serveurs DNS actuellement assignés au domaine.",
                 "En termes simples, il agit comme une <strong>fiche d'identité numérique</strong> pour les noms de domaine marocains. Cette transparence renforce la confiance, la sécurité et la traçabilité au sein de l'écosystème numérique marocain. Les organismes et les entreprises utilisent souvent le WHOIS Maroc pour <strong>vérifier la propriété d'un domaine</strong> ou pour s'assurer qu'un <strong>nom de domaine .MA</strong> est disponible avant de procéder à son enregistrement ou au lancement d'un projet.",
                 "Pour les entreprises locales, les particuliers et les sociétés internationales ciblant le marché marocain, le WHOIS est un outil essentiel pour <strong>surveiller le statut du domaine</strong>, suivre toute mise à jour et garantir la pleine conformité avec les exigences de l'ANRT et les réglementations nationales de cybersécurité."
               ]
@@ -102,7 +102,7 @@ export const frHomePage = {
             {
               "question": "Le WHOIS Maroc est-il accessible au public?",
               "answer": [
-                "Oui, le <a href='/fr/' class='text-(--color-primary) underline'>WHOIS Maroc</a> est un <strong>service d'accès public</strong>. Toute personne peut effectuer une recherche pour consulter les données essentielles et non-sensibles de tout domaine .MA. Ceci fait partie de la politique de <strong>transparence</strong> de la gouvernance numérique marocaine.",
+                "Oui, le <a href='/fr/' class='underline'>WHOIS Maroc</a> est un <strong>service d'accès public</strong>. Toute personne peut effectuer une recherche pour consulter les données essentielles et non-sensibles de tout domaine .MA. Ceci fait partie de la politique de <strong>transparence</strong> de la gouvernance numérique marocaine.",
                 "Cependant, certains détails peuvent être partiellement <strong>masqués ou limités</strong> pour des raisons de protection de la vie privée (particulièrement pour les titulaires individuels). Le système assure un équilibre entre l'information du public et les obligations de <strong>protection des données</strong> conformément aux normes juridiques marocaines.",
                 "L'accès public contribue à <strong>renforcer la confiance en ligne</strong> : les clients peuvent vérifier si une marque ou une boutique en ligne est <strong>officiellement liée à une entité commerciale marocaine réelle</strong>."
               ]
@@ -114,7 +114,7 @@ export const frHomePage = {
                 "Cela peut se produire pour plusieurs raisons :",
                 "• L'ANRT a besoin de <strong>documents additionnels</strong> ou de clarifications de la part du titulaire.",
                 "• Les informations fournies ne correspondent pas entièrement aux détails de contact WHOIS.",
-                "• Le nom de domaine choisi inclut un <a href='/fr/termes-reserves/' class='text-(--color-primary) underline'>terme réservé</a> qui nécessite une justification (par exemple : noms de villes, termes liés au gouvernement ou mots-clés d'industries protégées).",
+                "• Le nom de domaine choisi inclut un <a href='/fr/termes-reserves/' class='underline'>terme réservé</a> qui nécessite une justification (par exemple : noms de villes, termes liés au gouvernement ou mots-clés d'industries protégées).",
                 "La meilleure démarche est de <strong>contacter votre registrar accrédité</strong> pour assurer le suivi de la demande. Il peut vous fournir des détails sur ce que l'ANRT attend, vous assister avec la documentation requise et s'assurer que le dossier est complété. Une fois que l'ANRT valide la demande, le domaine passera automatiquement à l'état “Actif” et commencera à fonctionner normalement."
               ]
             },
@@ -226,7 +226,7 @@ export const frNomDeDomaineMaroc = {
             {
               "question": "Qui peut enregistrer un nom de domaine .MA ?",
               "answer": [
-                "Toute <strong>personne physique ou morale</strong> peut enregistrer un nom de domaine .MA — qu'elle soit basée au Maroc ou à l'étranger — à condition de fournir une <strong>identification valide</strong>. Les particuliers doivent fournir une pièce d'identité officielle (<a href='https://www.cnie.ma/fr' class='text-(--color-primary) underline'>CIN</a> ou passeport), tandis que les entreprises doivent fournir des documents commerciaux tels que <strong>l'ICE, le RC ou les statuts</strong>.",
+                "Toute <strong>personne physique ou morale</strong> peut enregistrer un nom de domaine .MA — qu'elle soit basée au Maroc ou à l'étranger — à condition de fournir une <strong>identification valide</strong>. Les particuliers doivent fournir une pièce d'identité officielle (<a href='https://www.cnie.ma/fr' class='underline'>CIN</a> ou passeport), tandis que les entreprises doivent fournir des documents commerciaux tels que <strong>l'ICE, le RC ou les statuts</strong>.",
                 "Les marques internationales ciblant le Maroc peuvent également obtenir un domaine .MA pour protéger leur marque localement. L'exigence fondamentale est de <strong>prouver une identité légitime</strong>, garantissant que le domaine n'est pas utilisé pour usurper l'identité d'autrui."
               ]
             },
@@ -375,7 +375,7 @@ export const frWHMCS = {
             {
               "question": "Qu'est-ce que le Module EPP WHMCS pour les domaines .MA ?",
               "answer": [
-                "C'est un module qui connecte votre plateforme WHMCS directement au <strong>registre EPP de l'ANRT</strong> afin que vous puissiez automatiser l'enregistrement, le renouvellement, le transfert et la gestion de <a href='/fr/nom-domaine-maroc/' class='text-(--color-primary) underline'>nom de domaine .MA</a> sans intervention manuelle."
+                "C'est un module qui connecte votre plateforme WHMCS directement au <strong>registre EPP de l'ANRT</strong> afin que vous puissiez automatiser l'enregistrement, le renouvellement, le transfert et la gestion de <a href='/fr/nom-domaine-maroc/' class='underline'>nom de domaine .MA</a> sans intervention manuelle."
               ]
             },
             {

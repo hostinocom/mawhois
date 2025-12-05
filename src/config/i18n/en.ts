@@ -78,8 +78,8 @@ export const enHomePage = {
             {
               "question": "What is WHOIS Morocco?",
               "answer": [
-                "WHOIS Morocco is a public lookup service synchronized with the .MA registry and managed by <a href='https://www.anrt.ma/en/' class='text-(--color-primary) underline'>ANRT</a>, the Moroccan authority responsible for .MA domains. It allows anyone to view public information about a .MA domain, such as the registered holder, the accredited registrar, and the DNS servers currently assigned to the domain.",
-                "In simple terms, it works like a digital ID card for Moroccan domain names. This transparency strengthens trust, security, and accountability within the Moroccan digital ecosystem. Organizations and businesses often use WHOIS Morocco to verify domain ownership or to check whether a <a href='https://www.mawhois.com/ma-domain-name/' class='text-(--color-primary) underline'>.MA domain name</a> is available before registering it or launching a project.",
+                "WHOIS Morocco is a public lookup service synchronized with the .MA registry and managed by <a href='https://www.anrt.ma/en/' class='underline'>ANRT</a>, the Moroccan authority responsible for .MA domains. It allows anyone to view public information about a .MA domain, such as the registered holder, the accredited registrar, and the DNS servers currently assigned to the domain.",
+                "In simple terms, it works like a digital ID card for Moroccan domain names. This transparency strengthens trust, security, and accountability within the Moroccan digital ecosystem. Organizations and businesses often use WHOIS Morocco to verify domain ownership or to check whether a <a href='https://www.mawhois.com/ma-domain-name/' class='underline'>.MA domain name</a> is available before registering it or launching a project.",
                 "For local businesses, individuals, and international companies targeting the Moroccan market, WHOIS is a standard tool to monitor domain status, track any updates, and ensure full compliance with ANRT requirements and national cybersecurity regulations. It helps maintain a secure digital presence and prevents unauthorized or fraudulent changes to ownership or technical settings."
               ]
             },
@@ -130,7 +130,7 @@ export const enHomePage = {
                 "This can happen for several reasons:",
                 "• ANRT needs extra documents or clarification from the registrant",
                 "• The information provided does not fully match the WHOIS contact details",
-                "• The chosen domain name includes a <a href='https://www.mawhois.com/reserved-terms/' class='text-(--color-primary) underline'>reserved term</a> that requires justification (for example: city names, government-related terms, or protected industry keywords)",
+                "• The chosen domain name includes a <a href='https://www.mawhois.com/reserved-terms/' class='underline'>reserved term</a> that requires justification (for example: city names, government-related terms, or protected industry keywords)",
                 "The best step is to contact your accredited registrar to follow up on the request. They can provide details on what ANRT needs, assist with the required documentation, and ensure the file is completed. Once ANRT validates the request, the domain will automatically switch to “Active” and start working normally."
               ]
             }
@@ -226,14 +226,14 @@ export const enNomDeDomaineMaroc = {
             {
               "question": "Are there restricted or reserved terms for .MA domains?",
               "answer": [
-                "Yes — some keywords are considered <strong>regulated</strong> or <a href='https://www.registre.ma/wp-content/themes/domaine/pdf/Liste_terme_reserves.pdf' class='text-(--color-primary) underline'>reserved</a> in Morocco. This includes city names, government-related terms, national institutions, and certain sensitive sectors. Registering such domains may require <strong>authorization or justification documents</strong>.",
+                "Yes — some keywords are considered <strong>regulated</strong> or <a href='https://www.registre.ma/wp-content/themes/domaine/pdf/Liste_terme_reserves.pdf' class='underline'>reserved</a> in Morocco. This includes city names, government-related terms, national institutions, and certain sensitive sectors. Registering such domains may require <strong>authorization or justification documents</strong>.",
                 "If your requested domain includes a protected term, ANRT may place the domain in <strong>Pending Create</strong> and request supporting proof. Your registrar will guide you through the approval process, and if accepted, the domain will be activated normally."
               ]
             },
             {
               "question": "How do I check if a .MA domain name is available?",
               "answer": [
-                "You can easily check the availability of a .MA domain name using a <a href='https://www.hostino.ma/' class='text-(--color-primary) underline'>WHOIS lookup</a> or any accredited Moroccan registrar’s search tool. If the domain is free, you can register it immediately — provided you submit your documents and payment.",
+                "You can easily check the availability of a .MA domain name using a <a href='https://www.hostino.ma/' class='underline'>WHOIS lookup</a> or any accredited Moroccan registrar's search tool. If the domain is free, you can register it immediately — provided you submit your documents and payment.",
                 "If the name appears unavailable, the WHOIS result will show who owns it and which provider manages it. This helps businesses verify trademarks, prevent cybersquatting, and evaluate negotiation if they wish to acquire the domain."
               ]
             },
@@ -412,7 +412,7 @@ export const enWHMCS = {
             {
               "question": "Why do I need this module for my .MA domain business?",
               "answer": [
-                "Because the .MA extension is managed by the ANRT and requires <strong>EPP-based communication</strong>. This module allows registrars or resellers to offer .MA domains seamlessly inside WHMCS, just like <a href>.com</a> or <a href>.net</a>."
+                "Because the .MA extension is managed by the ANRT and requires <strong>EPP-based communication</strong>. This module allows registrars or resellers to offer .MA domains seamlessly inside WHMCS, just like <strong>.com</strong> or <strong>.net</strong>."
               ]
             },
             {
@@ -602,7 +602,7 @@ export const enFooter = {
 	copyright: `© ${new Date().getFullYear()} WHOIS Morocco. All rights reserved.`,
 	legal: {
 		legalNotice: { href: "/legal-notice/", label: "Legal notice" },
-		privacyPolicy: { href: "/terms/", label: "Privacy policy" }
+		privacyPolicy: { href: "/terms/", label: "Terms and Conditions" }
 	}
 };
 
