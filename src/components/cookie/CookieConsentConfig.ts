@@ -5,7 +5,7 @@ export const config: CookieConsentConfig = {
 
   guiOptions: {
     consentModal: {
-      layout: 'box inline',
+      layout: 'bar inline',
       position: 'bottom left',
     },
     preferencesModal: {
