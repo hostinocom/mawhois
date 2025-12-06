@@ -28,7 +28,7 @@ export const onRequest: MiddlewareHandler = async (context, next) => {
   }
   
   // Redirect hostino.ma to www.hostino.ma
-  if (url.hostname === 'hostino.ma') {
+  if (url.hostname === 'mawhois.com') {
     const pathWithSlash = lowercasePath.endsWith('/') ? lowercasePath : `${lowercasePath}/`;
     return Response.redirect(
       `https://www.mawhois.com${pathWithSlash}${url.search}`, 
