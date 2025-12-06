@@ -1,0 +1,46 @@
+# www.mawhois.com llms.txt
+> **Objectif principal (FR):** Mawhois est une plateforme spécialisée dans l'enregistrement, la gestion et la recherche Whois de noms de domaine .ma au Maroc, fournissant l'information institutionnelle et les conditions légales requises.
+
+## 🇫🇷 Section Française
+- [Whois Maroc](https://www.mawhois.com/fr/)
+  > Description (Inféree): Whois Maroc. Point d'entrée principal pour la recherche Whois et les services de domaine au Maroc.
+- [Nom de Domaine Maroc](https://www.mawhois.com/fr/nom-domaine-maroc/)
+  > Description (Inféree): Nom de Domaine Maroc. Page des services d'enregistrement et de gestion des noms de domaine au Maroc (.ma).
+- [Module WHMCS .MA (ANRT)](https://www.mawhois.com/fr/whmcs-ma-anrt/)
+  > Description (Inféree): Détails techniques sur l'intégration du module WHMCS pour la gestion des domaines .MA (selon les normes ANRT).
+
+### Information & Légal (FR)
+- [À Propos](https://www.mawhois.com/fr/a-propos/)
+  > Description (Inféree): Présentation et historique de Mawhois.
+- [Contact](https://www.mawhois.com/fr/contact/)
+  > Description (Inféree): Informations et formulaire de contact.
+- [Conditions Générales](https://www.mawhois.com/fr/conditions-generales/)
+  > Description (Inféree): Conditions Générales de Vente (CGV) des services Mawhois.
+- [Mentions Légales](https://www.mawhois.com/fr/mentions-legales/)
+  > Description (Inféree): Informations légales obligatoires sur l'entreprise.
+- [Termes Réservés](https://www.mawhois.com/fr/termes-reserves/)
+  > Description (Inféree): Liste des termes, mots-clés ou noms de domaine réservés (non disponibles à l'enregistrement).
+
+---
+
+> **Main Goal (EN):** Mawhois is a platform specializing in the registration, management, and Whois lookup of .ma domain names in Morocco, providing required institutional information and legal terms.
+
+## 🇬🇧 English Section
+- [Whois MA](https://www.mawhois.com/)
+  > Description (Inféree): Whois Ma Morocco. Main English landing page for .MA Whois lookup and domain services.
+- [.MA Domain Name](https://www.mawhois.com/ma-domain-name/)
+  > Description (Inféree): Official .MA domain name registration and management services in Morocco.
+- [WHMCS .MA Module (ANRT)](https://www.mawhois.com/whmcs-ma-anrt/)
+  > Description (Inféree): Technical details on the WHMCS integration module for .MA domains (ANRT standards).
+
+### Legal & Institutional Information (EN)
+- [About Us](https://www.mawhois.com/about-us/)
+  > Description (Inféree): Company presentation and background information.
+- [Contact](https://www.mawhois.com/contact/)
+  > Description (Inféree): Contact details and inquiry form.
+- [Terms](https://www.mawhois.com/terms/)
+  > Description (Inféree): General Terms and Conditions of service.
+- [Legal Notice](https://www.mawhois.com/legal-notice/)
+  > Description (Inféree): Mandatory legal notice concerning the website and company.
+- [Reserved Terms](https://www.mawhois.com/reserved-terms/)
+  > Description (Inféree): List of reserved terms, keywords, or domain names (unavailable for registration).
