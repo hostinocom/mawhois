@@ -19,24 +19,24 @@ const articleSchema = {
 	"@graph": [
 		{
 			"@type": "WebPage",
-			"@id": `${canonical_url}/#webpage`,
+			"@id": `${canonical_url}/fr/#webpage`,
 			url: canonical_url,
 			name: title,
 			description: description,
 			isPartOf: {
-				"@id": `https://www.mawhois.com/#website`,
+				"@id": `https://www.mawhois.com/fr/#website`,
 				},
 		},
 		{
 			"@type": "BreadcrumbList",
-			"@id": `${canonical_url}/#breadcrumb`,
+			"@id": `${canonical_url}/fr/#breadcrumb`,
 			itemListElement: [
 				{
 					"@type": "ListItem",
 					position: 1,
 					item: {
 						"@id": canonical_url,
-						name: "Accueil",
+						name: "Whois Maroc",
 					},
 				},
 				{
@@ -44,17 +44,31 @@ const articleSchema = {
 					position: 2,
 					item: {
 						"@id": canonical_url,
-						name: "À propos",
+						name: "Whois Maroc",
 					},
 				},
 			],
 		},
 
-		{
-			"@type": "AboutPage",
-			name: title,
-			description: description,
-		},
+{
+      "@type": "Product",
+      name: title,
+      url: canonical_url,
+      description: description,
+      brand: { "@type": "Brand", name: "Whois MA" },
+      offers: {
+        "@type": "AggregateOffer",
+        url: canonical_url,
+        lowPrice: "118",
+        priceCurrency: "MAD",
+        availability: "InStock",
+      },
+      aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: "5",
+        reviewCount: "1729",
+      },
+    },
 	],
 };
 
