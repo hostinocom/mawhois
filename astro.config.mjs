@@ -91,11 +91,6 @@ export default defineConfig({
 
   vite: {
     plugins: [tailwindcss()],
-    ssr: {
-      // This ensures Vite does not try to bundle the module, 
-      // allowing the Cloudflare runtime (with nodejs_compat) to handle it.
-      external: ['net', 'node:net']
-   }
   },
 
   adapter: cloudflare()

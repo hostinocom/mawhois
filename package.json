@@ -18,5 +18,8 @@
     "jose": "^6.1.2",
     "tailwindcss": "^4.1.17",
     "vanilla-cookieconsent": "^3.1.0"
+  },
+  "devDependencies": {
+    "wrangler": "^4.53.0"
   }
 }
