@@ -1,6 +1,6 @@
-import { defineMiddleware } from 'astro:middleware';
+import type { MiddlewareHandler } from 'astro';
 
-export const onRequest = defineMiddleware(async (context, next) => {
+export const onRequest: MiddlewareHandler = async (context, next) => {
   const url = new URL(context.request.url);
   
   // Skip redirect for API routes and static assets
@@ -20,27 +20,27 @@ export const onRequest = defineMiddleware(async (context, next) => {
   
   // Redirect all requests to www.hostino.ma with trailing slash (except localhost)
   if (!isLocalhost && url.hostname !== 'www.mawhois.com' && url.hostname !== 'mawhois.com') {
-    const pathWithSlash = lowercasePath.endsWith('/') ? lowercasePath : ${lowercasePath}/;
+    const pathWithSlash = lowercasePath.endsWith('/') ? lowercasePath : `${lowercasePath}/`;
     return Response.redirect(
-      https://www.mawhois.com${pathWithSlash}${url.search}, 
+      `https://www.mawhois.com${pathWithSlash}${url.search}`, 
       301
     );
   }
   
   // Redirect hostino.ma to www.hostino.ma
   if (url.hostname === 'hostino.ma') {
-    const pathWithSlash = lowercasePath.endsWith('/') ? lowercasePath : ${lowercasePath}/;
+    const pathWithSlash = lowercasePath.endsWith('/') ? lowercasePath : `${lowercasePath}/`;
     return Response.redirect(
-      https://www.mawhois.com${pathWithSlash}${url.search}, 
+      `https://www.mawhois.com${pathWithSlash}${url.search}`, 
       301
     );
   }
   
   // If already on correct domain but path has uppercase, redirect to lowercase with trailing slash
   if (hasUppercase) {
-    const pathWithSlash = lowercasePath.endsWith('/') ? lowercasePath : ${lowercasePath}/;
+    const pathWithSlash = lowercasePath.endsWith('/') ? lowercasePath : `${lowercasePath}/`;
     return Response.redirect(
-      ${url.origin}${pathWithSlash}${url.search},
+      `${url.origin}${pathWithSlash}${url.search}`,
       301
     );
   }
@@ -48,7 +48,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
   // Add trailing slash if missing (and not root path)
   if (!url.pathname.endsWith('/') && url.pathname !== '/') {
     return Response.redirect(
-      ${url.origin}${url.pathname}/${url.search},
+      `${url.origin}${url.pathname}/${url.search}`,
       301
     );
   }
@@ -77,4 +77,4 @@ export const onRequest = defineMiddleware(async (context, next) => {
   }
   
   return newResponse;
-});
+};
