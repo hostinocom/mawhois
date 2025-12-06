@@ -33,8 +33,8 @@ const articleSchema = {
 					"@type": "ListItem",
 					position: 1,
 					item: {
-						"@id": canonical_url,
-						name: "Accueil",
+                    "@id": "https://www.mawhois.com/fr/",
+						name: "Whois Maroc",
 					},
 				},
 				{
@@ -42,17 +42,31 @@ const articleSchema = {
 					position: 2,
 					item: {
 						"@id": canonical_url,
-						name: "À propos",
+						name: "Nom de domaine Maroc",
 					},
 				},
 			],
 		},
 
-		{
-			"@type": "AboutPage",
-			name: title,
-			description: description,
-		},
+{
+      "@type": "Product",
+      name: title,
+      url: canonical_url,
+      description: description,
+      brand: { "@type": "Brand", name: "Whois MA" },
+      offers: {
+        "@type": "AggregateOffer",
+        url: canonical_url,
+        lowPrice: "118",
+        priceCurrency: "MAD",
+        availability: "InStock",
+      },
+      aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: "5",
+        reviewCount: "1434",
+      },
+    },
 	],
 };
 
