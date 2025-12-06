@@ -1,0 +1,2 @@
+# Redirect non-www to www
+#https://mawhois.ma/* https://www.mawhois.com/:splat 301
