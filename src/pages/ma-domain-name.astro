@@ -48,11 +48,25 @@ const articleSchema = {
 			],
 		},
 
-		{
-			"@type": "AboutPage",
-			name: title,
-			description: description,
-		},
+{
+      "@type": "Product",
+      name: title,
+      url: canonical_url,
+      description: description,
+      brand: { "@type": "Brand", name: "WhoisMA" },
+      offers: {
+        "@type": "AggregateOffer",
+        url: canonical_url,
+        lowPrice: "118",
+        priceCurrency: "MAD",
+        availability: "InStock",
+      },
+      aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: "5",
+        reviewCount: "1322",
+      },
+    },
 	],
 };
 ---
