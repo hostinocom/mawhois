@@ -8,7 +8,7 @@ import robotsTxt from 'astro-robots-txt';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://www.mawhois.com',
-  output: 'static',
+  output: 'server',
   integrations: [
     sitemap({
       // Exclude dynamic routes and error pages
