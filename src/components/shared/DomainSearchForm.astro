@@ -35,6 +35,10 @@ const defaultRegistry = registries[0];
 			required
 			minlength="2"
 			maxlength="63"
+			autocapitalize="off"
+			autocomplete="off"
+			spellcheck="false"
+			autofocus
 			aria-label="Rechercher un domaine"
 		/>
 		<div class="select-wrapper">
@@ -146,6 +150,7 @@ const defaultRegistry = registries[0];
 
 	.search-input::placeholder {
 		color: var(--text-muted);
+		text-transform: none;
 	}
 
 	.select-wrapper {
@@ -305,6 +310,16 @@ const defaultRegistry = registries[0];
 			if (placeholder) {
 				domainInput.placeholder = placeholder;
 			}
+		});
+	}
+
+	// Convert input to lowercase as user types
+	if (domainInput) {
+		domainInput.addEventListener('input', (e) => {
+			const start = e.target.selectionStart;
+			const end = e.target.selectionEnd;
+			e.target.value = e.target.value.toLowerCase();
+			e.target.setSelectionRange(start, end);
 		});
 	}
 
