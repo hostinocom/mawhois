@@ -3,7 +3,7 @@ export const frHomePage = {
 		title:`Recherche d'un<br />domaine dans <em class="italic font-serif">le<br />registre WHOIS Maroc</em>`,
 	},
     Description: {
-        title:`<span class="font-semibold">"WHOIS Ma"</span> est un <em class="italic font-serif">service de répertoire en ligne basé sur la base de données du registre .ma</em> qui permet de rechercher des renseignements sur les noms de domaine.`,
+        title:`<span class="font-semibold">"WHOIS Maroc"</span> est un <em class="italic font-serif">service de répertoire en ligne basé sur la base de données du registre .ma</em> qui permet de rechercher des renseignements sur les noms de domaine.`,
     },
     ServiceInfo: {
         title:`Service WHOIS — Base de données du registre .MA`,
