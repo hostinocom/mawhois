@@ -56,7 +56,7 @@ if (!isValid) {
 let result: Result | null = null;
 
 try {
-	const apiUrl = import.meta.env.PUBLIC_API_URL || 'http://localhost:4321';
+	const apiUrl = import.meta.env.PUBLIC_API_URL || "https://whoisma-api.vercel.app";
 	const response = await fetch(`${apiUrl}/api/whois?domain=${encodeURIComponent(domain)}`);
 	result = await response.json();
 } catch (error) {
