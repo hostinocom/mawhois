@@ -476,6 +476,7 @@ export const frDomain = {
 		}
 	},
 	DomainUnavailable: {
+		lang: "fr",
 		hero: {
 			title: "Le domaine",
 			registered: "est déjà enregistré"

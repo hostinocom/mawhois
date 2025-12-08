@@ -8,6 +8,7 @@ interface Props {
 	domain: string;
 	info?: any;
 	translations?: {
+		lang?: string;
 		hero?: {
 			title?: string;
 			registered?: string;
@@ -264,7 +265,7 @@ function formatDate(dateString: string): string {
 		<!-- New search button -->
 		<div class="mt-12 text-center">
 			<a 
-				href="/" 
+				href={t.lang === "fr" ? "/fr/" : "/"}
 				class="inline-flex items-center gap-3 px-8 py-4 bg-white border-2 border-(--color-primary) text-(--color-primary) font-semibold text-lg rounded-lg hover:bg-(--color-primary) hover:text-white transition-all duration-200 shadow-md hover:shadow-lg"
 			>
 				<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

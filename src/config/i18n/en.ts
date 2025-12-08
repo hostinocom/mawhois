@@ -506,6 +506,7 @@ export const enDomain = {
 		}
 	},
 	DomainUnavailable: {
+		lang: "en",
 		hero: {
 			title: "The domain",
 			registered: "is already registered"
