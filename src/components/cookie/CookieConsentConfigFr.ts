@@ -1,6 +1,6 @@
 import type { CookieConsentConfig } from 'vanilla-cookieconsent';
 
-export const config: CookieConsentConfig = {
+export const configFr: CookieConsentConfig = {
   root: '#cc-container', // Important, generate the html inside a common/persistent element
 
   guiOptions: {
@@ -102,3 +102,4 @@ export const config: CookieConsentConfig = {
     },
   },
 };
+

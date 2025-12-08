@@ -1,14 +1,24 @@
 ---
 import 'vanilla-cookieconsent/dist/cookieconsent.css';
+
+interface Props {
+    lang?: 'fr' | 'en';
+}
+
+const { lang = 'fr' } = Astro.props;
 ---
-<div transition:persist id="cc-container">
+<div transition:persist id="cc-container" data-lang={lang}>
     <!-- <button type="button" data-cc="show-preferencesModal">Show preferences modal</button> -->
 
     <script>
         import { run } from 'vanilla-cookieconsent';
-        import { config } from './CookieConsentConfig';
+        import { configFr } from './CookieConsentConfigFr';
+        import { configEn } from './CookieConsentConfigEn';
 
-        run(config);
+        const container = document.getElementById('cc-container');
+        const lang = container?.dataset.lang || 'fr';
+        
+        run(lang === 'en' ? configEn : configFr);
 
         // Important, the plugin adds classes to the html tag, 
         // so we need keep track of the className attribute.
