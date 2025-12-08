@@ -47,6 +47,7 @@ export const GET: APIRoute = async ({ url }) => {
 
   try {
     const raw = await whois(domain);
+    console.log("raw", raw);
 
     const available =
       raw.includes("No Object Found") ||
@@ -55,6 +56,7 @@ export const GET: APIRoute = async ({ url }) => {
       raw.includes("Object does not exist");
 
     const info = available ? {} : parseWhois(raw);
+    console.log("info", info);
 
     return new Response(
       JSON.stringify({ domain, available, raw, info }),
