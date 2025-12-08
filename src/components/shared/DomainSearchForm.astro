@@ -289,7 +289,7 @@ const defaultRegistry = registries[0];
 	const searchInput = document.querySelector('.search-input');
 	const searchWrapper = document.querySelector('.search-wrapper, .domain-search-form');
 
-	if (searchInput && searchWrapper) {
+	if (searchInput && searchWrapper && searchInput instanceof HTMLInputElement && searchWrapper instanceof HTMLElement) {
 		searchInput.addEventListener('focus', () => {
 			searchWrapper.style.transform = 'scale(1.02)';
 		});
@@ -303,23 +303,31 @@ const defaultRegistry = registries[0];
 	const registrySelect = document.getElementById('registry-select');
 	const domainInput = document.getElementById('domain-search');
 
-	if (registrySelect && domainInput) {
+	if (registrySelect && domainInput && registrySelect instanceof HTMLSelectElement && domainInput instanceof HTMLInputElement) {
 		registrySelect.addEventListener('change', (e) => {
-			const selectedOption = e.target.options[e.target.selectedIndex];
-			const placeholder = selectedOption.getAttribute('data-placeholder');
-			if (placeholder) {
-				domainInput.placeholder = placeholder;
+			const target = e.target;
+			if (target && target instanceof HTMLSelectElement) {
+				const selectedOption = target.options[target.selectedIndex];
+				const placeholder = selectedOption.getAttribute('data-placeholder');
+				if (placeholder) {
+					domainInput.placeholder = placeholder;
+				}
 			}
 		});
 	}
 
 	// Convert input to lowercase as user types
-	if (domainInput) {
+	if (domainInput && domainInput instanceof HTMLInputElement) {
 		domainInput.addEventListener('input', (e) => {
-			const start = e.target.selectionStart;
-			const end = e.target.selectionEnd;
-			e.target.value = e.target.value.toLowerCase();
-			e.target.setSelectionRange(start, end);
+			const target = e.target;
+			if (target && target instanceof HTMLInputElement) {
+				const start = target.selectionStart;
+				const end = target.selectionEnd;
+				target.value = target.value.toLowerCase();
+				if (start !== null && end !== null) {
+					target.setSelectionRange(start, end);
+				}
+			}
 		});
 	}
 
@@ -424,10 +432,13 @@ const defaultRegistry = registries[0];
 	// Initialize form
 	document.addEventListener('DOMContentLoaded', () => {
 		const form = document.querySelector('.domain-search-form');
-		if (!form) return;
+		if (!form || !(form instanceof HTMLFormElement)) return;
 
 		const input = form.querySelector('#domain-search');
 		const select = form.querySelector('#registry-select');
+		if (!input || !(input instanceof HTMLInputElement)) return;
+		if (!select || !(select instanceof HTMLSelectElement)) return;
+
 		const registriesData = JSON.parse(form.dataset.registries || '[]');
 
 		// Hide error when user starts typing
