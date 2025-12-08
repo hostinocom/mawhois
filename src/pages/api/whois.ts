@@ -7,32 +7,86 @@ async function whois(domain: string): Promise<string> {
     ? "whois.registre.ma"
     : "whois.verisign-grs.com";
 
+  console.log(`Connecting to ${host}:43 for domain: ${domain}`);
+
   // Cloudflare Workers TCP Socket
   const socket = connect({
     hostname: host,
     port: 43,
   });
 
-  let data = "";
-
-  // Send domain query
-  const writer = socket.writable.getWriter();
-  await writer.write(new TextEncoder().encode(domain + "\r\n"));
-  await writer.close();
-
-  // Read WHOIS data
-  const reader = socket.readable;
+  const chunks: Uint8Array[] = [];
 
   try {
-    for await (const chunk of reader) {
-      data += new TextDecoder().decode(chunk);
-    }
-  } catch (err: any) {
-    throw new Error("WHOIS TCP error: " + err.message);
-  }
+    // Get writer and reader
+    const writer = socket.writable.getWriter();
+    const reader = socket.readable.getReader();
 
-  socket.close();
-  return data;
+    // Send domain query (WHOIS protocol requires \r\n)
+    const query = domain + "\r\n";
+    console.log(`Sending query: ${query.trim()}`);
+    await writer.write(new TextEncoder().encode(query));
+    // Don't close writer yet - keep connection open for reading
+    console.log("Query sent, starting to read...");
+
+    // Read all data from the stream
+    // WHOIS servers send data and then close the connection
+    try {
+      while (true) {
+        const { done, value } = await reader.read();
+        
+        if (done) {
+          console.log("Stream ended (done=true)");
+          break;
+        }
+
+        if (value && value.length > 0) {
+          chunks.push(value);
+          console.log(`Received chunk of ${value.length} bytes`);
+        }
+      }
+    } catch (readError: any) {
+      console.error("Error reading stream:", readError);
+      // Continue - we might have some data already
+    } finally {
+      reader.releaseLock();
+      // Close writer after reading is complete
+      try {
+        await writer.close();
+      } catch (e) {
+        // Writer might already be closed, ignore
+        console.log("Writer close error (ignored):", e);
+      }
+    }
+
+    // Combine all chunks
+    if (chunks.length === 0) {
+      throw new Error("No data received from WHOIS server");
+    }
+
+    const totalLength = chunks.reduce((sum, chunk) => sum + chunk.length, 0);
+    const combined = new Uint8Array(totalLength);
+    let offset = 0;
+    for (const chunk of chunks) {
+      combined.set(chunk, offset);
+      offset += chunk.length;
+    }
+
+    const data = new TextDecoder().decode(combined);
+    console.log(`WHOIS data received, total length: ${data.length} bytes`);
+    console.log("First 200 chars:", data.substring(0, 200));
+    
+    return data;
+  } catch (err: any) {
+    console.error("WHOIS error:", err);
+    throw new Error("WHOIS TCP error: " + (err.message || String(err)));
+  } finally {
+    try {
+      socket.close();
+    } catch (e) {
+      // Socket might already be closed
+    }
+  }
 }
 
 export const GET: APIRoute = async ({ url }) => {
