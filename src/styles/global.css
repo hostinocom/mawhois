@@ -121,6 +121,7 @@
 	/** Change button primary color to black **/
 	--cc-btn-primary-bg: var(--color-primary);
 	--cc-btn-primary-border-color: var(--color-primary);
+	--cc-btn-primary-color: var(--color-secondary);
 	--cc-btn-primary-hover-bg: var(--color-secondary); 
 	--cc-btn-primary-hover-border-color: var(--color-secondary);
 
