@@ -7,7 +7,7 @@ import { SignJWT } from 'jose';
 export const POST: APIRoute = async ({ request }) => {
     try {      
         const data = await request.json();
-        const { fullDomain } = data;
+        const { fullDomain } = data as { fullDomain: string };
 
         const secret = import.meta.env.DOMAIN_SECRET_KEY || 'aaaaa39';
         const secretKey = new TextEncoder().encode(secret);

@@ -108,7 +108,7 @@ const {
 					id="contact-form"
 					class="gap-[25px] grid grid-cols-2"
 					method="POST"
-					action="/api/contact"
+					action="/api/email"
 				>
 					<!-- Name Field -->
 					<div class="col-span-2 md:col-span-1">
@@ -249,7 +249,7 @@ const {
 			}
 
 			try {
-				const response = await fetch('/api/contact', {
+				const response = await fetch('/api/email', {
 					method: 'POST',
 					headers: {
 						'Content-Type': 'application/json',
@@ -263,15 +263,15 @@ const {
 					}),
 				});
 
-				const data = await response.json();
+				const jsonData: { success?: boolean; error?: string; message?: string } = await response.json();
 
-				if (response.ok && data.success) {
+				if (response.ok && jsonData.success) {
 					// Success: Show success message and reset form
-					alert('Message envoyé avec succès! Nous vous répondrons dans les plus brefs délais.');
+					alert(jsonData.message || 'Message envoyé avec succès! Nous vous répondrons dans les plus brefs délais.');
 					form.reset();
 				} else {
 					// Error: Show error message
-					alert(data.error || 'Une erreur est survenue. Veuillez réessayer.');
+					alert(jsonData.error || 'Une erreur est survenue. Veuillez réessayer.');
 				}
 			} catch (error) {
 				console.error('Error submitting form:', error);
