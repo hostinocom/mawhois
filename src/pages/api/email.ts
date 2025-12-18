@@ -34,7 +34,6 @@ export const POST: APIRoute = async ({ request, locals }) => {
 
         // Send email to admin
         const emailResponse = await sendEmailWithBrevo({
-            to: 'ali.rami@hostino.com',
             subject: `New Contact Form Submission from ${name} - WHOIS Morocco`,
             htmlContent: htmlContent(name, email, phone || 'Not provided', message, company || 'Not provided'),
             locals
