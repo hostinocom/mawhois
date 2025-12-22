@@ -157,7 +157,7 @@ export const GET: APIRoute = async ({ url }) => {
       // Ideally, we should use the 'available' string from distWhois to check.
 
     return new Response(
-      JSON.stringify({ domain, available, raw}),
+      JSON.stringify({ domain, available}),
       { headers: { "Content-Type": "application/json" } }
     );
 
