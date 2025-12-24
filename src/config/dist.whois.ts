@@ -3,10 +3,19 @@ export const distWhois = [
         "extensions": [
             ".com",
             ".net",
-            ".es"
         ],
         "uri": "socket://whois.crsnic.net",
         "available": "No match for"
+    },
+        {
+        "extensions": [
+            ".es",
+            ".com.es",
+            ".org.es",
+            ".nom.es"
+        ],
+        "uri": "socket://whois.nic.es",
+        "available": "LIBRE"
     },
     {
         "extensions": [
