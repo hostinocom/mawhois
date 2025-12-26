@@ -75,7 +75,6 @@ const defaultRegistry = registries[0];
 			</span>
 		</button>
 	</form>
-</div>
 
 <style>
 	:root {
@@ -331,16 +330,8 @@ const defaultRegistry = registries[0];
 		});
 	}
 
-	// Handle form submission and loading state
-	const searchForm = document.querySelector('.domain-search-form');
-	const searchButton = document.querySelector('.search-btn');
-
-	if (searchForm && searchButton) {
-		searchForm.addEventListener('submit', (e) => {
-			// Add loading class to button
-			searchButton.classList.add('loading');
-		});
-	}
+	// Handle form submission and loading state - REMOVED
+	// Logic moved to main script to synchronize with validation
 </script>
 	<!-- Message container -->
 	<Message id="domain-search-message" type="error" autoHide={true} autoHideDuration={5000} />
@@ -454,6 +445,15 @@ const defaultRegistry = registries[0];
 			hideError();
 		});
 
+		const submitButton = form.querySelector('.search-btn');
+
+		// Reset button state on page load (handles bfcache/history back)
+		window.addEventListener('pageshow', (event) => {
+			if (submitButton) {
+				submitButton.classList.remove('loading');
+			}
+		});
+
 		// Handle form submission
 		form.addEventListener('submit', (e) => {
 			e.preventDefault();
@@ -475,27 +475,40 @@ const defaultRegistry = registries[0];
 				input.focus();
 				return;
 			}
-			
-		async function loadSignature(fullDomain) {
-			try {
-				const response = await fetch('/api/search', {
-					method: 'POST',
-					headers: {
-						'Content-Type': 'application/json',
-					},
-					body: JSON.stringify({ fullDomain }),
-				});
-				const data = await response.json();
-				if (data.success) {
-					window.location.href = `${baseRoute}/${encodeURIComponent(fullDomain)}?sig=${data.signature}`;
-				} else {
-					showError(data.error || 'Une erreur est survenue');
-				}
-			} catch (error) {
-				showError('Une erreur est survenue');
+
+			// Show loading state only after validation passes
+			if (submitButton) {
+				submitButton.classList.add('loading');
 			}
-		}
-		loadSignature(domain + extension);
+			
+			async function loadSignature(fullDomain) {
+				try {
+					const response = await fetch('/api/search', {
+						method: 'POST',
+						headers: {
+							'Content-Type': 'application/json',
+						},
+						body: JSON.stringify({ fullDomain }),
+					});
+					const data = await response.json();
+					if (data.success) {
+						window.location.href = `${baseRoute}/${encodeURIComponent(fullDomain)}?sig=${data.signature}`;
+					} else {
+						showError(data.error || 'Une erreur est survenue');
+						// Reset loading state on API error
+						if (submitButton) {
+							submitButton.classList.remove('loading');
+						}
+					}
+				} catch (error) {
+					showError('Une erreur est survenue');
+					// Reset loading state on network error
+					if (submitButton) {
+						submitButton.classList.remove('loading');
+					}
+				}
+			}
+			loadSignature(domain + extension);
 
 		});
 	});
